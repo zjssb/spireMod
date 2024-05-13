@@ -1,0 +1,24 @@
+{
+  "llz_Strike": {
+    "NAME": "打击",
+    "DESCRIPTION": "造成 !D! 点伤害。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。"
+  },
+  "llz_Defend": {
+    "NAME": "防御",
+    "DESCRIPTION": "获得 !B! 点 格挡 。"
+  },
+  "llz_sike": {
+    "NAME": "蚀刻",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 给予 !M! 层 llzmod:烙印 。"
+  },
+  "llz_zibsz": {
+    "NAME": "植被生长",
+    "DESCRIPTION": "受到伤害时，获得 !M! 点 格挡 。"
+  },
+  "llz_popsl": {
+    "NAME": "破片手雷",
+    "DESCRIPTION": "随机对敌人造成 !D! 点伤害 !M! 次。 NL 受到 !llzmod:sz! 点伤害。",
+    "UPGRADE_DESCRIPTION": "随机对敌人造成 !D! 点伤害 !M! 次。 NL 受到 !llzmod:sz! 点伤害。"
+  }
+}
