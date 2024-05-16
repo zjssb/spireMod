@@ -5,6 +5,9 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.rewards.RewardItem;
 
+/**
+ * 攻击特效声明
+ */
 public class EnumPatch {
     @SpireEnum
     public static RewardItem.RewardType HERMIT_BOUNTY;

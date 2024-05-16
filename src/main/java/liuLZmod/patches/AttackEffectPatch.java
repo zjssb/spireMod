@@ -13,6 +13,10 @@ package liuLZmod.patches;
 /*    */ import liuLZmod.util.TextureLoader;
 /*    */
 /*    */
+
+/**
+ * 攻击特效
+ */
 /*    */ public class AttackEffectPatch
         /*    */ {
     /* 18 */   private static Texture GhostFireTexture = TextureLoader.getTexture("ModliuLZ/img/vfx/HermitGhostFire.png");

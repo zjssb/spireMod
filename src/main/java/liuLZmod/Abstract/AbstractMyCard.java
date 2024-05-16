@@ -9,6 +9,9 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.rooms.VictoryRoom;
 
+/**
+ * 自定义变量（未实现
+ */
 public abstract class AbstractMyCard extends CustomCard {
     public int SecondMagicNumber;
     public int BaseSecondMagicNumber;

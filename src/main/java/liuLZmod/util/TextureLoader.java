@@ -15,6 +15,10 @@ package liuLZmod.util;
 /*    */
 /*    */
 /*    */
+
+/**
+ * 不知道，攻击特效用
+ */
 /*    */ public class TextureLoader
         /*    */ {
     /* 20 */   private static HashMap<String, Texture> textures = new HashMap<>();

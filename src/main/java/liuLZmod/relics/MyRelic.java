@@ -5,6 +5,9 @@ import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 
+/**
+ * 初始遗物
+ */
 // 继承CustomRelic
 public class MyRelic extends CustomRelic {
     // 遗物ID

@@ -4,6 +4,9 @@ import basemod.abstracts.DynamicVariable;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import liuLZmod.Abstract.AbstractMyCard;
 
+/**
+ * 自定义变量
+ */
 public class MyVariable extends DynamicVariable
 {
     @Override
