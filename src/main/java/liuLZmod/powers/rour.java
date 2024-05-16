@@ -10,6 +10,9 @@ import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
+/**
+ * 柔韧
+ */
 public class rour extends AbstractPower {
     // 能力的ID
     public static final String POWER_ID = "llz_rour";
