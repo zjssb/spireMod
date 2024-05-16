@@ -21,6 +21,11 @@
     "DESCRIPTION": "随机对敌人造成 !D! 点伤害 !M! 次。 NL 受到 !llzmod:sz! 点伤害。",
     "UPGRADE_DESCRIPTION": "随机对敌人造成 !D! 点伤害 !M! 次。 NL 受到 !llzmod:sz! 点伤害。"
   },
+  "llz_testCard": {
+    "NAME": "测试",
+    "DESCRIPTION": "测试测试",
+    "UPGRADE_DESCRIPTION": "升级测试测试"
+  },
   "llz_hej": {
     "NAME": "合金",
     "DESCRIPTION": "所有机械充能 !M! 次 。 NL 消耗 。"

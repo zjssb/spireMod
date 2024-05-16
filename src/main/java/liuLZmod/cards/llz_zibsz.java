@@ -46,6 +46,5 @@ public class llz_zibsz extends CustomCard {
         addToBot((AbstractGameAction)new ApplyPowerAction((AbstractCreature)p, (AbstractCreature)p, (AbstractPower)new rour((AbstractCreature)p, this.magicNumber), this.magicNumber));
     }
 
-
 }
 

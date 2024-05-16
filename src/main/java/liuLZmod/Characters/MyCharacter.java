@@ -30,13 +30,14 @@ import static liuLZmod.Characters.MyCharacter.Enums.EXAMPLE_CARD;
 import static liuLZmod.Characters.MyCharacter.Enums.MY_CHARACTER;
 
 public class MyCharacter extends CustomPlayer {
-    // 火堆的人物立绘（行动前）
+    public Slot eye;
+    /** 火堆的人物立绘（行动前）*/
     private static final String MY_CHARACTER_SHOULDER_1 = "ModliuLZ/img/char/shoulder1.png";
-    // 火堆的人物立绘（行动后）
+    /** 火堆的人物立绘（行动后）*/
     private static final String MY_CHARACTER_SHOULDER_2 = "ModliuLZ/img/char/shoulder2.png";
-    // 人物死亡图像
+    /** 人物死亡图像*/
     private static final String CORPSE_IMAGE = "ModliuLZ/img/char/corpse.png";
-    // 战斗界面左下角能量图标的每个图层
+    /** 战斗界面左下角能量图标的每个图层*/
     private static final String[] ORB_TEXTURES = new String[]{
             "ModliuLZ/img/UI/orb/zg2.png",
             "ModliuLZ/img/UI/orb/zg3.png",
@@ -50,7 +51,7 @@ public class MyCharacter extends CustomPlayer {
             "ModliuLZ/img/UI/orb/zg4d.png",
             "ModliuLZ/img/UI/orb/zg1d.png"
     };
-    // 每个图层的旋转速度
+    /** 每个图层的旋转速度*/
     private static final float[] LAYER_SPEED = new float[]{-20.0F, 30.0F, 0.0F, 0.0F, 0.0F, -10.0F, 8.0F, 0.0F, 0.0F, 0.0F};
     // 人物的本地化文本，如卡牌的本地化文本一样，如何书写见下
     private static final CharacterStrings characterStrings = CardCrawlGame.languagePack.getCharacterString("liuLZMod:MyCharacter");
@@ -250,5 +251,4 @@ public class MyCharacter extends CustomPlayer {
         @SpireEnum(name = "EXAMPLE_GREEN")
         public static CardLibrary.LibraryType EXAMPLE_LIBRARY;
     }
-    public Slot eye;
 }

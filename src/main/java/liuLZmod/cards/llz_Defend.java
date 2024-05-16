@@ -8,6 +8,9 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import liuLZmod.Characters.MyCharacter;
 
+/**
+ * 防御
+ */
 public class llz_Defend extends CustomCard {
     public static final String ID = "llz_Defend";
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);

@@ -10,9 +10,11 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import liuLZmod.Characters.MyCharacter;
 import liuLZmod.Variable.MyVariable;
 import liuLZmod.cards.*;
+import liuLZmod.monsters.llz_shaowei;
 import liuLZmod.relics.MyRelic;
 
 import java.nio.charset.StandardCharsets;
@@ -50,16 +52,18 @@ public class liuLZMod implements EditCardsSubscriber, EditStringsSubscriber , Ed
         // 向basemod注册卡牌
         BaseMod.addDynamicVariable(new MyVariable());
         BaseMod.addCard(new llz_Strike());
+        UnlockTracker.unlockCard(llz_Strike.ID);
         BaseMod.addCard(new llz_Defend());
+        UnlockTracker.unlockCard(llz_Defend.ID);
         BaseMod.addCard(new llz_sike());
+        UnlockTracker.unlockCard(llz_sike.ID);
         BaseMod.addCard(new llz_zibsz());
+        UnlockTracker.unlockCard(llz_zibsz.ID);
         BaseMod.addCard(new llz_popsl());
-        BaseMod.addCard(new llz_hej());
-        BaseMod.addCard(new llz_lenqj());
-        BaseMod.addCard(new llz_leis());
-        BaseMod.addCard(new llz_anwz());
-        BaseMod.addCard(new llz_jiangz());
-        BaseMod.addCard(new llz_cuih());
+        UnlockTracker.unlockCard(llz_popsl.ID);
+        BaseMod.addCard(new llz_testCard());
+        UnlockTracker.unlockCard(llz_testCard.ID);
+
     }
     // 当开始添加人物时，调用这个方法
     @Override
@@ -116,5 +120,10 @@ public class liuLZMod implements EditCardsSubscriber, EditStringsSubscriber , Ed
         /* 680 */     BaseMod.addAudio(makeID("SPIN"), "ModliuLZ/audio/hermit_spin.ogg");
         /* 681 */     BaseMod.addAudio(makeID("RELOAD"), "ModliuLZ/audio/hermit_reload.ogg");
         /*     */   }
+
+    public void receivePostInitialize()
+    {
+        BaseMod.addMonster("1",()->new llz_shaowei(0,0));
+    }
 
 }
