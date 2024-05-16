@@ -1,6 +1,7 @@
 package liuLZmod.monsters;
 
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import liuLZmod.monsters.abstracrt.abstract_llz_jixie;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
@@ -34,7 +35,7 @@ public class llz_shaowei extends abstract_llz_jixie {
     public llz_shaowei(float x,float y) {
         super(NAME, "llz_shaowei", 10, -8.0F, 10.0F, 200.0F, 200.0F, (String)null, x, y);
         // 设置图片
-        this.img =new Texture(Gdx.files.internal("ModliuLZ/img/monsters/shaowei0.png"));
+        this.img =new Texture(Gdx.files.internal("ModliuLZ/img/monsters/shaowei.png"));
         this.damage.add(new DamageInfo(this, this.attackDmg));
         this.setMove("攻击", (byte)0, Intent.ATTACK, this.attackDmg);
     }
@@ -44,7 +45,7 @@ public class llz_shaowei extends abstract_llz_jixie {
      */
     @Override
     public void takeTurn() {
-
+//        AbstractDungeon.
     }
 
     public void update() {

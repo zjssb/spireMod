@@ -5,6 +5,7 @@ import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.SpawnMonsterAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -43,18 +44,13 @@ public class llz_testCard extends CustomCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot((AbstractGameAction)new DamageAction((AbstractCreature)m, new DamageInfo((AbstractCreature)p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
 
-        llz_shaowei sw = new llz_shaowei(10f,10f);
-        sw.drawX = AbstractDungeon.player.drawX+200;
+        llz_shaowei sw = new llz_shaowei(0f,0f);
+        sw.drawX = AbstractDungeon.player.drawX;
         sw.drawY = AbstractDungeon.player.drawY;
         sw.index=1;
-        sw.animX = AbstractDungeon.player.animX;
-        sw.animY = AbstractDungeon.player.animY;
-        sw.init();
-//        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(sw, sw, new MinionPower(p)));
-//        sw.addPower(new StrengthPower(sw, 5));
-//        sw.init();
-//        sw.usePreBattleAction();
-//        sw.showHealthBar();
+
+        AbstractDungeon.actionManager.addToBottom(new SpawnMonsterAction(sw, true));
+
         if(llz_shaowei.ll != null){
             System.out.println(llz_shaowei.ll.drawX);
             System.out.println(llz_shaowei.ll.isDead);
