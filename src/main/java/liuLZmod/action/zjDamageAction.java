@@ -12,6 +12,6 @@ package liuLZmod.action;
  */
 public class zjDamageAction extends DamageAction {
         public zjDamageAction(DamageInfo info, AbstractGameAction.AttackEffect effect) {
-            super((AbstractCreature)AbstractDungeon.player, info, effect);
+            super(AbstractDungeon.player, info, effect);
             }
      }

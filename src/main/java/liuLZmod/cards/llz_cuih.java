@@ -3,6 +3,7 @@ package liuLZmod.cards;
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -10,6 +11,10 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import liuLZmod.Characters.MyCharacter;
+import com.evacipated.cardcrawl.mod.stslib.actions.common.SelectCardsInHandAction;
+import liuLZmod.action.gaizAction;
+
+import java.util.List;
 
 /**
  * 淬火
@@ -49,7 +54,22 @@ public class llz_cuih extends CustomCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot((AbstractGameAction)new DamageAction((AbstractCreature)m, new DamageInfo((AbstractCreature)p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-
+        //addToBot((AbstractGameAction)new SelectCardsInHandAction(1, (CardCrawlGame.languagePack.getUIString("champ:EnchantUI")).TEXT[1], c -> (c.baseDamage > 0), cards -> ((AbstractCard)cards.get(0)).baseDamage += this.magicNumber));
+        addToBot((AbstractGameAction)new SelectCardsInHandAction(1, "改造", c -> (c.baseDamage > 0), cards -> new gaizAction(cards)));
     }
+    public boolean canUse(AbstractPlayer p, AbstractMonster m) {
+             boolean canUse = false;
+             for (AbstractCard c : p.hand.group) {
+                   if (c.baseDamage > 0) {
+                         canUse = true;
+                         break;
+                       }
+                 }
+             if (!canUse) {
+                   //this.cantUseMessage = this.EXTENDED_DESCRIPTION[0];
+                   return false;
+                 }
+             return super.canUse(p, m);
+           }
 
 }
