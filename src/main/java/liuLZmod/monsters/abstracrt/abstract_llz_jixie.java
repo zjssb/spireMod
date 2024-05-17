@@ -25,6 +25,16 @@ public abstract class abstract_llz_jixie extends CustomMonster {
      */
     public AbstractCreature target = null;
 
+
+    /**
+     * 充能
+     */
+    public static int energy = 0;
+    /**
+     * 触发能量
+     */
+    public static int maxEnergy = 6;
+
     public abstract_llz_jixie(String name, String id, int maxHealth, float hb_x, float hb_y, float hb_w, float hb_h, String imgUrl, float offsetX, float offsetY) {
         super(name, id, maxHealth, hb_x, hb_y, hb_w, hb_h, imgUrl, offsetX, offsetY);
     }
@@ -47,8 +57,8 @@ public abstract class abstract_llz_jixie extends CustomMonster {
             List<AbstractMonster> monsters = new ArrayList();
             Iterator var2 = AbstractDungeon.getMonsters().monsters.iterator();
 
-            while(var2.hasNext()) {
-                AbstractMonster m = (AbstractMonster)var2.next();
+            while (var2.hasNext()) {
+                AbstractMonster m = (AbstractMonster) var2.next();
                 if (!m.escaped && !m.isDying && !m.isDead && m.currentHealth > 0 && !(m instanceof abstract_llz_jixie)) {
                     monsters.add(m);
                 }
@@ -58,7 +68,7 @@ public abstract class abstract_llz_jixie extends CustomMonster {
                 return null;
             } else {
                 int rnd = AbstractDungeon.monsterRng.random(0, monsters.size() - 1);
-                return (AbstractMonster)monsters.get(rnd);
+                return (AbstractMonster) monsters.get(rnd);
             }
         }
     }
@@ -67,7 +77,23 @@ public abstract class abstract_llz_jixie extends CustomMonster {
         super.update();
     }
 
+    /**
+     * 能量增加
+     */
+    public void addEnergy(int num) {
+        energy += num;
+        if (energy >= maxEnergy) {
+            action();
+        }
+    }
 
+    /**
+     * 机械行动函数
+     * 条件:充能达到触发条件 或 主动触发
+     */
+    public void action() {
+
+    }
 }
 
 

@@ -44,19 +44,8 @@ public class llz_testCard extends CustomCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot((AbstractGameAction)new DamageAction((AbstractCreature)m, new DamageInfo((AbstractCreature)p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
 
-        llz_shaowei sw = new llz_shaowei(0f,0f);
-        sw.drawX = AbstractDungeon.player.drawX;
-        sw.drawY = AbstractDungeon.player.drawY;
-        sw.index=1;
+        llz_shaowei.SpawnMinion();
 
-        AbstractDungeon.actionManager.addToBottom(new SpawnMonsterAction(sw, true));
-
-        if(llz_shaowei.ll != null){
-            System.out.println(llz_shaowei.ll.drawX);
-            System.out.println(llz_shaowei.ll.isDead);
-        }else{
-            llz_shaowei.ll = sw;
-        }
 
     }
 }
