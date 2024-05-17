@@ -48,7 +48,7 @@ public abstract class abstract_llz_jixie extends CustomMonster {
     }
 
     /**
-     * 返回一个随机的地方目标
+     * 返回一个随机的敌方目标
      */
     public AbstractMonster getTarget() {
         if (AbstractDungeon.getMonsters() == null) {
