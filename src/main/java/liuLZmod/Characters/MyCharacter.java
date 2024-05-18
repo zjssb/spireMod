@@ -90,7 +90,6 @@ public class MyCharacter extends CustomPlayer {
         this.dialogX = this.drawX + 0.0F * Settings.scale;
         this.dialogY = this.drawY + 220.0F * Settings.scale;
 
-
     }
     public void damage(DamageInfo info) {
              if (info.owner != null && info.type != DamageInfo.DamageType.THORNS && info.output - this.currentBlock > 0) {

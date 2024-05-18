@@ -2,6 +2,7 @@ package liuLZmod.monsters;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
+import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.actions.common.SpawnMonsterAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -31,6 +32,10 @@ public class llz_shaowei extends abstract_llz_jixie {
      */
     public static List<Boolean> shaoweiList = new ArrayList<>();
 
+    /**
+     * 哨卫的位置
+     * 相对于角色
+     */
     public final static List<Point> positions = new ArrayList<Point>() {{
         add(new Point(200, 0));
         add(new Point(200, 0));
@@ -50,11 +55,11 @@ public class llz_shaowei extends abstract_llz_jixie {
 
 
     public llz_shaowei(float x, float y) {
-        super(NAME, "llz_shaowei", 10, -8.0F, 10.0F, 200.0F, 200.0F, (String) null, x, y);
+        super(NAME, "llz_shaowei", 10, -8.0F, 10.0F, 0F, 200F, (String) null, x, y);
         // 设置图片
         this.img = new Texture(Gdx.files.internal("ModliuLZ/img/monsters/shaowei.png"));
         this.damage.add(new DamageInfo(this, this.attackDmg));
-        this.setMove("攻击", (byte) 0, Intent.ATTACK, this.attackDmg);
+//        this.setMove("测试", (byte) 4, Intent.NONE);
     }
 
     /**
@@ -62,7 +67,7 @@ public class llz_shaowei extends abstract_llz_jixie {
      */
     @Override
     public void takeTurn() {
-//        AbstractDungeon.
+        AbstractDungeon.actionManager.addToBottom(new HealAction(AbstractDungeon.player,this,10));
     }
 
     public void update() {
@@ -79,7 +84,7 @@ public class llz_shaowei extends abstract_llz_jixie {
      */
     @Override
     protected void getMove(int i) {
-        this.setMove("攻击", (byte) 0, Intent.ATTACK, attackDmg);
+//        this.setMove("测试", (byte) 0, Intent.DEBUG);
     }
 
     /**
@@ -98,6 +103,8 @@ public class llz_shaowei extends abstract_llz_jixie {
         if (ans == shaoweiAmount) {
             return;
         }
+
+
         // 初始化
         llz_shaowei sw = new llz_shaowei(0f, 0f);
         Point point = positions.get(ans + 1);
@@ -106,11 +113,9 @@ public class llz_shaowei extends abstract_llz_jixie {
         shaoweiList.add(true);
         sw.index = shaoweiList.size();
         // 召唤
-        AbstractDungeon.actionManager.addToBottom(new SpawnMonsterAction(sw, true));
+        AbstractDungeon.actionManager.addToBottom(new SpawnMonsterAction(sw, false));
+        sw.halfDead =true;
     }
-
-
-
 
 
 }
