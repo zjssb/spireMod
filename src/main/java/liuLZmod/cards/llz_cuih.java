@@ -13,6 +13,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import liuLZmod.Characters.MyCharacter;
 import com.evacipated.cardcrawl.mod.stslib.actions.common.SelectCardsInHandAction;
 import liuLZmod.action.gaizAction;
+import liuLZmod.patches.EnumPatch;
 
 import java.util.List;
 
@@ -53,7 +54,7 @@ public class llz_cuih extends CustomCard {
     @Override
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot((AbstractGameAction)new DamageAction((AbstractCreature)m, new DamageInfo((AbstractCreature)p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+        addToBot((AbstractGameAction)new DamageAction((AbstractCreature)m, new DamageInfo((AbstractCreature)p, this.damage, this.damageTypeForTurn), EnumPatch.CUIH_GJ));
         //addToBot((AbstractGameAction)new SelectCardsInHandAction(1, (CardCrawlGame.languagePack.getUIString("champ:EnchantUI")).TEXT[1], c -> (c.baseDamage > 0), cards -> ((AbstractCard)cards.get(0)).baseDamage += this.magicNumber));
         addToBot((AbstractGameAction)new SelectCardsInHandAction(1, "改造", c -> (c.baseDamage > 0), cards -> new gaizAction(cards)));
     }

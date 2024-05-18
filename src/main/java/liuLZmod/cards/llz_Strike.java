@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import liuLZmod.Characters.MyCharacter;
+import liuLZmod.patches.EnumPatch;
 
 
 public class llz_Strike extends CustomCard {
@@ -56,7 +57,7 @@ public class llz_Strike extends CustomCard {
         /*AbstractDungeon.actionManager.addToBottom(
                 new DamageAction(m, new DamageInfo(p, damage,DamageInfo.DamageType.NORMAL))//type是伤害类型。攻击伤害NORMAL，非攻击伤害THORNS，失去生命HP_LOS
         );*/
-        addToBot((AbstractGameAction)new DamageAction((AbstractCreature)m, new DamageInfo((AbstractCreature)p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+        addToBot((AbstractGameAction)new DamageAction((AbstractCreature)m, new DamageInfo((AbstractCreature)p, this.damage, this.damageTypeForTurn), EnumPatch.HERMIT_GHOSTFIRE));
     }
 
 }
