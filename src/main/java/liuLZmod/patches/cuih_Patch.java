@@ -31,7 +31,7 @@ public class cuih_Patch {
         @SpirePrefixPatch
         public static SpireReturn Prefix(FlashAtkImgEffect e, AbstractGameAction.AttackEffect effect) {
             if (effect == EnumPatch.CUIH_GJ) {
-                CardCrawlGame.sound.playV(liuLZMod.makeID("ATTACK_FIRE"), 1.25F);
+                CardCrawlGame.sound.playV("ATTACK_IRON_3", 1.25F);
             } else {
                 return SpireReturn.Continue();
             }
