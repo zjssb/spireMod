@@ -57,7 +57,7 @@ public class CuihAction extends AbstractGameAction {
                 /*  72 */       this.p.hand.group.removeAll(this.cannotUpgrade);
                 /*     */
                 /*  74 */       if (this.p.hand.group.size() > 1) {
-                    /*  75 */         AbstractDungeon.handCardSelectScreen.open(TEXT[0], 1, false, false, false, true);
+                    /*  75 */         AbstractDungeon.handCardSelectScreen.open(TEXT[0], 1, false, false);
                     /*  76 */         tickDuration(); return;
                     /*     */       }
                 /*  78 */       if (this.p.hand.group.size() == 1) {

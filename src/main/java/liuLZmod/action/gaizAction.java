@@ -4,7 +4,7 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import liuLZmod.cards.llz_lenqj;
+import liuLZmod.cards.*;
 
 import java.util.List;
 import java.util.Objects;
@@ -26,30 +26,40 @@ public class gaizAction extends AbstractGameAction {
         if (card != null) {
             if(card.baseDamage >0){
                 card.baseDamage += 1;
-                card.superFlash();
-                card.applyPowers();
             }
             if(card.baseBlock >0){
                 card.baseBlock += 1;
-                card.superFlash();
-                card.applyPowers();
             }
             if(card.type == AbstractCard.CardType.STATUS){
+                int index = AbstractDungeon.player.hand.group.indexOf(card);
                 if(Objects.equals(card.cardID, "Slimed")){
-                    AbstractDungeon.player.hand.group.set(0,card = (new llz_lenqj()));}
+                    if (index != -1) {
+                        AbstractCard newCard = new llz_lenqj();
+                        AbstractDungeon.player.hand.group.set(index, newCard);}}
                 else
-                if(card.cardID == ""){}
+                if(Objects.equals(card.cardID, "Wound")){
+                    if (index != -1) {
+                        AbstractCard newCard = new llz_hej();
+                        AbstractDungeon.player.hand.group.set(index, newCard);}}
                 else
-                if(card.cardID == ""){}
+                if(Objects.equals(card.cardID, "Dazed")){
+                    if (index != -1) {
+                        AbstractCard newCard = new llz_jiangz();
+                        AbstractDungeon.player.hand.group.set(index, newCard);}}
                 else
-                if(card.cardID == ""){}
+                if(Objects.equals(card.cardID, "Burn")){
+                    if (index != -1) {
+                        AbstractCard newCard = new llz_leis();
+                        AbstractDungeon.player.hand.group.set(index, newCard);}}
                 else
-                if(card.cardID == ""){}
+                if(Objects.equals(card.cardID, "Void")){
+                    if (index != -1) {
+                        AbstractCard newCard = new llz_anwz();
+                        AbstractDungeon.player.hand.group.set(index, newCard);}}
                 else
                     card.baseMagicNumber +=1;
-                card.superFlash();
-                card.applyPowers();
             }
+            card.applyPowers();
         }
         isDone = true;
     }

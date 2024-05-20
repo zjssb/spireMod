@@ -1,43 +1,37 @@
 package liuLZmod.cards;
 
 import basemod.abstracts.CustomCard;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.colorless.Apotheosis;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.powers.AccuracyPower;
 import liuLZmod.Characters.MyCharacter;
-import liuLZmod.powers.rour;
+import liuLZmod.action.benyAction;
 
-public class llz_zibsz extends CustomCard {
-    public static final String ID = "llz_zibsz";
+public class llz_beny extends CustomCard {
+    public static final String ID = "llz_beny";
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String NAME = CARD_STRINGS.NAME;
-    private static final String IMG_PATH = "ModliuLZ/img/cards_2/zibsz.png";
-    private static final int COST = 1;
+    private static final String IMG_PATH = "ModliuLZ/img/cards_2/fy.png";
+    private static final int COST = 0;
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION;
-    private static final CardType TYPE = CardType.POWER;
+    private static final CardType TYPE = CardType.SKILL;
     private static final CardColor COLOR = MyCharacter.Enums.EXAMPLE_CARD;
-    private static final CardRarity RARITY = CardRarity.UNCOMMON;
+    private static final CardRarity RARITY = CardRarity.BASIC;
     private static final CardTarget TARGET = CardTarget.SELF;
 
-    public llz_zibsz() {
+    public llz_beny() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.magicNumber = this.baseMagicNumber = 2;
+        this.tags.add(CardTags.STARTER_STRIKE);
     }
 
     @Override
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            upgradeMagicNumber(1);
             this.initializeDescription();
         }
 
@@ -45,10 +39,11 @@ public class llz_zibsz extends CustomCard {
 
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot((AbstractGameAction)new ApplyPowerAction((AbstractCreature)p, (AbstractCreature)p, (AbstractPower)new rour((AbstractCreature)p, this.magicNumber), this.magicNumber));
+        addToBot(new benyAction());
     }
+
     public AbstractCard makeCopy() {
-        /* 44 */     return new llz_zibsz();
+        /* 44 */     return new llz_beny();
         /*    */   }
 
 
