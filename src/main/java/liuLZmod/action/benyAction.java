@@ -12,24 +12,23 @@
      public benyAction() {
          this.p = AbstractDungeon.player;
      }
-       public void update() {
-             if (true) {
-                   upgradeAllCardsInGroup(p.hand);
-                   upgradeAllCardsInGroup(p.drawPile);
-                   upgradeAllCardsInGroup(p.discardPile);
-                   upgradeAllCardsInGroup(p.exhaustPile);
+     public void update() {
+         if (true) {
+             upgradeAllCardsInGroup(AbstractDungeon.player.hand, "hand");
+             upgradeAllCardsInGroup(AbstractDungeon.player.drawPile, "drawPile");
+             upgradeAllCardsInGroup(AbstractDungeon.player.discardPile, "discardPile");
+             upgradeAllCardsInGroup(AbstractDungeon.player.exhaustPile, "exhaustPile");
+             this.isDone = true;
+         }
+     }
 
-                   this.isDone = true;
-                 }
-           }
-
-       private void upgradeAllCardsInGroup(CardGroup cardGroup) {
+       private void upgradeAllCardsInGroup(CardGroup cardGroup, String groupType){
              for (AbstractCard c : cardGroup.group) {
                    if (c.baseDamage> 0 ||c.baseBlock >0 ||c.type == AbstractCard.CardType.STATUS) {
-                         if (cardGroup.type == CardGroup.CardGroupType.HAND) {
-                               c.superFlash();
-                             }
-                         addToBot(new gaizAction(p,c));
+                       addToBot(new gaizAction(p,c,groupType));
+                       if (cardGroup.type == CardGroup.CardGroupType.HAND) {
+                           c.superFlash();
+                       }
                          c.applyPowers();
                        }
                  }

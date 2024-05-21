@@ -5,11 +5,10 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.localization.UIStrings;
+
 import java.util.ArrayList;
 
 public class CuihAction extends AbstractGameAction {
-    private static final String uiStrings = "xx";
     public static final String[] TEXT = new String[]{""};
 
     private AbstractPlayer p;
@@ -45,7 +44,7 @@ public class CuihAction extends AbstractGameAction {
                     /*  59 */         for (AbstractCard c : this.p.hand.group) {
                         /*  60 */           if (true) {
                             /*  61 */             //c.baseDamage++;
-                            addToBot(new gaizAction(p,c));
+                            addToBot(new gaizAction(p,c,"hand"));
                             /*  64 */             this.isDone = true;
                             /*     */
                             /*     */
@@ -71,7 +70,7 @@ public class CuihAction extends AbstractGameAction {
             /*     */
             /*  87 */     if (!AbstractDungeon.handCardSelectScreen.wereCardsRetrieved) {
                 /*  88 */       for (AbstractCard c : AbstractDungeon.handCardSelectScreen.selectedCards.group) {
-                    /*  89 */         addToBot(new gaizAction(p,c));
+                    /*  89 */         addToBot(new gaizAction(p,c,"hand"));
                     /*  92 */         this.p.hand.addToTop(c);
                     /*     */       }
                 /*     */
