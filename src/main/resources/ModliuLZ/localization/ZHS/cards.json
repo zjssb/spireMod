@@ -49,5 +49,9 @@
   "llz_cuih": {
     "NAME": "淬火",
     "DESCRIPTION": "造成 !D! 点伤害。 NL llzmod:改造 一张牌，如果是攻击牌则改造 !M! 次 。"
+  },
+  "llz_beny": {
+    "NAME": "本源",
+    "DESCRIPTION": "改造抽牌堆所有牌 。 NL 消耗 。"
   }
 }

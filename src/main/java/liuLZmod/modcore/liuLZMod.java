@@ -51,12 +51,18 @@ public class liuLZMod implements EditCardsSubscriber, EditStringsSubscriber , Ed
     public void receiveEditCards() {
         // 向basemod注册卡牌
         BaseMod.addDynamicVariable(new MyVariable());
-
         BaseMod.addCard(new llz_Strike());
         BaseMod.addCard(new llz_Defend());
         BaseMod.addCard(new llz_sike());
         BaseMod.addCard(new llz_zibsz());
         BaseMod.addCard(new llz_popsl());
+        BaseMod.addCard(new llz_hej());
+        BaseMod.addCard(new llz_lenqj());
+        BaseMod.addCard(new llz_leis());
+        BaseMod.addCard(new llz_anwz());
+        BaseMod.addCard(new llz_jiangz());
+        BaseMod.addCard(new llz_cuih());
+        BaseMod.addCard(new llz_beny());
         BaseMod.addCard(new llz_testCard());
 
 
@@ -110,16 +116,12 @@ public class liuLZMod implements EditCardsSubscriber, EditStringsSubscriber , Ed
         /* 672 */     return getModID() + ":" + idText;
         /*     */   }
     public void receiveAddAudio() {
-        /* 677 */     BaseMod.addAudio(makeID("GUN1"), "ModliuLZ/audio/hermit_gun.ogg");
-        /* 678 */     BaseMod.addAudio(makeID("GUN2"), "ModliuLZ/audio/hermit_gun2.ogg");
-        /* 679 */     BaseMod.addAudio(makeID("GUN3"), "ModliuLZ/audio/hermit_gun3.ogg");
-        /* 680 */     BaseMod.addAudio(makeID("SPIN"), "ModliuLZ/audio/hermit_spin.ogg");
-        /* 681 */     BaseMod.addAudio(makeID("RELOAD"), "ModliuLZ/audio/hermit_reload.ogg");
-        /*     */   }
-
-    public void receivePostInitialize()
-    {
-        BaseMod.addMonster("1",()->new llz_shaowei(0,0));
-    }
+             BaseMod.addAudio(makeID("GUN1"), "ModliuLZ/audio/hermit_gun.ogg");
+             BaseMod.addAudio(makeID("GUN2"), "ModliuLZ/audio/hermit_gun2.ogg");
+             BaseMod.addAudio(makeID("GUN3"), "ModliuLZ/audio/hermit_gun3.ogg");
+             BaseMod.addAudio(makeID("SPIN"), "ModliuLZ/audio/hermit_spin.ogg");
+             BaseMod.addAudio(makeID("RELOAD"), "ModliuLZ/audio/hermit_reload.ogg");
+             BaseMod.addAudio(makeID("CUIH"), "ModliuLZ/audio/STS_SFX_EnemyAtk_Dagger_v1.ogg");
+           }
 
 }
