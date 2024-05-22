@@ -51,18 +51,14 @@ public class liuLZMod implements EditCardsSubscriber, EditStringsSubscriber , Ed
     public void receiveEditCards() {
         // 向basemod注册卡牌
         BaseMod.addDynamicVariable(new MyVariable());
+
         BaseMod.addCard(new llz_Strike());
-        UnlockTracker.unlockCard(llz_Strike.ID);
         BaseMod.addCard(new llz_Defend());
-        UnlockTracker.unlockCard(llz_Defend.ID);
         BaseMod.addCard(new llz_sike());
-        UnlockTracker.unlockCard(llz_sike.ID);
         BaseMod.addCard(new llz_zibsz());
-        UnlockTracker.unlockCard(llz_zibsz.ID);
         BaseMod.addCard(new llz_popsl());
-        UnlockTracker.unlockCard(llz_popsl.ID);
         BaseMod.addCard(new llz_testCard());
-        UnlockTracker.unlockCard(llz_testCard.ID);
+
 
     }
     // 当开始添加人物时，调用这个方法

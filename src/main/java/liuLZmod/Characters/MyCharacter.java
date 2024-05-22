@@ -15,6 +15,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.cutscenes.CutscenePanel;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.events.city.Vampires;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
@@ -23,6 +24,8 @@ import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import liuLZmod.cards.llz_Strike;
 import liuLZmod.modcore.liuLZMod;
+import liuLZmod.monsters.abstracrt.abstract_llz_jiXie;
+import liuLZmod.patches.testPatch;
 
 import java.util.ArrayList;
 
@@ -31,13 +34,21 @@ import static liuLZmod.Characters.MyCharacter.Enums.MY_CHARACTER;
 
 public class MyCharacter extends CustomPlayer {
     public Slot eye;
-    /** 火堆的人物立绘（行动前）*/
+    /**
+     * 火堆的人物立绘（行动前）
+     */
     private static final String MY_CHARACTER_SHOULDER_1 = "ModliuLZ/img/char/shoulder1.png";
-    /** 火堆的人物立绘（行动后）*/
+    /**
+     * 火堆的人物立绘（行动后）
+     */
     private static final String MY_CHARACTER_SHOULDER_2 = "ModliuLZ/img/char/shoulder2.png";
-    /** 人物死亡图像*/
+    /**
+     * 人物死亡图像
+     */
     private static final String CORPSE_IMAGE = "ModliuLZ/img/char/corpse.png";
-    /** 战斗界面左下角能量图标的每个图层*/
+    /**
+     * 战斗界面左下角能量图标的每个图层
+     */
     private static final String[] ORB_TEXTURES = new String[]{
             "ModliuLZ/img/UI/orb/zg2.png",
             "ModliuLZ/img/UI/orb/zg3.png",
@@ -51,13 +62,15 @@ public class MyCharacter extends CustomPlayer {
             "ModliuLZ/img/UI/orb/zg4d.png",
             "ModliuLZ/img/UI/orb/zg1d.png"
     };
-    /** 每个图层的旋转速度*/
+    /**
+     * 每个图层的旋转速度
+     */
     private static final float[] LAYER_SPEED = new float[]{-20.0F, 30.0F, 0.0F, 0.0F, 0.0F, -10.0F, 8.0F, 0.0F, 0.0F, 0.0F};
     // 人物的本地化文本，如卡牌的本地化文本一样，如何书写见下
     private static final CharacterStrings characterStrings = CardCrawlGame.languagePack.getCharacterString("liuLZMod:MyCharacter");
 
     public MyCharacter(String name) {
-        super(name, MY_CHARACTER,ORB_TEXTURES,"ModliuLZ/img/UI/orb/vfx2.png", LAYER_SPEED, null, null);
+        super(name, MY_CHARACTER, ORB_TEXTURES, "ModliuLZ/img/UI/orb/vfx2.png", LAYER_SPEED, null, null);
 
 
         // 人物对话气泡的大小，如果游戏中尺寸不对在这里修改（libgdx的坐标轴左下为原点）
@@ -91,26 +104,34 @@ public class MyCharacter extends CustomPlayer {
         this.dialogY = this.drawY + 220.0F * Settings.scale;
 
     }
-    public void damage(DamageInfo info) {
-             if (info.owner != null && info.type != DamageInfo.DamageType.THORNS && info.output - this.currentBlock > 0) {
-                   AnimationState.TrackEntry e;
-                   e = this.state.setAnimation(0, "Hit", false);
-                   this.state.addAnimation(0, "Idle", true, 0.0F);
-                   e.setTimeScale(2.0F);
-                 }
 
-                super.damage(info);
-            }
+    public void damage(DamageInfo info) {
+        if (info.owner != null && info.type != DamageInfo.DamageType.THORNS && info.output - this.currentBlock > 0) {
+            AnimationState.TrackEntry e;
+            e = this.state.setAnimation(0, "Hit", false);
+            this.state.addAnimation(0, "Idle", true, 0.0F);
+            e.setTimeScale(2.0F);
+        }
+
+        super.damage(info);
+    }
 
     // 初始卡组的ID，可直接写或引用变量
     public ArrayList<String> getStartingDeck() {
         ArrayList<String> retVal = new ArrayList<>();
-        for(int x = 0; x<4; x++) {
-            retVal.add("llz_Strike");
-        }
-        for(int x = 0; x<4; x++) {
-            retVal.add("llz_Defend");
-        }
+//        for(int x = 0; x<4; x++) {
+//            retVal.add("llz_Strike");
+//        }
+//        for(int x = 0; x<4; x++) {
+//            retVal.add("llz_Defend");
+//        }
+        retVal.add("llz_testCard");
+        retVal.add("llz_testCard");
+        retVal.add("llz_testCard");
+        retVal.add("llz_testCard");
+        retVal.add("llz_testCard");
+        retVal.add("llz_testCard");
+        retVal.add("llz_testCard");
         return retVal;
     }
 
@@ -236,6 +257,15 @@ public class MyCharacter extends CustomPlayer {
     @Override
     public AbstractGameAction.AttackEffect[] getSpireHeartSlashEffect() {
         return new AbstractGameAction.AttackEffect[]{AbstractGameAction.AttackEffect.SLASH_HEAVY, AbstractGameAction.AttackEffect.FIRE, AbstractGameAction.AttackEffect.SLASH_DIAGONAL, AbstractGameAction.AttackEffect.SLASH_HEAVY, AbstractGameAction.AttackEffect.FIRE, AbstractGameAction.AttackEffect.SLASH_DIAGONAL};
+    }
+
+    /**
+     * 在胜利后调用
+     */
+    @Override
+    public void onVictory() {
+        super.onVictory();
+        abstract_llz_jiXie.clearJiXie();
     }
 
     // 为原版人物枚举、卡牌颜色枚举扩展的枚举，需要写，接下来要用
