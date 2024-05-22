@@ -75,7 +75,7 @@ public class gaizAction extends AbstractGameAction {
                     newCard = new llz_leis();
                 } else if (Objects.equals(card.cardID, "Void")) {
                     newCard = new llz_anwz();
-                }else card.baseMagicNumber +=1;
+                }else card.magicNumber +=1;
                 if (newCard != null) {
                     cardGroup.group.set(cardGroup.group.indexOf(card), newCard);
                 }

@@ -27,7 +27,7 @@
     /*    */   private boolean clang2 = false; private AbstractCard owningCard;
     /*    */   public void update() {
         /* 25 */     if (this.duration < 0.6F && !this.clang1) {
-            /* 26 */       CardCrawlGame.sound.playA("MONSTER_AWAKENED_POUNCE", 0.1F);
+            /* 26 */       CardCrawlGame.sound.playA("MONSTER_BYRD_ATTACK_3", 1.0F);
             /* 27 */       this.clang1 = true;
             /* 28 */       clank(this.owningCard.current_x - 80.0F * this.owningCard.targetDrawScale * Settings.scale, this.owningCard.target_y + 0.0F * this.owningCard.targetDrawScale * Settings.scale);
             /*    */     }
