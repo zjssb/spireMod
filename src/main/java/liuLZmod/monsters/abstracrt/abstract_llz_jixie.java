@@ -18,7 +18,6 @@ import java.util.Objects;
  */
 public abstract class abstract_llz_jiXie extends CustomMonster {
 
-
     /**
      * 是否被销毁
      */
