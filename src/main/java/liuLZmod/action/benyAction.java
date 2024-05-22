@@ -6,6 +6,7 @@
  import com.megacrit.cardcrawl.characters.AbstractPlayer;
  import com.megacrit.cardcrawl.core.Settings;
  import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+ import liuLZmod.vfx.FineTuningEffect;
 
  public class benyAction extends AbstractGameAction {
      private AbstractPlayer p;
@@ -28,6 +29,8 @@
                        addToBot(new gaizAction(p,c,groupType));
                        if (cardGroup.type == CardGroup.CardGroupType.HAND) {
                            c.superFlash();
+                           //new FineTuningEffect(c);
+                           AbstractDungeon.effectList.add(new FineTuningEffect(c));
                        }
                          c.applyPowers();
                        }
