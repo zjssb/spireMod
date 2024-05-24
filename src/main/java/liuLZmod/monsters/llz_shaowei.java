@@ -2,6 +2,7 @@ package liuLZmod.monsters;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
+import com.esotericsoftware.spine.AnimationState;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -65,7 +66,11 @@ public class llz_shaowei extends abstract_llz_jiXie {
     public llz_shaowei(float x, float y) {
         super(NAME, "llz_shaowei", 10, -8.0F, 10.0F, 200F, 200F, (String) null, x, y);
         // 设置图片
-        this.img = new Texture(Gdx.files.internal("ModliuLZ/img/monsters/shaowei.png"));
+        //this.img = new Texture(Gdx.files.internal("ModliuLZ/img/monsters/shaowei.png"));
+        this.loadAnimation("ModliuLZ/img/jix/shaow/skeleton.atlas", "ModliuLZ/img/jix/shaow/skeleton37.json", 0.8F);
+        AnimationState.TrackEntry e;
+        e = this.state.setAnimation(0, "sc", false);
+        this.state.addAnimation(0, "Idle", true, 0.0F);
         this.damage.add(new DamageInfo(this, this.attackDmg));
 
         this.setMove("测试", (byte) 4, Intent.NONE);
