@@ -55,7 +55,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
         /* 47 */     this.hammerGlowScale *= this.hammerGlowScale * this.hammerGlowScale;
         /* 48 */     this.scale += Gdx.graphics.getDeltaTime() / 20.0F * this.scale;
         // 旋转动画
-        this.rotation += 720.0f * Gdx.graphics.getDeltaTime();
+        this.rotation += 360.0f * Gdx.graphics.getDeltaTime();
         if (this.rotation >= 360.0f * 2) {
             this.rotation = 0.0f;
         }
