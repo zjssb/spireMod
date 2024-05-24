@@ -21,10 +21,7 @@ import java.util.List;
  */
 public class llz_shaowei extends abstract_llz_jiXie {
     public static final String NAME = "哨卫";
-    /**
-     * 充能
-     */
-    public static int energy = 0;
+    private static int energy = 0;
     /**
      * 触发能量
      */
@@ -72,6 +69,19 @@ public class llz_shaowei extends abstract_llz_jiXie {
         this.damage.add(new DamageInfo(this, this.attackDmg));
 
         this.setMove("测试", (byte) 4, Intent.NONE);
+    }
+
+    /**
+     * 充能
+     */
+    public static int getEnergy() {
+        return energy;
+    }
+
+    public static void setEnergy(int energy) {
+        llz_shaowei.energy = energy;
+        // 充能条动画
+
     }
 
 
@@ -152,8 +162,8 @@ public class llz_shaowei extends abstract_llz_jiXie {
      * 能量增加
      */
     public static void addEnergy(int num) {
-        energy += num;
-        if (energy >= maxEnergy) {
+        setEnergy(getEnergy() + num);
+        if (getEnergy() >= maxEnergy) {
             int ans = 0;
             int var = shaoweiList.length;
             for (int i = 0; i < var; i++) {
@@ -161,8 +171,8 @@ public class llz_shaowei extends abstract_llz_jiXie {
                     ans++;
                 }
             }
-            while (energy >= maxEnergy) {
-                energy -= maxEnergy;
+            while (getEnergy() >= maxEnergy) {
+                setEnergy(getEnergy() - maxEnergy);
                 act(ans);
             }
         }
@@ -190,7 +200,7 @@ public class llz_shaowei extends abstract_llz_jiXie {
         shaoweiList[m.index] = false;
         monster.monsters.remove(m);
         if (monster.monsters.size() == 0) {
-            energy = 0;
+            setEnergy(0);
         }
     }
 
