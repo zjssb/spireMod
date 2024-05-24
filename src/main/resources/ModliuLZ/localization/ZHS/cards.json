@@ -22,9 +22,9 @@
     "UPGRADE_DESCRIPTION": "随机对敌人造成 !D! 点伤害 !M! 次。 NL 受到 !llzmod:sz! 点伤害。"
   },
   "llz_testCard": {
-    "NAME": "测试",
-    "DESCRIPTION": "测试测试",
-    "UPGRADE_DESCRIPTION": "升级测试测试"
+    "NAME": "测试卡牌",
+    "DESCRIPTION": "造成6点伤害 NL 召唤一个哨卫",
+    "UPGRADE_DESCRIPTION": "升级描述"
   },
   "llz_hej": {
     "NAME": "合金",

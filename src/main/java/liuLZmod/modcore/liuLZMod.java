@@ -64,6 +64,7 @@ public class liuLZMod implements EditCardsSubscriber, EditStringsSubscriber , Ed
         BaseMod.addCard(new llz_cuih());
         BaseMod.addCard(new llz_beny());
         BaseMod.addCard(new llz_testCard());
+        BaseMod.addCard(new llz_testCard2());
 
 
     }

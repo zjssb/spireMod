@@ -2,9 +2,6 @@ package liuLZmod.monsters;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -82,7 +79,8 @@ public class llz_shaowei extends abstract_llz_jiXie {
      * 行动回合
      */
     @Override
-    public void takeTurn() {}
+    public void takeTurn() {
+    }
 
     public void update() {
         super.update();
@@ -99,6 +97,14 @@ public class llz_shaowei extends abstract_llz_jiXie {
     public void die(boolean triggerRelics) {
         shaoweiList[this.index] = false;
         super.die(false);
+
+    }
+
+    /**
+     * 使用开局动作
+     */
+    @Override
+    public void usePreBattleAction() {
 
     }
 
@@ -126,8 +132,6 @@ public class llz_shaowei extends abstract_llz_jiXie {
         if (ans == shaoweiAmount) {
             return;
         }
-
-
         // 实例化并设置位置
         llz_shaowei sw = new llz_shaowei(0f, 0f);
         Point point = positions.get(ans);
@@ -159,13 +163,40 @@ public class llz_shaowei extends abstract_llz_jiXie {
             }
             while (energy >= maxEnergy) {
                 energy -= maxEnergy;
-                AbstractDungeon.actionManager.addToBottom(new shaoweiAction(new DamageInfo(AbstractDungeon.player,attackDmg,DamageInfo.DamageType.THORNS),ans));
-//                this.addToBot();
+                act(ans);
             }
         }
     }
 
+    /**
+     * 机械行动方法。
+     * num: 哨卫的格数（攻击次数）。
+     */
+    public static void act(int num){
+        AbstractDungeon.actionManager.addToBottom(new shaoweiAction(new DamageInfo(AbstractDungeon.player, attackDmg, DamageInfo.DamageType.THORNS), num));
+        actAnimation();
+    }
 
+    /**
+     * 移除一个哨卫。
+     */
+    public static void remove() {
+        MonsterGroup monster = testPatch.f_minions.get(AbstractDungeon.player);
+        int length = monster.monsters.size() - 1;
+        if (length < 0 || length > shaoweiAmount) {
+            return;
+        }
+        llz_shaowei m = (llz_shaowei) monster.monsters.get(length);
+        shaoweiList[m.index] = false;
+        monster.monsters.remove(m);
+        if (monster.monsters.size() == 0) {
+            energy = 0;
+        }
+    }
+
+    /**
+     * 重置哨卫列表
+     */
     public static void clear() {
         int var = shaoweiList.length;
         for (int i = 0; i < var; i++) {
@@ -196,6 +227,13 @@ public class llz_shaowei extends abstract_llz_jiXie {
                 return (AbstractMonster) monsters.get(rnd);
             }
         }
+    }
+
+    /**
+     * 行动动画方法
+     */
+    public static void actAnimation(){
+
     }
 
     static {

@@ -15,7 +15,6 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.cutscenes.CutscenePanel;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.events.city.Vampires;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
@@ -25,7 +24,6 @@ import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import liuLZmod.cards.llz_Strike;
 import liuLZmod.modcore.liuLZMod;
 import liuLZmod.monsters.abstracrt.abstract_llz_jiXie;
-import liuLZmod.patches.testPatch;
 
 import java.util.ArrayList;
 
@@ -128,10 +126,8 @@ public class MyCharacter extends CustomPlayer {
         retVal.add("llz_testCard");
         retVal.add("llz_testCard");
         retVal.add("llz_testCard");
-        retVal.add("llz_testCard");
-        retVal.add("llz_testCard");
-        retVal.add("llz_testCard");
-        retVal.add("llz_testCard");
+        retVal.add("llz_testCard2");
+
         return retVal;
     }
 

@@ -77,9 +77,9 @@ public abstract class abstract_llz_jiXie extends CustomMonster {
     }
 
     /**
-     * 继承类必须重写这个方法。
-     * （派生类）增加充能，并检测充能是否触发条件。
-     * （基类） 调用注册类的 addEnergy 方法。
+     * 继承类必须重写这个方法。\n
+     * （派生类）增加充能，并检测充能是否触发条件。'*'
+     * （基类） 调用注册类的 addEnergy 方法。'*'
      * num：充能层数
      */
     public static void addEnergy(int num) {
@@ -89,11 +89,18 @@ public abstract class abstract_llz_jiXie extends CustomMonster {
             cls = jiXie.getClass();
             try {
                 method = cls.getMethod("addEnergy", int.class);
-                method.invoke(num);
+                method.invoke(jiXie,num);
             } catch (NoSuchMethodException | InvocationTargetException | IllegalAccessException e) {
                 throw new RuntimeException(e);
             }
         }
+    }
+
+    /**
+     * 行动动画方法
+     */
+    public static void actAnimation(){
+
     }
 
     /**
