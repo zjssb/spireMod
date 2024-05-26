@@ -18,8 +18,8 @@
   },
   "llz_popsl": {
     "NAME": "破片手雷",
-    "DESCRIPTION": "随机对敌人造成 !D! 点伤害 !M! 次。 NL 受到 !llzmod:sz! 点伤害。",
-    "UPGRADE_DESCRIPTION": "随机对敌人造成 !D! 点伤害 !M! 次。 NL 受到 !llzmod:sz! 点伤害。"
+    "DESCRIPTION": "随机对敌人造成 !D! 点伤害 !M! 次。 NL 受到 *5 点伤害。",
+    "UPGRADE_DESCRIPTION": "随机对敌人造成 !D! 点伤害 !M! 次。 NL 受到 *8 点伤害。"
   },
   "llz_hej": {
     "NAME": "合金",
@@ -52,5 +52,9 @@
   "llz_lians": {
     "NAME": "碾碎",
     "DESCRIPTION": "造成 !D! 点伤害。 NL 给予 !M! 层 易伤 ，如果敌人的意图是攻击，再给予 !M! 层 虚弱 。"
+  },
+  "llz_dunj": {
+    "NAME": "钝击",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 获得 !B! 点 格挡 。"
   }
 }
