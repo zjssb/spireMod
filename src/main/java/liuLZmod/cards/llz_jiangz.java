@@ -93,8 +93,7 @@ public class llz_jiangz extends CustomCard {
                        }
                    i++;
                  }
-
-
+                    statusCount--;
              if (statusCount > 0) {
                    i =statusCount *this.magicNumber;
                    addToBot(new GainBlockAction(p, p,i));
