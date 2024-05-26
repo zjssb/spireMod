@@ -15,6 +15,9 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import liuLZmod.Characters.MyCharacter;
 
+/**
+ * 钝击
+ */
 
 public class llz_dunj extends CustomCard {
     public static final String ID = "llz_dunj";

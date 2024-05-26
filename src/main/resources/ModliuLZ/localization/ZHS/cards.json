@@ -56,5 +56,9 @@
   "llz_dunj": {
     "NAME": "钝击",
     "DESCRIPTION": "造成 !D! 点伤害。 NL 获得 !B! 点 格挡 。"
+  },
+  "llz_qianc": {
+    "NAME": "潜藏",
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 获得一张粘液。"
   }
 }
