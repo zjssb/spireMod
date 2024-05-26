@@ -11,16 +11,17 @@ import java.util.ArrayList;
 
 public class CuihAction extends AbstractGameAction {
     public static final String[] TEXT = new String[]{""};
+    private final int a;
 
     private AbstractPlayer p;
     private ArrayList<AbstractCard> cannotUpgrade = new ArrayList<>();
 
 
-    public CuihAction() {
+    public CuihAction(int a) {
         this.actionType = AbstractGameAction.ActionType.CARD_MANIPULATION;
         this.p = AbstractDungeon.player;
         this.duration = Settings.ACTION_DUR_FAST;
-
+        this.a = a;
     }
 
     public void update() {
@@ -44,7 +45,11 @@ public class CuihAction extends AbstractGameAction {
                        if (this.p.hand.group.size() - this.cannotUpgrade.size() == 1) {
                              for (AbstractCard c : this.p.hand.group) {
                                    if (true) {
-                                       addToBot(new gaizAction(p,c,"hand"));
+                                       if(c.type == AbstractCard.CardType.ATTACK){
+                                           addToBot(new gaizAction(p,c,"hand",a));
+                                       }else {
+                                           addToBot(new gaizAction(p,c,"hand",1));
+                                       }
                                        AbstractDungeon.effectList.add(new FineTuningEffect(c));
                                        this.isDone = true;
 
@@ -71,7 +76,11 @@ public class CuihAction extends AbstractGameAction {
 
                  if (!AbstractDungeon.handCardSelectScreen.wereCardsRetrieved) {
                        for (AbstractCard c : AbstractDungeon.handCardSelectScreen.selectedCards.group) {
-                             addToBot(new gaizAction(p,c,"hand"));
+                           if(c.type == AbstractCard.CardType.ATTACK){
+                               addToBot(new gaizAction(p,c,"hand",a));
+                           }else {
+                               addToBot(new gaizAction(p,c,"hand",1));
+                           }
                            AbstractDungeon.effectList.add(new FineTuningEffect(c));
                              this.p.hand.addToTop(c);
                            }

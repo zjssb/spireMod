@@ -14,30 +14,32 @@ import java.util.Objects;
  * 改造
  */
 public class gaizAction extends AbstractGameAction {
+    private final int a;//改造数值
     private AbstractPlayer player;
     private AbstractCard card;
     private String groupType; // 牌堆类型信息
 
 
-    public gaizAction(AbstractPlayer player, AbstractCard card,String groupType) {
+    public gaizAction(AbstractPlayer player, AbstractCard card,String groupType,int a) {
         this.player = player;
         this.card = card;
         this.groupType = groupType;
+        this.a =a;
     }
 
     @Override
     public void update() {
         if (card != null) {
             if(card.baseDamage >0){
-                card.baseDamage += 1;
+                card.baseDamage += a;
             }
             if(card.baseBlock >0){
-                card.baseBlock += 1;
+                card.baseBlock += a;
             }
             if (card.type == AbstractCard.CardType.STATUS) {
                 replaceCardInGroup(AbstractDungeon.player, groupType);
-                card.applyPowers();
             }
+            card.applyPowers();
         }
         isDone = true;
     }
@@ -75,7 +77,7 @@ public class gaizAction extends AbstractGameAction {
                     newCard = new llz_leis();
                 } else if (Objects.equals(card.cardID, "Void")) {
                     newCard = new llz_anwz();
-                }else card.magicNumber +=1;
+                }else {card.magicNumber +=a;card.baseMagicNumber +=a;}
                 if (newCard != null) {
                     cardGroup.group.set(cardGroup.group.indexOf(card), newCard);
                 }

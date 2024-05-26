@@ -25,7 +25,7 @@ public class llz_beny extends CustomCard {
 
     public llz_beny() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.tags.add(CardTags.STARTER_STRIKE);
+        this.exhaust = true;
     }
 
     @Override
