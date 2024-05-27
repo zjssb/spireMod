@@ -5,6 +5,7 @@
 
 package liuLZmod.action;
 
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -25,7 +26,7 @@ public class shaoweiAction extends abstract_jiXieAction {
 
         for(int i = 1; i <= this.magicNumber; ++i) {
             AbstractMonster m = AbstractDungeon.getRandomMonster();
-            this.addToTop(new DamageAction(m, this.info));
+            this.addToTop(new DamageAction(m, this.info,AbstractGameAction.AttackEffect.BLUNT_LIGHT));
         }
 
         this.isDone = true;
