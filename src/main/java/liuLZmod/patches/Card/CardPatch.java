@@ -21,12 +21,12 @@ public class CardPatch {
         }
 
 
-        public static void Prefix(AbstractPlayer player, AbstractCard c, AbstractMonster monster, int energyOnUse) {
+        public static void Postfix(AbstractPlayer player, AbstractCard c, AbstractMonster monster, int energyOnUse) {
             if(c.purgeOnUse){
                 return;
             }
-            int cost = c.cost;
-            if(cost == -1){
+            int cost = c.costForTurn;
+            if(c.cost == -1){
                 // 对x牌单独判断
                cost = c.energyOnUse;
             }

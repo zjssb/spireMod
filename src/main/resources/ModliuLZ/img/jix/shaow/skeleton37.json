@@ -58,6 +58,11 @@
 	},
 	"idle": {
 		"slots": {
+			"1716008736127": {
+				"color": [
+					{ "color": "ffffffff", "time": 0.0 }
+				]
+			},
 			"1716009676025": {
 				"color": [
 					{ "color": "ffffff00", "time": 0.0 }
