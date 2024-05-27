@@ -1,7 +1,5 @@
 package liuLZmod.monsters;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Texture;
 import com.esotericsoftware.spine.AnimationState;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -22,6 +20,9 @@ import java.util.List;
  */
 public class llz_shaowei extends abstract_llz_jiXie {
     public static final String NAME = "哨卫";
+    /**
+     * 充能
+     */
     private static int energy = 0;
     /**
      * 触发能量
@@ -39,22 +40,22 @@ public class llz_shaowei extends abstract_llz_jiXie {
     /**
      * 哨卫存活列表
      */
-    public static boolean[] shaoweiList = new boolean[shaoweiAmount];
+    public static List<llz_shaowei> shaoweiList = new ArrayList<>();
 
     /**
      * 哨卫的位置
      * 相对于角色
      */
     public final static List<Point> positions = new ArrayList<Point>() {{
-        add(new Point(200, 0));
-        add(new Point(300, 100));
-        add(new Point(400, 200));
-        add(new Point(500, 300));
-        add(new Point(200, 400));
-        add(new Point(300, 400));
-        add(new Point(400, 300));
-        add(new Point(500, 200));
-        add(new Point(600, 100));
+        add(new Point(100, 0));
+        add(new Point(150, 100));
+        add(new Point(150, 200));
+        add(new Point(100, 300));
+        add(new Point(150, 400));
+        add(new Point(100, 400));
+        add(new Point(100, 300));
+        add(new Point(0, 200));
+        add(new Point(0, 100));
     }};
 
     /**
@@ -68,12 +69,16 @@ public class llz_shaowei extends abstract_llz_jiXie {
         // 设置图片
         //this.img = new Texture(Gdx.files.internal("ModliuLZ/img/monsters/shaowei.png"));
         this.loadAnimation("ModliuLZ/img/jix/shaow/skeleton.atlas", "ModliuLZ/img/jix/shaow/skeleton37.json", 0.8F);
+
         AnimationState.TrackEntry e;
         e = this.state.setAnimation(0, "sc", false);
         this.state.addAnimation(0, "Idle", true, 0.0F);
-        this.damage.add(new DamageInfo(this, this.attackDmg));
+        e.setTimeScale(0.8F);
+
+        this.damage.add(new DamageInfo(this, attackDmg));
 
         this.setMove("测试", (byte) 4, Intent.NONE);
+
     }
 
     /**
@@ -103,14 +108,12 @@ public class llz_shaowei extends abstract_llz_jiXie {
 
     @Override
     public void die() {
-        shaoweiList[this.index] = false;
         super.die();
 
     }
 
     @Override
     public void die(boolean triggerRelics) {
-        shaoweiList[this.index] = false;
         super.die(false);
 
     }
@@ -135,14 +138,7 @@ public class llz_shaowei extends abstract_llz_jiXie {
      * 召唤哨卫
      */
     public static void SpawnMinion() {
-        int ans = 0;
-        // 遍历列表，计算剩余哨卫数量
-        int length = shaoweiList.length;
-        for (int i = 0; i < length; i++) {
-            if (shaoweiList[i]) {
-                ans++;
-            }
-        }
+        int ans = shaoweiList.size();
         // 哨卫数量等于最大数量
         if (ans == shaoweiAmount) {
             return;
@@ -152,7 +148,7 @@ public class llz_shaowei extends abstract_llz_jiXie {
         Point point = positions.get(ans);
         sw.drawX = AbstractDungeon.player.drawX + point.x;
         sw.drawY = AbstractDungeon.player.drawY + point.y;
-        shaoweiList[ans] = true;
+        shaoweiList.add(sw);
         sw.index = ans;
         // 初始化
         sw.init();
@@ -167,19 +163,22 @@ public class llz_shaowei extends abstract_llz_jiXie {
      * 能量增加
      */
     public static void addEnergy(int num) {
+        if(shaoweiList.size() == 0){
+            return;
+        }
+        System.out.println("充能"+getEnergy() + num);
         setEnergy(getEnergy() + num);
         if (getEnergy() >= maxEnergy) {
-            int ans = 0;
-            int var = shaoweiList.length;
-            for (int i = 0; i < var; i++) {
-                if (shaoweiList[i]) {
-                    ans++;
-                }
-            }
+            int ans = shaoweiList.size();
+
+            act(ans);
+            /*
             while (getEnergy() >= maxEnergy) {
                 setEnergy(getEnergy() - maxEnergy);
                 act(ans);
             }
+             */
+            setEnergy(0);
         }
     }
 
@@ -202,7 +201,7 @@ public class llz_shaowei extends abstract_llz_jiXie {
             return;
         }
         llz_shaowei m = (llz_shaowei) monster.monsters.get(length);
-        shaoweiList[m.index] = false;
+        shaoweiList.remove(m);
         monster.monsters.remove(m);
         if (monster.monsters.size() == 0) {
             setEnergy(0);
@@ -213,9 +212,24 @@ public class llz_shaowei extends abstract_llz_jiXie {
      * 重置哨卫列表
      */
     public static void clear() {
-        int var = shaoweiList.length;
-        for (int i = 0; i < var; i++) {
-            shaoweiList[i] = false;
+        shaoweiList.clear();
+        setEnergy(0);
+    }
+
+    /**
+     * 行动动画方法
+     */
+    public static void actAnimation(){
+        int length = shaoweiList.size();
+        for(int i=0;i<length;i++){
+            llz_shaowei m = shaoweiList.get(i);
+            AnimationState.TrackEntry e;
+//            e = m.state.setAnimation(0, "Idle", false);
+            e = m.state.setAnimation(0,"gj",false);
+//            e.setDelay(-0.1f);
+//            m.state.addAnimation(0,"gj",false,0.1F);
+            m.state.addAnimation(0, "Idle", true, 0.0F);
+
         }
     }
 
@@ -224,8 +238,8 @@ public class llz_shaowei extends abstract_llz_jiXie {
         if (AbstractDungeon.getMonsters() == null) {
             return null;
         } else {
-            List<AbstractMonster> monsters = new ArrayList();
-            Iterator var2 = AbstractDungeon.getMonsters().monsters.iterator();
+            List<AbstractMonster> monsters = new ArrayList<>();
+            Iterator<AbstractMonster> var2 = AbstractDungeon.getMonsters().monsters.iterator();
 
             while (var2.hasNext()) {
                 AbstractMonster m = (AbstractMonster) var2.next();
@@ -242,13 +256,6 @@ public class llz_shaowei extends abstract_llz_jiXie {
                 return (AbstractMonster) monsters.get(rnd);
             }
         }
-    }
-
-    /**
-     * 行动动画方法
-     */
-    public static void actAnimation(){
-
     }
 
     static {

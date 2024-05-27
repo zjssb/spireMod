@@ -3,6 +3,7 @@ package liuLZmod.patches.Card;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import liuLZmod.monsters.abstracrt.abstract_llz_jiXie;
 
@@ -21,7 +22,16 @@ public class CardPatch {
 
 
         public static void Prefix(AbstractPlayer player, AbstractCard c, AbstractMonster monster, int energyOnUse) {
-            abstract_llz_jiXie.addEnergy(c.cost);
+            if(c.purgeOnUse){
+                return;
+            }
+            int cost = c.cost;
+            if(cost == -1){
+                // 对x牌单独判断
+               cost = c.energyOnUse;
+            }
+
+            abstract_llz_jiXie.addEnergy(cost);
         }
     }
 }
