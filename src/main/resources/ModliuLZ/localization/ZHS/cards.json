@@ -60,5 +60,10 @@
   "llz_qianc": {
     "NAME": "潜藏",
     "DESCRIPTION": "获得 !B! 点 格挡 。 NL 获得一张粘液。"
+  },
+  "llz_moryy": {
+    "NAME": "末日预演",
+    "DESCRIPTION": "第7回合后才能打出。 NL 对所有敌人造成 !D! 点伤害。获得 [E] [E] [E] 。",
+    "UPGRADE_DESCRIPTION": "#r时机未到。 "
   }
 }

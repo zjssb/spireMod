@@ -60,7 +60,7 @@ public class llz_cuih extends CustomCard {
         //addToBot((AbstractGameAction)new SelectCardsInHandAction(1, (CardCrawlGame.languagePack.getUIString("champ:EnchantUI")).TEXT[1], c -> (c.baseDamage > 0), cards -> ((AbstractCard)cards.get(0)).baseDamage += this.magicNumber));
         addToBot((AbstractGameAction)new CuihAction(this.magicNumber));
     }
-    public boolean canUse(AbstractPlayer p, AbstractMonster m) {
+    /*public boolean canUse(AbstractPlayer p, AbstractMonster m) {
              boolean canUse = false;
              for (AbstractCard c : p.hand.group) {
                    if (c.baseDamage > 0) {
@@ -73,10 +73,10 @@ public class llz_cuih extends CustomCard {
                    return false;
                  }
              return super.canUse(p, m);
-           }
+           }*/
 
     public AbstractCard makeCopy() {
-        /* 44 */     return new llz_cuih();
-        /*    */   }
+             return new llz_cuih();
+           }
 
 }
