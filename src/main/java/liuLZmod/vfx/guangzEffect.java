@@ -26,7 +26,7 @@ public class guangzEffect extends AbstractGameEffect {
     private float x;
     private float y;
     private float timer;
-    private float morTimer = 0.05f;
+    private float morTimer = 0.05f;//烟尘生成间隔
 
     public guangzEffect() {
         this.duration = 1.0f;

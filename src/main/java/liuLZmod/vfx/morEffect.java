@@ -15,9 +15,9 @@ import liuLZmod.util.TextureLoader;
 public class morEffect extends AbstractGameEffect {
 
     private static TextureRegion[] MorTextures = {
-            new TextureRegion(TextureLoader.getTexture("ModliuLZ/img/vfx/moryy_3.png")),
-            new TextureRegion(TextureLoader.getTexture("ModliuLZ/img/vfx/moryy_4.png")),
-            new TextureRegion(TextureLoader.getTexture("ModliuLZ/img/vfx/moryy_5.png"))
+            new TextureRegion(TextureLoader.getTexture("ModliuLZ/img/vfx/moryy_6.png")),
+            new TextureRegion(TextureLoader.getTexture("ModliuLZ/img/vfx/moryy_7.png")),
+            new TextureRegion(TextureLoader.getTexture("ModliuLZ/img/vfx/moryy_8.png"))
     };
     private final TextureRegion morTexture;
 

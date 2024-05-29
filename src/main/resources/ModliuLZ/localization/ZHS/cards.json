@@ -18,8 +18,7 @@
   },
   "llz_popsl": {
     "NAME": "破片手雷",
-    "DESCRIPTION": "随机对敌人造成 !D! 点伤害 !M! 次。 NL 受到 *5 点伤害。",
-    "UPGRADE_DESCRIPTION": "随机对敌人造成 !D! 点伤害 !M! 次。 NL 受到 *8 点伤害。"
+    "DESCRIPTION": "随机对敌人造成 !D! 点伤害 !M! 次。 NL 受到 !LlzMagic! 点伤害。"
   },
   "llz_hej": {
     "NAME": "合金",

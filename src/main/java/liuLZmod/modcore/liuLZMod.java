@@ -1,6 +1,7 @@
 package liuLZmod.modcore;
 
 import basemod.BaseMod;
+import basemod.abstracts.DynamicVariable;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -11,7 +12,7 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import liuLZmod.Characters.MyCharacter;
-import liuLZmod.Variable.MyVariable;
+import liuLZmod.Variable.DefaultSecondMagicNumber;
 import liuLZmod.cards.*;
 import liuLZmod.relics.MyRelic;
 
@@ -51,6 +52,7 @@ public class liuLZMod implements EditCardsSubscriber, EditStringsSubscriber , Ed
     public void receiveEditCards() {
         // 向basemod注册卡牌
         BaseMod.addDynamicVariable(new MyVariable());
+        BaseMod.addDynamicVariable((DynamicVariable)new DefaultSecondMagicNumber());
         BaseMod.addCard(new llz_Strike());
         BaseMod.addCard(new llz_Defend());
         BaseMod.addCard(new llz_sike());
