@@ -37,7 +37,7 @@ public class llz_moryy extends CustomCard {
 
     public llz_moryy() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.damage = this.baseDamage = 44;
+        this.damage = this.baseDamage = 1;
     }
 
     @Override
