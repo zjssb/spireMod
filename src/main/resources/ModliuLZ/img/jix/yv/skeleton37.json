@@ -1,16 +1,16 @@
 {
 "skeleton": {
-	"hash": "BMnkTROSGsYdQEpg6eGuNJ4vmrY",
+	"hash": "3qdGwBZNKQWOEnh8RL+t7YmUNx4",
 	"spine": "3.8.75",
-	"x": -128,
-	"y": -128,
-	"width": 256,
-	"height": 256,
-	"images": "D:/Slay the Spire Mods/动画/llz/鱼",
+	"x": -102.4,
+	"y": -102.4,
+	"width": 204.8,
+	"height": 204.8,
+	"images": "./鱼/",
 	"audio": ""
 },
 "bones": [
-	{ "name": "root", "scaleX": 0.8, "scaleY": 0.8 },
+	{ "name": "root", "scaleX": 0.5, "scaleY": 0.5 },
 	{ "name": "bone", "parent": "root", "length": 35.03, "rotation": -26.22, "x": 13, "y": -16.22 },
 	{ "name": "bone2", "parent": "bone", "length": 20.21, "rotation": 4.42, "x": 35.03 },
 	{ "name": "bone3", "parent": "root", "length": 27.24, "rotation": 2.96, "x": -35.31, "y": -70.62 },
@@ -41,17 +41,17 @@
 					{ "time": 1, "color": "ffffffff" }
 				]
 			},
-			"1716623195164": {
+			"1716623200786": {
 				"color": [
-					{ "time": 0.3333, "color": "ffffffff" },
-					{ "time": 0.6, "color": "ffffff00", "curve": "stepped" },
+					{ "time": 0.2667, "color": "ffffff00", "curve": "stepped" },
 					{ "time": 0.8333, "color": "ffffff00" },
 					{ "time": 1, "color": "ffffffff" }
 				]
 			},
-			"1716623200786": {
+			"1716623195164": {
 				"color": [
-					{ "time": 0.2667, "color": "ffffff00", "curve": "stepped" },
+					{ "time": 0.3333, "color": "ffffffff" },
+					{ "time": 0.6, "color": "ffffff00", "curve": "stepped" },
 					{ "time": 0.8333, "color": "ffffff00" },
 					{ "time": 1, "color": "ffffffff" }
 				]
@@ -206,12 +206,12 @@
 	},
 	"l2": {
 		"slots": {
-			"1716623235309": {
+			"1716623230014": {
 				"color": [
 					{ "color": "ffffffff", "time": 0.0 }
 				]
 			},
-			"1716623230014": {
+			"1716623235309": {
 				"color": [
 					{ "color": "ffffffff", "time": 0.0 }
 				]
@@ -251,58 +251,6 @@
 	},
 	"new": {
 		"slots": {
-			"1716623211811": {
-				"color": [
-					{ "color": "ffffff00", "curve": "stepped", "time": 0.0 },
-					{
-						"time": 0.3667,
-						"color": "ffffff00",
-						"curve": [ 0.25, 0.0, 0.75, 1.0 ]
-					},
-					{ "time": 0.8333, "color": "ffffffff" }
-				]
-			},
-			"1716623188338": {
-				"color": [
-					{ "color": "ffffff00", "curve": "stepped", "time": 0.0 },
-					{
-						"time": 0.6667,
-						"color": "ffffff00",
-						"curve": [ 0.25, 0.0, 0.75, 1.0 ]
-					},
-					{ "time": 0.7667, "color": "ffffffff" }
-				]
-			},
-			"1716623195164": {
-				"color": [
-					{
-						"color": "ffffff00",
-						"curve": [ 0.25, 0.0, 0.75, 1.0 ],
-						"time": 0.0
-					},
-					{
-						"time": 0.6667,
-						"color": "ffffff00",
-						"curve": [ 0.25, 0.0, 0.75, 1.0 ]
-					},
-					{ "time": 0.8333, "color": "ffffffff" }
-				]
-			},
-			"1716623206445": {
-				"color": [
-					{
-						"color": "ffffff00",
-						"curve": [ 0.25, 0.0, 0.75, 1.0 ],
-						"time": 0.0
-					},
-					{
-						"time": 0.1667,
-						"color": "ffffff00",
-						"curve": [ 0.25, 0.0, 0.75, 1.0 ]
-					},
-					{ "time": 0.6, "color": "ffffffff" }
-				]
-			},
 			"1716623224570": {
 				"color": [
 					{
@@ -323,6 +271,32 @@
 					{ "time": 0.6667, "color": "ffffffff" }
 				]
 			},
+			"1716623188338": {
+				"color": [
+					{ "color": "ffffff00", "curve": "stepped", "time": 0.0 },
+					{
+						"time": 0.6667,
+						"color": "ffffff00",
+						"curve": [ 0.25, 0.0, 0.75, 1.0 ]
+					},
+					{ "time": 0.7667, "color": "ffffffff" }
+				]
+			},
+			"1716623206445": {
+				"color": [
+					{
+						"color": "ffffff00",
+						"curve": [ 0.25, 0.0, 0.75, 1.0 ],
+						"time": 0.0
+					},
+					{
+						"time": 0.1667,
+						"color": "ffffff00",
+						"curve": [ 0.25, 0.0, 0.75, 1.0 ]
+					},
+					{ "time": 0.6, "color": "ffffffff" }
+				]
+			},
 			"1716623200786": {
 				"color": [
 					{ "color": "ffffff00", "curve": "stepped", "time": 0.0 },
@@ -332,6 +306,32 @@
 						"curve": [ 0.25, 0.0, 0.75, 1.0 ]
 					},
 					{ "time": 0.6667, "color": "ffffffff" }
+				]
+			},
+			"1716623195164": {
+				"color": [
+					{
+						"color": "ffffff00",
+						"curve": [ 0.25, 0.0, 0.75, 1.0 ],
+						"time": 0.0
+					},
+					{
+						"time": 0.6667,
+						"color": "ffffff00",
+						"curve": [ 0.25, 0.0, 0.75, 1.0 ]
+					},
+					{ "time": 0.8333, "color": "ffffffff" }
+				]
+			},
+			"1716623211811": {
+				"color": [
+					{ "color": "ffffff00", "curve": "stepped", "time": 0.0 },
+					{
+						"time": 0.3667,
+						"color": "ffffff00",
+						"curve": [ 0.25, 0.0, 0.75, 1.0 ]
+					},
+					{ "time": 0.8333, "color": "ffffffff" }
 				]
 			}
 		},

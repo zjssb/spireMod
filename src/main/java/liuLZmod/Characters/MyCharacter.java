@@ -66,7 +66,7 @@ public class MyCharacter extends CustomPlayer {
 
         // 初始化你的人物，如果你的人物只有一张图，那么第一个参数填写你人物图片的路径。
         this.initializeClass(
-                "ModliuLZ/img/char/xgllz_2/skeleton.png", // 人物图片
+                "ModliuLZ/img/char/xgllz_3/skeleton.png", // 人物图片
                 MY_CHARACTER_SHOULDER_2, MY_CHARACTER_SHOULDER_1,
                 CORPSE_IMAGE, // 人物死亡图像
                 this.getLoadout(),
@@ -77,7 +77,7 @@ public class MyCharacter extends CustomPlayer {
 
 
         // 如果你的人物没有动画，那么这些不需要写
-        this.loadAnimation("ModliuLZ/img/char/xgllz_2/skeleton.atlas", "ModliuLZ/img/char/xgllz_2/skeleton37.json", 0.8F);
+        this.loadAnimation("ModliuLZ/img/char/xgllz_3/skeleton.atlas", "ModliuLZ/img/char/xgllz_3/skeleton37.json", 0.8F);
         /*AnimationState.TrackEntry e = this.state.setAnimation(0, "Idle", true);
         e.setTime(e.getEndTime() * MathUtils.random());
         e.setTimeScale(1.2F);*/

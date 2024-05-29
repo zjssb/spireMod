@@ -1,16 +1,16 @@
 {
 "skeleton": {
-	"hash": "jwrnJmAN5nesvAnRXPwAHDakIxk",
+	"hash": "rX5SBeU6SOMIgYgiyZWYb1aQF/Y",
 	"spine": "3.8.75",
-	"x": -129.5,
-	"y": -77.5,
-	"width": 259,
-	"height": 155.25,
+	"x": -259,
+	"y": -155,
+	"width": 518,
+	"height": 310.5,
 	"images": "./战争——贴图/",
 	"audio": ""
 },
 "bones": [
-	{ "name": "root", "scaleX": 0.5, "scaleY": 0.5 },
+	{ "name": "root", "scaleX": 0.3, "scaleY": 0.3 },
 	{ "name": "bone", "parent": "root", "length": 48.86, "rotation": 3.01, "x": 43.69, "y": 17.4 },
 	{ "name": "bone2", "parent": "bone", "length": 205.16, "rotation": 1.29, "x": 60.15, "y": 2.83 },
 	{ "name": "bone3", "parent": "bone", "length": 125.83, "rotation": -2.62, "x": -29.83, "y": 84.72 },
@@ -200,11 +200,6 @@
 	},
 	"idle": {
 		"slots": {
-			"1716621810572": {
-				"color": [
-					{ "color": "ffffff00" }
-				]
-			},
 			"1716621778511": {
 				"color": [
 					{ "color": "ffffff00" }
@@ -223,7 +218,40 @@
 					{ "color": "ffffff00" }
 				]
 			},
+			"1716621866313": {
+				"color": [
+					{ "color": "ffffff00" }
+				]
+			},
+			"1716621810572": {
+				"color": [
+					{ "color": "ffffff00" }
+				]
+			},
 			"1716621829628": {
+				"color": [
+					{ "color": "ffffff00" }
+				]
+			},
+			"1716621856045": {
+				"color": [
+					{ "color": "ffffff00" }
+				]
+			},
+			"1716621768805": {
+				"color": [
+					{ "color": "ffffff00" }
+				],
+				"attachment": [
+					{ "name": "1716621768805" }
+				]
+			},
+			"1716621823283": {
+				"color": [
+					{ "color": "ffffff00" }
+				]
+			},
+			"1716621815698": {
 				"color": [
 					{ "color": "ffffff00" }
 				]
@@ -233,12 +261,7 @@
 					{ "color": "ffffff00" }
 				]
 			},
-			"1716621823283": {
-				"color": [
-					{ "color": "ffffff00" }
-				]
-			},
-			"1716621866313": {
+			"1716621791284": {
 				"color": [
 					{ "color": "ffffff00" }
 				]
@@ -251,29 +274,6 @@
 			"1716621861315": {
 				"color": [
 					{ "color": "ffffff00" }
-				]
-			},
-			"1716621856045": {
-				"color": [
-					{ "color": "ffffff00" }
-				]
-			},
-			"1716621815698": {
-				"color": [
-					{ "color": "ffffff00" }
-				]
-			},
-			"1716621791284": {
-				"color": [
-					{ "color": "ffffff00" }
-				]
-			},
-			"1716621768805": {
-				"color": [
-					{ "color": "ffffff00" }
-				],
-				"attachment": [
-					{ "name": "1716621768805" }
 				]
 			}
 		}
@@ -298,16 +298,6 @@
 					{ "color": "ffffff00" }
 				]
 			},
-			"1716621872095": {
-				"color": [
-					{ "color": "ffffff00" }
-				]
-			},
-			"1716621861315": {
-				"color": [
-					{ "color": "ffffff00" }
-				]
-			},
 			"1716621856045": {
 				"color": [
 					{ "color": "ffffff00" }
@@ -319,6 +309,16 @@
 				],
 				"attachment": [
 					{ "name": "1716621768805" }
+				]
+			},
+			"1716621872095": {
+				"color": [
+					{ "color": "ffffff00" }
+				]
+			},
+			"1716621861315": {
+				"color": [
+					{ "color": "ffffff00" }
 				]
 			}
 		}
@@ -338,16 +338,6 @@
 					{ "color": "ffffff00" }
 				]
 			},
-			"1716621872095": {
-				"color": [
-					{ "color": "ffffff00" }
-				]
-			},
-			"1716621861315": {
-				"color": [
-					{ "color": "ffffff00" }
-				]
-			},
 			"1716621856045": {
 				"color": [
 					{ "color": "ffffff00" }
@@ -359,6 +349,16 @@
 				],
 				"attachment": [
 					{ "name": "1716621768805" }
+				]
+			},
+			"1716621872095": {
+				"color": [
+					{ "color": "ffffff00" }
+				]
+			},
+			"1716621861315": {
+				"color": [
+					{ "color": "ffffff00" }
 				]
 			}
 		}
@@ -383,6 +383,14 @@
 					{ "color": "ffffff00" }
 				]
 			},
+			"1716621768805": {
+				"color": [
+					{ "color": "ffffff00" }
+				],
+				"attachment": [
+					{ "name": "1716621768805" }
+				]
+			},
 			"1716621872095": {
 				"color": [
 					{ "color": "ffffff00" }
@@ -391,14 +399,6 @@
 			"1716621861315": {
 				"color": [
 					{ "color": "ffffff00" }
-				]
-			},
-			"1716621768805": {
-				"color": [
-					{ "color": "ffffff00" }
-				],
-				"attachment": [
-					{ "name": "1716621768805" }
 				]
 			}
 		}
@@ -423,11 +423,6 @@
 					{ "color": "ffffff00" }
 				]
 			},
-			"1716621872095": {
-				"color": [
-					{ "color": "ffffff00" }
-				]
-			},
 			"1716621856045": {
 				"color": [
 					{ "color": "ffffff00" }
@@ -439,6 +434,11 @@
 				],
 				"attachment": [
 					{ "name": "1716621768805" }
+				]
+			},
+			"1716621872095": {
+				"color": [
+					{ "color": "ffffff00" }
 				]
 			}
 		}
@@ -458,16 +458,6 @@
 					{ "color": "ffffff00" }
 				]
 			},
-			"1716621872095": {
-				"color": [
-					{ "color": "ffffff00" }
-				]
-			},
-			"1716621861315": {
-				"color": [
-					{ "color": "ffffff00" }
-				]
-			},
 			"1716621856045": {
 				"color": [
 					{ "color": "ffffff00" }
@@ -479,6 +469,16 @@
 				],
 				"attachment": [
 					{ "name": "1716621768805" }
+				]
+			},
+			"1716621872095": {
+				"color": [
+					{ "color": "ffffff00" }
+				]
+			},
+			"1716621861315": {
+				"color": [
+					{ "color": "ffffff00" }
 				]
 			}
 		}
@@ -503,11 +503,6 @@
 					{ "color": "ffffff00" }
 				]
 			},
-			"1716621861315": {
-				"color": [
-					{ "color": "ffffff00" }
-				]
-			},
 			"1716621856045": {
 				"color": [
 					{ "color": "ffffff00" }
@@ -520,14 +515,20 @@
 				"attachment": [
 					{ "name": "1716621768805" }
 				]
+			},
+			"1716621861315": {
+				"color": [
+					{ "color": "ffffff00" }
+				]
 			}
 		}
 	},
 	"new": {
 		"slots": {
-			"1716621810572": {
+			"1716621784696": {
 				"color": [
-					{ "color": "ffffff00" }
+					{ "color": "ffffff00" },
+					{ "time": 0.0667, "color": "ffffffff" }
 				]
 			},
 			"1716621778511": {
@@ -548,7 +549,40 @@
 					{ "color": "ffffff00" }
 				]
 			},
+			"1716621866313": {
+				"color": [
+					{ "color": "ffffff00" }
+				]
+			},
+			"1716621810572": {
+				"color": [
+					{ "color": "ffffff00" }
+				]
+			},
 			"1716621829628": {
+				"color": [
+					{ "color": "ffffff00" }
+				]
+			},
+			"1716621856045": {
+				"color": [
+					{ "color": "ffffff00" }
+				]
+			},
+			"1716621768805": {
+				"color": [
+					{ "color": "ffffff00" }
+				],
+				"attachment": [
+					{ "name": "1716621768805" }
+				]
+			},
+			"1716621823283": {
+				"color": [
+					{ "color": "ffffff00" }
+				]
+			},
+			"1716621815698": {
 				"color": [
 					{ "color": "ffffff00" }
 				]
@@ -558,12 +592,7 @@
 					{ "color": "ffffff00" }
 				]
 			},
-			"1716621823283": {
-				"color": [
-					{ "color": "ffffff00" }
-				]
-			},
-			"1716621866313": {
+			"1716621791284": {
 				"color": [
 					{ "color": "ffffff00" }
 				]
@@ -576,35 +605,6 @@
 			"1716621861315": {
 				"color": [
 					{ "color": "ffffff00" }
-				]
-			},
-			"1716621856045": {
-				"color": [
-					{ "color": "ffffff00" }
-				]
-			},
-			"1716621784696": {
-				"color": [
-					{ "color": "ffffff00" },
-					{ "time": 0.0667, "color": "ffffffff" }
-				]
-			},
-			"1716621815698": {
-				"color": [
-					{ "color": "ffffff00" }
-				]
-			},
-			"1716621791284": {
-				"color": [
-					{ "color": "ffffff00" }
-				]
-			},
-			"1716621768805": {
-				"color": [
-					{ "color": "ffffff00" }
-				],
-				"attachment": [
-					{ "name": "1716621768805" }
 				]
 			}
 		},
@@ -620,13 +620,6 @@
 	},
 	"new_2": {
 		"slots": {
-			"1716621810572": {
-				"color": [
-					{ "color": "ffffff00", "curve": "stepped" },
-					{ "time": 0.4, "color": "ffffff00" },
-					{ "time": 0.5, "color": "ffffffff" }
-				]
-			},
 			"1716621837069": {
 				"color": [
 					{ "color": "ffffff00" },
@@ -637,6 +630,18 @@
 			"1716621849928": {
 				"attachment": [
 					{ "name": null }
+				]
+			},
+			"1716621866313": {
+				"attachment": [
+					{ "name": null }
+				]
+			},
+			"1716621810572": {
+				"color": [
+					{ "color": "ffffff00", "curve": "stepped" },
+					{ "time": 0.4, "color": "ffffff00" },
+					{ "time": 0.5, "color": "ffffffff" }
 				]
 			},
 			"1716621829628": {
@@ -652,11 +657,9 @@
 					{ "time": 0.3, "color": "ffffffff" }
 				]
 			},
-			"1716621823283": {
-				"color": [
-					{ "color": "ffffff00", "curve": "stepped" },
-					{ "time": 0.4, "color": "ffffff00" },
-					{ "time": 0.5, "color": "ffffffff" }
+			"1716621856045": {
+				"attachment": [
+					{ "name": null }
 				]
 			},
 			"1716621815698": {
@@ -666,24 +669,11 @@
 					{ "time": 0.5, "color": "ffffffff" }
 				]
 			},
-			"1716621872095": {
-				"attachment": [
-					{ "name": null }
-				]
-			},
-			"1716621866313": {
-				"attachment": [
-					{ "name": null }
-				]
-			},
-			"1716621861315": {
-				"attachment": [
-					{ "name": null }
-				]
-			},
-			"1716621856045": {
-				"attachment": [
-					{ "name": null }
+			"1716621823283": {
+				"color": [
+					{ "color": "ffffff00", "curve": "stepped" },
+					{ "time": 0.4, "color": "ffffff00" },
+					{ "time": 0.5, "color": "ffffffff" }
 				]
 			},
 			"1716621791284": {
@@ -691,6 +681,16 @@
 					{ "color": "ffffff00", "curve": "stepped" },
 					{ "time": 0.3333, "color": "ffffff00" },
 					{ "time": 0.5, "color": "ffffffff" }
+				]
+			},
+			"1716621872095": {
+				"attachment": [
+					{ "name": null }
+				]
+			},
+			"1716621861315": {
+				"attachment": [
+					{ "name": null }
 				]
 			}
 		},

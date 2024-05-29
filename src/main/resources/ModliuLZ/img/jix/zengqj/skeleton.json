@@ -1,16 +1,16 @@
 {
 "skeleton": {
-	"hash": "8OvDFTN+ekLIubinlSDPjrlYOz8",
+	"hash": "PmmXZFS28dUXoFJb1vZEPuIRn+Q",
 	"spine": "3.8.75",
-	"x": -128,
-	"y": -128,
-	"width": 256,
-	"height": 256,
-	"images": "D:/Slay the Spire Mods/动画/llz/蹲",
+	"x": -89.6,
+	"y": -89.6,
+	"width": 179.2,
+	"height": 179.2,
+	"images": "./蹲/",
 	"audio": ""
 },
 "bones": [
-	{ "name": "root", "scaleX": 0.7, "scaleY": 0.7 },
+	{ "name": "root", "scaleX": 0.4, "scaleY": 0.4 },
 	{ "name": "bone", "parent": "root", "length": 16.66, "rotation": 84.81, "x": 20.18, "y": -27.18 },
 	{ "name": "bone2", "parent": "root", "length": 20, "rotation": 87.84, "x": 21.31, "y": 2.23 },
 	{ "name": "bone3", "parent": "root", "length": 21.11, "rotation": 90, "x": 21.69, "y": 34.27 }
@@ -120,16 +120,16 @@
 	},
 	"l1": {
 		"slots": {
+			"1716623000964": {
+				"color": [
+					{ "color": "ffffffff" }
+				]
+			},
 			"1716622984817": {
 				"color": [
 					{ "color": "ffffffff" },
 					{ "time": 1.3333, "color": "ffffff00" },
 					{ "time": 2.6667, "color": "ffffffff" }
-				]
-			},
-			"1716623000964": {
-				"color": [
-					{ "color": "ffffffff" }
 				]
 			}
 		}
@@ -141,16 +141,16 @@
 					{ "color": "ffffffff" }
 				]
 			},
+			"1716623000964": {
+				"color": [
+					{ "color": "ffffffff" }
+				]
+			},
 			"1716622984817": {
 				"color": [
 					{ "color": "ffffffff" },
 					{ "time": 1.3333, "color": "ffffff00" },
 					{ "time": 2.6667, "color": "ffffffff" }
-				]
-			},
-			"1716623000964": {
-				"color": [
-					{ "color": "ffffffff" }
 				]
 			}
 		}
@@ -162,6 +162,11 @@
 					{ "color": "ffffffff" }
 				]
 			},
+			"1716623000964": {
+				"color": [
+					{ "color": "ffffffff" }
+				]
+			},
 			"1716623010962": {
 				"color": [
 					{ "color": "ffffffff" }
@@ -172,18 +177,23 @@
 					{ "color": "ffffffff" },
 					{ "time": 1.3333, "color": "ffffff00" },
 					{ "time": 2.6667, "color": "ffffffff" }
-				]
-			},
-			"1716623000964": {
-				"color": [
-					{ "color": "ffffffff" }
 				]
 			}
 		}
 	},
 	"l4": {
 		"slots": {
+			"1716623017449": {
+				"color": [
+					{ "color": "ffffffff" }
+				]
+			},
 			"1716623005797": {
+				"color": [
+					{ "color": "ffffffff" }
+				]
+			},
+			"1716623000964": {
 				"color": [
 					{ "color": "ffffffff" }
 				]
@@ -199,22 +209,24 @@
 					{ "time": 1.3333, "color": "ffffff00" },
 					{ "time": 2.6667, "color": "ffffffff" }
 				]
-			},
-			"1716623017449": {
-				"color": [
-					{ "color": "ffffffff" }
-				]
-			},
-			"1716623000964": {
-				"color": [
-					{ "color": "ffffffff" }
-				]
 			}
 		}
 	},
 	"new": {
 		"slots": {
+			"1716622990294": {
+				"color": [
+					{ "color": "ffffff00" },
+					{ "time": 0.1333, "color": "ffffffff" }
+				]
+			},
 			"1716622995876": {
+				"color": [
+					{ "color": "ffffff00" },
+					{ "time": 0.3333, "color": "ffffffff" }
+				]
+			},
+			"1716622973996": {
 				"color": [
 					{ "color": "ffffff00" },
 					{ "time": 0.3333, "color": "ffffffff" }
@@ -224,18 +236,6 @@
 				"color": [
 					{ "color": "ffffff00" },
 					{ "time": 0.6667, "color": "ffffffff" }
-				]
-			},
-			"1716622973996": {
-				"color": [
-					{ "color": "ffffff00" },
-					{ "time": 0.3333, "color": "ffffffff" }
-				]
-			},
-			"1716622990294": {
-				"color": [
-					{ "color": "ffffff00" },
-					{ "time": 0.1333, "color": "ffffffff" }
 				]
 			}
 		},

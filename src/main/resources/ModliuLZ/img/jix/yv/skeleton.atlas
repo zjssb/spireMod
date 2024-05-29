@@ -6,10 +6,10 @@ filter: Linear,Linear
 repeat: none
 1716623188338
   rotate: true
-  xy: 47, 66
-  size: 52, 26
+  xy: 47, 65
+  size: 53, 26
   orig: 256, 256
-  offset: 36, 126
+  offset: 35, 126
   index: -1
 1716623195164
   rotate: true
@@ -55,14 +55,14 @@ repeat: none
   index: -1
 1716623230014
   rotate: false
-  xy: 47, 34
+  xy: 47, 33
   size: 30, 30
   orig: 256, 256
   offset: 113, 51
   index: -1
 1716623235309
   rotate: false
-  xy: 47, 8
+  xy: 47, 7
   size: 24, 24
   orig: 256, 256
   offset: 153, 151

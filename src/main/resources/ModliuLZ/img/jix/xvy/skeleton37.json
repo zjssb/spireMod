@@ -1,16 +1,16 @@
 {
 "skeleton": {
-	"hash": "spyKu7X3OlE/Mqh4zltyMWYv0oU",
+	"hash": "6Su0B3lbQJZXzkU7yKbLwv6gfag",
 	"spine": "3.8.75",
-	"x": -80,
-	"y": -80,
-	"width": 160,
-	"height": 160,
+	"x": -60,
+	"y": -60,
+	"width": 120,
+	"height": 120,
 	"images": "./影/",
 	"audio": ""
 },
 "bones": [
-	{ "name": "root", "scaleX": 0.8, "scaleY": 0.8 },
+	{ "name": "root", "scaleX": 0.6, "scaleY": 0.6 },
 	{ "name": "bone", "parent": "root", "length": 22.55, "rotation": 89.35, "x": -12.1, "y": 8.08 },
 	{ "name": "bone2", "parent": "root", "length": 16.16, "rotation": -87.27, "x": -11.58, "y": -17.8 },
 	{ "name": "bone3", "parent": "root", "length": 27.22, "rotation": -86.22, "x": -35.16, "y": -27.28 },
@@ -165,11 +165,11 @@
 					{ "time": 0.1667, "color": "ffffffff" }
 				]
 			},
-			"1716623334561": {
+			"1716623352270": {
 				"color": [
 					{ "color": "ffffff00", "curve": "stepped", "time": 0.0 },
-					{ "time": 0.1667, "color": "ffffff00" },
-					{ "time": 0.3333, "color": "ffffffff" }
+					{ "time": 0.4333, "color": "ffffff00" },
+					{ "time": 0.6333, "color": "ffffffff" }
 				]
 			},
 			"1716623340247": {
@@ -186,25 +186,25 @@
 					{ "time": 0.3333, "color": "ffffffff" }
 				]
 			},
-			"1716623345366": {
-				"color": [
-					{ "color": "ffffff00", "curve": "stepped", "time": 0.0 },
-					{ "time": 0.3333, "color": "ffffff00" },
-					{ "time": 0.5, "color": "ffffffff" }
-				]
-			},
-			"1716623352270": {
-				"color": [
-					{ "color": "ffffff00", "curve": "stepped", "time": 0.0 },
-					{ "time": 0.4333, "color": "ffffff00" },
-					{ "time": 0.6333, "color": "ffffffff" }
-				]
-			},
 			"1716623357565": {
 				"color": [
 					{ "color": "ffffff00", "curve": "stepped", "time": 0.0 },
 					{ "time": 0.4333, "color": "ffffff00" },
 					{ "time": 0.6333, "color": "ffffffff" }
+				]
+			},
+			"1716623334561": {
+				"color": [
+					{ "color": "ffffff00", "curve": "stepped", "time": 0.0 },
+					{ "time": 0.1667, "color": "ffffff00" },
+					{ "time": 0.3333, "color": "ffffffff" }
+				]
+			},
+			"1716623345366": {
+				"color": [
+					{ "color": "ffffff00", "curve": "stepped", "time": 0.0 },
+					{ "time": 0.3333, "color": "ffffff00" },
+					{ "time": 0.5, "color": "ffffffff" }
 				]
 			}
 		},
