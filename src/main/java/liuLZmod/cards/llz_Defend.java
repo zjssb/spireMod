@@ -46,8 +46,8 @@ public class llz_Defend extends CustomCard {
            addToBot(new GainBlockAction(p, p, this.block));
            }
     public AbstractCard makeCopy() {
-        /* 44 */     return new llz_Defend();
-        /*    */   }
+             return new llz_Defend();
+           }
 
 
      }

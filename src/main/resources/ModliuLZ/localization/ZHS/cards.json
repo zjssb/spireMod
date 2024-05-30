@@ -18,8 +18,8 @@
   },
   "llz_popsl": {
     "NAME": "破片手雷",
-    "DESCRIPTION": "随机对敌人造成 !D! 点伤害 !M! 次。 NL 受到 !llzmod:sz! 点伤害。",
-    "UPGRADE_DESCRIPTION": "随机对敌人造成 !D! 点伤害 !M! 次。 NL 受到 !llzmod:sz! 点伤害。"
+    "DESCRIPTION": "随机对敌人造成 !D! 点伤害 !M! 次。 NL 受到 *5 点伤害。",
+    "UPGRADE_DESCRIPTION": "随机对敌人造成 !D! 点伤害 !M! 次。 NL 受到 *8 点伤害。"
   },
   "llz_testCard": {
     "NAME": "测试卡牌",
@@ -36,7 +36,7 @@
   },
   "llz_leis": {
     "NAME": "镭射",
-    "DESCRIPTION": "对所有敌人造成 !M! 点 伤害 。 NL 消耗 。"
+    "DESCRIPTION": "对所有敌人造成 !D! 点 伤害 。 NL 消耗 。"
   },
   "llz_anwz": {
     "NAME": "暗物质",
@@ -53,5 +53,22 @@
   "llz_beny": {
     "NAME": "本源",
     "DESCRIPTION": "改造抽牌堆所有牌 。 NL 消耗 。"
+  },
+  "llz_lians": {
+    "NAME": "碾碎",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 给予 !M! 层 易伤 ，如果敌人的意图是攻击，再给予 !M! 层 虚弱 。"
+  },
+  "llz_dunj": {
+    "NAME": "钝击",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 获得 !B! 点 格挡 。"
+  },
+  "llz_qianc": {
+    "NAME": "潜藏",
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 获得一张粘液。"
+  },
+  "llz_moryy": {
+    "NAME": "末日预演",
+    "DESCRIPTION": "第7回合后才能打出。 NL 对所有敌人造成 !D! 点伤害。获得 [E] [E] [E] 。",
+    "UPGRADE_DESCRIPTION": "#r时机未到。 "
   }
 }

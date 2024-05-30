@@ -35,6 +35,8 @@ public class liuLZMod implements EditCardsSubscriber, EditStringsSubscriber , Ed
     private static final String big_orb = "ModliuLZ/img/char/card_orb.png";
     private static final String energy_orb = "ModliuLZ/img/char/cost_orb.png";
     public static final Color MY_COLOR = new Color(134.0F / 255.0F, 137.0F / 255.0F, 220.0F / 255.0F, 1.0F);
+    public static final String a_image ="ModliuLZ/img/vfx/gaiz.png";
+
     public liuLZMod() {
         BaseMod.subscribe(this);
         BaseMod.addColor(MyCharacter.Enums.EXAMPLE_CARD, MY_COLOR, MY_COLOR, MY_COLOR,
@@ -63,6 +65,10 @@ public class liuLZMod implements EditCardsSubscriber, EditStringsSubscriber , Ed
         BaseMod.addCard(new llz_jiangz());
         BaseMod.addCard(new llz_cuih());
         BaseMod.addCard(new llz_beny());
+        BaseMod.addCard(new llz_lians());
+        BaseMod.addCard(new llz_dunj());
+        BaseMod.addCard(new llz_qianc());
+        BaseMod.addCard(new llz_moryy());
         BaseMod.addCard(new llz_testCard());
         BaseMod.addCard(new llz_testCard2());
 

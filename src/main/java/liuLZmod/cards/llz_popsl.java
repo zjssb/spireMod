@@ -61,7 +61,7 @@ public class llz_popsl extends CustomCard {
         AbstractDungeon.actionManager.addToBottom((AbstractGameAction)new zjDamageAction(new DamageInfo((AbstractCreature)AbstractDungeon.player, this.zjdamage, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
     }
     public AbstractCard makeCopy() {
-        /* 44 */     return new llz_popsl();
-        /*    */   }
+             return new llz_popsl();
+           }
 
 }
