@@ -51,7 +51,6 @@ public class liuLZMod implements EditCardsSubscriber, EditStringsSubscriber , Ed
     @Override
     public void receiveEditCards() {
         // 向basemod注册卡牌
-        BaseMod.addDynamicVariable(new MyVariable());
         BaseMod.addDynamicVariable((DynamicVariable)new DefaultSecondMagicNumber());
         BaseMod.addCard(new llz_Strike());
         BaseMod.addCard(new llz_Defend());
