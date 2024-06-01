@@ -72,5 +72,10 @@
   "llz_yinqhm": {
     "NAME": "引擎轰鸣",
     "DESCRIPTION": "抽 !M! 张牌。 NL 超额的抽牌数将会随机 llzmod:改造 手牌。 NL 这张牌被 llzmod:改造 时，抽牌数加2。"
+  },
+  "llz_diedq": {
+    "NAME": "迭代器",
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL llzmod:改造 手中所有状态牌。",
+    "UPGRADE_DESCRIPTION": "获得 !B! 点 格挡 。 NL llzmod:改造 所有手牌。"
   }
 }
