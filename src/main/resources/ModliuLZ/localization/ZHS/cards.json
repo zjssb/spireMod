@@ -64,5 +64,13 @@
     "NAME": "末日预演",
     "DESCRIPTION": "第7回合后才能打出。 NL 对所有敌人造成 !D! 点伤害。获得 [E] [E] [E] 。",
     "UPGRADE_DESCRIPTION": "#r时机未到。 "
+  },
+  "llz_gangthl": {
+    "NAME": "钢铁洪流",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 随机对敌人造成 !D! 点伤害2次。 NL 对所有敌人造成 !D! 点伤害3次。"
+  },
+  "llz_yinqhm": {
+    "NAME": "引擎轰鸣",
+    "DESCRIPTION": "抽 !M! 张牌。 NL 超额的抽牌数将会随机 llzmod:改造 手牌。 NL 这张牌被 llzmod:改造 时，抽牌数加2。"
   }
 }

@@ -1,11 +1,11 @@
 {
 "skeleton": {
-	"hash": "810T9Dou9Nqc1t0e6AR1YanSzjE",
+	"hash": "ms1fZKBxo7Dqz/o5oOhoU6uh5qw",
 	"spine": "3.8.75",
-	"x": -128,
-	"y": -128,
-	"width": 256,
-	"height": 256,
+	"x": -51.2,
+	"y": -51.2,
+	"width": 102.4,
+	"height": 102.4,
 	"images": "./saow/",
 	"audio": ""
 },
@@ -47,7 +47,15 @@
 			}
 		}
 	},
-	"l1": {},
+	"l1": {
+		"slots": {
+			"1716008673285": {
+				"attachment": [
+					{ "time": 0.1667, "name": "1716008678705" }
+				]
+			}
+		}
+	},
 	"l2": {
 		"slots": {
 			"1716008673285": {
