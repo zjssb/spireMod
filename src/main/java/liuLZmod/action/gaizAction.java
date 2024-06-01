@@ -36,7 +36,7 @@ public class gaizAction extends AbstractGameAction {
             }
             if(card.baseBlock >0){
                 card.baseBlock += a;
-                if(Objects.equals(card.cardID, "llz_yinqhm") && card.magicNumber <100){
+                if(Objects.equals(card.cardID, "llz_yinqhm") && card.magicNumber <99){
                     card.magicNumber +=a;card.baseMagicNumber +=2;
                 }else if(Objects.equals(card.cardID, "llz_feixv")){
                     addToBot((AbstractGameAction)new MakeTempCardInDrawPileAction((AbstractCard)new llz_leis(), 1, true, true));

@@ -34,7 +34,7 @@ public class AllGaizAction extends AbstractGameAction {
 
                 if (!eligibleCards.isEmpty()) {
                     AbstractCard selectedCard = eligibleCards.get(AbstractDungeon.cardRandomRng.random(eligibleCards.size() - 1));
-                    addToBot(new gaizAction(p, selectedCard, "hand", 1));
+                    addToTop(new gaizAction(p, selectedCard, "hand", 1));
                     AbstractDungeon.effectList.add(new FineTuningEffect(selectedCard));
                 }
             }else  if (times > 0) {
