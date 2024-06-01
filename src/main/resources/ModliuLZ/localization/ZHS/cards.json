@@ -77,5 +77,9 @@
     "NAME": "迭代器",
     "DESCRIPTION": "获得 !B! 点 格挡 。 NL llzmod:改造 手中所有状态牌。",
     "UPGRADE_DESCRIPTION": "获得 !B! 点 格挡 。 NL llzmod:改造 所有手牌。"
+  },
+  "llz_feixv": {
+    "NAME": "废墟",
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 这张牌被 llzmod:改造 时，将一张镭射放入抽牌堆。"
   }
 }

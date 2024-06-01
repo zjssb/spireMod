@@ -1,6 +1,7 @@
 package liuLZmod.action;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -35,6 +36,11 @@ public class gaizAction extends AbstractGameAction {
             }
             if(card.baseBlock >0){
                 card.baseBlock += a;
+                if(Objects.equals(card.cardID, "llz_yinqhm") && card.magicNumber <100){
+                    card.magicNumber +=a;card.baseMagicNumber +=2;
+                }else if(Objects.equals(card.cardID, "llz_feixv")){
+                    addToBot((AbstractGameAction)new MakeTempCardInDrawPileAction((AbstractCard)new llz_leis(), 1, true, true));
+                }
             }
             if (card.type == AbstractCard.CardType.STATUS) {
                 replaceCardInGroup(AbstractDungeon.player, groupType);
