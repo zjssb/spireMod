@@ -27,7 +27,7 @@ public class llz_diedq extends CustomCard {
 
     public llz_diedq() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.baseBlock = 7;
+        this.baseBlock = 8;
         this.magicNumber = this.baseMagicNumber = -1;
     }
 
@@ -35,7 +35,6 @@ public class llz_diedq extends CustomCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeBlock(1);
             upgradeMagicNumber(2);
             this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();

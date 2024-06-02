@@ -81,5 +81,9 @@
   "llz_feixv": {
     "NAME": "废墟",
     "DESCRIPTION": "获得 !B! 点 格挡 。 NL 这张牌被 llzmod:改造 时，将一张镭射放入抽牌堆。"
+  },
+  "llz_guns": {
+    "NAME": "滚石",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 依次攻击下一个敌人，每次加 !M! 点伤害。"
   }
 }

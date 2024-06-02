@@ -41,7 +41,7 @@ public class llz_gangthl extends CustomCard {
 
     public llz_gangthl() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.damage = this.baseDamage = 5;
+        this.damage = this.baseDamage = 4;
         this.isMultiDamage = true;
     }
 
