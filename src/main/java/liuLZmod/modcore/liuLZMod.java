@@ -69,6 +69,7 @@ public class liuLZMod implements EditCardsSubscriber, EditStringsSubscriber , Ed
         BaseMod.addCard(new llz_dunj());
         BaseMod.addCard(new llz_qianc());
         BaseMod.addCard(new llz_moryy());
+        BaseMod.addCard(new llz_dianHQG());
         BaseMod.addCard(new llz_testCard());
         BaseMod.addCard(new llz_testCard2());
 

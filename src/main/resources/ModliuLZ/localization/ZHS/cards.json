@@ -21,10 +21,10 @@
     "DESCRIPTION": "随机对敌人造成 !D! 点伤害 !M! 次。 NL 受到 *5 点伤害。",
     "UPGRADE_DESCRIPTION": "随机对敌人造成 !D! 点伤害 !M! 次。 NL 受到 *8 点伤害。"
   },
-  "llz_testCard": {
-    "NAME": "测试卡牌",
-    "DESCRIPTION": "测试",
-    "UPGRADE_DESCRIPTION": "升级描述"
+  "llz_dianHQG": {
+    "NAME": "电弧切割",
+    "DESCRIPTION": "造成 !D! 点伤害 NL 消耗。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL 消耗 NL 保留"
   },
   "llz_hej": {
     "NAME": "合金",

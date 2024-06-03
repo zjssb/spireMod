@@ -30,7 +30,6 @@ public class CardPatch {
                 // 对x牌单独判断
                cost = c.energyOnUse;
             }
-
             abstract_llz_jiXie.addEnergy(cost);
         }
     }

@@ -27,9 +27,11 @@ public abstract class abstract_llz_jiXie extends CustomMonster {
      */
     public AbstractCreature target = null;
     /**
-     * 是否拥有机械能力标志
+     * 是否拥有机械标志
      */
-    public static boolean isHasJiXiePower = false;
+    public static boolean isHasJiXie = false;
+    /**判断生成第一个机械的行动，生效一次*/
+    public static boolean isFirst = false;
     /**
      * 充能
      */
@@ -38,6 +40,7 @@ public abstract class abstract_llz_jiXie extends CustomMonster {
      * 触发能量
      */
     public static int maxEnergy = 1;
+
     /**
      * 每个派生的机械类，都需要向其注册
      */
@@ -70,16 +73,16 @@ public abstract class abstract_llz_jiXie extends CustomMonster {
      * 机械注册函数
      */
     public static void addJiXie(abstract_llz_jiXie jiXie) {
-        if (!isHasJiXiePower) {
-            isHasJiXiePower = true;
+        if (!isHasJiXie) {
+            isHasJiXie = true;
         }
         jiXie_list.add(jiXie);
     }
 
     /**
-     * 继承类必须重写这个方法。\n
-     * （派生类）增加充能，并检测充能是否触发条件。'*'
-     * （基类） 调用注册类的 addEnergy 方法。'*'
+     * 继承类必须重写这个方法。
+     * （派生类）增加充能，并检测充能是否触发条件。
+     * （基类） 调用注册类的 addEnergy 方法。
      * num：充能层数
      */
     public static void addEnergy(int num) {
