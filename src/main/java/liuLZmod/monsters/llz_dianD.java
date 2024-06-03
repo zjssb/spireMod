@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.monsters.MonsterGroup;
 import liuLZmod.monsters.abstracrt.abstract_llz_jiXie;
 import liuLZmod.patches.testPatch;
 import liuLZmod.powers.dianDaoPower;
+import liuLZmod.vfx.SuEffect;
 import liuLZmod.vfx.morEffect;
 
 /**
@@ -33,7 +34,7 @@ public class llz_dianD extends abstract_llz_jiXie {
     @Override
     public void update() {
         super.update();
-        AbstractDungeon.effectsQueue.add(new morEffect(DD.drawX, DD.drawY));
+        SuEffect.play(DD.drawX, DD.drawY,energy,1,true);
     }
 
     /**
