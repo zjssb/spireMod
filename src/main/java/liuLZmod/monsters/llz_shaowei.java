@@ -65,15 +65,16 @@ public class llz_shaowei extends abstract_llz_jiXie {
      * 相对于角色
      */
     public final static List<Point> positions = new ArrayList<Point>() {{
-        add(new Point(100, 0));
-        add(new Point(150, 100));
-        add(new Point(150, 200));
-        add(new Point(100, 300));
-        add(new Point(150, 400));
-        add(new Point(100, 400));
-        add(new Point(100, 300));
-        add(new Point(0, 200));
-        add(new Point(0, 100));
+        add(new Point(240, 70));
+        add(new Point(-185, 260));
+        add(new Point(190, 280));
+        add(new Point(-200, 30));
+        add(new Point(190, 130));
+        add(new Point(-50, 320));
+        add(new Point(-210, 190));
+        add(new Point(-150, 120));
+        add(new Point(50, 250));
+        add(new Point(-100, 280));
     }};
 
 
