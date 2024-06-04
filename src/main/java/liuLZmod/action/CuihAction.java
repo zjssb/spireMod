@@ -9,6 +9,9 @@ import liuLZmod.vfx.FineTuningEffect;
 
 import java.util.ArrayList;
 
+/**
+ * 淬火行动
+ */
 public class CuihAction extends AbstractGameAction {
     public static final String[] TEXT = new String[]{""};
     private final int a;

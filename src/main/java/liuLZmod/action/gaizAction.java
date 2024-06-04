@@ -15,7 +15,7 @@ import java.util.Objects;
  * 改造
  */
 public class gaizAction extends AbstractGameAction {
-    private final int a;//改造数值
+    private final int a;//改造次数
     private AbstractPlayer player;
     private AbstractCard card;
     private String groupType; // 牌堆类型信息
@@ -30,22 +30,25 @@ public class gaizAction extends AbstractGameAction {
 
     @Override
     public void update() {
-        if (card != null) {
-            if(card.baseDamage >0){
-                card.baseDamage += a;
-            }
-            if(card.baseBlock >0){
-                card.baseBlock += a;
-                if(Objects.equals(card.cardID, "llz_yinqhm") && card.magicNumber <99){
-                    card.magicNumber +=a;card.baseMagicNumber +=2;
-                }else if(Objects.equals(card.cardID, "llz_feixv")){
-                    addToBot((AbstractGameAction)new MakeTempCardInDrawPileAction((AbstractCard)new llz_leis(), 1, true, true));
+        for(int i =0;i<a;i++){
+            if (card != null) {
+                if (card.baseDamage > 0) {
+                    card.baseDamage += 1;
                 }
+                if (card.baseBlock > 0) {
+                    card.baseBlock += 1;
+                    if (Objects.equals(card.cardID, "llz_yinqhm") && card.magicNumber < 99) {
+                        card.magicNumber += 2;
+                        card.baseMagicNumber += 2;
+                    } else if (Objects.equals(card.cardID, "llz_feixv")) {
+                        addToBot((AbstractGameAction) new MakeTempCardInDrawPileAction((AbstractCard) new llz_leis(), 1, true, true));
+                    }
+                }
+                if (card.type == AbstractCard.CardType.STATUS) {
+                    replaceCardInGroup(AbstractDungeon.player, groupType);
+                }
+                card.applyPowers();
             }
-            if (card.type == AbstractCard.CardType.STATUS) {
-                replaceCardInGroup(AbstractDungeon.player, groupType);
-            }
-            card.applyPowers();
         }
         isDone = true;
     }
@@ -83,9 +86,10 @@ public class gaizAction extends AbstractGameAction {
                     newCard = new llz_leis();
                 } else if (Objects.equals(card.cardID, "Void")) {
                     newCard = new llz_anwz();
-                }else {card.magicNumber +=a;card.baseMagicNumber +=a;}
+                }else {card.magicNumber +=1;card.baseMagicNumber +=1;}
                 if (newCard != null) {
                     cardGroup.group.set(cardGroup.group.indexOf(card), newCard);
+                    card = newCard;
                 }
                 break;
             }
