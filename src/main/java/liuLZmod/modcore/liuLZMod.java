@@ -74,6 +74,7 @@ public class liuLZMod implements EditCardsSubscriber, EditStringsSubscriber , Ed
         BaseMod.addCard(new llz_feixv());
         BaseMod.addCard(new llz_guns());
         BaseMod.addCard(new llz_duocdd());
+        BaseMod.addCard(new llz_miaossj());
     }
     // 当开始添加人物时，调用这个方法
     @Override

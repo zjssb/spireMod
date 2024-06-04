@@ -89,5 +89,9 @@
   "llz_duocdd": {
     "NAME": "多重锻打",
     "DESCRIPTION": "将一张手牌 llzmod:改造 !M! 次 。 NL 消耗 。"
+  },
+  "llz_miaossj": {
+    "NAME": "秒速射击",
+    "DESCRIPTION": "造成 !D! 点伤害 !M! 次。 NL 打出其他手牌时，本回合少造成一次伤害。"
   }
 }

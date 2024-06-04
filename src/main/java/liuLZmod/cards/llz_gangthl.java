@@ -23,6 +23,7 @@ import com.megacrit.cardcrawl.vfx.combat.GrandFinalEffect;
 import com.megacrit.cardcrawl.vfx.combat.ThrowDaggerEffect;
 import com.megacrit.cardcrawl.vfx.combat.WhirlwindEffect;
 import liuLZmod.Characters.MyCharacter;
+import liuLZmod.vfx.SeJiEffect;
 
 /**
  * 钢铁洪流
@@ -61,7 +62,7 @@ public class llz_gangthl extends CustomCard {
         addToBot((AbstractGameAction)new SFXAction("ATTACK_WHIRLWIND"));
         addToBot((AbstractGameAction)new VFXAction((AbstractGameEffect)new WhirlwindEffect(), 0.0F));
         addToBot((AbstractGameAction)new DamageAction((AbstractCreature)m, new DamageInfo((AbstractCreature)p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
-        addToTop((AbstractGameAction)new VFXAction((AbstractGameEffect)new ThrowDaggerEffect(m.hb.cX, m.hb.cY)));
+        addToBot((AbstractGameAction)new VFXAction((AbstractGameEffect)new SeJiEffect(m.hb.cX, m.hb.cY)));
         for (int i = 0; i < 2; i++) {
             addToBot((AbstractGameAction)new AttackDamageRandomEnemyAction(this, AbstractGameAction.AttackEffect.FIRE));
         }
