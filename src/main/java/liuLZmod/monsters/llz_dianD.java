@@ -34,7 +34,7 @@ public class llz_dianD extends abstract_llz_jiXie {
     @Override
     public void update() {
         super.update();
-        SuEffect.play(DD.drawX, DD.drawY,energy,1,true);
+        SuEffect.play(DD.drawX, DD.drawY -30,energy,1,true);
     }
 
     /**
@@ -43,12 +43,12 @@ public class llz_dianD extends abstract_llz_jiXie {
     public static void SpawnMinion() {
         if (DD == null) {
             DD = new llz_dianD();
-            DD.drawX = AbstractDungeon.player.drawX - 50;
-            DD.drawY = AbstractDungeon.player.drawY;
+            DD.drawX = AbstractDungeon.player.drawX - 60;
+            DD.drawY = AbstractDungeon.player.drawY + 80;
             DD.init();
             MonsterGroup monsters = testPatch.f_minions.get(AbstractDungeon.player);
             monsters.monsters.add(DD);
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(DD, AbstractDungeon.player, new dianDaoPower(DD)));
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new dianDaoPower(AbstractDungeon.player)));
             isFirst = true;
         }
     }

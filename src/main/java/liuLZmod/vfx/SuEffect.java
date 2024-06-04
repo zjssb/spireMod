@@ -3,9 +3,13 @@ package liuLZmod.vfx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 import com.megacrit.cardcrawl.vfx.TextAboveCreatureEffect;
 
+/**
+ * 数字显示
+ */
 public class SuEffect extends AbstractGameEffect {
 
     private static SuEffect instance;
@@ -17,11 +21,11 @@ public class SuEffect extends AbstractGameEffect {
     private boolean blueText;
 
     public SuEffect(float x, float y, int a, int b, boolean blueText) {
-        this.x = x;
-        this.y = y;
-        this.a = a;
-        this.b = b;
-        this.blueText = blueText;
+        this.x = x;//坐标
+        this.y = y;//坐标
+        this.a = a;//显示数
+        this.b = b;//乘数，为1不显示
+        this.blueText = blueText;//是否染色
     }
 
     public static void play(float x, float y, int a, int b, boolean blueText) {
@@ -30,14 +34,17 @@ public class SuEffect extends AbstractGameEffect {
     }
 
     public void update() {
-        AbstractDungeon.topLevelEffectsQueue.remove(this); // Remove previous instance, if any
-        String text = (b == 1) ? String.valueOf(a) : (a + " × " + b);
-        Color textColor = (blueText) ? Color.BLUE : Color.WHITE;
-        AbstractDungeon.topLevelEffectsQueue.add(new SimpleTextEffect(x, y, text, textColor));
-        isDone = true; // Mark as done after displaying the effect
+        AbstractDungeon.topLevelEffectsQueue.remove(this);
+        isDone = true;
     }
 
-    public void render(SpriteBatch sb) {}
+    public void render(SpriteBatch sb) {
+        String text = (b == 1) ? String.valueOf(a) : (a + " × " + b);
+        Color textColor = (blueText) ? Color.BLUE : Color.WHITE;
+        if (!this.isDone) {
+            FontHelper.renderFontCentered(sb, FontHelper.losePowerFont, text, x, y, textColor);
+        }
+    }
 
     public void dispose() {}
 }
