@@ -6,6 +6,9 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.GetAllInBattleInstances;
 import java.util.UUID;
 
+/**
+ * 传奇打击属性提升
+ */
 public class CuanQDJAction extends AbstractGameAction {
     private int miscIncrease;
     private UUID uuid;
