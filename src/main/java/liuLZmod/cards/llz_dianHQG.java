@@ -10,7 +10,6 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import liuLZmod.Abstract.AbstractMyCard;
 import liuLZmod.Characters.MyCharacter;
 
 /**

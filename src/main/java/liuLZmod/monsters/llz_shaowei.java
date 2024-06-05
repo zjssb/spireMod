@@ -1,7 +1,9 @@
 package liuLZmod.monsters;
 
 import com.esotericsoftware.spine.AnimationState;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ChangeStateAction;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -234,8 +236,17 @@ public class llz_shaowei extends abstract_llz_jiXie {
      * num: 哨卫的个数（攻击次数）。
      */
     public static void act(int num) {
-        actAnimation();
-        AbstractDungeon.actionManager.addToBottom(new shaoweiAction(new DamageInfo(AbstractDungeon.player, attackDmg, DamageInfo.DamageType.THORNS), num));
+        List<llz_shaowei> monsters = shaoweiList.stream().filter(sw -> !sw.isDeath).collect(Collectors.toList());
+        int i = 0;
+        for (llz_shaowei sw : monsters) {
+            AbstractMonster m = AbstractDungeon.getRandomMonster();
+            AbstractDungeon.actionManager.addToTop(new ChangeStateAction(sw, "gj"));
+            AbstractDungeon.actionManager.addToTop(new DamageAction(m, new DamageInfo(AbstractDungeon.player, attackDmg, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+            AbstractDungeon.actionManager.addToTop(new WaitAction(0.1F * i));
+            i++;
+        }
+//        actAnimation();
+//        AbstractDungeon.actionManager.addToBottom(new shaoweiAction(new DamageInfo(AbstractDungeon.player, attackDmg, DamageInfo.DamageType.THORNS), num));
     }
 
     /**
