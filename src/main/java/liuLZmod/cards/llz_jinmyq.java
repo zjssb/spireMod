@@ -17,21 +17,21 @@ import liuLZmod.Characters.MyCharacter;
 import liuLZmod.powers.rour;
 
 /**
- * 植被生长
+ * 精密仪器
  */
-public class llz_zibsz extends CustomCard {
-    public static final String ID = "llz_zibsz";
+public class llz_jinmyq extends CustomCard {
+    public static final String ID = "llz_jinmyq";
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String NAME = CARD_STRINGS.NAME;
-    private static final String IMG_PATH = "ModliuLZ/img/cards_2/zibsz.png";
+    private static final String IMG_PATH = "ModliuLZ/img/cards_2/husz.png";
     private static final int COST = 1;
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION;
     private static final CardType TYPE = CardType.POWER;
     private static final CardColor COLOR = MyCharacter.Enums.EXAMPLE_CARD;
-    private static final CardRarity RARITY = CardRarity.UNCOMMON;
+    private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.SELF;
 
-    public llz_zibsz() {
+    public llz_jinmyq() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.magicNumber = this.baseMagicNumber = 2;
     }
@@ -51,8 +51,8 @@ public class llz_zibsz extends CustomCard {
         addToBot((AbstractGameAction)new ApplyPowerAction((AbstractCreature)p, (AbstractCreature)p, (AbstractPower)new rour((AbstractCreature)p, this.magicNumber), this.magicNumber));
     }
     public AbstractCard makeCopy() {
-             return new llz_zibsz();
-           }
+        return new llz_jinmyq();
+    }
 
 
 }

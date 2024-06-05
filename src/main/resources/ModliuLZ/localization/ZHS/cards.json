@@ -93,5 +93,25 @@
   "llz_miaossj": {
     "NAME": "秒速射击",
     "DESCRIPTION": "造成 !D! 点伤害 !M! 次。 NL 打出其他手牌时，本回合少造成一次伤害。"
+  },
+  "llz_cisb": {
+    "NAME": "次声波",
+    "DESCRIPTION": "对所有敌人造成 !D! 点 伤害 。 NL 消灭爪牙。"
+  },
+  "llz_hundbc": {
+    "NAME": "混沌摆锤",
+    "DESCRIPTION": "造成 !D! 点伤害2次。 NL 每回合加一点伤害。"
+  },
+  "llz_jinmyq": {
+    "NAME": "精密仪器",
+    "DESCRIPTION": "每回合打出的第一张攻击牌伤害翻倍。"
+  },
+  "llz_wujcf": {
+    "NAME": "无惧冲锋",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 在boss和精英战时，获得 !B! 点 格挡 。"
+  },
+  "llz_cuanqdj": {
+    "NAME": "传奇打击",
+    "DESCRIPTION": "造成 !D! 点伤害 !M! 次。 NL 进入boss或精英战时，本局游戏中分别增加这张牌的攻击次数和伤害。"
   }
 }
