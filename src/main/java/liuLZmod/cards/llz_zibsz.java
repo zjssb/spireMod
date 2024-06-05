@@ -16,6 +16,9 @@ import com.megacrit.cardcrawl.powers.AccuracyPower;
 import liuLZmod.Characters.MyCharacter;
 import liuLZmod.powers.rour;
 
+/**
+ * 植被生长
+ */
 public class llz_zibsz extends CustomCard {
     public static final String ID = "llz_zibsz";
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);

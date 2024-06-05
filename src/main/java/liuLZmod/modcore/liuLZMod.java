@@ -1,6 +1,7 @@
 package liuLZmod.modcore;
 
 import basemod.BaseMod;
+import basemod.abstracts.DynamicVariable;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -12,7 +13,7 @@ import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import liuLZmod.Characters.MyCharacter;
-import liuLZmod.Variable.MyVariable;
+import liuLZmod.Variable.DefaultSecondMagicNumber;
 import liuLZmod.cards.*;
 import liuLZmod.monsters.llz_shaowei;
 import liuLZmod.relics.MyRelic;
@@ -52,7 +53,7 @@ public class liuLZMod implements EditCardsSubscriber, EditStringsSubscriber , Ed
     @Override
     public void receiveEditCards() {
         // 向basemod注册卡牌
-        BaseMod.addDynamicVariable(new MyVariable());
+        BaseMod.addDynamicVariable((DynamicVariable)new DefaultSecondMagicNumber());
         BaseMod.addCard(new llz_Strike());
         BaseMod.addCard(new llz_Defend());
         BaseMod.addCard(new llz_sike());
@@ -69,6 +70,13 @@ public class liuLZMod implements EditCardsSubscriber, EditStringsSubscriber , Ed
         BaseMod.addCard(new llz_dunj());
         BaseMod.addCard(new llz_qianc());
         BaseMod.addCard(new llz_moryy());
+        BaseMod.addCard(new llz_gangthl());
+        BaseMod.addCard(new llz_yinqhm());
+        BaseMod.addCard(new llz_diedq());
+        BaseMod.addCard(new llz_feixv());
+        BaseMod.addCard(new llz_guns());
+        BaseMod.addCard(new llz_duocdd());
+        BaseMod.addCard(new llz_miaossj());
         BaseMod.addCard(new llz_dianHQG());
         BaseMod.addCard(new llz_testCard());
         BaseMod.addCard(new llz_testCard2());

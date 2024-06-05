@@ -37,14 +37,15 @@ public class llz_moryy extends CustomCard {
 
     public llz_moryy() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.damage = this.baseDamage = 1;
+        this.damage = this.baseDamage = 30;
+        this.magicNumber = this.baseMagicNumber = 7;
     }
 
     @Override
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeDamage(11);
+            upgradeMagicNumber(-1);
         }
 
     }
@@ -65,7 +66,7 @@ public class llz_moryy extends CustomCard {
 
     }
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {
-             if (GameActionManager.turn < 7) {
+             if (GameActionManager.turn < 2) {
                    this.cantUseMessage = CARD_STRINGS.UPGRADE_DESCRIPTION;
                    return false;
                  }
