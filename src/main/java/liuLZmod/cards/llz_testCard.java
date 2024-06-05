@@ -42,6 +42,6 @@ public class llz_testCard extends CustomCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
 //        addToBot((AbstractGameAction)new DamageAction((AbstractCreature)m, new DamageInfo((AbstractCreature)p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
         llz_dianD.SpawnMinion();
-//        llz_shaowei.SpawnMinion();
+        llz_shaowei.SpawnMinion();
     }
 }
