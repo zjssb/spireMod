@@ -29,7 +29,7 @@ public class llz_zhengQJ extends abstract_llz_jiXie {
 
     private static final int maxEnergy = 5;
     public static llz_zhengQJ ZQJ = null;
-    public static Point position = new Point(100, 80);
+    public static Point position = new Point(-110, 200);
     public static boolean isFirst = true;
 
     public llz_zhengQJ() {
