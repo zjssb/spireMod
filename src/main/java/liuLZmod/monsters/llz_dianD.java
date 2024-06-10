@@ -1,30 +1,33 @@
 package liuLZmod.monsters;
 
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.MonsterGroup;
+import liuLZmod.cards.llz_dianHQG;
 import liuLZmod.monsters.abstracrt.abstract_llz_jiXie;
-import liuLZmod.patches.testPatch;
-import liuLZmod.powers.dianDaoPower;
+import liuLZmod.patches.JiXieGroupPatch;
+import liuLZmod.util.Point;
 import liuLZmod.vfx.SuEffect;
-import liuLZmod.vfx.morEffect;
 
 /**
  * llz_diand:机械-电刀
  */
 public class llz_dianD extends abstract_llz_jiXie {
 
-    public final static String NAME = "电刀";
+    public final static String NAME = "dianDao";
 
     /**
      * 充能
      */
     private static int energy = 0;
 
+    public static int maxEnergy = 1;
     public static llz_dianD DD = null;
 
+    public static Point position=new Point(-60,80);
+
     public llz_dianD() {
-        super(NAME, "llz_diand", 10, -8.0F, 10.0F, 200F, 200F, (String) null, 0, 0);
+        super(NAME, "llz_diand", 10, -8.0F, 10.0F, 200F, 200F, null, 0, 0);
         this.loadAnimation("ModliuLZ/img/jix/diand/skeleton.atlas", "ModliuLZ/img/jix/diand/skeleton37.json", 1F);
         this.state.setAnimation(0, "new", false);
         this.state.addAnimation(0, "idle", true, 0F);
@@ -43,20 +46,20 @@ public class llz_dianD extends abstract_llz_jiXie {
     public static void SpawnMinion() {
         if (DD == null) {
             DD = new llz_dianD();
-            DD.drawX = AbstractDungeon.player.drawX - 60;
-            DD.drawY = AbstractDungeon.player.drawY + 80;
+            DD.drawX = AbstractDungeon.player.drawX - position.x;
+            DD.drawY = AbstractDungeon.player.drawY + position.y;
             DD.init();
-            MonsterGroup monsters = testPatch.f_minions.get(AbstractDungeon.player);
+            MonsterGroup monsters = JiXieGroupPatch.f_minions.get(AbstractDungeon.player);
             monsters.monsters.add(DD);
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new dianDaoPower(AbstractDungeon.player)));
-            isFirst = true;
+//            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(DD, AbstractDungeon.player, new dianDaoPower(AbstractDungeon.player)));
+//            isFirst = true;
         }
     }
 
     /**
      * 移除充能
      */
-    public static void clearEnergy() {
+    public static void lossEnergy() {
         energy = 0;
     }
 
@@ -69,10 +72,10 @@ public class llz_dianD extends abstract_llz_jiXie {
     }
 
     public static void addEnergy(int num) {
-        if (isFirst) {
-            isFirst = false;
-            return;
-        }
+//        if (isFirst) {
+//            isFirst = false;
+//            return;
+//        }
         if (DD == null) {
             return;
         }
@@ -84,6 +87,11 @@ public class llz_dianD extends abstract_llz_jiXie {
         setEnergy(0);
         DD = null;
     }
+
+    public static void act(){
+        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new llz_dianHQG(llz_dianD.getEnergy()*10)));
+    }
+
 
     @Override
     public void takeTurn() {

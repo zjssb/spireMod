@@ -19,8 +19,6 @@ public class CardPatch {
     public static class usePatch {
         public usePatch() {
         }
-
-
         public static void Postfix(AbstractPlayer player, AbstractCard c, AbstractMonster monster, int energyOnUse) {
             if(c.purgeOnUse){
                 return;

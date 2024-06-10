@@ -4,6 +4,7 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
@@ -46,11 +47,13 @@ public class dianDaoPower extends AbstractPower {
     }
     public void atStartOfTurn() {
         // 发牌
-        addToBot(new MakeTempCardInHandAction(new llz_dianHQG(llz_dianD.getEnergy()*10)));
     }//触发时机：当玩家回合开始时触发。
 
+    public static void StartOfTurn(){
+//        AbstractDungeon.actionManager.addToTurnStart(new MakeTempCardInHandAction(new llz_dianHQG(llz_dianD.getEnergy()*10)));
+    }
+
     public int onLoseHp(final int damageAmount) {
-        llz_dianD.clearEnergy();
         return damageAmount;
     }//触发时机：当失去生命值时，返回伤害数值，可用来修改伤害数值。
 }

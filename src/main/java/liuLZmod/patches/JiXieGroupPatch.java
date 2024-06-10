@@ -14,7 +14,7 @@ import com.megacrit.cardcrawl.monsters.MonsterGroup;
         cls = "com.megacrit.cardcrawl.characters.AbstractPlayer",
         method = "<class>"
 )
-public class testPatch {
+public class JiXieGroupPatch {
     private static Integer maxMinions = Integer.MAX_VALUE;
     private static MonsterGroup minions = new MonsterGroup(new AbstractMonster[0]);
     public static SpireField<Integer> f_maxMinions = new SpireField(() -> {
@@ -24,6 +24,6 @@ public class testPatch {
         return minions;
     });
 
-    public testPatch() {
+    public JiXieGroupPatch() {
     }
 }
