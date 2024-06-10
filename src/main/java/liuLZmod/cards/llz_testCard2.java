@@ -38,6 +38,6 @@ public class llz_testCard2 extends CustomCard {
 
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
-        llz_zhengQJ.act();
+//        llz_zhengQJ.act();
     }
 }

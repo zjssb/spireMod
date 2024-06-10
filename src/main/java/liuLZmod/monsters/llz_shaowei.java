@@ -94,7 +94,6 @@ public class llz_shaowei extends abstract_llz_jiXie {
         this.stateData.setMix("gj", "idle", 0.3f);
         this.stateData.setMix("idle", "gj", 0.2f);
 
-
         this.damage.add(new DamageInfo(this, attackDmg));
 
         this.setMove("测试", (byte) 4, Intent.NONE);
@@ -127,36 +126,11 @@ public class llz_shaowei extends abstract_llz_jiXie {
     public void takeTurn() {
     }
 
-    public void update() {
-        super.update();
-    }
-
-    @Override
-    public void die() {
-        super.die();
-
-    }
-
-    @Override
-    public void die(boolean triggerRelics) {
-        super.die(false);
-
-    }
-
-    /**
-     * 使用开局动作
-     */
-    @Override
-    public void usePreBattleAction() {
-
-    }
-
     /**
      * 获取行动
      */
     @Override
     protected void getMove(int i) {
-//        this.setMove("测试", (byte) 0, Intent.DEBUG);
     }
 
     /**
@@ -200,10 +174,10 @@ public class llz_shaowei extends abstract_llz_jiXie {
      * 能量增加
      */
     public static void addEnergy(int num) {
-//        if (isFirst) {
-//            isFirst = false;
-//            return;
-//        }
+        if (isFirst) {
+            isFirst = false;
+            return;
+        }
         int ans = 0;
         for (llz_shaowei m : shaoweiList) {
             if (!m.isDeath) {
@@ -237,6 +211,9 @@ public class llz_shaowei extends abstract_llz_jiXie {
     public static void act() {
         List<llz_shaowei> monsters = shaoweiList.stream().filter(sw -> !sw.isDeath).collect(Collectors.toList());
         int i = 0;
+        if (monsters.size() == 0) {
+            return;
+        }
         for (llz_shaowei sw : monsters) {
             AbstractMonster m = AbstractDungeon.getRandomMonster();
             AbstractDungeon.actionManager.addToBottom(new ChangeStateAction(sw, "gj"));

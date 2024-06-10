@@ -1,13 +1,16 @@
 package liuLZmod.monsters;
 
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.ChangeStateAction;
+import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.MonsterGroup;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
+import com.megacrit.cardcrawl.vfx.combat.IntimidateEffect;
 import liuLZmod.monsters.abstracrt.abstract_llz_jiXie;
 import liuLZmod.patches.JiXieGroupPatch;
 import liuLZmod.util.Point;
@@ -24,9 +27,10 @@ public class llz_zhengQJ extends abstract_llz_jiXie {
      */
     private static int energy = 0;
 
-    public static Point position = new Point(100, 80);
     private static final int maxEnergy = 5;
     public static llz_zhengQJ ZQJ = null;
+    public static Point position = new Point(100, 80);
+    public static boolean isFirst = true;
 
     public llz_zhengQJ() {
         super(NAME, "llz_diand", 10, -8.0F, 10.0F, 200F, 200F, null, 0, 0);
@@ -46,7 +50,7 @@ public class llz_zhengQJ extends abstract_llz_jiXie {
             MonsterGroup monsters = JiXieGroupPatch.f_minions.get(AbstractDungeon.player);
             monsters.monsters.add(ZQJ);
             ZQJ.addToBot(new ChangeStateAction(ZQJ, "new"));
-//            isFirst = true;
+            isFirst = true;
         }
     }
 
@@ -61,6 +65,10 @@ public class llz_zhengQJ extends abstract_llz_jiXie {
     }
 
     public static void addEnergy(int num) {
+        if(isFirst){
+            isFirst= false;
+            return;
+        }
         if (ZQJ == null) {
             return;
         }
@@ -75,6 +83,11 @@ public class llz_zhengQJ extends abstract_llz_jiXie {
     }
 
     public static void act() {
+        if (ZQJ == null) {
+            return;
+        }
+        ZQJ.addToBot(new SFXAction("INTIMIDATE"));
+        ZQJ.addToBot(new VFXAction(ZQJ, new IntimidateEffect(ZQJ.hb.cX, ZQJ.hb.cY), 1.0F));
         ZQJ.addToBot(new ChangeStateAction(ZQJ, "att"));
         AbstractMonster m = AbstractDungeon.getRandomMonster();
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, ZQJ, new VulnerablePower(m, 1, false)));

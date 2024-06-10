@@ -24,8 +24,9 @@ public class llz_dianD extends abstract_llz_jiXie {
     public static int maxEnergy = 1;
     public static llz_dianD DD = null;
 
-    public static Point position=new Point(-60,80);
+    public static Point position = new Point(-60, 80);
 
+    public static boolean isFirst = true;
     public llz_dianD() {
         super(NAME, "llz_diand", 10, -8.0F, 10.0F, 200F, 200F, null, 0, 0);
         this.loadAnimation("ModliuLZ/img/jix/diand/skeleton.atlas", "ModliuLZ/img/jix/diand/skeleton37.json", 1F);
@@ -37,7 +38,7 @@ public class llz_dianD extends abstract_llz_jiXie {
     @Override
     public void update() {
         super.update();
-        SuEffect.play(DD.drawX, DD.drawY -30,energy,1,true);
+        SuEffect.play(DD.drawX, DD.drawY - 30, energy, 1, true);
     }
 
     /**
@@ -46,13 +47,12 @@ public class llz_dianD extends abstract_llz_jiXie {
     public static void SpawnMinion() {
         if (DD == null) {
             DD = new llz_dianD();
-            DD.drawX = AbstractDungeon.player.drawX - position.x;
+            DD.drawX = AbstractDungeon.player.drawX + position.x;
             DD.drawY = AbstractDungeon.player.drawY + position.y;
             DD.init();
             MonsterGroup monsters = JiXieGroupPatch.f_minions.get(AbstractDungeon.player);
             monsters.monsters.add(DD);
-//            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(DD, AbstractDungeon.player, new dianDaoPower(AbstractDungeon.player)));
-//            isFirst = true;
+            isFirst = true;
         }
     }
 
@@ -72,15 +72,15 @@ public class llz_dianD extends abstract_llz_jiXie {
     }
 
     public static void addEnergy(int num) {
-//        if (isFirst) {
-//            isFirst = false;
-//            return;
-//        }
+        if (isFirst) {
+            isFirst = false;
+            return;
+        }
         if (DD == null) {
             return;
         }
         int energy = getEnergy() + num;
-        setEnergy(Math.max(0,energy));
+        setEnergy(Math.max(0, energy));
     }
 
     public static void clear() {
@@ -88,8 +88,11 @@ public class llz_dianD extends abstract_llz_jiXie {
         DD = null;
     }
 
-    public static void act(){
-        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new llz_dianHQG(llz_dianD.getEnergy()*10)));
+    public static void act() {
+        if (DD == null) {
+            return;
+        }
+        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new llz_dianHQG(llz_dianD.getEnergy() * 10)));
     }
 
 
