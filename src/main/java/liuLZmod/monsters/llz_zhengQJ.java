@@ -1,6 +1,8 @@
 package liuLZmod.monsters;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.ChangeStateAction;
+import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.MonsterGroup;
@@ -29,9 +31,7 @@ public class llz_zhengQJ extends abstract_llz_jiXie {
     public llz_zhengQJ() {
         super(NAME, "llz_diand", 10, -8.0F, 10.0F, 200F, 200F, null, 0, 0);
         this.loadAnimation("ModliuLZ/img/jix/zengqj/skeleton.atlas", "ModliuLZ/img/jix/zengqj/skeleton37.json", 1F);
-        this.state.setAnimation(0, "new", false);
-        this.state.addAnimation(0, "l0", true, 0F);
-
+        this.addToBot(new ChangeStateAction(this, "new"));
     }
 
     /**
@@ -45,7 +45,7 @@ public class llz_zhengQJ extends abstract_llz_jiXie {
             ZQJ.init();
             MonsterGroup monsters = JiXieGroupPatch.f_minions.get(AbstractDungeon.player);
             monsters.monsters.add(ZQJ);
-//            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(DD, AbstractDungeon.player, new dianDaoPower(AbstractDungeon.player)));
+            ZQJ.addToBot(new ChangeStateAction(ZQJ, "new"));
 //            isFirst = true;
         }
     }
@@ -57,7 +57,7 @@ public class llz_zhengQJ extends abstract_llz_jiXie {
     public static void setEnergy(int energy) {
         llz_zhengQJ.energy = energy;
         String l = "l" + getEnergy();
-        ZQJ.state.setAnimation(0, l, true);
+        ZQJ.addToBot(new ChangeStateAction(ZQJ, l));
     }
 
     public static void addEnergy(int num) {
@@ -66,20 +66,54 @@ public class llz_zhengQJ extends abstract_llz_jiXie {
         }
         int energy = getEnergy() + num;
         if (energy >= maxEnergy) {
+            act();
             energy = 0;
             setEnergy(energy);
-            act();
             return;
         }
         setEnergy(Math.max(0, energy));
     }
 
     public static void act() {
-        ZQJ.state.setAnimation(0, "att", false);
-        ZQJ.state.addAnimation(0, "l0", true,0F);
+        ZQJ.addToBot(new ChangeStateAction(ZQJ, "att"));
         AbstractMonster m = AbstractDungeon.getRandomMonster();
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, ZQJ, new VulnerablePower(m, 1, false)));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, ZQJ, new WeakPower(m, 1, false)));
+    }
+
+    public static void clear() {
+        setEnergy(0);
+        ZQJ = null;
+    }
+
+    @Override
+    public void changeState(String stateName) {
+        float time;
+        switch (stateName) {
+            case "new":
+                time = this.state.setAnimation(0, "new", false).getTime();
+                addToBot(new WaitAction(time));
+                break;
+            case "l0":
+                this.state.setAnimation(0, "l0", true);
+                break;
+            case "l1":
+                this.state.setAnimation(0, "l1", true);
+                break;
+            case "l2":
+                this.state.setAnimation(0, "l2", true);
+                break;
+            case "l3":
+                this.state.setAnimation(0, "l3", true);
+                break;
+            case "l4":
+                this.state.setAnimation(0, "l4", true);
+                break;
+            case "att":
+                time = this.state.setAnimation(0, "att", false).getTime();
+                addToBot(new WaitAction(time));
+                break;
+        }
     }
 
     static {
