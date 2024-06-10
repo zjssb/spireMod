@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import liuLZmod.Characters.MyCharacter;
 import liuLZmod.monsters.*;
+import liuLZmod.monsters.abstracrt.abstract_llz_jiXie;
 
 /**
  * llz_testCard2: 测试卡牌2
@@ -39,5 +40,6 @@ public class llz_testCard2 extends CustomCard {
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
 //        llz_zhengQJ.act();
+        abstract_llz_jiXie.lossAllEnergy(3);
     }
 }

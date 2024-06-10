@@ -96,7 +96,7 @@ public class llz_shaowei extends abstract_llz_jiXie {
 
         this.damage.add(new DamageInfo(this, attackDmg));
 
-        this.setMove("测试", (byte) 4, Intent.NONE);
+        this.setMove("", (byte) 0, Intent.NONE);
 
     }
 
@@ -204,6 +204,12 @@ public class llz_shaowei extends abstract_llz_jiXie {
         }
     }
 
+    @Override
+    public void lossEnergy(int num) {
+        int energy = getEnergy()-num;
+        setEnergy(Math.max(0,energy));
+    }
+
     /**
      * 机械行动方法。
      * num: 哨卫的个数（攻击次数）。
@@ -294,6 +300,11 @@ class shaoweiT extends abstract_llz_jiXie {
 
     @Override
     protected void getMove(int i) {
+
+    }
+
+    @Override
+    public void lossEnergy(int num) {
 
     }
 }

@@ -27,18 +27,21 @@ public class llz_dianD extends abstract_llz_jiXie {
     public static Point position = new Point(-60, 80);
 
     public static boolean isFirst = true;
+
     public llz_dianD() {
         super(NAME, "llz_diand", 10, -8.0F, 10.0F, 200F, 200F, null, 0, 0);
         this.loadAnimation("ModliuLZ/img/jix/diand/skeleton.atlas", "ModliuLZ/img/jix/diand/skeleton37.json", 1F);
         this.state.setAnimation(0, "new", false);
         this.state.addAnimation(0, "idle", true, 0F);
-
+        this.setMove("", (byte) 0, Intent.NONE);
     }
 
     @Override
     public void update() {
         super.update();
-        SuEffect.play(DD.drawX, DD.drawY - 30, energy, 1, true);
+        if (DD != null) {
+            SuEffect.play(DD.drawX, DD.drawY - 30, energy, 1, true);
+        }
     }
 
     /**
@@ -80,6 +83,12 @@ public class llz_dianD extends abstract_llz_jiXie {
             return;
         }
         int energy = getEnergy() + num;
+        setEnergy(Math.max(0, energy));
+    }
+
+    @Override
+    public void lossEnergy(int num) {
+        int energy = getEnergy() - num;
         setEnergy(Math.max(0, energy));
     }
 

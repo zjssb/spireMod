@@ -36,12 +36,10 @@ public class llz_testCard extends CustomCard {
 
     }
 
-
-
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-//        llz_shaowei.SpawnMinion();
+        llz_shaowei.SpawnMinion();
 //        llz_dianD.SpawnMinion();
-//        llz_zhengQJ.SpawnMinion();
+        llz_zhengQJ.SpawnMinion();
     }
 }

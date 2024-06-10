@@ -98,6 +98,24 @@ public abstract class abstract_llz_jiXie extends CustomMonster {
             }
         }
     }
+    /**损失充能*/
+    public abstract void lossEnergy(int num);
+
+
+    /**所有机械损失充能*/
+    public static void lossAllEnergy(int num){
+        Class<?> cls;
+        Method method;
+        for (abstract_llz_jiXie jiXie : jiXie_list) {
+            cls = jiXie.getClass();
+            try {
+                method = cls.getMethod("lossEnergy", int.class);
+                method.invoke(jiXie,num);
+            } catch (NoSuchMethodException | InvocationTargetException | IllegalAccessException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
 
     /**
      * 行动动画方法

@@ -33,9 +33,10 @@ public class llz_zhengQJ extends abstract_llz_jiXie {
     public static boolean isFirst = true;
 
     public llz_zhengQJ() {
-        super(NAME, "llz_diand", 10, -8.0F, 10.0F, 200F, 200F, null, 0, 0);
+        super(NAME, "llz_zhengQiJi", 10, -8.0F, 10.0F, 200F, 200F, null, 0, 0);
         this.loadAnimation("ModliuLZ/img/jix/zengqj/skeleton.atlas", "ModliuLZ/img/jix/zengqj/skeleton37.json", 1F);
         this.addToBot(new ChangeStateAction(this, "new"));
+        this.setMove("", (byte) 0, Intent.NONE);
     }
 
     /**
@@ -80,6 +81,12 @@ public class llz_zhengQJ extends abstract_llz_jiXie {
             return;
         }
         setEnergy(Math.max(0, energy));
+    }
+
+    @Override
+    public void lossEnergy(int num) {
+        int energy = getEnergy()-num;
+        setEnergy(Math.max(0,energy));
     }
 
     public static void act() {
