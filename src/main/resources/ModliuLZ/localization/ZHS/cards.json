@@ -46,7 +46,8 @@
   },
   "llz_beny": {
     "NAME": "本源",
-    "DESCRIPTION": "改造抽牌堆所有牌 。 NL 消耗 。"
+    "DESCRIPTION": "改造抽牌堆所有牌。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION":"固有 。 NL 改造抽牌堆所有牌。 NL 消耗 。"
   },
   "llz_lians": {
     "NAME": "碾碎",
@@ -113,5 +114,14 @@
   "llz_cuanqdj": {
     "NAME": "传奇打击",
     "DESCRIPTION": "造成 !D! 点伤害 !M! 次。 NL 进入boss或精英战时，本局游戏中分别增加这张牌的攻击次数和伤害。"
+  },
+  "llz_zuzbx": {
+    "NAME": "诅咒宝箱",
+    "DESCRIPTION": "不能被打出 。 NL 加入牌组时，获得 !M! 金币，获得一个遗物。",
+    "UPGRADE_DESCRIPTION":"不能被打出 。 NL 加入牌组时，获得 !M! 金币，获得一个遗物。 NL 虚无 。"
+  },
+  "llz_touzcl": {
+    "NAME": "投掷齿轮",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 丢弃一张牌，抽一张同类型的牌。"
   }
 }
