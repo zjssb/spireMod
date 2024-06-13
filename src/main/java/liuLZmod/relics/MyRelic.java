@@ -13,7 +13,7 @@ public class MyRelic extends CustomRelic {
     // 遗物ID
     public static final String ID = "llz:MyRelic";
     // 图片路径
-    private static final String IMG_PATH = "ModliuLZ/img/relics/yiwu.png";
+    private static final String IMG_PATH = "ModliuLZ/img/relics/zallc.png";
     // 遗物类型
     private static final RelicTier RELIC_TIER = RelicTier.STARTER;
     // 点击音效
