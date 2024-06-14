@@ -28,4 +28,7 @@ public class EnumPatch {
     public static AbstractGameAction.AttackEffect HERMIT_GHOSTFIRE;
     @SpireEnum
     public static AbstractGameAction.AttackEffect CUIH_GJ;
+    @SpireEnum
+    public static AbstractGameAction.AttackEffect ZUANGJZQ_GJ;
+
 }
