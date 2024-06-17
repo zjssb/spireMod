@@ -4,48 +4,48 @@ import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
+import com.megacrit.cardcrawl.actions.common.InstantKillAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
-import com.megacrit.cardcrawl.cards.colorless.Apotheosis;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
-import com.megacrit.cardcrawl.vfx.combat.ThrowDaggerEffect;
+import com.megacrit.cardcrawl.vfx.combat.ShockWaveEffect;
 import liuLZmod.Characters.MyCharacter;
-import liuLZmod.action.miaossjAction;
-import liuLZmod.vfx.SeJiEffect;
 
+/**
+ * 次声波
+ */
 
-public class llz_miaossj extends CustomCard {
-    public static final String ID = "llz_miaossj";
+public class llz_cisb extends CustomCard {
+    public static final String ID = "llz_cisb";
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String NAME = CARD_STRINGS.NAME;
-    private static final String IMG_PATH = "ModliuLZ/img/cards_2/miaossj.png";
+    private static final String IMG_PATH = "ModliuLZ/img/cards_2/cisb.png";
     private static final int COST = 1;
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION;
     private static final CardType TYPE = CardType.ATTACK;
     private static final CardColor COLOR = MyCharacter.Enums.EXAMPLE_CARD;
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
-    private static final CardTarget TARGET = CardTarget.ENEMY;
-    int count;
+    private static final CardTarget TARGET = CardTarget.SELF;
 
-    public llz_miaossj() {
+    public llz_cisb() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.damage = this.baseDamage = 2;
-        this.magicNumber = this.baseMagicNumber = 4;
-        count =4;
+        this.damage = this.baseDamage = 8;
+        this.isMultiDamage = true;
     }
 
     @Override
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            upgradeMagicNumber(2);
-            count = 6;
+            this.upgradeDamage(3);
             this.initializeDescription();
         }
 
@@ -55,24 +55,16 @@ public class llz_miaossj extends CustomCard {
     @Override
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        for(int i=0;i<this.magicNumber;i++){
-            addToTop((AbstractGameAction)new VFXAction((AbstractGameEffect)new SeJiEffect(m.hb.cX, m.hb.cY)));
-            addToTop((AbstractGameAction) new DamageAction((AbstractCreature) m, new DamageInfo((AbstractCreature) p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.NONE));
+        addToBot((AbstractGameAction)new VFXAction((AbstractCreature)p, (AbstractGameEffect)new ShockWaveEffect(p.hb.cX, p.hb.cY, Settings.GREEN_TEXT_COLOR, ShockWaveEffect.ShockWaveType.CHAOTIC), 0.5F));
+        addToBot((AbstractGameAction)new DamageAllEnemiesAction((AbstractCreature)p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
+        for (int i = 0; i < AbstractDungeon.getCurrRoom().monsters.monsters.size(); i++) {
+            if (AbstractDungeon.getCurrRoom().monsters.monsters.get(i) != null && AbstractDungeon.getCurrRoom().monsters.monsters.get(i).hasPower("Minion")) {
+                addToBot((AbstractGameAction)new InstantKillAction(AbstractDungeon.getCurrRoom().monsters.monsters.get(i)));
+            }
         }
-
-
     }
-    public void triggerOnOtherCardPlayed(final AbstractCard c) {
-        magicNumber--;
-        baseMagicNumber--;
-    }
-    public void atTurnStart() {addToBot(new miaossjAction(count,this));
-    }
-    /*public void triggerOnEndOfPlayerTurn() {
-        addToBot(new miaossjAction(count,this));
-    }*/
     public AbstractCard makeCopy() {
-        return new llz_miaossj();
+        return new llz_cisb();
     }
 
 }
