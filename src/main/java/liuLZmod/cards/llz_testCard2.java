@@ -1,6 +1,7 @@
 package liuLZmod.cards;
 
 import basemod.abstracts.CustomCard;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -12,6 +13,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import liuLZmod.Characters.MyCharacter;
 import liuLZmod.monster.abstracrt.abstract_llz_jiXie;
 import liuLZmod.monster.llz_yuQ;
+import liuLZmod.powers.llz_shengNaPower;
 
 /**
  * llz_testCard2: 测试卡牌2

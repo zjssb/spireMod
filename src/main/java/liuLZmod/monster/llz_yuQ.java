@@ -1,12 +1,17 @@
 package liuLZmod.monster;
 
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ChangeStateAction;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.MonsterGroup;
 import liuLZmod.monster.abstracrt.abstract_llz_jiXie;
 import liuLZmod.patches.JiXieGroupPatch;
+import liuLZmod.powers.llz_shengNaPower;
 import liuLZmod.util.Point;
 
 /**
@@ -34,6 +39,8 @@ public class llz_yuQ extends abstract_llz_jiXie {
      * 攻击次数，每次重复生成加2
      */
     public static int count = 2;
+
+    public static int damage = 2;
 
     public llz_yuQ() {
         super(NAME, ID, 10, -8.0F, 10.0F, 200F, 200F, null, 0, 0);
@@ -100,7 +107,16 @@ public class llz_yuQ extends abstract_llz_jiXie {
 
     public static void act() {
         YQ.addToBot(new ChangeStateAction(YQ, "att"));
-
+            if(llz_shengNaPower.m != null && llz_shengNaPower.m.hasPower(llz_shengNaPower.POWER_ID)){
+            for (int i = 1; i <= count; i++) {
+                AbstractDungeon.actionManager.addToBottom(new DamageAction(llz_shengNaPower.m, new DamageInfo(YQ, damage), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+            }
+        } else {
+            AbstractMonster m = AbstractDungeon.getRandomMonster();
+            for (int i = 1; i <= count; i++) {
+                AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(YQ, damage), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+            }
+        }
     }
 
 

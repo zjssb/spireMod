@@ -3,6 +3,7 @@ package liuLZmod.cards;
 import basemod.abstracts.CustomCard;
 import basemod.devcommands.hand.HandAdd;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.actions.utility.WaitAction;
@@ -14,6 +15,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import liuLZmod.Characters.MyCharacter;
 import liuLZmod.monster.*;
+import liuLZmod.powers.llz_shengNaPower;
 
 public class llz_testCard extends CustomCard {
     public static final String ID = "llz_testCard";
@@ -25,7 +27,7 @@ public class llz_testCard extends CustomCard {
     private static final CardType TYPE = CardType.SKILL;  //卡牌类型,攻击牌、技能牌、能力牌、诅咒牌、状态牌
     private static final CardColor COLOR = MyCharacter.Enums.EXAMPLE_CARD;//卡牌颜色，比如原版的红、绿、蓝、紫、无色，诅咒
     private static final CardRarity RARITY = CardRarity.BASIC;//卡牌稀有度。
-    private static final CardTarget TARGET = CardTarget.NONE;//卡牌指向类型的目标。实际功能只有是否指向敌人的区分。
+    private static final CardTarget TARGET = CardTarget.ENEMY;//卡牌指向类型的目标。实际功能只有是否指向敌人的区分。
 
     public llz_testCard(){
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
@@ -44,6 +46,7 @@ public class llz_testCard extends CustomCard {
 //        llz_dianD.SpawnMinion();
 //        llz_zhengQJ.SpawnMinion();
         llz_yuQ.SpawnMinion();
+        this.addToBot(new ApplyPowerAction(m,p,new llz_shengNaPower(p,m)));
 
     }
 }

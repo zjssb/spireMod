@@ -16,7 +16,8 @@
   "llz_shengNa": {
     "NAME": "声纳",
     "DESCRIPTIONS": [
-      ["声纳buff，鱼群优先攻击"]
+      "声纳buff，鱼群优先攻击"
     ]
   }
+  
 }
