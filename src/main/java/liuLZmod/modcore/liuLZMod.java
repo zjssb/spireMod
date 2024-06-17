@@ -11,11 +11,9 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
-import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import liuLZmod.Characters.MyCharacter;
 import liuLZmod.Variable.DefaultSecondMagicNumber;
 import liuLZmod.cards.*;
-import liuLZmod.monsters.llz_shaowei;
 import liuLZmod.relics.MyRelic;
 
 import java.nio.charset.StandardCharsets;
@@ -106,6 +104,7 @@ public class liuLZMod implements EditCardsSubscriber, EditStringsSubscriber , Ed
         BaseMod.loadCustomStringsFile(CharacterStrings.class, "ModliuLZ/localization/" + lang + "/characters.json");
         BaseMod.loadCustomStringsFile(RelicStrings.class, "ModliuLZ/localization/" + lang + "/relics.json");
         BaseMod.loadCustomStringsFile(PowerStrings.class, "ModliuLZ/localization/" + lang + "/powers.json");
+        BaseMod.loadCustomStringsFile(MonsterStrings.class, "ModliuLZ/localization/" + lang + "/jiXie.json");
     }
     @Override
     public void receiveEditKeywords() {

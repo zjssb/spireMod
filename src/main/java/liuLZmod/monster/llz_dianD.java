@@ -1,20 +1,25 @@
-package liuLZmod.monsters;
+package liuLZmod.monster;
 
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.monsters.MonsterGroup;
 import liuLZmod.cards.llz_dianHQG;
-import liuLZmod.monsters.abstracrt.abstract_llz_jiXie;
+import liuLZmod.monster.abstracrt.abstract_llz_jiXie;
 import liuLZmod.patches.JiXieGroupPatch;
 import liuLZmod.util.Point;
 import liuLZmod.vfx.SuEffect;
 
 /**
- * llz_diand:机械-电刀
+ * 机械：电刀
  */
 public class llz_dianD extends abstract_llz_jiXie {
 
-    public final static String NAME = "dianDao";
+    public static final String ID = "llz_dianDao";
+    private static final MonsterStrings jiXieStrings;
+
+    public final static String NAME;
 
     /**
      * 充能
@@ -29,7 +34,7 @@ public class llz_dianD extends abstract_llz_jiXie {
     public static boolean isFirst = true;
 
     public llz_dianD() {
-        super(NAME, "llz_diand", 10, -8.0F, 10.0F, 200F, 200F, null, 0, 0);
+        super(NAME, ID, 10, -8.0F, 10.0F, 200F, 200F, null, 0, 0);
         this.loadAnimation("ModliuLZ/img/jix/diand/skeleton.atlas", "ModliuLZ/img/jix/diand/skeleton37.json", 1F);
         this.state.setAnimation(0, "new", false);
         this.state.addAnimation(0, "idle", true, 0F);
@@ -53,7 +58,7 @@ public class llz_dianD extends abstract_llz_jiXie {
             DD.drawX = AbstractDungeon.player.drawX + position.x;
             DD.drawY = AbstractDungeon.player.drawY + position.y;
             DD.init();
-            MonsterGroup monsters = JiXieGroupPatch.f_minions.get(AbstractDungeon.player);
+            MonsterGroup monsters = JiXieGroupPatch.llz_jiXie.get(AbstractDungeon.player);
             monsters.monsters.add(DD);
             isFirst = true;
         }
@@ -75,13 +80,14 @@ public class llz_dianD extends abstract_llz_jiXie {
     }
 
     public static void addEnergy(int num) {
+        if (DD == null) {
+            return;
+        }
         if (isFirst) {
             isFirst = false;
             return;
         }
-        if (DD == null) {
-            return;
-        }
+
         int energy = getEnergy() + num;
         setEnergy(Math.max(0, energy));
     }
@@ -115,6 +121,8 @@ public class llz_dianD extends abstract_llz_jiXie {
     }
 
     static {
+        jiXieStrings = CardCrawlGame.languagePack.getMonsterStrings(ID);
+        NAME = jiXieStrings.NAME;
         abstract_llz_jiXie.addJiXie(new llz_dianD());
     }
 }

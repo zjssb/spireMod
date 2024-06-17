@@ -132,6 +132,18 @@
 		}
 	},
 	"l0": {
+		"slots": {
+			"1716623230014": {
+				"color": [
+					{ "color": "ffffff00", "time": 0.0 }
+				]
+			},
+			"1716623235309": {
+				"color": [
+					{ "color": "ffffff00", "time": 0.0 }
+				]
+			}
+		},
 		"bones": {
 			"bone": {
 				"translate": [
@@ -169,6 +181,11 @@
 			"1716623230014": {
 				"color": [
 					{ "color": "ffffffff", "time": 0.0 }
+				]
+			},
+			"1716623235309": {
+				"color": [
+					{ "color": "ffffff00", "time": 0.0 }
 				]
 			}
 		},

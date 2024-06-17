@@ -23,7 +23,7 @@ import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import liuLZmod.cards.llz_Strike;
 import liuLZmod.modcore.liuLZMod;
-import liuLZmod.monsters.abstracrt.abstract_llz_jiXie;
+import liuLZmod.monster.abstracrt.abstract_llz_jiXie;
 
 import java.util.ArrayList;
 

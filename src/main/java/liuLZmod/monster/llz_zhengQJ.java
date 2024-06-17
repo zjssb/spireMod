@@ -1,26 +1,32 @@
-package liuLZmod.monsters;
+package liuLZmod.monster;
 
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.ChangeStateAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.actions.utility.WaitAction;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.MonsterGroup;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 import com.megacrit.cardcrawl.vfx.combat.IntimidateEffect;
-import liuLZmod.monsters.abstracrt.abstract_llz_jiXie;
+import liuLZmod.monster.abstracrt.abstract_llz_jiXie;
 import liuLZmod.patches.JiXieGroupPatch;
 import liuLZmod.util.Point;
 
 /**
- * llz_zhengQJ:
+ * 机械：蒸汽机
  */
 public class llz_zhengQJ extends abstract_llz_jiXie {
 
-    public final static String NAME = "zhengQiJi";
+    public final static String ID = "llz_zhengQiJi";
+
+    private static final MonsterStrings jiXieStrings;
+            ;
+    public final static String NAME;
 
     /**
      * 充能
@@ -33,7 +39,7 @@ public class llz_zhengQJ extends abstract_llz_jiXie {
     public static boolean isFirst = true;
 
     public llz_zhengQJ() {
-        super(NAME, "llz_zhengQiJi", 10, -8.0F, 10.0F, 200F, 200F, null, 0, 0);
+        super(NAME, ID, 10, -8.0F, 10.0F, 200F, 200F, null, 0, 0);
         this.loadAnimation("ModliuLZ/img/jix/zengqj/skeleton.atlas", "ModliuLZ/img/jix/zengqj/skeleton37.json", 1F);
         this.addToBot(new ChangeStateAction(this, "new"));
         this.setMove("", (byte) 0, Intent.NONE);
@@ -48,7 +54,7 @@ public class llz_zhengQJ extends abstract_llz_jiXie {
             ZQJ.drawX = AbstractDungeon.player.drawX + position.x;
             ZQJ.drawY = AbstractDungeon.player.drawY + position.y;
             ZQJ.init();
-            MonsterGroup monsters = JiXieGroupPatch.f_minions.get(AbstractDungeon.player);
+            MonsterGroup monsters = JiXieGroupPatch.llz_jiXie.get(AbstractDungeon.player);
             monsters.monsters.add(ZQJ);
             ZQJ.addToBot(new ChangeStateAction(ZQJ, "new"));
             isFirst = true;
@@ -61,18 +67,22 @@ public class llz_zhengQJ extends abstract_llz_jiXie {
 
     public static void setEnergy(int energy) {
         llz_zhengQJ.energy = energy;
-        String l = "l" + getEnergy();
-        ZQJ.addToBot(new ChangeStateAction(ZQJ, l));
+        if (ZQJ != null) {
+            String l = "l" + getEnergy();
+            ZQJ.addToBot(new ChangeStateAction(ZQJ, l));
+
+        }
     }
 
     public static void addEnergy(int num) {
-        if(isFirst){
-            isFirst= false;
-            return;
-        }
         if (ZQJ == null) {
             return;
         }
+        if (isFirst) {
+            isFirst = false;
+            return;
+        }
+
         int energy = getEnergy() + num;
         if (energy >= maxEnergy) {
             act();
@@ -85,8 +95,8 @@ public class llz_zhengQJ extends abstract_llz_jiXie {
 
     @Override
     public void lossEnergy(int num) {
-        int energy = getEnergy()-num;
-        setEnergy(Math.max(0,energy));
+        int energy = getEnergy() - num;
+        setEnergy(Math.max(0, energy));
     }
 
     public static void act() {
@@ -94,7 +104,7 @@ public class llz_zhengQJ extends abstract_llz_jiXie {
             return;
         }
         ZQJ.addToBot(new SFXAction("INTIMIDATE"));
-        ZQJ.addToBot(new VFXAction(ZQJ, new IntimidateEffect(ZQJ.hb.cX, ZQJ.hb.cY-55), 0F));
+        ZQJ.addToBot(new VFXAction(ZQJ, new IntimidateEffect(ZQJ.hb.cX, ZQJ.hb.cY - 55), 0F));
         ZQJ.addToBot(new ChangeStateAction(ZQJ, "att"));
         AbstractMonster m = AbstractDungeon.getRandomMonster();
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, ZQJ, new VulnerablePower(m, 1, false)));
@@ -108,35 +118,32 @@ public class llz_zhengQJ extends abstract_llz_jiXie {
 
     @Override
     public void changeState(String stateName) {
-        float time;
         switch (stateName) {
-            case "new":
-                time = this.state.setAnimation(0, "new", false).getTime();
-                addToBot(new WaitAction(time));
-                break;
             case "l0":
-                this.state.setAnimation(0, "l0", true);
+                this.state.setAnimation(1, "l0", true);
                 break;
             case "l1":
-                this.state.setAnimation(0, "l1", true);
+                this.state.setAnimation(1, "l1", true);
                 break;
             case "l2":
-                this.state.setAnimation(0, "l2", true);
+                this.state.setAnimation(1, "l2", true);
                 break;
             case "l3":
-                this.state.setAnimation(0, "l3", true);
+                this.state.setAnimation(1, "l3", true);
                 break;
             case "l4":
-                this.state.setAnimation(0, "l4", true);
+                this.state.setAnimation(1, "l4", true);
                 break;
             case "att":
-                time = this.state.setAnimation(0, "att", false).getTime();
-                addToBot(new WaitAction(time));
+                this.state.setAnimation(0, "att", false);
                 break;
         }
     }
 
     static {
+        jiXieStrings = CardCrawlGame.languagePack.getMonsterStrings(ID);
+        NAME = jiXieStrings.NAME;
+
         abstract_llz_jiXie.addJiXie(new llz_zhengQJ());
     }
 

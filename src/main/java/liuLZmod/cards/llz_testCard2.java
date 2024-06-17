@@ -1,14 +1,17 @@
 package liuLZmod.cards;
 
 import basemod.abstracts.CustomCard;
+import com.megacrit.cardcrawl.actions.common.HealAction;
+import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import liuLZmod.Characters.MyCharacter;
-import liuLZmod.monsters.*;
-import liuLZmod.monsters.abstracrt.abstract_llz_jiXie;
+import liuLZmod.monster.abstracrt.abstract_llz_jiXie;
+import liuLZmod.monster.llz_yuQ;
 
 /**
  * llz_testCard2: 测试卡牌2
@@ -38,8 +41,15 @@ public class llz_testCard2 extends CustomCard {
     }
 
     @Override
-    public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
-//        llz_zhengQJ.act();
-        abstract_llz_jiXie.lossAllEnergy(3);
+    public void use(AbstractPlayer p, AbstractMonster m) {
+        llz_yuQ.act();
+//        abstract_llz_jiXie.lossAllEnergy(3);
+
+//        AbstractDungeon.actionManager.addToBottom(new HealAction(p,p,10));
+//        AbstractDungeon.actionManager.addToBottom(new WaitAction(1000F));
+//        AbstractDungeon.actionManager.addToBottom(new HealAction(p,p,10));
+
+
+
     }
 }

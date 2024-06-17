@@ -1,4 +1,4 @@
-package liuLZmod.monsters;
+package liuLZmod.monster;
 
 import com.esotericsoftware.spine.AnimationState;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -6,10 +6,12 @@ import com.megacrit.cardcrawl.actions.common.ChangeStateAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.MonsterGroup;
-import liuLZmod.monsters.abstracrt.abstract_llz_jiXie;
+import liuLZmod.monster.abstracrt.abstract_llz_jiXie;
 import liuLZmod.patches.JiXieGroupPatch;
 import liuLZmod.util.Point;
 
@@ -19,10 +21,14 @@ import java.util.stream.Collectors;
 
 
 /**
- * 哨卫
+ * 机械：哨卫
  */
-public class llz_shaowei extends abstract_llz_jiXie {
-    public static final String NAME = "shaoWei";
+public class llz_shaoW extends abstract_llz_jiXie {
+    public static final String ID = "llz_shaoWei";
+
+    private static final MonsterStrings jiXieStrings;
+
+    public static final String NAME;
     /**
      * 充能
      */
@@ -34,11 +40,11 @@ public class llz_shaowei extends abstract_llz_jiXie {
     /**
      * 哨卫充能条
      */
-    public static shaoweiT T = null;
+    public static shaoWT T = null;
     /**
      * 充能条相对于角色位置
      */
-    public static Point TTarget = new Point(150, 0);
+    public static Point TTarget = new Point(240, 70);
     /**
      * 攻击伤害
      */
@@ -51,7 +57,7 @@ public class llz_shaowei extends abstract_llz_jiXie {
     /**
      * 哨卫存活列表
      */
-    public static List<llz_shaowei> shaoweiList = new ArrayList<>();
+    public static List<llz_shaoW> shaoweiList = new ArrayList<>();
 
     /**
      * 实例在存活列表中的位置
@@ -80,8 +86,8 @@ public class llz_shaowei extends abstract_llz_jiXie {
     }};
 
 
-    public llz_shaowei(float x, float y) {
-        super(NAME, "llz_shaowei", 10, -8.0F, 10.0F, 200F, 200F, null, x, y);
+    public llz_shaoW(float x, float y) {
+        super(NAME, ID, 10, -8.0F, 10.0F, 200F, 200F, null, x, y);
         // 设置图片
         //this.img = new Texture(Gdx.files.internal("ModliuLZ/img/monsters/shaowei.png"));
         this.loadAnimation("ModliuLZ/img/jix/shaow/skeleton.atlas", "ModliuLZ/img/jix/shaow/skeleton37.json", 0.8F);
@@ -108,13 +114,13 @@ public class llz_shaowei extends abstract_llz_jiXie {
     }
 
     public static void setEnergy(int energy) {
-        llz_shaowei.energy = energy;
+        llz_shaoW.energy = energy;
 
         // 设置充能条动画
         if (T == null) {
             return;
         }
-        String L = 'l' + String.valueOf(llz_shaowei.energy);
+        String L = 'l' + String.valueOf(llz_shaoW.energy);
         T.state.setAnimation(0, L, false);
     }
 
@@ -143,11 +149,11 @@ public class llz_shaowei extends abstract_llz_jiXie {
             return;
         }
 
-        MonsterGroup minions = JiXieGroupPatch.f_minions.get(AbstractDungeon.player);
+        MonsterGroup minions = JiXieGroupPatch.llz_jiXie.get(AbstractDungeon.player);
 
         // 哨卫数量为零，召唤哨卫生成充能条
         if (ans == 0 && T == null) {
-            T = new shaoweiT();
+            T = new shaoWT();
             T.drawX = AbstractDungeon.player.drawX + TTarget.x;
             T.drawY = AbstractDungeon.player.drawY + TTarget.y;
             T.init();
@@ -156,7 +162,7 @@ public class llz_shaowei extends abstract_llz_jiXie {
         }
 
         // 实例化并设置位置
-        llz_shaowei sw = new llz_shaowei(0f, 0f);
+        llz_shaoW sw = new llz_shaoW(0f, 0f);
         Point point = positions.get(ans);
         sw.drawX = AbstractDungeon.player.drawX + point.x;
         sw.drawY = AbstractDungeon.player.drawY + point.y;
@@ -174,12 +180,8 @@ public class llz_shaowei extends abstract_llz_jiXie {
      * 能量增加
      */
     public static void addEnergy(int num) {
-        if (isFirst) {
-            isFirst = false;
-            return;
-        }
         int ans = 0;
-        for (llz_shaowei m : shaoweiList) {
+        for (llz_shaoW m : shaoweiList) {
             if (!m.isDeath) {
                 ans++;
             }
@@ -188,6 +190,11 @@ public class llz_shaowei extends abstract_llz_jiXie {
 
             return;
         }
+        if (isFirst) {
+            isFirst = false;
+            return;
+        }
+
         int energy = getEnergy() + num;
         setEnergy(getEnergy() + num);
         if (energy >= maxEnergy) {
@@ -215,12 +222,12 @@ public class llz_shaowei extends abstract_llz_jiXie {
      * num: 哨卫的个数（攻击次数）。
      */
     public static void act() {
-        List<llz_shaowei> monsters = shaoweiList.stream().filter(sw -> !sw.isDeath).collect(Collectors.toList());
+        List<llz_shaoW> monsters = shaoweiList.stream().filter(sw -> !sw.isDeath).collect(Collectors.toList());
         int i = 0;
         if (monsters.size() == 0) {
             return;
         }
-        for (llz_shaowei sw : monsters) {
+        for (llz_shaoW sw : monsters) {
             AbstractMonster m = AbstractDungeon.getRandomMonster();
             AbstractDungeon.actionManager.addToBottom(new ChangeStateAction(sw, "gj"));
             AbstractDungeon.actionManager.addToBottom(new WaitAction(1F));
@@ -234,12 +241,12 @@ public class llz_shaowei extends abstract_llz_jiXie {
      * 移除一个哨卫。
      */
     public static void remove() {
-        List<llz_shaowei> monsters = shaoweiList.stream().filter(sw -> !sw.isDeath).collect(Collectors.toList());
+        List<llz_shaoW> monsters = shaoweiList.stream().filter(sw -> !sw.isDeath).collect(Collectors.toList());
         int ans = monsters.size();
         if (ans == 0) {
             return;
         }
-        llz_shaowei m = monsters.get(ans - 1);
+        llz_shaoW m = monsters.get(ans - 1);
 
 
         m.addToBot(new ChangeStateAction(m, "sw"));
@@ -274,22 +281,27 @@ public class llz_shaowei extends abstract_llz_jiXie {
     }
 
     static {
-        abstract_llz_jiXie.addJiXie(new llz_shaowei(0, 0));
+        jiXieStrings = CardCrawlGame.languagePack.getMonsterStrings(ID);
+        NAME = jiXieStrings.NAME;
+        abstract_llz_jiXie.addJiXie(new llz_shaoW(0, 0));
     }
 }
 
-class shaoweiT extends abstract_llz_jiXie {
+class shaoWT extends abstract_llz_jiXie {
+    public static final String ID = "llz_shaoWeiT";
 
-    static String NAME = "哨卫充能条";
+    private static final MonsterStrings jiXieStrings = CardCrawlGame.languagePack.getMonsterStrings(ID);
 
-    public shaoweiT() {
+    static String NAME = jiXieStrings.NAME;
+
+    public shaoWT() {
         super(NAME, "llz_shaoweiT", 10, -8.0F, 10.0F, 200F, 200F, null, 0, 0);
         this.loadAnimation("ModliuLZ/img/jix/shaowt/skeleton.atlas", "ModliuLZ/img/jix/shaowt/skeleton37.json", 1F);
         this.state.addAnimation(0, "l0", true, 0.0F);
     }
 
     public void remove() {
-        MonsterGroup minions = JiXieGroupPatch.f_minions.get(AbstractDungeon.player);
+        MonsterGroup minions = JiXieGroupPatch.llz_jiXie.get(AbstractDungeon.player);
         minions.monsters.remove(this);
     }
 

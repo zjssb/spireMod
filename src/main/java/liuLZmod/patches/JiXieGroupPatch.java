@@ -15,13 +15,13 @@ import com.megacrit.cardcrawl.monsters.MonsterGroup;
         method = "<class>"
 )
 public class JiXieGroupPatch {
-    private static Integer maxMinions = Integer.MAX_VALUE;
-    private static MonsterGroup minions = new MonsterGroup(new AbstractMonster[0]);
-    public static SpireField<Integer> f_maxMinions = new SpireField(() -> {
-        return maxMinions;
+    private static Integer maxJiXie = Integer.MAX_VALUE;
+    private static MonsterGroup jiXie = new MonsterGroup(new AbstractMonster[0]);
+    public static SpireField<Integer> llz_maxJiXie = new SpireField(() -> {
+        return maxJiXie;
     });
-    public static SpireField<MonsterGroup> f_minions = new SpireField(() -> {
-        return minions;
+    public static SpireField<MonsterGroup> llz_jiXie = new SpireField(() -> {
+        return jiXie;
     });
 
     public JiXieGroupPatch() {

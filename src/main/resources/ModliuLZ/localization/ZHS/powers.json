@@ -13,11 +13,10 @@
       " 点生命。"
     ]
   },
-  "llz_dianDaoPower": {
-    "NAME": "召唤电刀",
+  "llz_shengNa": {
+    "NAME": "声纳",
     "DESCRIPTIONS": [
-      "每回合开始添加 #b",
-      " #y电能切割 "
+      ["声纳buff，鱼群优先攻击"]
     ]
   }
 }

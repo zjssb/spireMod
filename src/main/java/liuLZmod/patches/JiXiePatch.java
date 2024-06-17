@@ -5,8 +5,8 @@ import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.MonsterGroup;
-import liuLZmod.monsters.abstracrt.abstract_llz_jiXie;
-import liuLZmod.monsters.llz_dianD;
+import liuLZmod.monster.abstracrt.abstract_llz_jiXie;
+import liuLZmod.monster.llz_dianD;
 
 public class JiXiePatch {
     public JiXiePatch() {
@@ -37,10 +37,10 @@ public class JiXiePatch {
         }
 
         public static void Prefix(AbstractPlayer _instance, SpriteBatch sb) {
-            MonsterGroup minions = JiXieGroupPatch.f_minions.get(AbstractDungeon.player);
+            MonsterGroup minions = JiXieGroupPatch.llz_jiXie.get(AbstractDungeon.player);
             switch (AbstractDungeon.getCurrRoom().phase) {
                 case COMBAT:
-                    if (JiXieGroupPatch.f_minions.get(AbstractDungeon.player).monsters.size() > 0) {
+                    if (JiXieGroupPatch.llz_jiXie.get(AbstractDungeon.player).monsters.size() > 0) {
                         minions.render(sb);
                     }
                 default:
@@ -59,10 +59,10 @@ public class JiXiePatch {
         }
 
         public static void Prefix(AbstractPlayer player) {
-            MonsterGroup minions = JiXieGroupPatch.f_minions.get(AbstractDungeon.player);
+            MonsterGroup minions = JiXieGroupPatch.llz_jiXie.get(AbstractDungeon.player);
             switch (AbstractDungeon.getCurrRoom().phase) {
                 case COMBAT:
-                    if (JiXieGroupPatch.f_minions.get(AbstractDungeon.player).monsters.size() > 0) {
+                    if (JiXieGroupPatch.llz_jiXie.get(AbstractDungeon.player).monsters.size() > 0) {
                         minions.update();
                     }
                 default:

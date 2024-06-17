@@ -1,17 +1,19 @@
 package liuLZmod.cards;
 
 import basemod.abstracts.CustomCard;
+import basemod.devcommands.hand.HandAdd;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.HealAction;
+import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import liuLZmod.Characters.MyCharacter;
-import liuLZmod.monsters.*;
+import liuLZmod.monster.*;
 
 public class llz_testCard extends CustomCard {
     public static final String ID = "llz_testCard";
@@ -38,8 +40,10 @@ public class llz_testCard extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        llz_shaowei.SpawnMinion();
+//        llz_shaoW.SpawnMinion();
 //        llz_dianD.SpawnMinion();
-        llz_zhengQJ.SpawnMinion();
+//        llz_zhengQJ.SpawnMinion();
+        llz_yuQ.SpawnMinion();
+
     }
 }

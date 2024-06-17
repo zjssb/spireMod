@@ -1,4 +1,4 @@
-package liuLZmod.monsters.abstracrt;
+package liuLZmod.monster.abstracrt;
 
 import basemod.abstracts.CustomMonster;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -137,7 +137,7 @@ public abstract class abstract_llz_jiXie extends CustomMonster {
         // 清空渲染机械列表
         MonsterGroup minions = new MonsterGroup(new AbstractMonster[0]);
         minions.monsters.removeIf(Objects::isNull);
-        JiXieGroupPatch.f_minions.set(AbstractDungeon.player, minions);
+        JiXieGroupPatch.llz_jiXie.set(AbstractDungeon.player, minions);
 
         // 通过反射，调用注册的过的所有名为 clear 的方法
         Class<?> cls;
