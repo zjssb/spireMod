@@ -1,12 +1,19 @@
 package liuLZmod.cards;
 
 import basemod.abstracts.CustomCard;
+import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.actions.unique.AddCardToDeckAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardGroup;
+import com.megacrit.cardcrawl.cards.curses.CurseOfTheBell;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import liuLZmod.Characters.MyCharacter;
 
 public class llz_Defend extends CustomCard {
@@ -38,13 +45,15 @@ public class llz_Defend extends CustomCard {
     }
 
 
-       public void use(AbstractPlayer p, AbstractMonster m) {
-           addToBot(new GainBlockAction(p, p, this.block));
-           }
+    public void use(AbstractPlayer p, AbstractMonster m) {
+        addToBot(new GainBlockAction(p, p, this.block));
+        AbstractDungeon.actionManager.addToBottom(new AddCardToDeckAction(CardLibrary.getCard("Parasite").makeCopy()));
+    }
+
     public AbstractCard makeCopy() {
-             return new llz_Defend();
-           }
+        return new llz_Defend();
+    }
 
 
-     }
+}
 
