@@ -123,5 +123,9 @@
   "llz_touzcl": {
     "NAME": "投掷齿轮",
     "DESCRIPTION": "造成 !D! 点伤害。 NL 丢弃一张牌，抽一张同类型的牌。"
+  },
+  "llz_zuangjzq": {
+    "NAME": "装甲重拳",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 消耗所有过热，每层增加 !M! 点伤害。 NL 获得过热。"
   }
 }
