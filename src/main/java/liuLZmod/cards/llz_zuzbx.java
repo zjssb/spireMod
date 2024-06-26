@@ -41,8 +41,10 @@ public class llz_zuzbx extends CustomCard {
     }
 
 
-    public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new GainGoldAction(this.magicNumber));
+    public void use(AbstractPlayer p, AbstractMonster m) {}
+
+    public boolean canUse(AbstractPlayer p, AbstractMonster m){
+        return false;
     }
 
     public AbstractCard makeCopy() {

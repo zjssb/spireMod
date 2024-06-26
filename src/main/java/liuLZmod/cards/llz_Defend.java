@@ -47,7 +47,6 @@ public class llz_Defend extends CustomCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new GainBlockAction(p, p, this.block));
-        AbstractDungeon.actionManager.addToBottom(new AddCardToDeckAction(CardLibrary.getCard("Parasite").makeCopy()));
     }
 
     public AbstractCard makeCopy() {

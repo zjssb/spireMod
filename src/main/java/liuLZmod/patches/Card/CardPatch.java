@@ -49,7 +49,8 @@ public class CardPatch {
             count--;
             if(count==0){
                 // 填写对应代码
-                System.out.println("测试");
+                if(c.cardID == "llz_zuzbx"){AbstractDungeon.player.gainGold(c.magicNumber);}
+                //System.out.println("测试");
             }
 
 
