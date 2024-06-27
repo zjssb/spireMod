@@ -9,7 +9,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import liuLZmod.Characters.MyCharacter;
 
 /**
- * 潜藏
+ * 沉重背包
  */
 public class llz_cenzbb extends CustomCard {
     public static final String ID = "llz_cenzbb";

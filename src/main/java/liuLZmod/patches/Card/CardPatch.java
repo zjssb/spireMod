@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import liuLZmod.monster.abstracrt.abstract_llz_jiXie;
+import liuLZmod.relics.llz_Els;
 
 import java.util.Objects;
 
@@ -16,7 +17,8 @@ import java.util.Objects;
  * 卡牌补丁。
  */
 public class CardPatch {
-    private static boolean shouldGiveRelic = false;
+    private static boolean shouldGiveRandomRelic = false;
+    private static boolean shouldGiveSpecificRelic = false;
 
     /**
      * 对卡牌 use方法进行注入。
@@ -40,8 +42,12 @@ public class CardPatch {
         }
     }
 
+    /**
+     * 卡牌获得时效果
+     */
+
     @SpirePatch(clz = AbstractRelic.class, method = "onObtainCard")
-    public static class addCradPatch {
+    public static class addCardPatch {
         static int count = 0;
 
         public static void Prefix(AbstractRelic a, AbstractCard c) {
@@ -52,23 +58,44 @@ public class CardPatch {
             if (count == 0) {
                 if (Objects.equals(c.cardID, "llz_zuzbx")) {
                     AbstractDungeon.player.gainGold(c.magicNumber);
-                    shouldGiveRelic = true;
+                    shouldGiveRandomRelic = true;
+                } else if (Objects.equals(c.cardID, "llz_cenzbb")) {
+                    handleSpecificRelic();
                 }
             }
         }
-    }
 
+        private static void handleSpecificRelic() {
+            AbstractRelic existingRelic = AbstractDungeon.player.getRelic(llz_Els.ID);
+            if (existingRelic != null) {
+                existingRelic.counter++;
+                existingRelic.flash();
+            } else {
+                shouldGiveSpecificRelic = true;
+            }
+        }
+    }
+    //给遗物
     @SpirePatch(clz = AbstractDungeon.class, method = "update")
     public static class DungeonUpdatePatch {
         public static void Postfix() {
-            if (shouldGiveRelic) {
-                shouldGiveRelic = false;
+            if (shouldGiveRandomRelic) {
+                shouldGiveRandomRelic = false;
                 giveRandomRelic();
+            }
+            if (shouldGiveSpecificRelic) {
+                shouldGiveSpecificRelic = false;
+                giveSpecificRelic();
             }
         }
 
         public static void giveRandomRelic() {
             AbstractRelic relic = AbstractDungeon.returnRandomScreenlessRelic(AbstractDungeon.returnRandomRelicTier());
+            AbstractDungeon.getCurrRoom().spawnRelicAndObtain(Settings.WIDTH / 2.0F, Settings.HEIGHT / 2.0F, relic);
+        }
+
+        public static void giveSpecificRelic() {
+            AbstractRelic relic = new llz_Els();
             AbstractDungeon.getCurrRoom().spawnRelicAndObtain(Settings.WIDTH / 2.0F, Settings.HEIGHT / 2.0F, relic);
         }
     }

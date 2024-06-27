@@ -15,6 +15,7 @@ import liuLZmod.Characters.MyCharacter;
 import liuLZmod.Variable.DefaultSecondMagicNumber;
 import liuLZmod.cards.*;
 import liuLZmod.relics.MyRelic;
+import liuLZmod.relics.llz_Els;
 
 import java.nio.charset.StandardCharsets;
 
@@ -95,6 +96,7 @@ public class liuLZMod implements EditCardsSubscriber, EditStringsSubscriber , Ed
     public void receiveEditRelics() {
         //BaseMod.addRelic(new MyRelic(), RelicType.SHARED); // RelicType表示是所有角色都能拿到的遗物，还是一个角色的独有遗物
         BaseMod.addRelicToCustomPool((AbstractRelic)new MyRelic(), MyCharacter.Enums.EXAMPLE_CARD);
+        BaseMod.addRelicToCustomPool((AbstractRelic)new llz_Els(), MyCharacter.Enums.EXAMPLE_CARD);
     }
 
     public void receiveEditStrings() {

@@ -130,6 +130,6 @@
   },
   "llz_cenzbb": {
     "NAME": "沉重背包",
-    "DESCRIPTION":"消耗 。 NL 加入牌组时，获得遗物：鹅卵石。"
+    "DESCRIPTION":"消耗 。 NL 加入牌组时，获得一个 llzmod:鹅卵石 遗物。"
   }
 }
