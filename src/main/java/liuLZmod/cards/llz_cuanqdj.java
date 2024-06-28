@@ -45,6 +45,7 @@ public class llz_cuanqdj extends CustomCard {
         this.magicNumber = this.baseMagicNumber = (misc - su*1000);
         Boss = false;
         ELITE = false;
+        this.tags.add(CardTags.STRIKE);
     }
 
     @Override

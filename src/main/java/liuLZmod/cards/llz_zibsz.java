@@ -48,7 +48,7 @@ public class llz_zibsz extends CustomCard {
 
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot((AbstractGameAction)new ApplyPowerAction((AbstractCreature)p, (AbstractCreature)p, (AbstractPower)new rour((AbstractCreature)p, this.magicNumber), this.magicNumber));
+        addToBot(new ApplyPowerAction(p, p, new rour(p, this.magicNumber), this.magicNumber));
     }
     public AbstractCard makeCopy() {
              return new llz_zibsz();

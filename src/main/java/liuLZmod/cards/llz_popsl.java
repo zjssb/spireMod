@@ -57,7 +57,8 @@ public class llz_popsl extends AbstractLlzCard {
             //addToBot((AbstractGameAction)new AttackDamageRandomEnemyAction(this, AbstractGameAction.AttackEffect.LIGHTNING));
             addToBot((AbstractGameAction)new AttackDamageRandomEnemyAction(this, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
             }
-        AbstractDungeon.actionManager.addToBottom((AbstractGameAction)new zjDamageAction(new DamageInfo((AbstractCreature)AbstractDungeon.player, this.defaultSecondMagicNumber, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+        AbstractDungeon.actionManager.addToBottom(new zjDamageAction(this.defaultSecondMagicNumber));
+
     }
     public AbstractCard makeCopy() {
              return new llz_popsl();

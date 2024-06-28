@@ -34,13 +34,8 @@ public class llz_Els extends CustomRelic {
     }
 
     @Override
-    public void onEquip() {
-        flash();
-    }
-
-    @Override
     public void atTurnStart() {
-        // 如果已给予的敏捷数量小于counter值，则在回合开始时给予1点敏捷
+        // 如果已给予的敏捷数量小于counter值，给予1点敏捷
         if (dexGiven < this.counter) {
             flash();
             dexGiven++;

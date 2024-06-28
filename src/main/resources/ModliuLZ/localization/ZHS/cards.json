@@ -46,8 +46,8 @@
   },
   "llz_beny": {
     "NAME": "本源",
-    "DESCRIPTION": "改造抽牌堆所有牌。 NL 消耗 。",
-    "UPGRADE_DESCRIPTION":"固有 。 NL 改造抽牌堆所有牌。 NL 消耗 。"
+    "DESCRIPTION": "llzmod:改造 抽牌堆所有牌。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION":"固有 。 NL llzmod:改造 抽牌堆所有牌。 NL 消耗 。"
   },
   "llz_lians": {
     "NAME": "碾碎",
@@ -126,7 +126,7 @@
   },
   "llz_zuangjzq": {
     "NAME": "装甲重拳",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL 消耗所有过热，每层增加 !M! 点伤害。 NL 获得过热。"
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 消耗所有 llzmod:过热 ，每层增加 !M! 点伤害。 NL 获得 llzmod:过热 。"
   },
   "llz_cenzbb": {
     "NAME": "沉重背包",
