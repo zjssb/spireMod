@@ -10,7 +10,6 @@ import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToDiscardEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToHandEffect;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
 public class linGbzAction extends AbstractGameAction {
     private boolean retrieveCard = false;
@@ -52,11 +51,12 @@ public class linGbzAction extends AbstractGameAction {
                 allStatusCards.add(card);
             }
         }
-        Collections.shuffle(allStatusCards);
 
         ArrayList<AbstractCard> choices = new ArrayList<>();
         while (choices.size() < 3 && !allStatusCards.isEmpty()) {
-            AbstractCard card = allStatusCards.remove(0).makeCopy();
+            //随机选择卡牌
+            int index = AbstractDungeon.cardRandomRng.random(allStatusCards.size() - 1);
+            AbstractCard card = allStatusCards.remove(index).makeCopy();
             choices.add(card);
         }
 
