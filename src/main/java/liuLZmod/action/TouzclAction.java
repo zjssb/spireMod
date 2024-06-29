@@ -16,9 +16,8 @@ import com.megacrit.cardcrawl.localization.UIStrings;
  */
 public class TouzclAction extends AbstractGameAction {
     private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString("DiscardAction");
-       public static final String[] TEXT = uiStrings.TEXT;
+    public static final String[] TEXT = uiStrings.TEXT;
     private AbstractPlayer p;
-    public static int numDiscarded;
 
     public TouzclAction(AbstractCreature target, AbstractCreature source) {
         this.p = (AbstractPlayer) target;
@@ -35,6 +34,7 @@ public class TouzclAction extends AbstractGameAction {
             }
 
             if (this.p.hand.isEmpty()) {
+                addToTop(new DrawCardAction(this.p, 1));
                 this.isDone = true;
                 return;
             }

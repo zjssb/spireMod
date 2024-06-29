@@ -16,7 +16,27 @@
   "llz_guor": {
     "NAME": "过热",
     "DESCRIPTIONS": [
-      "打出消耗牌时层数增加。"
+      "打出消耗牌时增加层数。"
+    ]
+  },
+  "llz_wanq": {
+    "NAME": "顽强",
+    "DESCRIPTIONS": [
+      "将来自于你的卡牌的伤害降低为 #y0 ，持续 #b",
+      " 回合。"
+    ]
+  },
+  "llz_cij": {
+    "NAME": "磁极",
+    "DESCRIPTIONS": [
+      "该敌人受到攻击时，抽 #b",
+      " 张牌。"
+    ]
+  },
+  "llz_jieb": {
+    "NAME": "戒备",
+    "DESCRIPTIONS": [
+      "本回合下一张打出的状态牌不会被消耗。"
     ]
   }
 }

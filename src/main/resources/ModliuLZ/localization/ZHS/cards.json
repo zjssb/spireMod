@@ -139,5 +139,17 @@
   "llz_wurpf": {
     "NAME": "污染排放",
     "DESCRIPTION": "抽 !M! 张牌。 NL 向抽牌堆，弃牌堆，和手牌中各加入一张随机状态牌。"
+  },
+  "llz_wanq": {
+    "NAME": "顽强",
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 本回合内，将你对自己造成的伤害降低为0。"
+  },
+  "llz_diancqj": {
+    "NAME": "电磁枪击",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 敌人下次受到攻击时，抽 !M! 张牌。"
+  },
+  "llz_jieb": {
+    "NAME": "戒备",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 本回合下一张打出的状态牌不会被消耗。"
   }
 }
