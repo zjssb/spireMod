@@ -135,5 +135,9 @@
   "llz_lingbz": {
     "NAME": "灵感捕捉",
     "DESCRIPTION": "从三张 llzmod:改造 过的状态牌中选择一张加入手牌。 NL 消耗 。"
+  },
+  "llz_wurpf": {
+    "NAME": "污染排放",
+    "DESCRIPTION": "抽 !M! 张牌。 NL 向抽牌堆，弃牌堆，和手牌中各加入一张随机状态牌。"
   }
 }
