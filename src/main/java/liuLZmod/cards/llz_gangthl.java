@@ -67,6 +67,7 @@ public class llz_gangthl extends CustomCard {
             addToBot((AbstractGameAction)new AttackDamageRandomEnemyAction(this, AbstractGameAction.AttackEffect.FIRE));
         }
         for (int i = 0; i < 3; i++) {
+            addToTop((AbstractGameAction)new SFXAction("BLOCK_BREAK", 0.1F));
             addToBot((AbstractGameAction)new DamageAllEnemiesAction((AbstractCreature)p, this.multiDamage, this.damageTypeForTurn,AbstractGameAction.AttackEffect.NONE));
         }
     }

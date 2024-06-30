@@ -55,7 +55,7 @@ public class llz_moryy extends CustomCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         CardCrawlGame.screenShake.shake(ScreenShake.ShakeIntensity.MED, ScreenShake.ShakeDur.SHORT, false);
-        addToBot((AbstractGameAction)new SFXAction("ATTACK_DEFECT_BEAM"));
+        addToBot((AbstractGameAction)new SFXAction("ATTACK_MAGIC_BEAM_SHORT"));//ATTACK_MAGIC_BEAM_SHORT
         if (Settings.FAST_MODE) {
                    addToBot((AbstractGameAction)new VFXAction((AbstractGameEffect)new moryyEffect(), 0.7F));
                  } else {

@@ -37,7 +37,7 @@ public class llz_cuih extends CustomCard {
 
     public llz_cuih() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.damage = this.baseDamage = 6;
+        this.damage = this.baseDamage = 7;
         this.magicNumber = this.baseMagicNumber = 2;
     }
 

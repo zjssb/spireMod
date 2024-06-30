@@ -151,5 +151,9 @@
   "llz_jieb": {
     "NAME": "戒备",
     "DESCRIPTION": "造成 !D! 点伤害。 NL 本回合下一张打出的状态牌不会被消耗。"
+  },
+  "llz_heiq": {
+    "NAME": "黑枪",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 抽到这张牌时失去1点 [E] 。"
   }
 }
