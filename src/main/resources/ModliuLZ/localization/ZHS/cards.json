@@ -63,7 +63,7 @@
   },
   "llz_moryy": {
     "NAME": "末日预演",
-    "DESCRIPTION": "第7回合后才能打出。 NL 对所有敌人造成 !D! 点伤害。获得 [E] [E] [E] 。",
+    "DESCRIPTION": "第 !M! 回合后才能打出。 NL 对所有敌人造成 !D! 点伤害。获得 [E] [E] [E] 。",
     "UPGRADE_DESCRIPTION": "#r时机未到。 "
   },
   "llz_gangthl": {
@@ -150,10 +150,23 @@
   },
   "llz_jieb": {
     "NAME": "戒备",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL 本回合下一张打出的状态牌不会被消耗。"
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 本回合打出的下一张状态牌不会被消耗。"
   },
   "llz_heiq": {
     "NAME": "黑枪",
     "DESCRIPTION": "造成 !D! 点伤害。 NL 抽到这张牌时失去1点 [E] 。"
+  },
+  "llz_sih": {
+    "NAME": "拾荒",
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 如果手牌中有状态牌，将其 llzmod:改造 并获得 !B! 点 格挡 。"
+  },
+  "llz_zansyd": {
+    "NAME": "战术诱导",
+    "DESCRIPTION": "受到 !M! 点伤害。 NL 下回合获得 !B! 点 格挡 。"
+  },
+  "llz_lus": {
+    "NAME": "露水",
+    "DESCRIPTION": "第一回合才能打出。 NL 获得 [E] [E] ，抽 !M! 张牌。 NL 虚无 消耗 。",
+    "UPGRADE_DESCRIPTION": "#r不是现在。 "
   }
 }
