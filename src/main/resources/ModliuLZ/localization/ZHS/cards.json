@@ -166,7 +166,15 @@
   },
   "llz_lus": {
     "NAME": "露水",
-    "DESCRIPTION": "第一回合才能打出。 NL 获得 [E] [E] ，抽 !M! 张牌。 NL 虚无 消耗 。",
+    "DESCRIPTION": "第一回合才能打出。 NL 获得 [E] [E] ，抽 !M! 张牌。 NL 虚无  消耗 。",
     "UPGRADE_DESCRIPTION": "#r不是现在。 "
+  },
+  "llz_zat": {
+    "NAME": "炸膛",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 获得 !M! 张灼伤。"
+  },
+  "llz_hejj": {
+    "NAME": "合击技",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 打出抽牌堆中所有0耗能的攻击牌。"
   }
 }
