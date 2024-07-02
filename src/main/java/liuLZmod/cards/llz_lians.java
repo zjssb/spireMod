@@ -50,7 +50,7 @@ public class llz_lians extends CustomCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeDamage(4);
+            //this.upgradeDamage(4);
             upgradeMagicNumber(2);
             this.initializeDescription();
         }

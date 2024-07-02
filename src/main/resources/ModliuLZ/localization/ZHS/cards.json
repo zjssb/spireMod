@@ -166,7 +166,7 @@
   },
   "llz_lus": {
     "NAME": "露水",
-    "DESCRIPTION": "第一回合才能打出。 NL 获得 [E] [E] ，抽 !M! 张牌。 NL 虚无  消耗 。",
+    "DESCRIPTION": "第一回合才能打出。 NL 获得 [E] [E] ，抽 !M! 张牌。 NL 虚无 消耗 。",
     "UPGRADE_DESCRIPTION": "#r不是现在。 "
   },
   "llz_zat": {
@@ -176,5 +176,22 @@
   "llz_hejj": {
     "NAME": "合击技",
     "DESCRIPTION": "造成 !D! 点伤害。 NL 打出抽牌堆中所有0耗能的攻击牌。"
+  },
+  "llz_congjz": {
+    "NAME": "冲击钻",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL llzmod:改造 所有手牌。 NL 如果伤害被格挡，将这张牌再打出一次。"
+  },
+  "llz_rongl": {
+    "NAME": "熔炼",
+    "DESCRIPTION": "消耗一张攻击牌，获得与其伤害相等的 格挡 。",
+    "UPGRADE_DESCRIPTION": "#r没有攻击牌。"
+  },
+  "llz_qvxjs": {
+    "NAME": "曲线加速",
+    "DESCRIPTION": "抽取当前回合数的牌，并将其 llzmod:改造 。",
+    "UPGRADE_DESCRIPTION": "抽取当前回合数+1的牌，并将其 llzmod:改造 。",
+    "EXTENDED_DESCRIPTION": [
+      " NL (抽 !M! 张牌。)"
+    ]
   }
 }

@@ -6,15 +6,12 @@ import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
-import com.megacrit.cardcrawl.cards.colorless.Apotheosis;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
-import com.megacrit.cardcrawl.vfx.combat.ThrowDaggerEffect;
 import liuLZmod.Characters.MyCharacter;
 import liuLZmod.action.miaossjAction;
 import liuLZmod.vfx.SeJiEffect;
@@ -63,8 +60,10 @@ public class llz_miaossj extends CustomCard {
 
     }
     public void triggerOnOtherCardPlayed(final AbstractCard c) {
-        magicNumber--;
-        baseMagicNumber--;
+        if(this.magicNumber >0){
+            magicNumber--;
+            baseMagicNumber--;
+        }
     }
     public void atTurnStart() {addToBot(new miaossjAction(count,this));
     }
