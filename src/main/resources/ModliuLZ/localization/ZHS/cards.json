@@ -10,7 +10,7 @@
   },
   "llz_sike": {
     "NAME": "蚀刻",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL 给予 !M! 层 llzmod:烙印 。"
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 给予 !M! 层 llzmod:烙印 。 NL 消耗 。"
   },
   "llz_zibsz": {
     "NAME": "植被生长",
@@ -22,7 +22,7 @@
   },
   "llz_hej": {
     "NAME": "合金",
-    "DESCRIPTION": "所有机械充能 !M! 次 。 NL 消耗 。"
+    "DESCRIPTION": "所有 llzmod:机械 充能 !M! 次 。 NL 消耗 。"
   },
   "llz_lenqj": {
     "NAME": "冷却剂",
@@ -192,6 +192,45 @@
     "UPGRADE_DESCRIPTION": "抽取当前回合数+1的牌，并将其 llzmod:改造 。",
     "EXTENDED_DESCRIPTION": [
       " NL (抽 !M! 张牌。)"
+    ]
+  },
+  "llz_jiaoz": {
+    "NAME": "校准",
+    "DESCRIPTION": "llzmod:改造 所有手牌。 NL 将相同数量的眩晕加入弃牌堆。",
+    "UPGRADE_DESCRIPTION": "llzmod:改造 所有手牌两次。 NL 将相同数量的眩晕加入弃牌堆。"
+  },
+  "llz_paog": {
+    "NAME": "抛光",
+    "DESCRIPTION": "llzmod:改造 手牌中所有状态牌，每有一张牌获得 [E] 。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "llzmod:改造 手牌中所有状态牌，每有一张牌获得 [E] 。"
+  },
+  "llz_caofh": {
+    "NAME": "超负荷",
+    "DESCRIPTION": "获得 [E] [E] 。 NL 受到3点伤害，本场战斗每打出过一张超负荷，额外受到一次伤害。",
+    "UPGRADE_DESCRIPTION": "获得 [E] [E] 。 NL 本场战斗每打出过一张超负荷，受到3点伤害一次。",
+    "EXTENDED_DESCRIPTION": [
+      "(受到 !M! 次伤害。)"
+    ]
+  },
+  "llz_caofzw": {
+    "NAME": "超凡之物",
+    "DESCRIPTION": "llzmod:改造 所有手牌X次。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "llzmod:改造 所有手牌X+1次。 NL 消耗 。"
+  },
+  "llz_xuanzxyw": {
+    "NAME": "选择性遗忘",
+    "DESCRIPTION": "丢弃任意张手牌。 NL 被丢弃的牌下次打出的耗能减1。"
+  },
+  "llz_xium": {
+    "NAME": "休眠",
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 将所有牌丢弃到弃牌堆，下回合多抽 !M! 张牌。"
+  },
+  "llz_jinsfx": {
+    "NAME": "金属防线",
+    "DESCRIPTION": "到第4回合后才能打出。 NL 在你的回合结束时获得 !M! 点 格挡 。",
+    "UPGRADE_DESCRIPTION": "保留 。 NL 到第4回合后才能打出。 NL 在你的回合结束时获得 !M! 点 格挡 。",
+    "EXTENDED_DESCRIPTION": [
+      "#r再等等。"
     ]
   }
 }

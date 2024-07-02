@@ -4,9 +4,7 @@
  import com.megacrit.cardcrawl.cards.AbstractCard;
  import com.megacrit.cardcrawl.cards.CardGroup;
  import com.megacrit.cardcrawl.characters.AbstractPlayer;
- import com.megacrit.cardcrawl.core.Settings;
  import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
- import liuLZmod.vfx.FineTuningEffect;
 
  public class benyAction extends AbstractGameAction {
      private AbstractPlayer p;
@@ -17,23 +15,20 @@
          if (true) {
              upgradeAllCardsInGroup(AbstractDungeon.player.hand, "hand");
              upgradeAllCardsInGroup(AbstractDungeon.player.drawPile, "drawPile");
-             upgradeAllCardsInGroup(AbstractDungeon.player.discardPile, "discardPile");
-             upgradeAllCardsInGroup(AbstractDungeon.player.exhaustPile, "exhaustPile");
+             //upgradeAllCardsInGroup(AbstractDungeon.player.discardPile, "discardPile");
+             //upgradeAllCardsInGroup(AbstractDungeon.player.exhaustPile, "exhaustPile");
              this.isDone = true;
          }
      }
 
-       private void upgradeAllCardsInGroup(CardGroup cardGroup, String groupType){
+     private void upgradeAllCardsInGroup(CardGroup cardGroup, String groupType){
              for (AbstractCard c : cardGroup.group) {
                    if (c.baseDamage> 0 ||c.baseBlock >0 ||c.type == AbstractCard.CardType.STATUS) {
-                       addToBot(new gaizAction(p,c,groupType,1));
                        if (cardGroup.type == CardGroup.CardGroupType.HAND) {
                            c.superFlash();
-                           //new FineTuningEffect(c);
-                           AbstractDungeon.effectList.add(new FineTuningEffect(c));
-                       }
-                         c.applyPowers();
-                       }
-                 }
-           }
+                       }else addToBot(new gaizAction(p,c,groupType,1));
+                       c.applyPowers();
+                   }
+             }
      }
+ }
