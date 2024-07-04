@@ -72,6 +72,13 @@ public class llz_moryy extends CustomCard {
                  }
              return true;
            }
+
+    public void triggerOnGlowCheck() {
+        this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
+        if (GameActionManager.turn >= this.magicNumber) {
+            this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
+        }
+    }
     public AbstractCard makeCopy() {
         return new llz_moryy();
     }

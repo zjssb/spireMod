@@ -1,11 +1,8 @@
 package liuLZmod.action;
 
-import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import liuLZmod.vfx.FineTuningEffect;
 
@@ -40,7 +37,7 @@ public class AllGaizAction extends AbstractGameAction {
             }else  if (times > 0) {
                 for (AbstractCard c : this.p.hand.group) {
                     if (c != null && (c.baseDamage > 0 || c.baseBlock > 0 || c.type == AbstractCard.CardType.STATUS)) {
-                        addToTop(new gaizAction(p, c, "hand", 1));
+                        addToBot(new gaizAction(p, c, "hand", 1));
                         AbstractDungeon.effectList.add(new FineTuningEffect(c));
                     }
                 }

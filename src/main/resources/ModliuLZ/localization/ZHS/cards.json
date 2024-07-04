@@ -232,5 +232,14 @@
     "EXTENDED_DESCRIPTION": [
       "#r再等等。"
     ]
+  },
+  "llz_husz": {
+    "NAME": "护身咒",
+    "DESCRIPTION": "回合开始时。每有一张状态牌，抽一张牌。"
+  },
+  "llz_ziwjg": {
+    "NAME": "自我解构",
+    "DESCRIPTION": "回合开始时，改造所有手牌。",
+    "UPGRADE_DESCRIPTION":"固有 。 NL 回合开始时，改造所有手牌。"
   }
 }

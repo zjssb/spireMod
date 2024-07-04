@@ -48,7 +48,7 @@ public class DuoCDDAction extends AbstractGameAction {
             }
             if (this.p.hand.group.size() - this.cannotUpgrade.size() == 1) {
                 for (AbstractCard c : this.p.hand.group) {
-                    if (true) {
+                    if (c.baseDamage> 0 ||c.baseBlock >0 ||c.type == AbstractCard.CardType.STATUS) {
 
                             addToBot(new gaizAction(p, c, "hand",a));
 
