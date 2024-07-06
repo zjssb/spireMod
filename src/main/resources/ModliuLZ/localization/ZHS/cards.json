@@ -241,5 +241,22 @@
     "NAME": "自我解构",
     "DESCRIPTION": "回合开始时，改造所有手牌。",
     "UPGRADE_DESCRIPTION":"固有 。 NL 回合开始时，改造所有手牌。"
+  },
+  "llz_jinj": {
+    "NAME": "禁忌",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL llzmod:改造 手中所有状态牌。 NL 保留 消耗 。"
+  },
+  "llz_suiyqs": {
+    "NAME": "岁月侵蚀",
+    "DESCRIPTION": "回合开始时，在手牌中加入一张禁忌。",
+    "UPGRADE_DESCRIPTION":"固有 。 NL 回合开始时，在手牌中加入一张禁忌。"
+  },
+  "llz_heid": {
+    "NAME": "黑洞",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 将所有状态牌变为虚空。"
+  },
+  "llz_jinhsf": {
+    "NAME": "进化算法",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 斩杀 时，变化你牌组中的一张牌。 NL 消耗 。"
   }
 }
