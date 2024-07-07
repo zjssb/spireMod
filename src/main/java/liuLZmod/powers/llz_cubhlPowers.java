@@ -5,13 +5,16 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
+import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.vfx.combat.ExplosionSmallEffect;
+import liuLZmod.vfx.SpineEffect;
 
 /**
  * 储备火力能力
@@ -40,6 +43,8 @@ public class llz_cubhlPowers extends AbstractPower {
 
     @Override
     public void atStartOfTurn() {
+        addToBot(new VFXAction(new SpineEffect("ModliuLZ/img/vfx/daod/skeleton.atlas", "ModliuLZ/img/vfx/daod/skeleton37.json", "gj", (AbstractMonster) this.owner,2.0f),0.3f));
+        addToBot(new SFXAction("GHOST_ORB_IGNITE_1"));
         addToBot(new VFXAction(new ExplosionSmallEffect(this.owner.hb.cX, this.owner.hb.cY), 0.1F));
         addToBot(new DamageAction(this.owner, new DamageInfo(this.owner, this.amount, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.NONE));
         addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));

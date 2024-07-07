@@ -1,6 +1,7 @@
 package liuLZmod.cards;
 
 import basemod.abstracts.CustomCard;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -11,6 +12,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import liuLZmod.Characters.MyCharacter;
 import liuLZmod.action.DowngradeCardAction;
 import liuLZmod.powers.llz_cubhlPowers;
+import liuLZmod.vfx.SpineEffect;
 
 /**
  * 储备火力
@@ -50,6 +52,8 @@ public class llz_cubhl extends CustomCard {
         addToBot(new GainBlockAction(p, p, this.block));
         if(this.upgraded){
             if(m != null){
+                SpineEffect spineEffect = new SpineEffect("ModliuLZ/img/vfx/daod/skeleton.atlas", "ModliuLZ/img/vfx/daod/skeleton37.json", "new", p.drawX,p.drawY+100,2.0f);
+                addToBot(new VFXAction(spineEffect,0.2f));
                 addToBot(new ApplyPowerAction(m, p, new llz_cubhlPowers(m, this.magicNumber), this.magicNumber));
             }
             addToBot(new DowngradeCardAction(this.uuid, p));

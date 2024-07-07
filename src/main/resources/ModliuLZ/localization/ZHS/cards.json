@@ -262,6 +262,6 @@
   "llz_cubhl": {
     "NAME": "储备火力",
     "DESCRIPTION": "获得 !B! 点 格挡 。 NL *未装弹 。 NL 消耗 。",
-    "UPGRADE_DESCRIPTION":"获得 !B! 点 格挡 。 NL 本回合结束造成 !M! 点伤害。牌组中这张牌变回未升级 。 消耗 。"
+    "UPGRADE_DESCRIPTION":"获得 !B! 点 格挡 。 NL 牌组中这张牌变回未升级 。本回合结束造成 !M! 点伤害。 消耗 。"
   }
 }
