@@ -2,7 +2,10 @@ package liuLZmod.cards;
 
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.utility.SFXAction;
+import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -11,6 +14,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import liuLZmod.Characters.MyCharacter;
+import liuLZmod.action.HeidAction;
 import liuLZmod.vfx.SpineEffect;
 
 /**
@@ -46,9 +50,11 @@ public class llz_heid extends CustomCard {
     @Override
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        SpineEffect spineEffect = new SpineEffect("ModliuLZ/img/char/xgllz_3/skeleton.atlas", "ModliuLZ/img/char/xgllz_3/skeleton37.json", "Idle",m);
-        AbstractDungeon.effectList.add(spineEffect);
-        addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.FIRE));
+        SpineEffect spineEffect = new SpineEffect("ModliuLZ/img/vfx/heid/skeleton.atlas", "ModliuLZ/img/vfx/heid/skeleton37.json", "animation",m,2.5f);
+        addToBot(new VFXAction(spineEffect,0.4f));
+        addToBot(new SFXAction("EVENT_LIVING_WALL"));
+        addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.NONE));
+        addToBot(new HeidAction(p));
     }
     public AbstractCard makeCopy() {
         return new llz_heid();

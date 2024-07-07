@@ -257,6 +257,11 @@
   },
   "llz_jinhsf": {
     "NAME": "进化算法",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL 斩杀 时，变化你牌组中的一张牌。 NL 消耗 。"
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 斩杀 时，变化你牌组中的一张牌。 消耗 。"
+  },
+  "llz_cubhl": {
+    "NAME": "储备火力",
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL *未装弹 。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION":"获得 !B! 点 格挡 。 NL 本回合结束造成 !M! 点伤害。牌组中这张牌变回未升级 。 消耗 。"
   }
 }

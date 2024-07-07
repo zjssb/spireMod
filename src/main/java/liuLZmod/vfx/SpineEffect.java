@@ -16,18 +16,21 @@ public class SpineEffect extends AbstractGameEffect {
     private SkeletonRenderer renderer;
     private float x;
     private float y;
+    private float speed;
 
     // Constructor to use coordinates
-    public SpineEffect(String atlasPath, String jsonPath, String animationName, float x, float y) {
+    public SpineEffect(String atlasPath, String jsonPath, String animationName, float x, float y, float speed) {
         this.x = x;
         this.y = y;
+        this.speed = speed;
         initialize(atlasPath, jsonPath, animationName);
     }
 
     // Constructor to use monster instance
-    public SpineEffect(String atlasPath, String jsonPath, String animationName, AbstractMonster monster) {
+    public SpineEffect(String atlasPath, String jsonPath, String animationName, AbstractMonster monster, float speed) {
         this.x = monster.drawX;
         this.y = monster.drawY + monster.hb.height / 2.0f;
+        this.speed = speed;
         initialize(atlasPath, jsonPath, animationName);
     }
 
@@ -42,12 +45,13 @@ public class SpineEffect extends AbstractGameEffect {
         state = new AnimationState(stateData);
 
         state.setAnimation(0, animationName, false); // Play animation once
+        state.getData().setDefaultMix(speed); // Set the animation speed
         renderer = new SkeletonRenderer();
     }
 
     @Override
     public void update() {
-        state.update(Gdx.graphics.getDeltaTime());
+        state.update(Gdx.graphics.getDeltaTime() * speed);
         state.apply(skeleton);
         skeleton.setPosition(x, y);
         skeleton.updateWorldTransform();
