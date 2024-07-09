@@ -93,7 +93,7 @@
   },
   "llz_miaossj": {
     "NAME": "秒速射击",
-    "DESCRIPTION": "造成 !D! 点伤害 !M! 次。 NL 打出其他手牌时，本回合少造成一次伤害。"
+    "DESCRIPTION": "造成 !D! 点伤害 !M! 次。 NL 如果打出手中其他牌，少造成一次伤害。"
   },
   "llz_cisb": {
     "NAME": "次声波",
@@ -227,8 +227,8 @@
   },
   "llz_jinsfx": {
     "NAME": "金属防线",
-    "DESCRIPTION": "到第4回合后才能打出。 NL 在你的回合结束时获得 !M! 点 格挡 。",
-    "UPGRADE_DESCRIPTION": "保留 。 NL 到第4回合后才能打出。 NL 在你的回合结束时获得 !M! 点 格挡 。",
+    "DESCRIPTION": "第4回合后才能打出。 NL 在你的回合结束时获得 !M! 点 格挡 。",
+    "UPGRADE_DESCRIPTION": "保留 。 NL 第4回合后才能打出。 NL 在你的回合结束时获得 !M! 点 格挡 。",
     "EXTENDED_DESCRIPTION": [
       "#r再等等。"
     ]
@@ -261,7 +261,38 @@
   },
   "llz_cubhl": {
     "NAME": "储备火力",
-    "DESCRIPTION": "获得 !B! 点 格挡 。 NL *未装弹 。 NL 消耗 。",
-    "UPGRADE_DESCRIPTION":"获得 !B! 点 格挡 。 NL 牌组中这张牌变回未升级 。本回合结束造成 !M! 点伤害。 消耗 。"
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL *未装弹 。 NL 虚无 消耗 。",
+    "UPGRADE_DESCRIPTION":"获得 !B! 点 格挡 。 NL 牌组中这张牌变回未升级 。回合结束造成 !M! 点伤害。 虚无 消耗 。"
+  },
+  "llz_quanpdzsgr": {
+    "NAME": "全频带阻塞干扰",
+    "DESCRIPTION": "给予所有敌人 !M! 层 虚弱 ， 易伤 ， llzmod:磁极 ，以及 llzmod:烙印 。所有敌人失去 !M! 点 力量 。 消耗 。"
+  },
+  "llz_wangs": {
+    "NAME": "往事",
+    "DESCRIPTION": "打出本场战斗上一张打出的牌。 NL 消耗 。"
+  },
+  "llz_senpr": {
+    "NAME": "审判日",
+    "DESCRIPTION": "触发你所有回合结束和开始时的效果，当前回合数加一。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION":"触发你所有回合结束和开始时的效果，当前回合数加一。"
+  },
+  "llz_fangsj": {
+    "NAME": "仿生茧",
+    "DESCRIPTION": "获得 !M! 层 多层护甲 。 NL 手牌中每有一张 不能被打出 的牌，额外获得一层。"
+  },
+  "llz_wangxt": {
+    "NAME": "万古形态",
+    "DESCRIPTION": " 虚无 。 NL 回合结束时，所有手牌下次打出的耗能变为0。",
+    "UPGRADE_DESCRIPTION":"回合结束时，所有手牌下次打出的耗能变为0。"
+  },
+  "llz_huawwy": {
+    "NAME": "化为乌有",
+    "DESCRIPTION": " 虚无 。 NL 回合开始时，抽 !M! 张牌，将一张非攻击牌变为眩晕。",
+    "UPGRADE_DESCRIPTION":"回合开始时，抽 !M! 张牌，将一张非攻击牌变为眩晕。"
+  },
+  "llz_zutwz": {
+    "NAME": "铸体为尊",
+    "DESCRIPTION": "打出状态牌时，抽 !M! 张牌。"
   }
 }

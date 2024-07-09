@@ -34,6 +34,7 @@ public class llz_cubhl extends CustomCard {
         this.magicNumber = this.baseMagicNumber = 99;
         this.baseBlock = 12;
         this.exhaust = true;
+        this.isEthereal = true;
     }
 
     @Override
@@ -52,7 +53,7 @@ public class llz_cubhl extends CustomCard {
         addToBot(new GainBlockAction(p, p, this.block));
         if(this.upgraded){
             if(m != null){
-                SpineEffect spineEffect = new SpineEffect("ModliuLZ/img/vfx/daod/skeleton.atlas", "ModliuLZ/img/vfx/daod/skeleton37.json", "new", p.drawX,p.drawY+100,2.0f);
+                SpineEffect spineEffect = new SpineEffect("ModliuLZ/img/vfx/daodan/skeleton.atlas", "ModliuLZ/img/vfx/daodan/skeleton37.json", "new", p.drawX,p.drawY+100,1.5f);
                 addToBot(new VFXAction(spineEffect,0.2f));
                 addToBot(new ApplyPowerAction(m, p, new llz_cubhlPowers(m, this.magicNumber), this.magicNumber));
             }

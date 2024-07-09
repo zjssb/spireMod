@@ -35,7 +35,9 @@ public class qvxjsAction extends AbstractGameAction {
                 AbstractCard card = AbstractDungeon.player.drawPile.getTopCard();
                 AbstractDungeon.effectList.add(new FineTuningEffect(card));
                 addToTop(new DrawCardAction(p, 1));
-                addToTop(new gaizAction(p, card, "drawPile", 1));
+                if(card.baseDamage> 0 ||card.baseBlock >0 ||card.type == AbstractCard.CardType.STATUS){
+                    addToTop(new gaizAction(p, card, "drawPile", 1));
+                }
 
             } else if (!AbstractDungeon.player.discardPile.isEmpty() && AbstractDungeon.player.drawPile.isEmpty() && AbstractDungeon.player.hand.size() <= 10) {
                 addToTop(new ShuffleAction(AbstractDungeon.player.drawPile, false));

@@ -1,63 +1,67 @@
 package liuLZmod.cards;
 
 import basemod.abstracts.CustomCard;
+import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.utility.SFXAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.GainGoldAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.DamageInfo;
-import com.megacrit.cardcrawl.cards.status.VoidCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.StrengthPower;
+import com.megacrit.cardcrawl.powers.VulnerablePower;
+import com.megacrit.cardcrawl.powers.WeakPower;
+import com.megacrit.cardcrawl.vfx.BorderLongFlashEffect;
+import com.megacrit.cardcrawl.vfx.combat.RoomTintEffect;
 import liuLZmod.Characters.MyCharacter;
-import liuLZmod.action.HeidAction;
-import liuLZmod.vfx.SpineEffect;
+import liuLZmod.action.SenprAction;
+import liuLZmod.powers.llz_cij;
+import liuLZmod.powers.llz_laoy;
 
 /**
- * 黑洞
+ * 审判日
  */
-public class llz_heid extends CustomCard {
-    public static final String ID = "llz_heid";
+public class llz_senpr extends CustomCard {
+    public static final String ID = "llz_senpr";
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String NAME = CARD_STRINGS.NAME;
-    private static final String IMG_PATH = "ModliuLZ/img/cards_2/heid.png";
+    private static final String IMG_PATH = "ModliuLZ/img/cards_2/senpr.png";
     private static final int COST = 1;
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION;
-    private static final CardType TYPE = CardType.ATTACK;
+    private static final CardType TYPE = CardType.SKILL;
     private static final CardColor COLOR = MyCharacter.Enums.EXAMPLE_CARD;
     private static final CardRarity RARITY = CardRarity.RARE;
-    private static final CardTarget TARGET = CardTarget.ENEMY;
+    private static final CardTarget TARGET = CardTarget.SELF;
 
-    public llz_heid() {
+    public llz_senpr() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.damage = this.baseDamage = 16;
-        this.cardsToPreview = new VoidCard();
+        this.exhaust = true;
     }
 
     @Override
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeDamage(6);
+            this.exhaust = false;
+            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+            this.initializeDescription();
         }
 
     }
 
 
-    @Override
-
     public void use(AbstractPlayer p, AbstractMonster m) {
-        SpineEffect spineEffect = new SpineEffect("ModliuLZ/img/vfx/heid/skeleton.atlas", "ModliuLZ/img/vfx/heid/skeleton37.json", "animation",m,2.5f);
-        addToBot(new VFXAction(spineEffect,0.4f));
-        addToBot(new SFXAction("EVENT_LIVING_WALL"));
-        addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.NONE));
-        addToBot(new HeidAction(p));
+        addToBot(new SenprAction());
     }
+
     public AbstractCard makeCopy() {
-        return new llz_heid();
+        return new llz_senpr();
     }
+
 
 }
+

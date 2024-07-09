@@ -43,7 +43,7 @@ public class llz_cubhlPowers extends AbstractPower {
 
     @Override
     public void atStartOfTurn() {
-        addToBot(new VFXAction(new SpineEffect("ModliuLZ/img/vfx/daod/skeleton.atlas", "ModliuLZ/img/vfx/daod/skeleton37.json", "gj", (AbstractMonster) this.owner,2.0f),0.3f));
+        addToBot(new VFXAction(new SpineEffect("ModliuLZ/img/vfx/daodan/skeleton.atlas", "ModliuLZ/img/vfx/daodan/skeleton37.json", "gj", (AbstractMonster) this.owner,1.5f),0.5f));
         addToBot(new SFXAction("GHOST_ORB_IGNITE_1"));
         addToBot(new VFXAction(new ExplosionSmallEffect(this.owner.hb.cX, this.owner.hb.cY), 0.1F));
         addToBot(new DamageAction(this.owner, new DamageInfo(this.owner, this.amount, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.NONE));
