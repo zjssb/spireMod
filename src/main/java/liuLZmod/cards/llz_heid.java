@@ -50,11 +50,11 @@ public class llz_heid extends CustomCard {
     @Override
 
     public void use(AbstractPlayer p, AbstractMonster m) {
+        addToBot(new HeidAction(p));
         SpineEffect spineEffect = new SpineEffect("ModliuLZ/img/vfx/heid/skeleton.atlas", "ModliuLZ/img/vfx/heid/skeleton37.json", "animation",m,2.5f);
         addToBot(new VFXAction(spineEffect,0.4f));
         addToBot(new SFXAction("EVENT_LIVING_WALL"));
         addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.NONE));
-        addToBot(new HeidAction(p));
     }
     public AbstractCard makeCopy() {
         return new llz_heid();

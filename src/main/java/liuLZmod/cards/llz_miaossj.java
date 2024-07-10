@@ -33,8 +33,8 @@ public class llz_miaossj extends CustomCard {
     public llz_miaossj() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.damage = this.baseDamage = 2;
-        this.magicNumber = this.baseMagicNumber = 4;
-        count =4;
+        this.magicNumber = this.baseMagicNumber = 5;
+        count =5;
     }
 
     @Override
@@ -42,7 +42,7 @@ public class llz_miaossj extends CustomCard {
         if (!this.upgraded) {
             this.upgradeName();
             upgradeMagicNumber(2);
-            count = 6;
+            count = 7;
             this.initializeDescription();
         }
 
@@ -53,11 +53,10 @@ public class llz_miaossj extends CustomCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         for(int i=0;i<this.magicNumber;i++){
-            addToTop((AbstractGameAction)new VFXAction((AbstractGameEffect)new SeJiEffect(m.hb.cX, m.hb.cY)));
-            addToTop((AbstractGameAction) new DamageAction((AbstractCreature) m, new DamageInfo((AbstractCreature) p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.NONE));
+            addToBot(new VFXAction(new SeJiEffect(m.hb.cX, m.hb.cY)));
+            addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.NONE));
         }
-
-
+        addToBot(new miaossjAction(count,this));
     }
     public void triggerOnOtherCardPlayed(final AbstractCard c) {
         if(this.magicNumber >0){
@@ -65,11 +64,11 @@ public class llz_miaossj extends CustomCard {
             baseMagicNumber--;
         }
     }
-    public void atTurnStart() {addToBot(new miaossjAction(count,this));
-    }
-    /*public void triggerOnEndOfPlayerTurn() {
-        addToBot(new miaossjAction(count,this));
-    }*/
+
+    public void onMoveToDiscard() {addToBot(new miaossjAction(count,this));}
+    public void atTurnStart() {addToBot(new miaossjAction(count,this));}
+    public void triggerWhenDrawn() {addToBot(new miaossjAction(count,this));}
+
     public AbstractCard makeCopy() {
         return new llz_miaossj();
     }

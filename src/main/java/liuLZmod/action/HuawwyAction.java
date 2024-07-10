@@ -46,7 +46,7 @@ public class HuawwyAction extends AbstractGameAction {
                 for (AbstractCard c : this.p.hand.group) {
                     if (!(c.type == AbstractCard.CardType.ATTACK)) {
                         this.p.hand.group.remove(c);
-                        addToBot(new MakeTempCardInHandAction(new Dazed(), 1));
+                        addToTop(new MakeTempCardInHandAction(new Dazed(), 1));
                         this.isDone = true;
                         return;
                     }
@@ -64,7 +64,7 @@ public class HuawwyAction extends AbstractGameAction {
             if (this.p.hand.group.size() == 1) {
                 AbstractCard c = this.p.hand.getTopCard();
                 this.p.hand.group.remove(c);
-                addToBot(new MakeTempCardInHandAction(new Dazed(), 1));
+                addToTop(new MakeTempCardInHandAction(new Dazed(), 1));
                 returnCards();
                 this.isDone = true;
             }
@@ -73,7 +73,7 @@ public class HuawwyAction extends AbstractGameAction {
         if (!AbstractDungeon.handCardSelectScreen.wereCardsRetrieved) {
             for (AbstractCard c : AbstractDungeon.handCardSelectScreen.selectedCards.group) {
                 this.p.hand.group.remove(c);
-                addToBot(new MakeTempCardInHandAction(new Dazed(), 1));
+                addToTop(new MakeTempCardInHandAction(new Dazed(), 1));
             }
             returnCards();
             AbstractDungeon.handCardSelectScreen.wereCardsRetrieved = true;

@@ -6,6 +6,8 @@ import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.status.VoidCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 
+import java.util.Objects;
+
 /**
  * 黑洞行动
  */
@@ -24,13 +26,10 @@ public class HeidAction extends AbstractGameAction {
         // 遍历弃牌堆
         replaceStatusCardsInGroup(player.discardPile);
 
-        // 遍历手牌并让手牌闪烁
         for (AbstractCard card : player.hand.group) {
-            card.superFlash();
-            if (isStatusCard(card)) {
-                AbstractCard voidCard = new VoidCard();
-                player.hand.group.set(player.hand.group.indexOf(card), voidCard);
-            }
+            if (card.type == AbstractCard.CardType.STATUS && !Objects.equals(card.cardID, "Void")) {
+                addToTop(new NewHeidAction(card,player));
+            }else card.superFlash();
         }
 
         isDone = true;
@@ -39,13 +38,10 @@ public class HeidAction extends AbstractGameAction {
     private void replaceStatusCardsInGroup(CardGroup cardGroup) {
         for (int i = 0; i < cardGroup.size(); i++) {
             AbstractCard card = cardGroup.group.get(i);
-            if (isStatusCard(card)) {
+            if (card.type == AbstractCard.CardType.STATUS) {
                 cardGroup.group.set(i, new VoidCard());
             }
         }
     }
 
-    private boolean isStatusCard(AbstractCard card) {
-        return card.type == AbstractCard.CardType.STATUS;
-    }
 }

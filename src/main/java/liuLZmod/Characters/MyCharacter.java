@@ -117,7 +117,7 @@ public class MyCharacter extends CustomPlayer {
     // 初始遗物的ID，可以先写个原版遗物凑数
     public ArrayList<String> getStartingRelics() {
         ArrayList<String> retVal = new ArrayList<>();
-        retVal.add("llz:MyRelic");
+        retVal.add("llz_zallc");
         return retVal;
     }
 

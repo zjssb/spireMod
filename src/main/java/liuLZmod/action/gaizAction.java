@@ -18,12 +18,10 @@ public class gaizAction extends AbstractGameAction {
     private final int a; // 改造次数
     private AbstractPlayer player;
     private AbstractCard card;
-    private String groupType; // 牌堆类型信息
 
     public gaizAction(AbstractPlayer player, AbstractCard card, String groupType, int a) {
         this.player = player;
         this.card = card;
-        this.groupType = groupType;
         this.a = a;
     }
 
@@ -44,7 +42,7 @@ public class gaizAction extends AbstractGameAction {
                     }
                 }
                 if (card.type == AbstractCard.CardType.STATUS) {
-                    replaceCardInGroup(AbstractDungeon.player, groupType);
+                    replaceCardInGroup(player);
                 }
                 card.applyPowers();
             }
@@ -52,23 +50,16 @@ public class gaizAction extends AbstractGameAction {
         isDone = true;
     }
 
-    private void replaceCardInGroup(AbstractPlayer player, String groupType) {
-        // 传递牌堆类型信息查找并替换卡牌
-        switch (groupType) {
-            case "hand":
-                replaceCardHand(player.hand);
-                break;
-            case "drawPile":
-                replaceCardInGroup(player.drawPile);
-                break;
-            case "discardPile":
-                replaceCardInGroup(player.discardPile);
-                break;
-            case "exhaustPile":
-                replaceCardInGroup(player.exhaustPile);
-                break;
-            default:
-                break;
+    private void replaceCardInGroup(AbstractPlayer player) {
+        // 查找并替换卡牌
+        if (player.hand.contains(card)) {
+            replaceCardHand(player.hand);
+        } else if (player.drawPile.contains(card)) {
+            replaceCardInGroup(player.drawPile);
+        } else if (player.discardPile.contains(card)) {
+            replaceCardInGroup(player.discardPile);
+        } else if (player.exhaustPile.contains(card)) {
+            replaceCardInGroup(player.exhaustPile);
         }
     }
 

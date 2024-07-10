@@ -37,7 +37,7 @@ public class AllGaizAction extends AbstractGameAction {
             }else  if (times > 0) {
                 for (AbstractCard c : this.p.hand.group) {
                     if (c != null && (c.baseDamage > 0 || c.baseBlock > 0 || c.type == AbstractCard.CardType.STATUS)) {
-                        addToBot(new gaizAction(p, c, "hand", 1));
+                        addToTop(new gaizAction(p, c, "hand", 1));
                         AbstractDungeon.effectList.add(new FineTuningEffect(c));
                     }
                 }

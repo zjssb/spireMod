@@ -10,12 +10,10 @@ import com.google.gson.Gson;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.localization.*;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
 import liuLZmod.Characters.MyCharacter;
 import liuLZmod.Variable.DefaultSecondMagicNumber;
 import liuLZmod.cards.*;
-import liuLZmod.relics.MyRelic;
-import liuLZmod.relics.llz_Els;
+import liuLZmod.relics.*;
 
 import java.nio.charset.StandardCharsets;
 
@@ -131,8 +129,11 @@ public class liuLZMod implements EditCardsSubscriber, EditStringsSubscriber , Ed
     @Override
     public void receiveEditRelics() {
         //BaseMod.addRelic(new MyRelic(), RelicType.SHARED); // RelicType表示是所有角色都能拿到的遗物，还是一个角色的独有遗物
-        BaseMod.addRelicToCustomPool((AbstractRelic)new MyRelic(), MyCharacter.Enums.EXAMPLE_CARD);
-        BaseMod.addRelicToCustomPool((AbstractRelic)new llz_Els(), MyCharacter.Enums.EXAMPLE_CARD);
+        BaseMod.addRelicToCustomPool(new llz_Els(), MyCharacter.Enums.EXAMPLE_CARD);
+        BaseMod.addRelicToCustomPool(new llz_zallc(), MyCharacter.Enums.EXAMPLE_CARD);
+        BaseMod.addRelicToCustomPool(new llz_zic(), MyCharacter.Enums.EXAMPLE_CARD);
+        BaseMod.addRelicToCustomPool(new llz_sentg(), MyCharacter.Enums.EXAMPLE_CARD);
+        BaseMod.addRelicToCustomPool(new llz_tuoly(), MyCharacter.Enums.EXAMPLE_CARD);
     }
 
     public void receiveEditStrings() {

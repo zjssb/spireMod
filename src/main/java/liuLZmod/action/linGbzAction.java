@@ -47,7 +47,7 @@ public class linGbzAction extends AbstractGameAction {
     private ArrayList<AbstractCard> generateCardChoices() {
         ArrayList<AbstractCard> allStatusCards = new ArrayList<>();
         for (AbstractCard card : CardLibrary.getAllCards()) {
-            if (card.type == AbstractCard.CardType.STATUS && card.cardID.startsWith("llz")) {
+            if (card.type == AbstractCard.CardType.STATUS && card.cardID.startsWith("llz") && !card.cardID.equals("llz_jinj")) {
                 allStatusCards.add(card);
             }
         }
