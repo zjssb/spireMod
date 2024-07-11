@@ -33,8 +33,8 @@ public class llz_miaossj extends CustomCard {
     public llz_miaossj() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.damage = this.baseDamage = 2;
-        this.magicNumber = this.baseMagicNumber = 5;
-        count =5;
+        this.magicNumber = this.baseMagicNumber = 4;
+        count =4;
     }
 
     @Override
@@ -42,7 +42,7 @@ public class llz_miaossj extends CustomCard {
         if (!this.upgraded) {
             this.upgradeName();
             upgradeMagicNumber(2);
-            count = 7;
+            count = 6;
             this.initializeDescription();
         }
 

@@ -27,6 +27,9 @@ public class gaizAction extends AbstractGameAction {
 
     @Override
     public void update() {
+        if (this.player.hasRelic("llz_jiusj") && !card.upgraded) {
+            card.upgrade();
+        }
         for (int i = 0; i < a; i++) {
             if (card != null) {
                 if (card.baseDamage > 0) {
