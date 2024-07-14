@@ -5,6 +5,7 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.PlatedArmorPower;
@@ -41,10 +42,21 @@ public class llz_fangsj extends CustomCard {
     }
 
 
+    public boolean CardCanPlay(AbstractCard c, AbstractMonster m){
+        if (c.type == AbstractCard.CardType.STATUS && c.costForTurn < -1 && !AbstractDungeon.player.hasRelic("Medical Kit")) {
+            return false;
+        } else if (c.type == AbstractCard.CardType.CURSE && c.costForTurn < -1 && !AbstractDungeon.player.hasRelic("Blue Candle")) {
+            return false;
+        } else {
+            return c.cardPlayable(m) && c.canPlay(c);
+        }
+    }
+
+
     public void use(AbstractPlayer p, AbstractMonster m) {
         int i = 0;
         for (AbstractCard c : p.hand.group) {
-            if (!c.canUse(p,m)) {
+            if (!c.canUse(p,null)) {
                 c.superFlash();
                 i++;
             }
