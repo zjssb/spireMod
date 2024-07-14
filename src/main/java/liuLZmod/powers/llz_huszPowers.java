@@ -35,7 +35,7 @@ public class llz_huszPowers extends AbstractPower {
     }
 
     @Override
-    public void atStartOfTurnPostDraw() {
+    public void atStartOfTurn() {
         int statusCardCount = 0;
 
         for (AbstractCard card : AbstractDungeon.player.hand.group) {

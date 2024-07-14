@@ -48,7 +48,6 @@ public class rour extends AbstractPower {
             // 能力闪烁一下
             this.flash();
 
-            // 添加回复action
             this.addToTop(new GainBlockAction(owner, owner, this.amount));
         }
 

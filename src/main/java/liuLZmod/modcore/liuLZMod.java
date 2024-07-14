@@ -21,8 +21,8 @@ import static liuLZmod.Characters.MyCharacter.Enums.MY_CHARACTER;
 @SpireInitializer
 public class liuLZMod implements EditCardsSubscriber, EditStringsSubscriber , EditCharactersSubscriber ,EditRelicsSubscriber, EditKeywordsSubscriber {
     private static String modID;
-    private static final String MY_CHARACTER_BUTTON = "ModliuLZ/img/char/Character_Button.png";
-    private static final String MY_CHARACTER_PORTRAIT = "ModliuLZ/img/char/Character_Portrait.png";
+    private static final String MY_CHARACTER_BUTTON = "ModliuLZ/img/char/Character_Button_2.png";
+    private static final String MY_CHARACTER_PORTRAIT = "ModliuLZ/img/char/Character_Portrait_4.jpg";
     private static final String BG_ATTACK_512 = "ModliuLZ/img/512/bg_attack_512.png";
     private static final String BG_POWER_512 = "ModliuLZ/img/512/bg_power_512.png";
     private static final String BG_SKILL_512 = "ModliuLZ/img/512/bg_skill_512.png";

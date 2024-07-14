@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import liuLZmod.Characters.MyCharacter;
+import liuLZmod.powers.llz_Mylaoy;
 import liuLZmod.powers.llz_laoy;
 
 
@@ -48,6 +49,7 @@ public class llz_sike extends CustomCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
         addToBot(new ApplyPowerAction(m, p, new llz_laoy(m, this.magicNumber), this.magicNumber));
+        addToBot(new ApplyPowerAction(p, p, new llz_Mylaoy(p)));
     }
     public AbstractCard makeCopy() {
              return new llz_sike();
