@@ -44,7 +44,7 @@ public class llz_testCard2 extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        llz_yuQ.act();
+//        llz_yuQ.act();
 //        abstract_llz_jiXie.lossAllEnergy(3);
 
 //        AbstractDungeon.actionManager.addToBottom(new HealAction(p,p,10));

@@ -45,8 +45,7 @@ public class llz_testCard extends CustomCard {
 //        llz_shaoW.SpawnMinion();
 //        llz_dianD.SpawnMinion();
 //        llz_zhengQJ.SpawnMinion();
-        llz_yuQ.SpawnMinion();
-        this.addToBot(new ApplyPowerAction(m,p,new llz_shengNaPower(p,m)));
-
+//        llz_yuQ.SpawnMinion();
+        llz_xuYing.SpawnMinion();
     }
 }
