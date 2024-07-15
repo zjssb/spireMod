@@ -31,11 +31,11 @@ import static liuLZmod.Characters.MyCharacter.Enums.MY_CHARACTER;
 
 public class MyCharacter extends CustomPlayer {
     // 火堆的人物立绘（行动前）
-    private static final String MY_CHARACTER_SHOULDER_1 = "ModliuLZ/img/char/shoulder1.png";
+    private static final String MY_CHARACTER_SHOULDER_1 = "ModliuLZ/img/char/shoulder11.png";
     // 火堆的人物立绘（行动后）
-    private static final String MY_CHARACTER_SHOULDER_2 = "ModliuLZ/img/char/shoulder2.png";
+    private static final String MY_CHARACTER_SHOULDER_2 = "ModliuLZ/img/char/shoulder22.png";
     // 人物死亡图像
-    private static final String CORPSE_IMAGE = "ModliuLZ/img/char/corpse.png";
+    private static final String CORPSE_IMAGE = "ModliuLZ/img/char/corpse_2.png";
     // 战斗界面左下角能量图标的每个图层
     private static final String[] ORB_TEXTURES = new String[]{
             "ModliuLZ/img/UI/orb/zg2.png",
@@ -176,6 +176,7 @@ public class MyCharacter extends CustomPlayer {
     // 人物选择界面点击你的人物按钮时触发的方法，这里为屏幕轻微震动
     @Override
     public void doCharSelectScreenSelectEffect() {
+        CardCrawlGame.sound.playA("UNLOCK_PING", 1.0F);
         CardCrawlGame.screenShake.shake(ScreenShake.ShakeIntensity.MED, ScreenShake.ShakeDur.SHORT, false);
     }
 
@@ -184,16 +185,16 @@ public class MyCharacter extends CustomPlayer {
     public ArrayList<CutscenePanel> getCutscenePanels() {
         ArrayList<CutscenePanel> panels = new ArrayList<>();
         // 有两个参数的，第二个参数表示出现图片时播放的音效
-        panels.add(new CutscenePanel("ModliuLZ/img/char/Victory1.png", "ATTACK_MAGIC_FAST_1"));
-        panels.add(new CutscenePanel("ModliuLZ/img/char/Victory2.png"));
-        panels.add(new CutscenePanel("ModliuLZ/img/char/Victory3.png"));
+        panels.add(new CutscenePanel("ModliuLZ/img/char/Victory11.png", "ATTACK_MAGIC_FAST_1"));
+        panels.add(new CutscenePanel("ModliuLZ/img/char/Victory22.png"));
+        panels.add(new CutscenePanel("ModliuLZ/img/char/Victory33.png"));
         return panels;
     }
 
     // 自定义模式选择你的人物时播放的音效
     @Override
     public String getCustomModeCharacterButtonSoundKey() {
-        return "ATTACK_HEAVY";
+        return "UNLOCK_PING";
     }
 
     // 游戏中左上角显示在你的名字之后的人物名称
