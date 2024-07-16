@@ -1,10 +1,8 @@
 package liuLZmod.cards;
 
 import basemod.abstracts.CustomCard;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
-import com.megacrit.cardcrawl.actions.utility.WaitAction;
+import com.megacrit.cardcrawl.actions.common.DiscardSpecificCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.status.Dazed;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
@@ -29,7 +27,7 @@ public class llz_jiaoz extends CustomCard {
 
     public llz_jiaoz() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.cardsToPreview = new Dazed();
+        //this.cardsToPreview = new Dazed();
     }
 
     @Override
@@ -44,19 +42,13 @@ public class llz_jiaoz extends CustomCard {
 
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        int i =0;
-        addToBot(new AllGaizAction(1));
-        if(this.upgraded)addToBot(new AllGaizAction(1));
         for (AbstractCard c : p.hand.group) {
-            if (i <10 && c != null && (c.baseDamage > 0 || c.baseBlock > 0 || c.type == AbstractCard.CardType.STATUS)) {
-                i++;
+            if (c.rarity == AbstractCard.CardRarity.BASIC) {
+                addToTop(new DiscardSpecificCardAction(c));
             }
         }
-        if(i >5) {
-            addToBot(new MakeTempCardInDiscardAction(new Dazed(), 5));
-            addToBot(new WaitAction(1.0F));
-            addToBot(new MakeTempCardInDiscardAction(new Dazed(), i-5));
-        }else if(i >0)addToBot(new MakeTempCardInDiscardAction(new Dazed(), i));
+        addToBot(new AllGaizAction(1));
+        if(this.upgraded)addToBot(new AllGaizAction(1));
     }
 
     public AbstractCard makeCopy() {

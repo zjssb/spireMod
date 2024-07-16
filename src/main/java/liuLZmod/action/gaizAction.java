@@ -27,7 +27,7 @@ public class gaizAction extends AbstractGameAction {
 
     @Override
     public void update() {
-        if (this.player.hasRelic("llz_jiusj") && !card.upgraded) {
+        if (this.player.hasRelic("llz_jiusj")) {
             card.upgrade();
         }
         for (int i = 0; i < a; i++) {
@@ -45,7 +45,10 @@ public class gaizAction extends AbstractGameAction {
                     }
                 }
                 if (card.type == AbstractCard.CardType.STATUS) {
-                    replaceCardInGroup(player);
+                    if(card.cardID.startsWith("llz")){
+                        card.magicNumber += 1;
+                        card.baseMagicNumber += 1;
+                    }else replaceCardInGroup(player);
                 }
                 card.applyPowers();
             }
@@ -70,13 +73,8 @@ public class gaizAction extends AbstractGameAction {
         for (AbstractCard c : cardGroup.group) {
             if (c == card) {
                 AbstractCard newCard = getReplacementCard(card.cardID);
-                if (newCard != null) {
-                    cardGroup.group.set(cardGroup.group.indexOf(card), newCard);
-                    card = newCard;
-                } else {
-                    card.magicNumber += 1;
-                    card.baseMagicNumber += 1;
-                }
+                cardGroup.group.set(cardGroup.group.indexOf(card), newCard);
+                card = newCard;
                 break;
             }
         }
@@ -86,16 +84,11 @@ public class gaizAction extends AbstractGameAction {
         for (AbstractCard c : cardGroup.group) {
             if (c == card) {
                 AbstractCard newCard = getReplacementCard(card.cardID);
-                if (newCard != null) {
-                    float x = c.current_x;
-                    float y = c.current_y;
-                    this.player.hand.group.remove(c);
-                    AbstractDungeon.effectList.add(new ShowCardAndAddToHandEffect(newCard, x, y));
-                    card = newCard;
-                } else {
-                    card.magicNumber += 1;
-                    card.baseMagicNumber += 1;
-                }
+                float x = c.current_x;
+                float y = c.current_y;
+                this.player.hand.group.remove(c);
+                AbstractDungeon.effectList.add(new ShowCardAndAddToHandEffect(newCard, x, y));
+                card = newCard;
                 break;
             }
         }
@@ -114,7 +107,7 @@ public class gaizAction extends AbstractGameAction {
             case "Void":
                 return new llz_anwz();
             default:
-                return null;
+                return new llz_jinj();
         }
     }
 }

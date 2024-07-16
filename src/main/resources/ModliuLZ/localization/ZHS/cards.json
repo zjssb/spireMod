@@ -196,8 +196,8 @@
   },
   "llz_jiaoz": {
     "NAME": "校准",
-    "DESCRIPTION": "llzmod:改造 所有手牌。 NL 将相同数量的眩晕加入弃牌堆。",
-    "UPGRADE_DESCRIPTION": "llzmod:改造 所有手牌两次。 NL 将相同数量的眩晕加入弃牌堆。"
+    "DESCRIPTION": "丢弃所有初始牌。 NL llzmod:改造 所有手牌。",
+    "UPGRADE_DESCRIPTION": "丢弃所有初始牌。 NL llzmod:改造 所有手牌两次。"
   },
   "llz_paog": {
     "NAME": "抛光",
@@ -235,7 +235,7 @@
   },
   "llz_husz": {
     "NAME": "护身咒",
-    "DESCRIPTION": "回合开始时。每有一张状态牌，抽一张牌。"
+    "DESCRIPTION": "回合开始时。每拥有一张状态牌，抽一张牌。"
   },
   "llz_ziwjg": {
     "NAME": "自我解构",
@@ -261,7 +261,7 @@
   },
   "llz_cubhl": {
     "NAME": "储备火力",
-    "DESCRIPTION": "获得 !B! 点 格挡 。 NL *未装弹 。 NL 虚无 消耗 。",
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL *未装弹 。 NL 消耗 。",
     "UPGRADE_DESCRIPTION":"获得 !B! 点 格挡 。 NL 牌组中这张牌变回未升级 。回合结束造成 !M! 点伤害。 虚无 消耗 。"
   },
   "llz_quanpdzsgr": {

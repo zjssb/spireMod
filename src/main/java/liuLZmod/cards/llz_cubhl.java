@@ -34,13 +34,14 @@ public class llz_cubhl extends CustomCard {
         this.magicNumber = this.baseMagicNumber = 99;
         this.baseBlock = 12;
         this.exhaust = true;
-        this.isEthereal = true;
+
     }
 
     @Override
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
+            this.isEthereal = true;
             this.target = CardTarget.ENEMY;
             this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
