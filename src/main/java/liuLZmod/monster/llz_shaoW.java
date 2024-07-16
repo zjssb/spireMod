@@ -170,7 +170,7 @@ public class llz_shaoW extends abstract_llz_jiXie {
         sw.index = shaoweiList.indexOf(sw);
         // 初始化
         sw.init();
-//        sw.showHealthBar();
+        sw.showHealthBar();
         sw.usePreBattleAction();
 
         minions.add(sw);
