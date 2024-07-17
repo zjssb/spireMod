@@ -87,7 +87,7 @@ public class llz_shaoW extends abstract_llz_jiXie {
 
 
     public llz_shaoW(float x, float y) {
-        super(NAME, ID, 10, -8.0F, 10.0F, 200F, 200F, null, x, y);
+        super(NAME, ID, 10, -8.0F, 10.0F, 0.01F, 0.01F, null, x, y);
         // 设置图片
         //this.img = new Texture(Gdx.files.internal("ModliuLZ/img/monsters/shaowei.png"));
         this.loadAnimation("ModliuLZ/img/jix/shaow/skeleton.atlas", "ModliuLZ/img/jix/shaow/skeleton37.json", 0.8F);
@@ -170,7 +170,7 @@ public class llz_shaoW extends abstract_llz_jiXie {
         sw.index = shaoweiList.indexOf(sw);
         // 初始化
         sw.init();
-        sw.showHealthBar();
+        //sw.showHealthBar();
         sw.usePreBattleAction();
 
         minions.add(sw);
@@ -230,9 +230,9 @@ public class llz_shaoW extends abstract_llz_jiXie {
         for (llz_shaoW sw : monsters) {
             AbstractMonster m = AbstractDungeon.getRandomMonster();
             AbstractDungeon.actionManager.addToBottom(new ChangeStateAction(sw, "gj"));
-            AbstractDungeon.actionManager.addToBottom(new WaitAction(1F));
+            //AbstractDungeon.actionManager.addToBottom(new WaitAction(1F));
             AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(AbstractDungeon.player, attackDmg, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-            AbstractDungeon.actionManager.addToBottom(new WaitAction(0.1F * i));
+            //AbstractDungeon.actionManager.addToBottom(new WaitAction(0.1F * i));
             i++;
         }
     }
@@ -295,7 +295,7 @@ class shaoWT extends abstract_llz_jiXie {
     static String NAME = jiXieStrings.NAME;
 
     public shaoWT() {
-        super(NAME, "llz_shaoweiT", 10, -8.0F, 10.0F, 200F, 200F, null, 0, 0);
+        super(NAME, "llz_shaoweiT", 10, -8.0F, 10.0F, 20F, 20F, null, 0, 0);
         this.loadAnimation("ModliuLZ/img/jix/shaowt/skeleton.atlas", "ModliuLZ/img/jix/shaowt/skeleton37.json", 1F);
         this.state.addAnimation(0, "l0", true, 0.0F);
     }

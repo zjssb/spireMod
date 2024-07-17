@@ -34,7 +34,7 @@ public class llz_dianD extends abstract_llz_jiXie {
     public static boolean isFirst = true;
 
     public llz_dianD() {
-        super(NAME, ID, 10, -8.0F, 10.0F, 200F, 200F, null, 0, 0);
+        super(NAME, ID, 10, -8.0F, 10.0F, 20F, 20F, null, 0, 0);
         this.loadAnimation("ModliuLZ/img/jix/diand/skeleton.atlas", "ModliuLZ/img/jix/diand/skeleton37.json", 1F);
         this.state.setAnimation(0, "new", false);
         this.state.addAnimation(0, "idle", true, 0F);

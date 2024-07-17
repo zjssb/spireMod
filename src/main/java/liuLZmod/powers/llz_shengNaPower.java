@@ -45,8 +45,8 @@ public class llz_shengNaPower extends AbstractPower {
         // 添加一大一小两张能力图
         String path128 = "ModliuLZ/img/powers/sengn_p.png";
         String path48 = "ModliuLZ/img/powers/sengn.png";
-        this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(path128), 0, 0, 84, 84);
-        this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(path48), 0, 0, 32, 32);
+        this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(path128), 0, 0, 128, 128);
+        this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(path48), 0, 0, 48, 48);
 
         // 首次添加能力更新描述
         this.updateDescription();

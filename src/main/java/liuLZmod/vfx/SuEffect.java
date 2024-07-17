@@ -39,7 +39,7 @@ public class SuEffect extends AbstractGameEffect {
     }
 
     public void render(SpriteBatch sb) {
-        String text = (b == 1) ? String.valueOf(a) : (a + " × " + b);
+        String text = (b == 1) ? String.valueOf(a) : (a + "x" + b);
         Color textColor = (blueText) ? Color.BLUE : Color.WHITE;
         if (!this.isDone) {
             FontHelper.renderFontCentered(sb, FontHelper.losePowerFont, text, x, y, textColor);
