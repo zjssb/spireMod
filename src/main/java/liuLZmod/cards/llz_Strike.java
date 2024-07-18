@@ -15,8 +15,11 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import liuLZmod.Characters.MyCharacter;
 import liuLZmod.patches.EnumPatch;
 
-
+/**
+ * 打击
+ */
 public class llz_Strike extends CustomCard {
+
     public static final String ID = "llz_Strike";
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String NAME = CARD_STRINGS.NAME;
@@ -50,9 +53,9 @@ public class llz_Strike extends CustomCard {
 
     @Override
     /*
-     * 当卡牌被使用时，调用这个方法。
-     *
-     * @param p 你的玩家实体类。
+      当卡牌被使用时，调用这个方法。
+
+      @param p 你的玩家实体类。
      * @param m 指向的怪物类。（无指向时为null，包括攻击所有敌人时）
      */
     public void use(AbstractPlayer p, AbstractMonster m) {

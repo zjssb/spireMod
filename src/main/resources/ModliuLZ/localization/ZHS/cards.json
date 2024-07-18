@@ -20,6 +20,11 @@
     "NAME": "破片手雷",
     "DESCRIPTION": "随机对敌人造成 !D! 点伤害 !M! 次。 NL 受到 !LlzMagic! 点伤害。"
   },
+  "llz_dianHQG": {
+    "NAME": "电弧切割",
+    "DESCRIPTION": "造成 !D! 点伤害 NL 消耗。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL 消耗 NL 保留"
+  },
   "llz_hej": {
     "NAME": "合金",
     "DESCRIPTION": "所有 llzmod:机械 充能 !M! 次 。 NL 消耗 。"

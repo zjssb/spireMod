@@ -54,6 +54,5 @@ public class llz_zibsz extends CustomCard {
              return new llz_zibsz();
            }
 
-
 }
 

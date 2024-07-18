@@ -16,6 +16,9 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import liuLZmod.Characters.MyCharacter;
 
+/**
+ * 防御
+ */
 public class llz_Defend extends CustomCard {
     public static final String ID = "llz_Defend";
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
