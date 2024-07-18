@@ -1,5 +1,6 @@
 package liuLZmod.monster;
 
+import com.esotericsoftware.spine.AnimationState;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.ChangeStateAction;
@@ -41,7 +42,8 @@ public class llz_zhengQJ extends abstract_llz_jiXie {
     public llz_zhengQJ() {
         super(NAME, ID, 10, -8.0F, 10.0F, 200F, 200F, null, 0, 0);
         this.loadAnimation("ModliuLZ/img/jix/zengqj/skeleton.atlas", "ModliuLZ/img/jix/zengqj/skeleton37.json", 1F);
-        this.addToBot(new ChangeStateAction(this, "new"));
+        AnimationState.TrackEntry e = this.state.setAnimation(0, "new", false);
+        e.setTimeScale(1F);
         this.setMove("", (byte) 0, Intent.NONE);
     }
 
@@ -56,7 +58,6 @@ public class llz_zhengQJ extends abstract_llz_jiXie {
             ZQJ.init();
             MonsterGroup monsters = JiXieGroupPatch.llz_jiXie.get(AbstractDungeon.player);
             monsters.monsters.add(ZQJ);
-            ZQJ.addToBot(new ChangeStateAction(ZQJ, "new"));
             isFirst = true;
         }
     }

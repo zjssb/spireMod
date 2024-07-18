@@ -119,6 +119,7 @@ public class liuLZMod implements EditCardsSubscriber, EditStringsSubscriber , Ed
         BaseMod.addCard(new llz_jinmyq());
         BaseMod.addCard(new llz_huawwy());
         BaseMod.addCard(new llz_zutwz());
+        BaseMod.addCard(new llz_zengqj());
     }
     // 当开始添加人物时，调用这个方法
     @Override
@@ -151,6 +152,7 @@ public class liuLZMod implements EditCardsSubscriber, EditStringsSubscriber , Ed
         BaseMod.loadCustomStringsFile(CharacterStrings.class, "ModliuLZ/localization/" + lang + "/characters.json");
         BaseMod.loadCustomStringsFile(RelicStrings.class, "ModliuLZ/localization/" + lang + "/relics.json");
         BaseMod.loadCustomStringsFile(PowerStrings.class, "ModliuLZ/localization/" + lang + "/powers.json");
+        BaseMod.loadCustomStringsFile(MonsterStrings.class, "ModliuLZ/localization/" + lang + "/jiXie.json");
     }
     @Override
     public void receiveEditKeywords() {

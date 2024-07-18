@@ -299,5 +299,9 @@
   "llz_zutwz": {
     "NAME": "铸体为尊",
     "DESCRIPTION": "打出状态牌时，抽 !M! 张牌。"
+  },
+  "llz_zengqj": {
+    "NAME": "蒸汽机",
+    "DESCRIPTION": "消耗一个哨卫。 NL 生成机械-蒸汽机。 NL 消耗 。"
   }
 }
