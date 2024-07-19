@@ -4,10 +4,18 @@ import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.vfx.ThoughtBubble;
 import liuLZmod.Characters.MyCharacter;
-import liuLZmod.monster.llz_zhengQJ;
+import liuLZmod.action.abstracts.jiXieAction;
+import liuLZmod.monster.abstracrt.abstract_llz_jiXie;
+import liuLZmod.monster.llz_shaoW;
+
+import java.util.Objects;
+
+import static liuLZmod.monster.abstracrt.abstract_llz_jiXie.jiXie_list;
 
 /**
  * 蒸汽机
@@ -40,7 +48,17 @@ public class llz_zengqj extends CustomCard {
 
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        llz_zhengQJ.SpawnMinion();
+        boolean cail = false;
+        for (abstract_llz_jiXie jiXie : jiXie_list){
+            if(Objects.equals(jiXie.id, "llz_shaoW")) {
+                cail = true;
+                break;
+            }
+        }
+        if(cail){
+            llz_shaoW.remove();
+            addToBot(new jiXieAction("llz_zhengQJ"));
+        }else AbstractDungeon.effectList.add(new ThoughtBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 3.0F, CARD_STRINGS.UPGRADE_DESCRIPTION, true));
     }
     public AbstractCard makeCopy() {
         return new llz_zengqj();

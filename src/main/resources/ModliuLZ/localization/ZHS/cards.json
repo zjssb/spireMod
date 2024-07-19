@@ -302,6 +302,12 @@
   },
   "llz_zengqj": {
     "NAME": "蒸汽机",
-    "DESCRIPTION": "消耗一个哨卫。 NL 生成机械-蒸汽机。 NL 消耗 。"
+    "DESCRIPTION": "消耗一个哨卫。 NL 生成- llzmod:机械 - llzmod:蒸汽机 。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "#r材料不足。"
+  },
+  "llz_xianq": {
+    "NAME": "先驱",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 生成- llzmod:机械 - llzmod:哨卫 ，获得一张伤口。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL 生成- llzmod:机械 - llzmod:哨卫 ，获得一张合金。"
   }
 }

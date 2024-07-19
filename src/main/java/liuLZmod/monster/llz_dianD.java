@@ -16,7 +16,7 @@ import liuLZmod.vfx.SuEffect;
  */
 public class llz_dianD extends abstract_llz_jiXie {
 
-    public static final String ID = "llz_dianDao";
+    public static final String ID = "llz_dianD";
     private static final MonsterStrings jiXieStrings;
 
     public final static String NAME;

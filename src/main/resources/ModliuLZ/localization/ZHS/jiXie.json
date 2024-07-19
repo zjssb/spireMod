@@ -1,33 +1,33 @@
 {
-  "llz_shaoWei": {
+  "llz_shaoW": {
     "MOVES": [],
     "NAME": "哨卫",
     "DIALOG": [
       ""
     ]
   },
-  "llz_shaoWeiT": {
+  "llz_shaoWT": {
     "MOVES": [],
     "NAME": "哨卫充能条",
     "DIALOG": [
       ""
     ]
   },
-  "llz_dianDao": {
+  "llz_dianD": {
     "MOVES": [],
     "NAME": "电刀",
     "DIALOG": [
       ""
     ]
   },
-  "llz_zhengQiJi": {
+  "llz_zhengQJ": {
     "MOVES": [],
     "NAME": "蒸汽机",
     "DIALOG": [
       ""
     ]
   },
-  "llz_yuQun":{
+  "llz_yuQ":{
     "MOVES": [],
     "NAME": "鱼群",
     "DIALOG": [

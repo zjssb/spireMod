@@ -2,12 +2,11 @@ package liuLZmod.cards;
 
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.colorless.Apotheosis;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import liuLZmod.monster.abstracrt.abstract_llz_jiXie;
+import liuLZmod.action.abstracts.jiXieAction;
 
 /**
  * 合金
@@ -37,7 +36,7 @@ public class llz_hej extends CustomCard {
 
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        abstract_llz_jiXie.addEnergy(this.magicNumber);
+        addToBot(new jiXieAction(this.magicNumber));
     }
     public AbstractCard makeCopy() {
         /* 44 */     return new llz_hej();

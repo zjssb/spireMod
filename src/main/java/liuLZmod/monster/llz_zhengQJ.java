@@ -5,7 +5,6 @@ import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.ChangeStateAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
-import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
@@ -23,10 +22,9 @@ import liuLZmod.util.Point;
  */
 public class llz_zhengQJ extends abstract_llz_jiXie {
 
-    public final static String ID = "llz_zhengQiJi";
+    public final static String ID = "llz_zhengQJ";
 
     private static final MonsterStrings jiXieStrings;
-            ;
     public final static String NAME;
 
     /**
@@ -37,10 +35,9 @@ public class llz_zhengQJ extends abstract_llz_jiXie {
     private static final int maxEnergy = 5;
     public static llz_zhengQJ ZQJ = null;
     public static Point position = new Point(-110, 200);
-    public static boolean isFirst = true;
 
     public llz_zhengQJ() {
-        super(NAME, ID, 10, -8.0F, 10.0F, 200F, 200F, null, 0, 0);
+        super(NAME, ID, 10, -8.0F, 10.0F, 20F, 20F, null, 0, 0);
         this.loadAnimation("ModliuLZ/img/jix/zengqj/skeleton.atlas", "ModliuLZ/img/jix/zengqj/skeleton37.json", 1F);
         AnimationState.TrackEntry e = this.state.setAnimation(0, "new", false);
         e.setTimeScale(1F);
@@ -58,7 +55,9 @@ public class llz_zhengQJ extends abstract_llz_jiXie {
             ZQJ.init();
             MonsterGroup monsters = JiXieGroupPatch.llz_jiXie.get(AbstractDungeon.player);
             monsters.monsters.add(ZQJ);
-            isFirst = true;
+        } else {
+            act();
+            setEnergy(0);
         }
     }
 
@@ -71,7 +70,6 @@ public class llz_zhengQJ extends abstract_llz_jiXie {
         if (ZQJ != null) {
             String l = "l" + getEnergy();
             ZQJ.addToBot(new ChangeStateAction(ZQJ, l));
-
         }
     }
 
@@ -115,6 +113,14 @@ public class llz_zhengQJ extends abstract_llz_jiXie {
     public static void clear() {
         setEnergy(0);
         ZQJ = null;
+    }
+
+    public static void remove() {
+        if (ZQJ != null) {
+            MonsterGroup monsters = JiXieGroupPatch.llz_jiXie.get(AbstractDungeon.player);
+            monsters.monsters.remove(ZQJ);
+            ZQJ = null;
+        }
     }
 
     @Override

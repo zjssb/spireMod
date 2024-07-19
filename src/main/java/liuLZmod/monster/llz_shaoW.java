@@ -24,7 +24,7 @@ import java.util.stream.Collectors;
  * 机械：哨卫
  */
 public class llz_shaoW extends abstract_llz_jiXie {
-    public static final String ID = "llz_shaoWei";
+    public static final String ID = "llz_shaoW";
 
     private static final MonsterStrings jiXieStrings;
 
@@ -158,7 +158,6 @@ public class llz_shaoW extends abstract_llz_jiXie {
             T.drawY = AbstractDungeon.player.drawY + TTarget.y;
             T.init();
             minions.add(T);
-            isFirst = true;
         }
 
         // 实例化并设置位置
@@ -288,7 +287,7 @@ public class llz_shaoW extends abstract_llz_jiXie {
 }
 
 class shaoWT extends abstract_llz_jiXie {
-    public static final String ID = "llz_shaoWeiT";
+    public static final String ID = "llz_shaoWT";
 
     private static final MonsterStrings jiXieStrings = CardCrawlGame.languagePack.getMonsterStrings(ID);
 

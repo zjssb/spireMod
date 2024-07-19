@@ -19,7 +19,7 @@ import liuLZmod.util.Point;
  */
 public class llz_yuQ extends abstract_llz_jiXie {
 
-    public final static String ID = "llz_yuQun";
+    public final static String ID = "llz_yuQ";
 
     private static final MonsterStrings jiXieStrings;
     ;
