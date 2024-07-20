@@ -48,14 +48,7 @@ public class llz_zengqj extends CustomCard {
 
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        boolean cail = false;
-        for (abstract_llz_jiXie jiXie : jiXie_list){
-            if(Objects.equals(jiXie.id, "llz_shaoW")) {
-                cail = true;
-                break;
-            }
-        }
-        if(cail){
+        if(llz_shaoW.T != null){
             llz_shaoW.remove();
             addToBot(new jiXieAction("llz_zhengQJ"));
         }else AbstractDungeon.effectList.add(new ThoughtBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 3.0F, CARD_STRINGS.UPGRADE_DESCRIPTION, true));

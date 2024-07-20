@@ -14,6 +14,7 @@ import com.megacrit.cardcrawl.monsters.MonsterGroup;
 import liuLZmod.monster.abstracrt.abstract_llz_jiXie;
 import liuLZmod.patches.JiXieGroupPatch;
 import liuLZmod.util.Point;
+import liuLZmod.vfx.SuEffect;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,7 +49,7 @@ public class llz_shaoW extends abstract_llz_jiXie {
     /**
      * 攻击伤害
      */
-    private static final int attackDmg = 1;
+    private static final int attackDmg = 4;
     /**
      * 哨卫最大数量
      */
@@ -104,6 +105,14 @@ public class llz_shaoW extends abstract_llz_jiXie {
 
         this.setMove("", (byte) 0, Intent.NONE);
 
+    }
+
+    @Override
+    public void update() {
+        super.update();
+        if (T != null) {
+            SuEffect.play(T.drawX, T.drawY - 40, attackDmg, 1, false);
+        }
     }
 
     /**

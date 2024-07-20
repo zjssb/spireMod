@@ -51,7 +51,7 @@ public class llz_dunj extends CustomCard {
     @Override
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot((AbstractGameAction)new GainBlockAction((AbstractCreature)p, (AbstractCreature)p, this.block));
+        addToBot(new GainBlockAction(p, p, this.block));
         addToBot((AbstractGameAction)new DamageAction((AbstractCreature)m, new DamageInfo((AbstractCreature)p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
     }
     public AbstractCard makeCopy() {

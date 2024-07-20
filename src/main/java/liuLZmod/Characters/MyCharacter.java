@@ -111,6 +111,8 @@ public class MyCharacter extends CustomPlayer {
         for(int x = 0; x<4; x++) {
             retVal.add("llz_Defend");
         }
+        retVal.add("llz_xianq");
+        retVal.add("llz_diedq");
         return retVal;
     }
 

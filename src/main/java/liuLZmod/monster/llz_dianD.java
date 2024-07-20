@@ -31,7 +31,6 @@ public class llz_dianD extends abstract_llz_jiXie {
 
     public static Point position = new Point(-60, 80);
 
-    public static boolean isFirst = true;
 
     public llz_dianD() {
         super(NAME, ID, 10, -8.0F, 10.0F, 20F, 20F, null, 0, 0);
@@ -60,7 +59,6 @@ public class llz_dianD extends abstract_llz_jiXie {
             DD.init();
             MonsterGroup monsters = JiXieGroupPatch.llz_jiXie.get(AbstractDungeon.player);
             monsters.monsters.add(DD);
-            isFirst = true;
         }
     }
 

@@ -1,6 +1,7 @@
 package liuLZmod.powers;
 
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -8,6 +9,9 @@ import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+
+import java.util.Iterator;
 
 /**
  * 声纳能力：与机械：与鱼群联动，
@@ -27,19 +31,24 @@ public class llz_shengNaPower extends AbstractPower {
     /**全场唯一携带声纳buff的敌人*/
     public static AbstractMonster m = null;
 
-    public llz_shengNaPower(AbstractCreature owner,AbstractMonster m) {
+    public llz_shengNaPower(AbstractCreature owner, AbstractMonster m) {
         this.name = NAME;
         this.ID = POWER_ID;
         this.owner = owner;
-        this.type = PowerType.DEBUFF;
+        this.type = PowerType.BUFF;
 
-        if(llz_shengNaPower.m != null){
-            llz_shengNaPower.m.powers.remove(this);
-            this.addToTop(new RemoveSpecificPowerAction(llz_shengNaPower.m, llz_shengNaPower.m, ID));
+        // 移除所有怪物上的llz_shengNaPower能力
+        for (AbstractMonster monster : AbstractDungeon.getMonsters().monsters) {
+            if (monster.hasPower(POWER_ID) && monster != this.owner) {
+                monster.powers.removeIf(power -> power.ID.equals(POWER_ID));
+                this.addToTop(new RemoveSpecificPowerAction(monster, monster, POWER_ID));
+            }
         }
+
+        // 设置新的携带该能力的敌人
         llz_shengNaPower.m = m;
 
-        // 如果需要不能叠加的能力，只需将上面的Amount参数删掉，并把下面的Amount改成-1就行
+        // 设置能力数量
         this.amount = -1;
 
         // 添加一大一小两张能力图
@@ -52,10 +61,13 @@ public class llz_shengNaPower extends AbstractPower {
         this.updateDescription();
     }
 
+
+    public void onDeath() {
+        llz_shengNaPower.m = null;
+    }
+
     @Override
     public void updateDescription() {
         this.description = DESCRIPTIONS[0];
     }
-
-
 }

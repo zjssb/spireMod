@@ -27,7 +27,7 @@
   },
   "llz_hej": {
     "NAME": "合金",
-    "DESCRIPTION": "所有 llzmod:机械 充能 !M! 次 。 NL 消耗 。"
+    "DESCRIPTION": "所有 llzmod:机械 获得 !M! 点充能。 NL 消耗 。"
   },
   "llz_lenqj": {
     "NAME": "冷却剂",
@@ -309,5 +309,14 @@
     "NAME": "先驱",
     "DESCRIPTION": "造成 !D! 点伤害。 NL 生成- llzmod:机械 - llzmod:哨卫 ，获得一张伤口。",
     "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL 生成- llzmod:机械 - llzmod:哨卫 ，获得一张合金。"
+  },
+  "llz_sengnyq": {
+    "NAME": "声呐鱼群",
+    "DESCRIPTION": "造成 !D! 点伤害 !M! 次。 NL 消耗一个哨卫，生成- llzmod:机械 - llzmod:鱼群 。",
+    "UPGRADE_DESCRIPTION": "#r材料不足。"
+  },
+  "llz_yanh": {
+    "NAME": "掩护",
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 额外获得当前机械数量的 格挡 。 NL 生成- llzmod:机械 - llzmod:哨卫 。"
   }
 }
