@@ -33,8 +33,9 @@ public class CardPatch {
             if (c.purgeOnUse) {
                 return;
             }
-            int cost = c.costForTurn;
-            if (c.cost == -1) {
+            int cost =0;
+            if (c.cost >0 && !c.freeToPlayOnce)cost  = c.costForTurn;
+            else if (c.cost == -1) {
                 // 对x牌单独判断
                 cost = c.energyOnUse;
             }

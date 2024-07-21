@@ -5,8 +5,10 @@ import basemod.abstracts.DynamicVariable;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
+import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.localization.*;
@@ -34,6 +36,9 @@ public class liuLZMod implements EditCardsSubscriber, EditStringsSubscriber , Ed
     private static final String energy_orb = "ModliuLZ/img/char/cost_orb.png";
     public static final Color MY_COLOR = new Color(134.0F / 255.0F, 137.0F / 255.0F, 220.0F / 255.0F, 1.0F);
     public static final String a_image ="ModliuLZ/img/vfx/gaiz.png";
+
+    @SpireEnum
+    public static AbstractCard.CardTags SAOWEI;
 
     public liuLZMod() {
         BaseMod.subscribe(this);

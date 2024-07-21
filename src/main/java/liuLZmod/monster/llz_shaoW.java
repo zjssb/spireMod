@@ -53,7 +53,7 @@ public class llz_shaoW extends abstract_llz_jiXie {
     /**
      * 哨卫最大数量
      */
-    public static int shaoweiAmount = 10;
+    public static int shaoweiAmount = 6;
 
     /**
      * 哨卫存活列表

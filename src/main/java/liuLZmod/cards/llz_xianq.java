@@ -14,6 +14,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import liuLZmod.Characters.MyCharacter;
 import liuLZmod.action.abstracts.jiXieAction;
+import liuLZmod.modcore.liuLZMod;
 
 /**
  * 先驱
@@ -35,6 +36,7 @@ public class llz_xianq extends CustomCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.damage = this.baseDamage = 3;
         this.cardsToPreview = new Wound();
+        this.tags.add(liuLZMod.SAOWEI);
     }
 
     @Override
