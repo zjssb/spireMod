@@ -5,12 +5,14 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ChangeStateAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.utility.WaitAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.MonsterGroup;
+import liuLZmod.modcore.liuLZMod;
 import liuLZmod.monster.abstracrt.abstract_llz_jiXie;
 import liuLZmod.patches.JiXieGroupPatch;
 import liuLZmod.util.Point;
@@ -49,11 +51,12 @@ public class llz_shaoW extends abstract_llz_jiXie {
     /**
      * 攻击伤害
      */
-    private static final int attackDmg = 4;
+    private static final int baseAttackDmg = 4;
+    private static int attackDmg = baseAttackDmg;
     /**
      * 哨卫最大数量
      */
-    public static int shaoweiAmount = 6;
+    public static int shaoweiAmount = 2;
 
     /**
      * 哨卫存活列表
@@ -101,6 +104,9 @@ public class llz_shaoW extends abstract_llz_jiXie {
         this.stateData.setMix("gj", "idle", 0.3f);
         this.stateData.setMix("idle", "gj", 0.2f);
 
+        if (AbstractDungeon.player != null && AbstractDungeon.player.hasPower("llz_jih")){
+            attackDmg = baseAttackDmg +(AbstractDungeon.player.getPower("llz_jih")).amount;
+        }
         this.damage.add(new DamageInfo(this, attackDmg));
 
         this.setMove("", (byte) 0, Intent.NONE);
@@ -153,8 +159,14 @@ public class llz_shaoW extends abstract_llz_jiXie {
      */
     public static void SpawnMinion() {
         int ans = (int) shaoweiList.stream().filter(sw -> !sw.isDeath).count();
+        int i =shaoweiAmount;
+
+        for (AbstractCard c : AbstractDungeon.player.masterDeck.group) {
+            if(c.hasTag(liuLZMod.SAOWEI) && i <10)
+                i++;
+        }
         // 哨卫数量等于最大数量
-        if (ans == shaoweiAmount) {
+        if (ans >= i) {
             return;
         }
 
@@ -293,7 +305,16 @@ public class llz_shaoW extends abstract_llz_jiXie {
         NAME = jiXieStrings.NAME;
         abstract_llz_jiXie.addJiXie(new llz_shaoW(0, 0));
     }
+
+    /**
+     * 根据集火修改伤害，在集火层数变动时调用
+     */
+    public static void aDmg() {
+        attackDmg = baseAttackDmg +(AbstractDungeon.player.getPower("llz_jih")).amount;
+    }
 }
+
+
 
 class shaoWT extends abstract_llz_jiXie {
     public static final String ID = "llz_shaoWT";

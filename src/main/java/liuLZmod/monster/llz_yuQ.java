@@ -42,13 +42,18 @@ public class llz_yuQ extends abstract_llz_jiXie {
      */
     public static int count = 3;
 
-    public static int attackDmg = 3;
+    private static final int baseAttackDmg = 3;
+    public static int attackDmg = baseAttackDmg;
 
     public llz_yuQ() {
         super(NAME, ID, 10, -8.0F, 10.0F, 20F, 20F, null, 0, 0);
         this.loadAnimation("ModliuLZ/img/jix/yv/skeleton.atlas", "ModliuLZ/img/jix/yv/skeleton37.json", 1F);
         this.state.setAnimation(0, "new", false);
         this.stateData.setMix("att", "l0", 1F);
+
+        if (AbstractDungeon.player != null && AbstractDungeon.player.hasPower("llz_jih")){
+            attackDmg = baseAttackDmg +(AbstractDungeon.player.getPower("llz_jih")).amount;
+        }
         this.setMove("", (byte) 0, Intent.NONE);
     }
 
@@ -152,6 +157,13 @@ public class llz_yuQ extends abstract_llz_jiXie {
         NAME = jiXieStrings.NAME;
 
         abstract_llz_jiXie.addJiXie(new llz_yuQ());
+    }
+
+    /**
+     * 根据集火修改伤害，在集火层数变动时调用
+     */
+    public static void aDmg() {
+        attackDmg = baseAttackDmg +(AbstractDungeon.player.getPower("llz_jih")).amount;
     }
 
 

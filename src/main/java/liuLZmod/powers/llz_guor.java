@@ -53,38 +53,22 @@ public class llz_guor extends AbstractPower {
     private void updateExistingShivs() {
         for (AbstractCard c : AbstractDungeon.player.hand.group) {
             if (Objects.equals(c.cardID, "llz_zuangjzq")) {
-                if (!c.upgraded) {
-                    c.baseDamage = 12 + 2*this.amount;
-                } else {
-                    c.baseDamage = 12 + 4*this.amount;
-                }
+                    c.baseDamage = 12 + c.magicNumber*this.amount;
             }
         }
         for (AbstractCard c : AbstractDungeon.player.drawPile.group) {
             if (Objects.equals(c.cardID, "llz_zuangjzq")) {
-                if (!c.upgraded) {
-                    c.baseDamage = 12 + 2*this.amount;
-                } else {
-                    c.baseDamage = 12 + 4*this.amount;
-                }
+                c.baseDamage = 12 + c.magicNumber*this.amount;
             }
         }
         for (AbstractCard c : AbstractDungeon.player.discardPile.group) {
             if (Objects.equals(c.cardID, "llz_zuangjzq")) {
-                if (!c.upgraded) {
-                    c.baseDamage = 12 + 2*this.amount;
-                } else {
-                    c.baseDamage = 12 + 4*this.amount;
-                }
+                c.baseDamage = 12 + c.magicNumber*this.amount;
             }
         }
         for (AbstractCard c : AbstractDungeon.player.exhaustPile.group) {
             if (Objects.equals(c.cardID, "llz_zuangjzq")) {
-                if (!c.upgraded) {
-                    c.baseDamage = 12 + 2*this.amount;
-                } else {
-                    c.baseDamage = 12 + 4*this.amount;
-                }
+                c.baseDamage = 12 + c.magicNumber*this.amount;
             }
         }
     }
@@ -92,11 +76,7 @@ public class llz_guor extends AbstractPower {
     public void onDrawOrDiscard() {
         for (AbstractCard c : AbstractDungeon.player.hand.group) {
             if (Objects.equals(c.cardID, "llz_zuangjzq")) {
-                if (!c.upgraded) {
-                    c.baseDamage = 12 + 2*this.amount;
-                } else {
-                    c.baseDamage = 12 + 4*this.amount;
-                }
+                c.baseDamage = 12 + c.magicNumber*this.amount;
             }
         }
     }
