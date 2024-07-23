@@ -5,48 +5,42 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.monsters.MonsterGroup;
-import liuLZmod.action.YuQDamageAction;
 import liuLZmod.monster.abstracrt.abstract_llz_jiXie;
 import liuLZmod.patches.JiXieGroupPatch;
 import liuLZmod.util.Point;
 import liuLZmod.vfx.SuEffect;
 
 /**
- * 机械：鱼群
+ * 机械：战争
  */
-public class llz_yuQ extends abstract_llz_jiXie {
+public class llz_ZZWZ extends abstract_llz_jiXie {
 
-    public final static String ID = "llz_yuQ";
+    public final static String ID = "llz_ZZWZ";
 
     private static final MonsterStrings jiXieStrings;
-    ;
     public final static String NAME;
 
-
-    /**
-     * 充能
-     */
     private static int energy = 0;
+    private static final int initialMaxEnergy = 10;
+    private static int maxEnergy = initialMaxEnergy;
 
-    private static final int maxEnergy = 3;
-    public static llz_yuQ YQ = null;
+    public static llz_ZZWZ ZZWZ = null;
     public static Point position = new Point(150, 100);
-    /**
-     * 攻击次数
-     */
-    public static int count = 3;
 
-    private static final int baseAttackDmg = 3;
+    public static int count = 5;
+    private static final int baseAttackDmg = 5;
     public static int attackDmg = baseAttackDmg;
 
-    public llz_yuQ() {
+    private static boolean isSecondPhase = false;
+
+    public llz_ZZWZ() {
         super(NAME, ID, 10, -8.0F, 10.0F, 20F, 20F, null, 0, 0);
-        this.loadAnimation("ModliuLZ/img/jix/yv/skeleton.atlas", "ModliuLZ/img/jix/yv/skeleton37.json", 1F);
+        this.loadAnimation("ModliuLZ/img/jix/zanz/skeleton.atlas", "ModliuLZ/img/jix/zanz/skeleton37.json", 1F);
         this.state.setAnimation(0, "new", false);
         this.stateData.setMix("att", "l0", 1F);
 
         if (AbstractDungeon.player != null && AbstractDungeon.player.hasPower("llz_jih")){
-            attackDmg = baseAttackDmg +(AbstractDungeon.player.getPower("llz_jih")).amount;
+            attackDmg = baseAttackDmg + (AbstractDungeon.player.getPower("llz_jih")).amount;
         }
         this.setMove("", (byte) 0, Intent.NONE);
     }
@@ -54,9 +48,9 @@ public class llz_yuQ extends abstract_llz_jiXie {
     @Override
     public void update() {
         super.update();
-        if (YQ != null) {
-            SuEffect.play(YQ.drawX, YQ.drawY - 50, attackDmg, count, false);
-        }
+        if (ZZWZ != null && isSecondPhase) {
+            SuEffect.play(ZZWZ.drawX, ZZWZ.drawY - 50, attackDmg, count, false);
+        }else if(ZZWZ != null) SuEffect.play(ZZWZ.drawX, ZZWZ.drawY - 50, energy, 1, true);
     }
 
     public static int getEnergy() {
@@ -64,31 +58,27 @@ public class llz_yuQ extends abstract_llz_jiXie {
     }
 
     public static void setEnergy(int energy) {
-        llz_yuQ.energy = energy;
-        if (YQ != null) {
+        llz_ZZWZ.energy = energy;
+        if (ZZWZ != null) {
             String l = "l" + getEnergy();
-            AbstractDungeon.actionManager.addToBottom(new ChangeStateAction(YQ, l));
+            AbstractDungeon.actionManager.addToBottom(new ChangeStateAction(ZZWZ, l));
         }
     }
 
     public static void SpawnMinion() {
-        if (YQ == null) {
-            YQ = new llz_yuQ();
-            YQ.drawX = AbstractDungeon.player.drawX + position.x;
-            YQ.drawY = AbstractDungeon.player.drawY + position.y;
-            YQ.init();
+        if (ZZWZ == null) {
+            ZZWZ = new llz_ZZWZ();
+            ZZWZ.drawX = AbstractDungeon.player.drawX + position.x;
+            ZZWZ.drawY = AbstractDungeon.player.drawY + position.y;
+            ZZWZ.init();
             MonsterGroup monsters = JiXieGroupPatch.llz_jiXie.get(AbstractDungeon.player);
-            monsters.monsters.add(YQ);
-            YQ.addToBot(new ChangeStateAction(YQ, "new"));
-
-        } else {
-            count += 3;
+            monsters.monsters.add(ZZWZ);
+            ZZWZ.addToBot(new ChangeStateAction(ZZWZ, "new"));
         }
     }
 
-
     public static void addEnergy(int num) {
-        if (YQ == null) {
+        if (ZZWZ == null) {
             return;
         }
         if (isFirst) {
@@ -98,14 +88,24 @@ public class llz_yuQ extends abstract_llz_jiXie {
 
         int energy = getEnergy() + num;
         if (energy >= maxEnergy) {
-            act();
-            energy = 0;
+            if (!isSecondPhase) {
+                enterSecondPhase();
+                energy = 0;
+                maxEnergy = 5;
+            } else {
+                act();
+                energy = 0;
+            }
             setEnergy(energy);
             return;
         }
         setEnergy(Math.max(0, energy));
     }
 
+    private static void enterSecondPhase() {
+        isSecondPhase = true;
+        ZZWZ.state.setAnimation(0, "new_2", false);
+    }
 
     @Override
     public void lossEnergy(int num) {
@@ -114,22 +114,23 @@ public class llz_yuQ extends abstract_llz_jiXie {
     }
 
     public static void act() {
-        YQ.addToBot(new ChangeStateAction(YQ, "att"));
+        ZZWZ.addToBot(new ChangeStateAction(ZZWZ, "att"));
         for (int i = 1; i <= count; i++) {
-            AbstractDungeon.actionManager.addToBottom(new YuQDamageAction(YQ, attackDmg));
+            // AbstractDungeon.actionManager.addToBottom(new ZZWZDamageAction(ZZWZ, attackDmg));
         }
-        if(count >1)count--;
     }
-
 
     public static void clear() {
         setEnergy(0);
-        YQ = null;
+        ZZWZ = null;
+        maxEnergy = initialMaxEnergy;
+        isSecondPhase = false;
     }
 
     @Override
     public void changeState(String stateName) {
-        switch (stateName) {
+        if(!isSecondPhase)this.state.setAnimation(1, "idle", true);
+        else switch (stateName) {
             case "l0":
                 this.state.setAnimation(1, "l0", true);
                 break;
@@ -139,8 +140,13 @@ public class llz_yuQ extends abstract_llz_jiXie {
             case "l2":
                 this.state.setAnimation(1, "l2", true);
                 break;
+            case "l3":
+                this.state.setAnimation(1, "l3", true);
+                break;
+            case "l4":
+                this.state.setAnimation(1, "l4", true);
+                break;
             case "att":
-//                System.out.println(this.animationTimer);
                 this.state.setAnimation(0, "att", false);
                 break;
         }
@@ -149,25 +155,18 @@ public class llz_yuQ extends abstract_llz_jiXie {
     static {
         jiXieStrings = CardCrawlGame.languagePack.getMonsterStrings(ID);
         NAME = jiXieStrings.NAME;
-
-        abstract_llz_jiXie.addJiXie(new llz_yuQ());
+        abstract_llz_jiXie.addJiXie(new llz_ZZWZ());
     }
 
-    /**
-     * 根据集火修改伤害，在集火层数变动时调用
-     */
     public static void aDmg() {
-        attackDmg = baseAttackDmg +(AbstractDungeon.player.getPower("llz_jih")).amount;
+        attackDmg = baseAttackDmg + (AbstractDungeon.player.getPower("llz_jih")).amount;
     }
-
 
     @Override
     public void takeTurn() {
-
     }
 
     @Override
     protected void getMove(int i) {
-
     }
 }

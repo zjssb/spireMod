@@ -318,5 +318,14 @@
   "llz_yanh": {
     "NAME": "掩护",
     "DESCRIPTION": "获得 !B! 点 格挡 。 NL 额外获得当前机械数量的 格挡 。 NL 生成- llzmod:机械 - llzmod:哨卫 。"
+  },
+  "llz_dianld": {
+    "NAME": "电能刀",
+    "DESCRIPTION": "生成- llzmod:机械 - llzmod:电能刀 。 NL 清除所有哨卫。",
+    "UPGRADE_DESCRIPTION": "生成- llzmod:机械 - llzmod:电能刀 。 NL 清除所有哨卫，并获得等量充能。"
+  },
+  "llz_zanzwz": {
+    "NAME": "战争武装",
+    "DESCRIPTION": "消耗 !M! 个哨卫。 NL 生成- llzmod:机械 - llzmod:原型武装 。"
   }
 }

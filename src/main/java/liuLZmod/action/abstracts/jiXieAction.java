@@ -4,6 +4,8 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import liuLZmod.monster.abstracrt.abstract_llz_jiXie;
 import liuLZmod.monster.*;
 
+import java.util.Objects;
+
 public class jiXieAction extends AbstractGameAction {
     private String groupType;
     private int num;
@@ -30,16 +32,8 @@ public class jiXieAction extends AbstractGameAction {
     @Override
     public void update() {
         if (hasGroupType && hasNum) {
-            for (abstract_llz_jiXie jiXie : abstract_llz_jiXie.jiXie_list) {
-                if (jiXie.id.equals(groupType)) {
-                    if (num > 0) {
-                        jiXie.addEnergy(num);
-                    } else if (num < 0) {
-                        jiXie.lossEnergy(-num);
-                    }
-                    break;
-                }
-            }
+            if(Objects.equals(groupType, "llz_dianD"))
+                llz_dianD.addEnergy(num);
         } else if (hasGroupType) {
             switch (groupType) {
                 case "llz_shaoW":
@@ -56,6 +50,9 @@ public class jiXieAction extends AbstractGameAction {
                     break;
                 case "llz_xuYing":
                     llz_xuYing.SpawnMinion();
+                    break;
+                case "llz_ZZWZ":
+                    llz_ZZWZ.SpawnMinion();
                     break;
                 default:
                     break;
