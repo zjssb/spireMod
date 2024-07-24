@@ -65,7 +65,7 @@ public class llz_Strike extends CustomCard {
         addToBot((AbstractGameAction)new DamageAction((AbstractCreature)m, new DamageInfo((AbstractCreature)p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
     }
     public AbstractCard makeCopy() {
-        /* 44 */     return new llz_Strike();
-        /*    */   }
+             return new llz_Strike();
+           }
 
 }

@@ -1,12 +1,19 @@
 package liuLZmod.monster;
 
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.ChangeStateAction;
+import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.monsters.MonsterGroup;
 import liuLZmod.monster.abstracrt.abstract_llz_jiXie;
 import liuLZmod.patches.JiXieGroupPatch;
+import liuLZmod.powers.llz_jih;
 import liuLZmod.util.Point;
 import liuLZmod.vfx.SuEffect;
 
@@ -74,6 +81,9 @@ public class llz_ZZWZ extends abstract_llz_jiXie {
             MonsterGroup monsters = JiXieGroupPatch.llz_jiXie.get(AbstractDungeon.player);
             monsters.monsters.add(ZZWZ);
             ZZWZ.addToBot(new ChangeStateAction(ZZWZ, "new"));
+        }else if(isSecondPhase){
+            AbstractPlayer p = AbstractDungeon.player;
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p ,p ,new llz_jih(p,1),1));
         }
     }
 
@@ -84,6 +94,11 @@ public class llz_ZZWZ extends abstract_llz_jiXie {
         if (isFirst) {
             isFirst = false;
             return;
+        }
+
+        if(num >0 && isSecondPhase){
+            AbstractPlayer p = AbstractDungeon.player;
+            AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, 2));
         }
 
         int energy = getEnergy() + num;
@@ -116,7 +131,8 @@ public class llz_ZZWZ extends abstract_llz_jiXie {
     public static void act() {
         ZZWZ.addToBot(new ChangeStateAction(ZZWZ, "att"));
         for (int i = 1; i <= count; i++) {
-            // AbstractDungeon.actionManager.addToBottom(new ZZWZDamageAction(ZZWZ, attackDmg));
+            AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(null,
+                    DamageInfo.createDamageMatrix(attackDmg, true), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.BLUNT_HEAVY, true));
         }
     }
 

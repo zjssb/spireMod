@@ -29,6 +29,7 @@ public class llz_dianld extends CustomCard {
 
     public llz_dianld() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        this.cardsToPreview = new llz_dianHQG();
     }
 
     @Override

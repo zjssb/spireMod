@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import liuLZmod.monster.llz_ZZWZ;
 import liuLZmod.monster.llz_shaoW;
 import liuLZmod.monster.llz_yuQ;
 
@@ -67,6 +68,7 @@ public class llz_jih extends AbstractPower {
     public void jixie(){
         if(llz_shaoW.T != null)llz_shaoW.aDmg();
         if(llz_yuQ.YQ != null)llz_yuQ.aDmg();
+        if(llz_ZZWZ.ZZWZ != null)llz_ZZWZ.aDmg();
     }
 
     public void updateDescription() {

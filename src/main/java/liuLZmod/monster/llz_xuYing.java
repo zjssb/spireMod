@@ -27,12 +27,12 @@ public class llz_xuYing extends abstract_llz_jiXie {
      */
     private static int energy = 0;
 
-    public static int maxEnergy = 0;
+    public static int maxEnergy = 1;
     public static llz_xuYing XY = null;
 
     public static Point position = new Point(100, 80);
 
-    public static boolean isFirst = true;
+    //public static boolean isFirst = true;
 
     public llz_xuYing() {
         super(NAME, ID, 10, 0.0F, 10.0F, 20F, 20F, null, 0, 0);
@@ -52,7 +52,6 @@ public class llz_xuYing extends abstract_llz_jiXie {
             XY.rollMove();
             MonsterGroup monsters = JiXieGroupPatch.llz_jiXie.get(AbstractDungeon.player);
             monsters.monsters.add(XY);
-            isFirst = true;
         }
     }
 

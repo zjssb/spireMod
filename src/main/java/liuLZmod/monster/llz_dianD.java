@@ -26,7 +26,7 @@ public class llz_dianD extends abstract_llz_jiXie {
      */
     private static int energy = 0;
 
-    public static int maxEnergy = 1;
+    public static int maxEnergy = 999;
     public static llz_dianD DD = null;
 
     public static Point position = new Point(-60, 80);
@@ -86,8 +86,10 @@ public class llz_dianD extends abstract_llz_jiXie {
             return;
         }
 
-        int energy = getEnergy() + num;
-        setEnergy(Math.max(0, energy));
+        if(energy < maxEnergy){
+            int energy = getEnergy() + num;
+            setEnergy(Math.max(0, energy));
+        }
     }
 
     @Override
@@ -105,7 +107,7 @@ public class llz_dianD extends abstract_llz_jiXie {
         if (DD == null) {
             return;
         }
-        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new llz_dianHQG(llz_dianD.getEnergy() * 10)));
+        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new llz_dianHQG(llz_dianD.getEnergy() * 8)));
     }
 
 
