@@ -5,6 +5,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.monsters.MonsterGroup;
+import liuLZmod.action.abstracts.diandAction;
 import liuLZmod.cards.llz_dianHQG;
 import liuLZmod.monster.abstracrt.abstract_llz_jiXie;
 import liuLZmod.patches.JiXieGroupPatch;
@@ -27,6 +28,8 @@ public class llz_dianD extends abstract_llz_jiXie {
     private static int energy = 0;
 
     public static int maxEnergy = 999;
+
+    private static int playerHP = 0;
     public static llz_dianD DD = null;
 
     public static Point position = new Point(-60, 80);
@@ -38,6 +41,8 @@ public class llz_dianD extends abstract_llz_jiXie {
         this.state.setAnimation(0, "new", false);
         this.state.addAnimation(0, "idle", true, 0F);
         this.setMove("", (byte) 0, Intent.NONE);
+
+        playerHP = AbstractDungeon.player.currentHealth;
     }
 
     @Override
@@ -66,8 +71,13 @@ public class llz_dianD extends abstract_llz_jiXie {
      * 移除充能
      */
     public static void lossEnergy() {
+        AbstractDungeon.actionManager.addToBottom(new diandAction(playerHP));
+    }
+    public static void DDEnergy() {
+        playerHP =AbstractDungeon.player.currentHealth;
         energy = 0;
     }
+
 
     public static int getEnergy() {
         return energy;

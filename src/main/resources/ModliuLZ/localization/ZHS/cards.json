@@ -328,5 +328,9 @@
     "NAME": "战争武装",
     "DESCRIPTION": "消耗 !M! 个哨卫。 NL 生成- llzmod:机械 - llzmod:原型武装 。",
     "UPGRADE_DESCRIPTION": "#r材料不足。"
+  },
+  "llz_laojjk": {
+    "NAME": "脑机接口",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 生成一个和敌人意图相同的 llzmod:机械 - llzmod:虚影 。"
   }
 }

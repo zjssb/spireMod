@@ -1,7 +1,6 @@
 package liuLZmod.monster;
 
 import com.megacrit.cardcrawl.actions.common.HealAction;
-import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
@@ -46,7 +45,6 @@ public class llz_xuYing extends abstract_llz_jiXie {
             XY = new llz_xuYing();
             XY.drawX = AbstractDungeon.player.drawX + position.x;
             XY.drawY = AbstractDungeon.player.drawY + position.y;
-//            XY.x
             XY.init();
             XY.showHealthBar();
             XY.rollMove();
