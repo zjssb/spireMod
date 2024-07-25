@@ -48,9 +48,6 @@ public class jiXieAction extends AbstractGameAction {
                 case "llz_yuQ":
                     llz_yuQ.SpawnMinion();
                     break;
-                case "llz_xuYing":
-                    llz_xuYing.SpawnMinion();
-                    break;
                 case "llz_ZZWZ":
                     llz_ZZWZ.SpawnMinion();
                     break;

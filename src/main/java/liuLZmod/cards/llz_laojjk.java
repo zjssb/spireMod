@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import liuLZmod.Characters.MyCharacter;
+import liuLZmod.action.abstracts.GenerateXuYingAction;
 import liuLZmod.action.abstracts.jiXieAction;
 
 /**
@@ -46,8 +47,8 @@ public class llz_laojjk extends CustomCard {
     @Override
 
     public void use(AbstractPlayer p, AbstractMonster m) {
+        addToBot(new GenerateXuYingAction(m));
         addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
-        addToBot(new jiXieAction("llz_xuYing"));
     }
     public AbstractCard makeCopy() {
         return new llz_laojjk();

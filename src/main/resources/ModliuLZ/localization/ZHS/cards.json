@@ -331,6 +331,6 @@
   },
   "llz_laojjk": {
     "NAME": "脑机接口",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL 生成一个和敌人意图相同的 llzmod:机械 - llzmod:虚影 。"
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 生成一个和敌人意图相同的 llzmod:机械 - llzmod:虚影 。 NL 消耗 。"
   }
 }
