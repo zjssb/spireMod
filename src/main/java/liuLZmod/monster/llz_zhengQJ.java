@@ -34,7 +34,7 @@ public class llz_zhengQJ extends abstract_llz_jiXie {
 
     private static final int maxEnergy = 5;
     public static llz_zhengQJ ZQJ = null;
-    public static Point position = new Point(-110, 200);
+    public static Point position = new Point(-90, 200);
 
     public llz_zhengQJ() {
         super(NAME, ID, 10, -8.0F, 10.0F, 20F, 20F, null, 0, 0);
@@ -110,17 +110,19 @@ public class llz_zhengQJ extends abstract_llz_jiXie {
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, ZQJ, new WeakPower(m, 1, false)));
     }
 
-    public static void clear() {
-        setEnergy(0);
-        ZQJ = null;
-    }
 
     public static void remove() {
         if (ZQJ != null) {
             MonsterGroup monsters = JiXieGroupPatch.llz_jiXie.get(AbstractDungeon.player);
             monsters.monsters.remove(ZQJ);
+            setEnergy(0);
             ZQJ = null;
         }
+    }
+
+    public static void clear() {
+        setEnergy(0);
+        ZQJ = null;
     }
 
     @Override

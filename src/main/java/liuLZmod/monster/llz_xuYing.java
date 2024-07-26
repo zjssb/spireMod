@@ -4,7 +4,6 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -19,9 +18,11 @@ import com.megacrit.cardcrawl.vfx.ShieldParticleEffect;
 import com.megacrit.cardcrawl.vfx.combat.BuffParticleEffect;
 import com.megacrit.cardcrawl.vfx.combat.StunStarEffect;
 import com.megacrit.cardcrawl.vfx.combat.UnknownParticleEffect;
+import liuLZmod.action.abstracts.removeJiXieAction;
 import liuLZmod.monster.abstracrt.abstract_llz_jiXie;
 import liuLZmod.patches.JiXieGroupPatch;
 import liuLZmod.util.Point;
+
 import java.util.ArrayList;
 
 /**
@@ -34,9 +35,9 @@ public class llz_xuYing extends abstract_llz_jiXie {
     private static int energy = 0;
     public static int maxEnergy = 1;
     public static llz_xuYing XY = null;
-    public static int count = 0;
+    public static int count = 1;
     public static int attackDmg = 0;
-    public static Point position = new Point(100, 80);
+    public static Point position = new Point(250, 200);
     /**
      * 意图渲染
      */
@@ -202,7 +203,7 @@ public class llz_xuYing extends abstract_llz_jiXie {
     }
 
     private void renderCustomDamageRange(SpriteBatch sb) {
-        if (attackDmg > 0) {
+        if (this.intent == Intent.ATTACK || this.intent == Intent.ATTACK_BUFF || this.intent == Intent.ATTACK_DEFEND || this.intent == Intent.ATTACK_DEBUFF) {
             String damageText = count > 1 ? attackDmg + "x" + count : Integer.toString(attackDmg);
             FontHelper.renderFontLeftTopAligned(sb, FontHelper.topPanelInfoFont, damageText,
                     this.intentHb.cX - 30.0F * Settings.scale, this.intentHb.cY + this.bobEffect.y - 12.0F * Settings.scale, this.intentColor);
@@ -221,8 +222,37 @@ public class llz_xuYing extends abstract_llz_jiXie {
         }
     }
 
-    public static void addEnergy(int num) {}
+    public static void addEnergy(int num) {
+        if (XY == null) {
+            return;
+        }
+        if (isFirst) {
+            isFirst = false;
+            return;
+        }
 
+
+        if (num >0) {
+            act();
+        }
+    }
+
+    public static void act() {
+        if (XY == null) {
+            return;
+        }
+        XY.state.setAnimation(0, "att", false);
+        XY.state.addAnimation(0, "idle", true, 0F);
+        AbstractDungeon.actionManager.addToBottom(new removeJiXieAction());
+    }
+
+    public static void remove() {
+        if(XY != null){
+            MonsterGroup monsters = JiXieGroupPatch.llz_jiXie.get(AbstractDungeon.player);
+            monsters.monsters.remove(XY);
+            XY = null;
+        }
+    }
     public static void clear() {
         XY = null;
     }

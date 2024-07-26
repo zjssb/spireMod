@@ -32,13 +32,15 @@ public class llz_ZZWZ extends abstract_llz_jiXie {
     private static int maxEnergy = initialMaxEnergy;
 
     public static llz_ZZWZ ZZWZ = null;
-    public static Point position = new Point(150, 100);
+    public static Point position = new Point(50, 150);
 
     public static int count = 5;
     private static final int baseAttackDmg = 5;
     public static int attackDmg = baseAttackDmg;
-
-    private static boolean isSecondPhase = false;
+    /**
+     * 是否是战争
+     */
+    public static boolean isSecondPhase = false;
 
     public llz_ZZWZ() {
         super(NAME, ID, 10, -8.0F, 10.0F, 20F, 20F, null, 0, 0);
@@ -49,6 +51,8 @@ public class llz_ZZWZ extends abstract_llz_jiXie {
         if (AbstractDungeon.player != null && AbstractDungeon.player.hasPower("llz_jih")){
             attackDmg = baseAttackDmg + (AbstractDungeon.player.getPower("llz_jih")).amount;
         }
+        maxEnergy = initialMaxEnergy;
+        isSecondPhase = false;
         this.setMove("", (byte) 0, Intent.NONE);
     }
 
@@ -56,8 +60,8 @@ public class llz_ZZWZ extends abstract_llz_jiXie {
     public void update() {
         super.update();
         if (ZZWZ != null && isSecondPhase) {
-            SuEffect.play(ZZWZ.drawX, ZZWZ.drawY - 50, attackDmg, count, false);
-        }else if(ZZWZ != null) SuEffect.play(ZZWZ.drawX, ZZWZ.drawY - 50, energy, 1, true);
+            SuEffect.play(ZZWZ.drawX + 20, ZZWZ.drawY - 50, attackDmg, count, false);
+        }else if(ZZWZ != null) SuEffect.play(ZZWZ.drawX +20, ZZWZ.drawY - 50, energy, 1, true);
     }
 
     public static int getEnergy() {
@@ -129,6 +133,9 @@ public class llz_ZZWZ extends abstract_llz_jiXie {
     }
 
     public static void act() {
+        if (ZZWZ == null) {
+            return;
+        }
         ZZWZ.addToBot(new ChangeStateAction(ZZWZ, "att"));
         for (int i = 1; i <= count; i++) {
             AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(null,
@@ -136,11 +143,19 @@ public class llz_ZZWZ extends abstract_llz_jiXie {
         }
     }
 
+    public static void remove() {
+        if(ZZWZ != null){
+            MonsterGroup monsters = JiXieGroupPatch.llz_jiXie.get(AbstractDungeon.player);
+            monsters.monsters.remove(ZZWZ);
+            setEnergy(0);
+            ZZWZ = null;
+            maxEnergy = initialMaxEnergy;
+            isSecondPhase = false;
+        }
+    }
     public static void clear() {
         setEnergy(0);
         ZZWZ = null;
-        maxEnergy = initialMaxEnergy;
-        isSecondPhase = false;
     }
 
     @Override

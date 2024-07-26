@@ -1,17 +1,14 @@
 package liuLZmod.powers;
 
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-
-import java.util.Iterator;
 
 /**
  * 声纳能力：与机械：与鱼群联动，
@@ -28,9 +25,6 @@ public class llz_shengNaPower extends AbstractPower {
     // 能力的描述
     private static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    /**全场唯一携带声纳buff的敌人*/
-    public static AbstractMonster m = null;
-
     public llz_shengNaPower(AbstractCreature owner, AbstractMonster m) {
         this.name = NAME;
         this.ID = POWER_ID;
@@ -45,8 +39,6 @@ public class llz_shengNaPower extends AbstractPower {
             }
         }
 
-        // 设置新的携带该能力的敌人
-        llz_shengNaPower.m = m;
 
         // 设置能力数量
         this.amount = -1;
@@ -61,10 +53,6 @@ public class llz_shengNaPower extends AbstractPower {
         this.updateDescription();
     }
 
-
-    public void onDeath() {
-        llz_shengNaPower.m = null;
-    }
 
     @Override
     public void updateDescription() {

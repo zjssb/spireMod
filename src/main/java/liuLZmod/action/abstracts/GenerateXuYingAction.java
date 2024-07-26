@@ -7,6 +7,10 @@ import liuLZmod.monster.llz_xuYing;
 
 import java.lang.reflect.Field;
 
+/**
+ * 生成虚影，传意图
+ */
+
 public class GenerateXuYingAction extends AbstractGameAction {
     private AbstractMonster monster;
 
@@ -18,14 +22,13 @@ public class GenerateXuYingAction extends AbstractGameAction {
     public void update() {
 
         int attackDmg =0;
-        int attackCount =0;
+        int attackCount =1;
 
         if (monster.intent == Intent.ATTACK ||
                 monster.intent == Intent.ATTACK_BUFF ||
                 monster.intent == Intent.ATTACK_DEBUFF ||
                 monster.intent == Intent.ATTACK_DEFEND) {
             attackDmg = monster.getIntentDmg();
-            attackCount = 1;
 
             try {
                 // Accessing isMultiDmg field

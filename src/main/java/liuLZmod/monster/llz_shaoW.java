@@ -81,7 +81,7 @@ public class llz_shaoW extends abstract_llz_jiXie {
         add(new Point(-185, 260));
         add(new Point(190, 280));
         add(new Point(-200, 30));
-        add(new Point(190, 130));
+        add(new Point(180, 100));
         add(new Point(-50, 320));
         add(new Point(-210, 190));
         add(new Point(-150, 120));

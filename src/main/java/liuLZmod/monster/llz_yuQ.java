@@ -4,6 +4,7 @@ import com.megacrit.cardcrawl.actions.common.ChangeStateAction;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.MonsterGroup;
 import liuLZmod.action.YuQDamageAction;
 import liuLZmod.monster.abstracrt.abstract_llz_jiXie;
@@ -30,7 +31,7 @@ public class llz_yuQ extends abstract_llz_jiXie {
 
     private static final int maxEnergy = 3;
     public static llz_yuQ YQ = null;
-    public static Point position = new Point(150, 100);
+    public static Point position = new Point(120, 50);
     /**
      * 攻击次数
      */
@@ -48,6 +49,7 @@ public class llz_yuQ extends abstract_llz_jiXie {
         if (AbstractDungeon.player != null && AbstractDungeon.player.hasPower("llz_jih")){
             attackDmg = baseAttackDmg +(AbstractDungeon.player.getPower("llz_jih")).amount;
         }
+        count = 3;
         this.setMove("", (byte) 0, Intent.NONE);
     }
 
@@ -114,13 +116,35 @@ public class llz_yuQ extends abstract_llz_jiXie {
     }
 
     public static void act() {
-        YQ.addToBot(new ChangeStateAction(YQ, "att"));
-        for (int i = 1; i <= count; i++) {
-            AbstractDungeon.actionManager.addToBottom(new YuQDamageAction(YQ, attackDmg));
+        if (YQ == null) {
+            return;
         }
-        if(count >1)count--;
+        YQ.addToBot(new ChangeStateAction(YQ, "att"));
+
+        boolean m = false;
+        for (AbstractMonster monster : AbstractDungeon.getCurrRoom().monsters.monsters) {
+            if (monster.currentHealth > 0) {
+                m = true;
+                break;
+            }
+        }
+        if(m){
+            for (int i = 1; i <= count; i++) {
+                AbstractDungeon.actionManager.addToBottom(new YuQDamageAction(YQ, attackDmg));
+            }
+            if (count > 1) count--;
+        }
     }
 
+
+    public static void remove() {
+        if(YQ != null){
+            MonsterGroup monsters = JiXieGroupPatch.llz_jiXie.get(AbstractDungeon.player);
+            monsters.monsters.remove(YQ);
+            setEnergy(0);
+            YQ = null;
+        }
+    }
 
     public static void clear() {
         setEnergy(0);

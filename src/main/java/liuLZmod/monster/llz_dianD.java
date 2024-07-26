@@ -108,6 +108,15 @@ public class llz_dianD extends abstract_llz_jiXie {
         setEnergy(Math.max(0, energy));
     }
 
+    public static void remove() {
+        if(DD != null){
+            MonsterGroup monsters = JiXieGroupPatch.llz_jiXie.get(AbstractDungeon.player);
+            monsters.monsters.remove(DD);
+            setEnergy(0);
+            DD = null;
+        }
+    }
+
     public static void clear() {
         setEnergy(0);
         DD = null;
