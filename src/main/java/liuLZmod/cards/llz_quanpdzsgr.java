@@ -18,6 +18,7 @@ import com.megacrit.cardcrawl.powers.WeakPower;
 import com.megacrit.cardcrawl.vfx.BorderLongFlashEffect;
 import com.megacrit.cardcrawl.vfx.combat.RoomTintEffect;
 import liuLZmod.Characters.MyCharacter;
+import liuLZmod.powers.llz_Mylaoy;
 import liuLZmod.powers.llz_cij;
 import liuLZmod.powers.llz_laoy;
 
@@ -56,6 +57,7 @@ public class llz_quanpdzsgr extends CustomCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new VFXAction(new RoomTintEffect(Color.BLACK.cpy(), 0.8F)));
         addToBot(new VFXAction(new BorderLongFlashEffect(new Color(0.0F, 0.3F, 1.0F, 0.7F))));
+        addToBot(new ApplyPowerAction(p, p, new llz_Mylaoy(p)));
         for (AbstractMonster mo : (AbstractDungeon.getCurrRoom()).monsters.monsters) {
             addToBot(new ApplyPowerAction(mo, p, new WeakPower(mo, this.magicNumber, false), this.magicNumber, true, AbstractGameAction.AttackEffect.NONE));
             addToBot(new ApplyPowerAction(mo, p, new VulnerablePower(mo, this.magicNumber, false), this.magicNumber, true, AbstractGameAction.AttackEffect.NONE));

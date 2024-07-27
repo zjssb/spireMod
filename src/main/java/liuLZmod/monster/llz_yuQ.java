@@ -148,6 +148,8 @@ public class llz_yuQ extends abstract_llz_jiXie {
 
     public static void clear() {
         setEnergy(0);
+        attackDmg = baseAttackDmg;
+        count = 3;
         YQ = null;
     }
 

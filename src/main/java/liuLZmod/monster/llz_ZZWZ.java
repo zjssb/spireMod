@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.monsters.MonsterGroup;
+import liuLZmod.action.ZZWZAnimationAction;
 import liuLZmod.monster.abstracrt.abstract_llz_jiXie;
 import liuLZmod.patches.JiXieGroupPatch;
 import liuLZmod.powers.llz_jih;
@@ -108,7 +109,7 @@ public class llz_ZZWZ extends abstract_llz_jiXie {
         int energy = getEnergy() + num;
         if (energy >= maxEnergy) {
             if (!isSecondPhase) {
-                enterSecondPhase();
+                AbstractDungeon.actionManager.addToBottom(new ZZWZAnimationAction());
                 energy = 0;
                 maxEnergy = 5;
             } else {
@@ -121,7 +122,7 @@ public class llz_ZZWZ extends abstract_llz_jiXie {
         setEnergy(Math.max(0, energy));
     }
 
-    private static void enterSecondPhase() {
+    public static void enterSecondPhase() {
         isSecondPhase = true;
         ZZWZ.state.setAnimation(0, "new_2", false);
     }
@@ -155,6 +156,7 @@ public class llz_ZZWZ extends abstract_llz_jiXie {
     }
     public static void clear() {
         setEnergy(0);
+        attackDmg = baseAttackDmg;
         ZZWZ = null;
     }
 

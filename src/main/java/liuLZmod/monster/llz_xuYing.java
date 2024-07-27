@@ -4,26 +4,33 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.MonsterGroup;
-import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
-import com.megacrit.cardcrawl.vfx.BobEffect;
-import com.megacrit.cardcrawl.vfx.DebuffParticleEffect;
-import com.megacrit.cardcrawl.vfx.ShieldParticleEffect;
+import com.megacrit.cardcrawl.powers.*;
+import com.megacrit.cardcrawl.vfx.*;
 import com.megacrit.cardcrawl.vfx.combat.BuffParticleEffect;
 import com.megacrit.cardcrawl.vfx.combat.StunStarEffect;
 import com.megacrit.cardcrawl.vfx.combat.UnknownParticleEffect;
 import liuLZmod.action.abstracts.removeJiXieAction;
 import liuLZmod.monster.abstracrt.abstract_llz_jiXie;
 import liuLZmod.patches.JiXieGroupPatch;
+import liuLZmod.powers.llz_jih;
 import liuLZmod.util.Point;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * 机械：虚影
@@ -42,12 +49,13 @@ public class llz_xuYing extends abstract_llz_jiXie {
      * 意图渲染
      */
     private ArrayList<AbstractGameEffect> intentVfx = new ArrayList<>();
-    private Texture intentImg = ImageMaster.INTENT_UNKNOWN_L;
-    public Intent intent = Intent.UNKNOWN;
+    private static Texture intentImg = ImageMaster.INTENT_UNKNOWN_L;
+    public static Intent intent = Intent.UNKNOWN;
     private float intentParticleTimer = 0.0F;
     private BobEffect bobEffect = new BobEffect();
     private Color intentColor = Color.WHITE.cpy();
     private float intentAngle = 0.0F;
+    private static final Random random = new Random();
 
     public llz_xuYing() {
         super(NAME, ID, 10, 0.0F, 10.0F, 20F, 50F, null, 0, 0);
@@ -64,19 +72,19 @@ public class llz_xuYing extends abstract_llz_jiXie {
     }
 
     // 设置意图和攻击参数函数
-    public void setIntent(Intent intent, int attackDmg, int count) {
-        this.intent = intent;
+    public static void setIntent(Intent intent, int attackDmg, int count) {
+        llz_xuYing.intent = intent;
         llz_xuYing.attackDmg = attackDmg;
         llz_xuYing.count = count;
         if(count > 1){
-            this.intentImg = getIntentImg(intent, attackDmg * count);
-        }else this.intentImg = getIntentImg(intent, attackDmg);
+            llz_xuYing.intentImg = getIntentImg(intent, attackDmg * count);
+        }else llz_xuYing.intentImg = getIntentImg(intent, attackDmg);
     }
 
     /**
      *处理意图
      */
-    private Texture getIntentImg(Intent intent, int dmg) {
+    private static Texture getIntentImg(Intent intent, int dmg) {
         switch (intent) {
             case ATTACK:
             case ATTACK_BUFF:
@@ -108,7 +116,7 @@ public class llz_xuYing extends abstract_llz_jiXie {
         }
     }
 
-    private Texture NewgetAttackIntent(int dmg) {
+    private static Texture NewgetAttackIntent(int dmg) {
         if (dmg < 5)
             return ImageMaster.INTENT_ATK_1;
         if (dmg < 10)
@@ -219,7 +227,7 @@ public class llz_xuYing extends abstract_llz_jiXie {
             XY.rollMove();
             MonsterGroup monsters = JiXieGroupPatch.llz_jiXie.get(AbstractDungeon.player);
             monsters.monsters.add(XY);
-        }
+        }else setIntent(intent, attackDmg, count);
     }
 
     public static void addEnergy(int num) {
@@ -241,9 +249,76 @@ public class llz_xuYing extends abstract_llz_jiXie {
         if (XY == null) {
             return;
         }
+        if(llz_xuYing.intent == Intent.ESCAPE) {
+            llz_xuYing.XYescape();
+            return;
+        }
         XY.state.setAnimation(0, "att", false);
         XY.state.addAnimation(0, "idle", true, 0F);
+
+        AbstractPlayer p = AbstractDungeon.player;
+        AbstractMonster m = AbstractDungeon.getRandomMonster();
+        if(m == null || m.currentHealth == 0) {
+            return;
+        }
+
+        if (llz_xuYing.intent == Intent.ATTACK_DEFEND || llz_xuYing.intent == Intent.DEFEND || llz_xuYing.intent == Intent.DEFEND_BUFF || llz_xuYing.intent == Intent.DEFEND_DEBUFF) {
+            int i = 5;
+            if(llz_xuYing.intent == Intent.DEFEND)i = 10;
+            AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, i));
+        }
+        if (llz_xuYing.intent == Intent.ATTACK || llz_xuYing.intent == Intent.ATTACK_BUFF || llz_xuYing.intent == Intent.ATTACK_DEFEND || llz_xuYing.intent == Intent.ATTACK_DEBUFF){
+            for (int i =0;i <llz_xuYing.count; i++){
+                AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(XY, attackDmg, DamageInfo.DamageType.THORNS), getRandomAttackEffect()));
+            }
+        }
+        if(llz_xuYing.intent == Intent.ATTACK_DEBUFF || llz_xuYing.intent == Intent.DEBUFF || llz_xuYing.intent == Intent.DEFEND_DEBUFF){
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, XY, new WeakPower(m, 1, false)));
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, XY, new VulnerablePower(m, 1, false)));
+        }
+        if (llz_xuYing.intent == Intent.ATTACK_BUFF || llz_xuYing.intent == Intent.BUFF || llz_xuYing.intent == Intent.DEFEND_BUFF) {
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, XY, new StrengthPower(p, 1),1));
+            if(llz_xuYing.intent == Intent.BUFF)AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, XY, new llz_jih(p, 1),1));
+        }
+        if(llz_xuYing.intent == Intent.STRONG_DEBUFF){
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, XY, new PoisonPower(m,XY, 5),5));
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, XY, new ConstrictedPower(m,XY, 5),5));
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, XY, new StrengthPower(m, -1),-1));
+        }
         AbstractDungeon.actionManager.addToBottom(new removeJiXieAction());
+    }
+
+    /**
+     *
+     * 随机的攻击图效
+     */
+    public static AbstractGameAction.AttackEffect getRandomAttackEffect() {
+        AbstractGameAction.AttackEffect[] effects = new AbstractGameAction.AttackEffect[] {
+                AbstractGameAction.AttackEffect.SLASH_HORIZONTAL,
+                AbstractGameAction.AttackEffect.SLASH_VERTICAL,
+                AbstractGameAction.AttackEffect.SLASH_DIAGONAL,
+                AbstractGameAction.AttackEffect.BLUNT_LIGHT,
+                AbstractGameAction.AttackEffect.BLUNT_HEAVY,
+                AbstractGameAction.AttackEffect.SLASH_HEAVY
+        };
+
+        return effects[random.nextInt(effects.length)];
+    }
+
+    private static void XYescape() {
+        // 加入烟雾效果
+        AbstractDungeon.effectList.add(new SmokePuffEffect(XY.hb.cX, XY.hb.cY));
+
+        // 使虚影向左移动
+        XY.hb.move(XY.hb.cX - 200 * Settings.scale, XY.hb.cY);
+        XY.intentHb.move(XY.hb.cX, XY.hb.cY);
+        XY.drawX = XY.hb.cX - XY.hb.width / 2.0F;
+        XY.drawY = XY.hb.cY - XY.hb.height / 2.0F;
+
+        // 检查虚影是否完全移出屏幕，如果移出则删除
+        if (XY.hb.cX < -XY.hb.width) {
+            llz_xuYing.remove();
+        }
     }
 
     public static void remove() {

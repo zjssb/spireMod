@@ -284,6 +284,7 @@ public class llz_shaoW extends abstract_llz_jiXie {
     public static void clear() {
         shaoweiList.clear();
         setEnergy(0);
+        attackDmg = baseAttackDmg;
         T = null;
     }
 
