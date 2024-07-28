@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
@@ -39,12 +40,15 @@ public class llz_xuYing extends abstract_llz_jiXie {
     public static final String ID = "llz_xuYing";
     private static final MonsterStrings jiXieStrings;
     public final static String NAME;
+    public static final String[] DIALOG = CardCrawlGame.languagePack.getMonsterStrings(ID).DIALOG;
     private static int energy = 0;
     public static int maxEnergy = 1;
     public static llz_xuYing XY = null;
     public static int count = 1;
     public static int attackDmg = 0;
     public static Point position = new Point(250, 200);
+    private static float escapeTimer = 0.0F;
+
     /**
      * 意图渲染
      */
@@ -56,6 +60,7 @@ public class llz_xuYing extends abstract_llz_jiXie {
     private Color intentColor = Color.WHITE.cpy();
     private float intentAngle = 0.0F;
     private static final Random random = new Random();
+    private static boolean escape =false;
 
     public llz_xuYing() {
         super(NAME, ID, 10, 0.0F, 10.0F, 20F, 50F, null, 0, 0);
@@ -79,6 +84,7 @@ public class llz_xuYing extends abstract_llz_jiXie {
         if(count > 1){
             llz_xuYing.intentImg = getIntentImg(intent, attackDmg * count);
         }else llz_xuYing.intentImg = getIntentImg(intent, attackDmg);
+
     }
 
     /**
@@ -138,6 +144,7 @@ public class llz_xuYing extends abstract_llz_jiXie {
         if (XY != null) {
             XYIntentVFX();
         }
+        XYescape();
         for (AbstractGameEffect effect : this.intentVfx) {
             effect.update();
         }
@@ -196,7 +203,7 @@ public class llz_xuYing extends abstract_llz_jiXie {
 
     private void renderIntentIcon(SpriteBatch sb) {
         if (this.intentImg == null) {
-            return; // 如果 intentImg 为空，直接返回，不渲染
+            return;
         }
 
         if (this.intent == Intent.DEBUFF || this.intent == Intent.STRONG_DEBUFF) {
@@ -227,9 +234,18 @@ public class llz_xuYing extends abstract_llz_jiXie {
             XY.rollMove();
             MonsterGroup monsters = JiXieGroupPatch.llz_jiXie.get(AbstractDungeon.player);
             monsters.monsters.add(XY);
+            XYTalk();
         }else setIntent(intent, attackDmg, count);
     }
 
+    public static void XYTalk(){
+        int r =random.nextInt(3);
+        if(((llz_xuYing.intent == Intent.ATTACK || llz_xuYing.intent == Intent.ATTACK_BUFF || llz_xuYing.intent == Intent.ATTACK_DEFEND || llz_xuYing.intent == Intent.ATTACK_DEBUFF) && attackDmg * count >= 30) || intent == Intent.STRONG_DEBUFF){
+            AbstractDungeon.actionManager.addToBottom(new TalkAction(llz_xuYing.XY, DIALOG[r], 3.5F, 2.0F));
+        }else if(((llz_xuYing.intent == Intent.ATTACK || llz_xuYing.intent == Intent.ATTACK_BUFF || llz_xuYing.intent == Intent.ATTACK_DEFEND || llz_xuYing.intent == Intent.ATTACK_DEBUFF) && attackDmg * count < 5) || intent == Intent.ESCAPE || intent == Intent.UNKNOWN){
+            AbstractDungeon.actionManager.addToBottom(new TalkAction(llz_xuYing.XY, DIALOG[r + 3], 3.5F, 2.0F));
+        }
+    }
     public static void addEnergy(int num) {
         if (XY == null) {
             return;
@@ -246,11 +262,17 @@ public class llz_xuYing extends abstract_llz_jiXie {
     }
 
     public static void act() {
-        if (XY == null) {
+        if (XY == null || llz_xuYing.escape || intent == Intent.STUN) {
             return;
         }
         if(llz_xuYing.intent == Intent.ESCAPE) {
-            llz_xuYing.XYescape();
+            AbstractDungeon.effectList.add(new SmokePuffEffect(XY.hb.cX, XY.hb.cY));
+            llz_xuYing.escapeTimer = 2.0f;
+            llz_xuYing.escape =true;
+            return;
+        }
+        if(intent == Intent.SLEEP){
+            AbstractDungeon.actionManager.addToBottom(new TalkAction(llz_xuYing.XY, DIALOG[6], 1.0F, 1.0F));
             return;
         }
         XY.state.setAnimation(0, "att", false);
@@ -281,9 +303,9 @@ public class llz_xuYing extends abstract_llz_jiXie {
             if(llz_xuYing.intent == Intent.BUFF)AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, XY, new llz_jih(p, 1),1));
         }
         if(llz_xuYing.intent == Intent.STRONG_DEBUFF){
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, XY, new PoisonPower(m,XY, 5),5));
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, XY, new ConstrictedPower(m,XY, 5),5));
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, XY, new StrengthPower(m, -1),-1));
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, XY, new PoisonPower(m,XY, 10),10));
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, XY, new ConstrictedPower(m,XY, 10),10));
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, XY, new StrengthPower(m, -2),-2));
         }
         AbstractDungeon.actionManager.addToBottom(new removeJiXieAction());
     }
@@ -305,19 +327,15 @@ public class llz_xuYing extends abstract_llz_jiXie {
         return effects[random.nextInt(effects.length)];
     }
 
-    private static void XYescape() {
-        // 加入烟雾效果
-        AbstractDungeon.effectList.add(new SmokePuffEffect(XY.hb.cX, XY.hb.cY));
+    private void XYescape() {
+        if (this.escapeTimer != 0.0F && this.escape) {
+            this.escapeTimer -= Gdx.graphics.getDeltaTime();
+            this.drawX -= Gdx.graphics.getDeltaTime() * 400.0F * Settings.scale; // 向左移动
 
-        // 使虚影向左移动
-        XY.hb.move(XY.hb.cX - 200 * Settings.scale, XY.hb.cY);
-        XY.intentHb.move(XY.hb.cX, XY.hb.cY);
-        XY.drawX = XY.hb.cX - XY.hb.width / 2.0F;
-        XY.drawY = XY.hb.cY - XY.hb.height / 2.0F;
-
-        // 检查虚影是否完全移出屏幕，如果移出则删除
-        if (XY.hb.cX < -XY.hb.width) {
-            llz_xuYing.remove();
+            if (this.escapeTimer < 0.0F) {
+                this.escape = false;
+                AbstractDungeon.actionManager.addToBottom(new removeJiXieAction(true));
+            }
         }
     }
 

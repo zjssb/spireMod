@@ -12,12 +12,23 @@ import static liuLZmod.monster.llz_shaoW.shaoweiList;
  * 随机移除机械
  */
 public class removeJiXieAction extends AbstractGameAction {
-    public removeJiXieAction(){}
+    boolean xy =false;
+    public removeJiXieAction(){
+        this.xy = false;
+    }
+    public removeJiXieAction(boolean xy){
+        this.xy =xy;
+    }
     @Override
     public void update() {
-        int i =(int) shaoweiList.stream().filter(sw -> !sw.isDeath).count() + 4;
-        int roll = AbstractDungeon.cardRandomRng.random(i);
-        jx(roll);
+        if(xy){
+            llz_xuYing.remove();
+        }
+        else {
+            int i = (int) shaoweiList.stream().filter(sw -> !sw.isDeath).count() + 4;
+            int roll = AbstractDungeon.cardRandomRng.random(i);
+            jx(roll);
+        }
         isDone =true;
     }
 
@@ -50,8 +61,10 @@ public class removeJiXieAction extends AbstractGameAction {
         }
 
         if(roll == 0){
-            addToTop(new VFXAction(new ExplosionSmallEffect(llz_xuYing.XY.hb.cX, llz_xuYing.XY.hb.cY)));
-            llz_xuYing.remove();
+            if(llz_xuYing.XY != null){
+                addToTop(new VFXAction(new ExplosionSmallEffect(llz_xuYing.XY.hb.cX, llz_xuYing.XY.hb.cY)));
+                llz_xuYing.remove();
+            }
         }else {
             roll--;
             jx(roll);
