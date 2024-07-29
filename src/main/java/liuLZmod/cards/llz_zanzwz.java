@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.ThoughtBubble;
 import liuLZmod.Characters.MyCharacter;
 import liuLZmod.action.abstracts.jiXieAction;
+import liuLZmod.monster.llz_ZZWZ;
 import liuLZmod.monster.llz_shaoW;
 
 import static liuLZmod.monster.llz_shaoW.shaoweiList;
@@ -48,10 +49,13 @@ public class llz_zanzwz extends CustomCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         int i;
         i =(int) shaoweiList.stream().filter(sw -> !sw.isDeath).count();
-        if(i >= this.magicNumber){
-            for (int j = 0; j < this.magicNumber; j++) llz_shaoW.remove();
-            addToBot(new jiXieAction("llz_ZZWZ"));
-        }else AbstractDungeon.effectList.add(new ThoughtBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 3.0F, CARD_STRINGS.UPGRADE_DESCRIPTION, true));
+        if(llz_ZZWZ.ZZWZ == null || llz_ZZWZ.isSecondPhase){
+            if (i >= this.magicNumber) {
+                for (int j = 0; j < this.magicNumber; j++) llz_shaoW.remove();
+                addToBot(new jiXieAction("llz_ZZWZ"));
+            } else
+                AbstractDungeon.effectList.add(new ThoughtBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 3.0F, CARD_STRINGS.UPGRADE_DESCRIPTION, true));
+        }
     }
 
     public AbstractCard makeCopy() {

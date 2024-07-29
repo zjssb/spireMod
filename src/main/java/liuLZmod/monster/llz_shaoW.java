@@ -325,7 +325,7 @@ class shaoWT extends abstract_llz_jiXie {
     static String NAME = jiXieStrings.NAME;
 
     public shaoWT() {
-        super(NAME, "llz_shaoweiT", 10, -8.0F, 10.0F, 20F, 20F, null, 0, 0);
+        super(NAME, ID, 10, -8.0F, 10.0F, 20F, 20F, null, 0, 0);
         this.loadAnimation("ModliuLZ/img/jix/shaowt/skeleton.atlas", "ModliuLZ/img/jix/shaowt/skeleton37.json", 1F);
         this.state.addAnimation(0, "l0", true, 0.0F);
     }

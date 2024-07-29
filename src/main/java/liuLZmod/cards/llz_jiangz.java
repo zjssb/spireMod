@@ -42,7 +42,7 @@ public class llz_jiangz extends CustomCard {
 
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        int statusCount = 0;
+        int statusCount = 1;
         int i;
         AbstractCard thisCard = this;
 

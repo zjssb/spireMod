@@ -302,35 +302,59 @@
   },
   "llz_zengqj": {
     "NAME": "蒸汽机",
-    "DESCRIPTION": "消耗一个哨卫。 NL 生成- llzmod:机械 - llzmod:蒸汽机 。 NL 消耗 。",
+    "DESCRIPTION": "消耗一个哨卫。 NL 生成· llzmod:机械 · llzmod:蒸汽机 。 NL 消耗 。",
     "UPGRADE_DESCRIPTION": "#r材料不足。"
   },
   "llz_xianq": {
     "NAME": "先驱",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL 生成- llzmod:机械 - llzmod:哨卫 ，获得一张伤口。",
-    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL 生成- llzmod:机械 - llzmod:哨卫 ，获得一张合金。"
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 生成· llzmod:机械 · llzmod:哨卫 ，获得一张伤口。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL 生成· llzmod:机械 · llzmod:哨卫 ，获得一张合金。"
   },
   "llz_sengnyq": {
     "NAME": "声呐鱼群",
-    "DESCRIPTION": "造成 !D! 点伤害 !M! 次。 NL 消耗一个哨卫，生成- llzmod:机械 - llzmod:鱼群 。",
+    "DESCRIPTION": "造成 !D! 点伤害 !M! 次。 NL 消耗一个哨卫，生成· llzmod:机械 · llzmod:鱼群 。",
     "UPGRADE_DESCRIPTION": "#r材料不足。"
   },
   "llz_yanh": {
     "NAME": "掩护",
-    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 额外获得当前机械数量的 格挡 。 NL 生成- llzmod:机械 - llzmod:哨卫 。"
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 额外获得当前机械数量的 格挡 。 NL 生成· llzmod:机械 · llzmod:哨卫 。"
   },
   "llz_dianld": {
     "NAME": "电能刀",
-    "DESCRIPTION": "生成- llzmod:机械 - llzmod:电能刀 。 NL 清除所有哨卫。",
-    "UPGRADE_DESCRIPTION": "生成- llzmod:机械 - llzmod:电能刀 。 NL 清除所有哨卫，并获得等量充能。"
+    "DESCRIPTION": "生成· llzmod:机械 · llzmod:电能刀 。 NL 清除所有哨卫。",
+    "UPGRADE_DESCRIPTION": "生成· llzmod:机械 · llzmod:电能刀 。 NL 清除所有哨卫，并获得等量充能。"
   },
   "llz_zanzwz": {
     "NAME": "战争武装",
-    "DESCRIPTION": "消耗 !M! 个哨卫。 NL 生成- llzmod:机械 - llzmod:原型武装 。",
+    "DESCRIPTION": "消耗 !M! 个哨卫。 NL 生成· llzmod:机械 · llzmod:原型武装 。",
     "UPGRADE_DESCRIPTION": "#r材料不足。"
   },
   "llz_laojjk": {
     "NAME": "脑机接口",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL 生成一个和敌人意图相同的 llzmod:机械 - llzmod:虚影 。 NL 消耗 。"
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 生成一个和敌人意图相同的 llzmod:机械 · llzmod:虚影 。 NL 消耗 。"
+  },
+  "llz_weig": {
+    "NAME": "围攻",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 所有 llzmod:哨卫 立即攻击一次。"
+  },
+  "llz_zilzh": {
+    "NAME": "质能转换",
+    "DESCRIPTION": "生成· llzmod:机械 · llzmod:哨卫 。 NL 清空所有机械的充能，如果至少有 !M! 个机械，获得 [E] 。"
+  },
+  "llz_zengy": {
+    "NAME": "增援",
+    "DESCRIPTION": "生成· !M! 个 llzmod:机械 · llzmod:哨卫 。 NL 获得一点 llzmod:集火 。 NL 消耗 。"
+  },
+  "llz_canqcs": {
+    "NAME": "残躯重塑",
+    "DESCRIPTION": "受到 !M! 点伤害。 NL 生成·3个 llzmod:机械 · llzmod:哨卫 。获得3张伤口。"
+  },
+  "llz_cuansgd": {
+    "NAME": "传输管道",
+    "DESCRIPTION": "回合结束时，所有 llzmod:机械 充能 !M! 次。"
+  },
+  "llz_quanmjg": {
+    "NAME": "全面进攻",
+    "DESCRIPTION": "获得 !M! 点 力量 。 NL 获得 !M! 点 llzmod:集火 。 NL 获得2层 脆弱 。"
   }
 }

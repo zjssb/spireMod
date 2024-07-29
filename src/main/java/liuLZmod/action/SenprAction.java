@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+import liuLZmod.monster.llz_dianD;
 
 public class SenprAction extends AbstractGameAction {
 
@@ -24,8 +25,12 @@ public class SenprAction extends AbstractGameAction {
     private void triggerEndOfTurnEffects() {
         // 触发能力回合结束效果
         for (AbstractPower power : AbstractDungeon.player.powers) {
+            power.atEndOfTurnPreEndTurnCards(true);
+        }
+        for (AbstractPower power : AbstractDungeon.player.powers) {
             power.atEndOfTurn(true);
         }
+
 
         // 触发遗物的回合结束效果
         for (AbstractRelic relic : AbstractDungeon.player.relics) {
@@ -47,14 +52,20 @@ public class SenprAction extends AbstractGameAction {
     private void triggerStartOfTurnEffects() {
         for (AbstractPower power : AbstractDungeon.player.powers) {
             power.atStartOfTurn();
+        }
+        for (AbstractPower power : AbstractDungeon.player.powers) {
             power.atStartOfTurnPostDraw();
         }
 
+        //遗物
         for (AbstractRelic relic : AbstractDungeon.player.relics) {
             relic.atTurnStart();
+        }
+        for (AbstractRelic relic : AbstractDungeon.player.relics) {
             relic.atTurnStartPostDraw();
         }
 
+        //卡牌
         for (AbstractCard card : AbstractDungeon.player.hand.group) {
             card.atTurnStart();
         }
@@ -71,5 +82,8 @@ public class SenprAction extends AbstractGameAction {
         for (AbstractOrb orb : AbstractDungeon.player.orbs) {
             orb.onStartOfTurn();
         }
+
+        //电刀
+        llz_dianD.act();
     }
 }

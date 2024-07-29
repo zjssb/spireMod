@@ -109,6 +109,7 @@ public class llz_ZZWZ extends abstract_llz_jiXie {
         int energy = getEnergy() + num;
         if (energy >= maxEnergy) {
             if (!isSecondPhase) {
+                isSecondPhase = true;
                 AbstractDungeon.actionManager.addToBottom(new ZZWZAnimationAction());
                 energy = 0;
                 maxEnergy = 5;
@@ -123,7 +124,6 @@ public class llz_ZZWZ extends abstract_llz_jiXie {
     }
 
     public static void enterSecondPhase() {
-        isSecondPhase = true;
         ZZWZ.state.setAnimation(0, "new_2", false);
     }
 

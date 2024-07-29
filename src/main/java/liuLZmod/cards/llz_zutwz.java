@@ -22,7 +22,7 @@ public class llz_zutwz extends CustomCard {
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION;
     private static final CardType TYPE = CardType.POWER;
     private static final CardColor COLOR = MyCharacter.Enums.EXAMPLE_CARD;
-    private static final CardRarity RARITY = CardRarity.UNCOMMON;
+    private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.SELF;
 
     public llz_zutwz() {

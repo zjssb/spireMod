@@ -9,9 +9,13 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import liuLZmod.Characters.MyCharacter;
 import liuLZmod.action.abstracts.jiXieAction;
+import liuLZmod.modcore.liuLZMod;
 import liuLZmod.monster.abstracrt.abstract_llz_jiXie;
 
+import java.util.Objects;
+
 import static liuLZmod.monster.abstracrt.abstract_llz_jiXie.jiXie_list;
+import static liuLZmod.monster.llz_shaoW.shaoweiList;
 
 /**
  * 掩护
@@ -31,6 +35,7 @@ public class llz_yanh extends CustomCard {
     public llz_yanh() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.baseBlock = 4;
+        this.tags.add(liuLZMod.SAOWEI);
     }
 
     @Override
@@ -44,9 +49,9 @@ public class llz_yanh extends CustomCard {
 
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        int i =0;
+        int i =(int) shaoweiList.stream().filter(sw -> !sw.isDeath).count();
         for (abstract_llz_jiXie jiXie : jiXie_list){
-            if(jiXie != null) {
+            if(!Objects.equals(jiXie.id, "llz_shaoW") && !Objects.equals(jiXie.id, "llz_shaoWT")) {
                 i++;
             }
         }
