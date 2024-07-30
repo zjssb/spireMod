@@ -42,6 +42,7 @@ public class llz_huawwyPowers extends AbstractPower {
     }
 
     public void atStartOfTurnPostDraw() {
+        this.flash();
         addToBot(new HuawwyAction(1));
     }
 

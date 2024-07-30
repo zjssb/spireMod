@@ -32,7 +32,7 @@ public class gaizAction extends AbstractGameAction {
         }
         for (int i = 0; i < a; i++) {
             if (card != null) {
-                if (card.baseDamage > 0) {
+                if (card.baseDamage > 0 || card.type == AbstractCard.CardType.ATTACK) {
                     card.baseDamage += 1;
                 }
                 if (card.baseBlock > 0) {

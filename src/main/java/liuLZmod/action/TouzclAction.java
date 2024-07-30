@@ -3,6 +3,8 @@ package liuLZmod.action;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.GameActionManager;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import com.megacrit.cardcrawl.actions.common.EmptyDeckShuffleAction;
+import com.megacrit.cardcrawl.actions.common.ShuffleAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -73,16 +75,39 @@ public class TouzclAction extends AbstractGameAction {
 
     private void handleDrawPile(AbstractCard cardToDiscard) {
         boolean found = false;
+
         for (AbstractCard c : this.p.drawPile.group) {
             if (c.type == cardToDiscard.type) {
                 this.p.drawPile.moveToHand(c, this.p.drawPile);
+                c.triggerWhenDrawn();
                 found = true;
                 break;
             }
         }
 
         if (!found) {
-            addToTop(new DrawCardAction(this.p, 1));
+            if (this.p.drawPile.isEmpty() && !this.p.discardPile.isEmpty()) {
+                addToTop(new AbstractGameAction() {
+                    @Override
+                    public void update() {
+                        boolean found = false;
+                        for (AbstractCard c : AbstractDungeon.player.drawPile.group) {
+                            if (c.type == cardToDiscard.type) {
+                                AbstractDungeon.player.drawPile.moveToHand(c, AbstractDungeon.player.drawPile);
+                                c.triggerWhenDrawn();
+                                found = true;
+                                break;
+                            }
+                        }
+                        if (!found)addToTop(new DrawCardAction(AbstractDungeon.player, 1));
+                        isDone = true;
+                    }
+                });
+                addToTop(new ShuffleAction(this.p.drawPile, false));
+                addToTop(new EmptyDeckShuffleAction());
+            } else {
+                addToTop(new DrawCardAction(this.p, 1));
+            }
         }
     }
 }

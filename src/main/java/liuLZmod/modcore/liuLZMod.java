@@ -138,6 +138,7 @@ public class liuLZMod implements EditCardsSubscriber, EditStringsSubscriber , Ed
         BaseMod.addCard(new llz_canqcs());
         BaseMod.addCard(new llz_cuansgd());
         BaseMod.addCard(new llz_quanmjg());
+        BaseMod.addCard(new llz_cuangsj());
     }
     // 当开始添加人物时，调用这个方法
     @Override

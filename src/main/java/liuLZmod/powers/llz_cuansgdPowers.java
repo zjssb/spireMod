@@ -35,6 +35,7 @@ public class llz_cuansgdPowers extends AbstractPower {
 
     @Override
     public void atEndOfTurn(boolean isPlayer) {
+        this.flash();
         for (int i =0;i <this.amount;i++) {
             addToBot(new jiXieAction(1));
         }

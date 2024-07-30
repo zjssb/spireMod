@@ -35,7 +35,7 @@ public class DuoCDDAction extends AbstractGameAction {
 
 
             for (AbstractCard c : this.p.hand.group) {
-                if (!(c.baseDamage> 0 ||c.baseBlock >0 ||c.type == AbstractCard.CardType.STATUS)) {
+                if (!(c.baseDamage> 0 ||c.baseBlock >0 ||c.type == AbstractCard.CardType.STATUS || c.type == AbstractCard.CardType.ATTACK)) {
                     this.cannotUpgrade.add(c);
                 }
             }
@@ -48,7 +48,7 @@ public class DuoCDDAction extends AbstractGameAction {
             }
             if (this.p.hand.group.size() - this.cannotUpgrade.size() == 1) {
                 for (AbstractCard c : this.p.hand.group) {
-                    if (c.baseDamage> 0 ||c.baseBlock >0 ||c.type == AbstractCard.CardType.STATUS) {
+                    if (c.baseDamage> 0 ||c.baseBlock >0 ||c.type == AbstractCard.CardType.STATUS || c.type == AbstractCard.CardType.ATTACK) {
 
                             addToBot(new gaizAction(p, c, "hand",a));
 

@@ -34,7 +34,8 @@ public class llz_miaossj extends CustomCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.damage = this.baseDamage = 2;
         this.magicNumber = this.baseMagicNumber = 4;
-        count =4;
+        if(this.upgraded)count =6;
+        else count =4;
     }
 
     @Override

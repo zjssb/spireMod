@@ -23,7 +23,7 @@
 
      private void upgradeAllCardsInGroup(CardGroup cardGroup, String groupType){
              for (AbstractCard c : cardGroup.group) {
-                   if (c.baseDamage> 0 ||c.baseBlock >0 ||c.type == AbstractCard.CardType.STATUS) {
+                   if (c.baseDamage> 0 ||c.baseBlock >0 ||c.type == AbstractCard.CardType.STATUS || c.type == AbstractCard.CardType.ATTACK) {
                        if (cardGroup.type == CardGroup.CardGroupType.HAND) {
                            c.superFlash();
                        }else addToBot(new gaizAction(p,c,groupType,1));

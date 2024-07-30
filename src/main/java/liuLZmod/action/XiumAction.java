@@ -35,6 +35,7 @@ public class XiumAction extends AbstractGameAction {
             for (AbstractCard card : cardsToDiscard) {
                 if (this.p.hand.contains(card)) {
                     this.p.hand.moveToDiscardPile(card);
+                    card.triggerOnManualDiscard();
                 } else if (this.p.drawPile.contains(card)) {
                     this.p.drawPile.moveToDiscardPile(card);
                 }
