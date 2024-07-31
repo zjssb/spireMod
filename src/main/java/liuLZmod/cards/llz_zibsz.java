@@ -33,7 +33,7 @@ public class llz_zibsz extends CustomCard {
 
     public llz_zibsz() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.magicNumber = this.baseMagicNumber = 2;
+        this.magicNumber = this.baseMagicNumber = 1;
     }
 
     @Override

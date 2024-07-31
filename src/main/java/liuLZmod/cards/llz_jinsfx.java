@@ -28,7 +28,7 @@ public class llz_jinsfx extends CustomCard {
 
     public llz_jinsfx() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.magicNumber = this.baseMagicNumber = 20;
+        this.magicNumber = this.baseMagicNumber = 15;
     }
 
     @Override

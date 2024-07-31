@@ -25,7 +25,7 @@ public class llz_lenqj extends CustomCard {
 
     public llz_lenqj() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.magicNumber = this.baseMagicNumber = 2;
+        this.magicNumber = this.baseMagicNumber = 1;
         this.exhaust = true;
     }
 

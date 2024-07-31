@@ -66,7 +66,7 @@ public class llz_moryy extends CustomCard {
 
     }
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {
-             if (GameActionManager.turn < 2) {
+             if (GameActionManager.turn < this.magicNumber) {
                    this.cantUseMessage = CARD_STRINGS.UPGRADE_DESCRIPTION;
                    return false;
                  }

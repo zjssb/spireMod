@@ -37,7 +37,12 @@ public class llz_wanqPowers extends AbstractPower {
     }
 
     public int onAttacked(DamageInfo info, int damageAmount) {
-        this.flash();
+        if ((info.owner == this.owner && info.type != DamageInfo.DamageType.HP_LOSS)) {
+            this.flash();
+
+            return 0;
+        }
+
         return damageAmount;
     }
 

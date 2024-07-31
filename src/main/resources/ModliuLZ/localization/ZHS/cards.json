@@ -205,9 +205,9 @@
     "UPGRADE_DESCRIPTION": "丢弃所有初始牌。 NL llzmod:改造 所有手牌两次。"
   },
   "llz_paog": {
-    "NAME": "抛光",
-    "DESCRIPTION": "llzmod:改造 手牌中所有状态牌，每有一张牌获得 [E] 。 NL 消耗 。",
-    "UPGRADE_DESCRIPTION": "llzmod:改造 手牌中所有状态牌，每有一张牌获得 [E] 。"
+    "NAME": "赝品",
+    "DESCRIPTION": "复制手牌中的状态牌，每张获得一点 [E] 。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "复制手牌中的状态牌，每张获得一点 [E] 。"
   },
   "llz_caofh": {
     "NAME": "超负荷",

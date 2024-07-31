@@ -2,16 +2,16 @@ package liuLZmod.cards;
 
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import liuLZmod.Characters.MyCharacter;
-import liuLZmod.action.AllGaizAction;
 
 /**
- * 抛光
+ *赝品
  */
 public class llz_paog extends CustomCard {
     public static final String ID = "llz_paog";
@@ -44,9 +44,9 @@ public class llz_paog extends CustomCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         int i =0;
-        addToBot(new AllGaizAction(-1));
         for (AbstractCard c : p.hand.group) {
             if (i <10 && c != null &&c.type == AbstractCard.CardType.STATUS) {
+                addToBot(new MakeTempCardInHandAction(c.makeStatEquivalentCopy()));
                 i++;
             }
         }

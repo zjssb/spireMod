@@ -6,7 +6,6 @@ import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.colorless.Apotheosis;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
@@ -31,7 +30,7 @@ public class llz_jiangz extends CustomCard {
 
     public llz_jiangz() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.magicNumber = this.baseMagicNumber = 2;
+        this.magicNumber = this.baseMagicNumber = 1;
         this.exhaust = true;
     }
 
@@ -42,7 +41,7 @@ public class llz_jiangz extends CustomCard {
 
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        int statusCount = 1;
+        int statusCount = 0;
         int i;
         AbstractCard thisCard = this;
 
