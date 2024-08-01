@@ -7,16 +7,28 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+import com.megacrit.cardcrawl.relics.BottledFlame;
+import com.megacrit.cardcrawl.relics.BottledLightning;
+import com.megacrit.cardcrawl.relics.BottledTornado;
 import liuLZmod.monster.abstracrt.abstract_llz_jiXie;
 import liuLZmod.relics.llz_Els;
 
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 /**
  * CardPatches:
  * 卡牌补丁。
  */
 public class CardPatch {
+    private static final Set<Class<? extends AbstractRelic>> EXCLUDED_RELICS = new HashSet<>();
+
+    static {
+        EXCLUDED_RELICS.add(BottledFlame.class);
+        EXCLUDED_RELICS.add(BottledLightning.class);
+        EXCLUDED_RELICS.add(BottledTornado.class);
+    }
     private static boolean shouldGiveRandomRelic = false;
     private static boolean shouldGiveSpecificRelic = false;
 
@@ -91,7 +103,10 @@ public class CardPatch {
         }
 
         public static void giveRandomRelic() {
-            AbstractRelic relic = AbstractDungeon.returnRandomScreenlessRelic(AbstractDungeon.returnRandomRelicTier());
+            AbstractRelic relic;
+            do {
+                relic = AbstractDungeon.returnRandomScreenlessRelic(AbstractDungeon.returnRandomRelicTier());
+            } while (EXCLUDED_RELICS.contains(relic.getClass()));
             AbstractDungeon.getCurrRoom().spawnRelicAndObtain(Settings.WIDTH / 2.0F, Settings.HEIGHT / 2.0F, relic);
         }
 

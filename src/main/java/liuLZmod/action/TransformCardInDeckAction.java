@@ -8,7 +8,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.EventStrings;
 
 /**
- * 变化一张牌
+ * 选择变化一张牌
  */
 public class TransformCardInDeckAction extends AbstractGameAction {
     private static final EventStrings eventStrings = CardCrawlGame.languagePack.getEventString("Transmorgrifier");
@@ -28,7 +28,7 @@ public class TransformCardInDeckAction extends AbstractGameAction {
 
             if (!transformableCards.isEmpty()) {
                 AbstractDungeon.gridSelectScreen.open(transformableCards, 1, eventStrings.OPTIONS[2], false, false, false, false);
-                AbstractDungeon.actionManager.addToBottom(new WaitForCardSelectionAction());
+                AbstractDungeon.actionManager.addToTop(new WaitForCardSelectionAction());
             }
         }
         this.isDone = true;

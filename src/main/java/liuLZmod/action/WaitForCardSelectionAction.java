@@ -23,7 +23,7 @@ public class WaitForCardSelectionAction extends AbstractGameAction {
             AbstractDungeon.player.masterDeck.removeCard(cardToTransform);
             AbstractDungeon.transformCard(cardToTransform, false, AbstractDungeon.miscRng);
             AbstractCard transformedCard = AbstractDungeon.getTransformedCard();
-            AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(transformedCard, Settings.WIDTH / 2.0F, Settings.HEIGHT / 2.0F));
+            AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(transformedCard, Settings.WIDTH / 1.5F, Settings.HEIGHT / 2.0F));
             AbstractDungeon.gridSelectScreen.selectedCards.clear();
         }
 
