@@ -38,8 +38,9 @@ public class llz_cij extends AbstractPower {
     public int onAttacked(DamageInfo info, int damageAmount) {
         if(info.type != DamageInfo.DamageType.THORNS && info.type != DamageInfo.DamageType.HP_LOSS){
             this.flash();
-            addToTop(new RemoveSpecificPowerAction(this.owner, this.owner, "llz_cij"));
-            addToTop(new DrawCardAction(this.owner, this.amount));
+            addToBot(new DrawCardAction(this.owner, this.amount));
+            addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, "llz_cij"));
+
         }
         return damageAmount;
     }

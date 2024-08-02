@@ -2,13 +2,16 @@ package liuLZmod.cards;
 
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import liuLZmod.vfx.SpineEffect;
 
 /**
  * llz_dianHQG:电弧切割
@@ -48,6 +51,10 @@ public class llz_dianHQG extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        SpineEffect spineEffect = new SpineEffect("ModliuLZ/img/vfx/dianh/skeleton.atlas", "ModliuLZ/img/vfx/dianh/skeleton37.json", "animation",m,1.8f);
+        addToBot(new SFXAction("MONSTER_DONU_DEFENSE"));
+        addToBot(new VFXAction(spineEffect,0.2f));
+
         addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.NONE));
     }
 
