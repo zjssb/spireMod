@@ -23,6 +23,7 @@ import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import liuLZmod.cards.llz_Strike;
 import liuLZmod.modcore.liuLZMod;
+import liuLZmod.monster.abstracrt.abstract_llz_jiXie;
 
 import java.util.ArrayList;
 
@@ -241,6 +242,14 @@ public class MyCharacter extends CustomPlayer {
         return new AbstractGameAction.AttackEffect[]{AbstractGameAction.AttackEffect.SLASH_HEAVY, AbstractGameAction.AttackEffect.FIRE, AbstractGameAction.AttackEffect.SLASH_DIAGONAL, AbstractGameAction.AttackEffect.SLASH_HEAVY, AbstractGameAction.AttackEffect.FIRE, AbstractGameAction.AttackEffect.SLASH_DIAGONAL};
     }
 
+    /**
+     * 在胜利后调用
+     */
+    @Override
+    public void onVictory() {
+        super.onVictory();
+        abstract_llz_jiXie.clearJiXie();
+    }
     // 为原版人物枚举、卡牌颜色枚举扩展的枚举，需要写，接下来要用
     // ***填在SpireEnum中的name需要一致***
     public static class Enums {
