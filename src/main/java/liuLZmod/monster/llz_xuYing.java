@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.TalkAction;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
@@ -22,6 +23,7 @@ import com.megacrit.cardcrawl.monsters.MonsterGroup;
 import com.megacrit.cardcrawl.powers.*;
 import com.megacrit.cardcrawl.vfx.*;
 import com.megacrit.cardcrawl.vfx.combat.BuffParticleEffect;
+import com.megacrit.cardcrawl.vfx.combat.ExplosionSmallEffect;
 import com.megacrit.cardcrawl.vfx.combat.StunStarEffect;
 import com.megacrit.cardcrawl.vfx.combat.UnknownParticleEffect;
 import liuLZmod.action.abstracts.removeJiXieAction;
@@ -273,6 +275,11 @@ public class llz_xuYing extends abstract_llz_jiXie {
         }
         if(intent == Intent.SLEEP){
             AbstractDungeon.actionManager.addToBottom(new TalkAction(llz_xuYing.XY, DIALOG[6], 1.0F, 1.0F));
+            return;
+        }
+        if(intent == Intent.UNKNOWN){
+            AbstractDungeon.actionManager.addToBottom(new VFXAction(new ExplosionSmallEffect(llz_xuYing.XY.hb.cX, llz_xuYing.XY.hb.cY)));
+            AbstractDungeon.actionManager.addToBottom(new removeJiXieAction(true));
             return;
         }
         XY.state.setAnimation(0, "att", false);

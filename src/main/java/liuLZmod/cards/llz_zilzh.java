@@ -43,9 +43,9 @@ public class llz_zilzh extends CustomCard {
 
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new jiXieAction("llz_shaoW"));
-        addToBot(new jiXieAction(-999));
         addToBot(new zilzhAction(this.magicNumber));
+        addToBot(new jiXieAction("llz_shaoW"));
+
     }
     public AbstractCard makeCopy() {
         return new llz_zilzh();

@@ -36,7 +36,7 @@ public class llz_ZZWZ extends abstract_llz_jiXie {
     public static Point position = new Point(50, 150);
 
     public static int count = 5;
-    private static final int baseAttackDmg = 5;
+    private static final int baseAttackDmg = 4;
     public static int attackDmg = baseAttackDmg;
     /**
      * 是否是战争
@@ -88,7 +88,11 @@ public class llz_ZZWZ extends abstract_llz_jiXie {
             ZZWZ.addToBot(new ChangeStateAction(ZZWZ, "new"));
         }else if(isSecondPhase){
             AbstractPlayer p = AbstractDungeon.player;
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p ,p ,new llz_jih(p,1),1));
+            int currentPowerAmount = 1;
+            if (p.hasPower("llz_jih")) {
+                currentPowerAmount = p.getPower("llz_jih").amount;
+            }
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new llz_jih(p, currentPowerAmount), currentPowerAmount));
         }
     }
 
@@ -110,7 +114,10 @@ public class llz_ZZWZ extends abstract_llz_jiXie {
         if (energy >= maxEnergy) {
             if (!isSecondPhase) {
                 isSecondPhase = true;
+                AbstractPlayer p = AbstractDungeon.player;
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p ,p ,new llz_jih(p,1),1));
                 AbstractDungeon.actionManager.addToBottom(new ZZWZAnimationAction());
+
                 energy = 0;
                 maxEnergy = 5;
             } else {
@@ -192,7 +199,9 @@ public class llz_ZZWZ extends abstract_llz_jiXie {
     }
 
     public static void aDmg() {
-        attackDmg = baseAttackDmg + (AbstractDungeon.player.getPower("llz_jih")).amount;
+        if (AbstractDungeon.player != null && AbstractDungeon.player.hasPower("llz_jih")) {
+            attackDmg = baseAttackDmg + (AbstractDungeon.player.getPower("llz_jih")).amount;
+        }
     }
 
     @Override

@@ -340,7 +340,7 @@
   },
   "llz_zilzh": {
     "NAME": "质能转换",
-    "DESCRIPTION": "生成· llzmod:机械 · llzmod:哨卫 。 NL 清空所有机械的充能，如果至少有 !M! 个机械，获得 [E] 。"
+    "DESCRIPTION": "如果至少有 !M! 个机械，获得 [E] 。 NL 生成· llzmod:机械 · llzmod:哨卫 。"
   },
   "llz_zengy": {
     "NAME": "增援",

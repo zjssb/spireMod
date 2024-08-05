@@ -38,13 +38,19 @@ public class llz_jih extends AbstractPower {
         this.updateDescription();
     }
 
+    public void playApplyPowerSfx() {
+        CardCrawlGame.sound.play("POWER_FOCUS", 0.05F);
+        jixie();
+    }
+
+
     public void stackPower(int stackAmount) {
         this.fontScale = 8.0F;
         this.amount += stackAmount;
 
         if (this.amount <= 0) {
             addToTop(new RemoveSpecificPowerAction(this.owner, this.owner, NAME));
-        }else jixie();
+        }
 
         if (this.amount >= 999) {
             this.amount = 999;
@@ -58,7 +64,7 @@ public class llz_jih extends AbstractPower {
 
         if (this.amount <= 0) {
             addToTop(new RemoveSpecificPowerAction(this.owner, this.owner, NAME));
-        }else jixie();
+        }
 
         if (this.amount >= 999) {
             this.amount = 999;

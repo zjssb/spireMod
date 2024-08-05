@@ -183,7 +183,9 @@ public class llz_yuQ extends abstract_llz_jiXie {
      * 根据集火修改伤害，在集火层数变动时调用
      */
     public static void aDmg() {
-        attackDmg = baseAttackDmg +(AbstractDungeon.player.getPower("llz_jih")).amount;
+        if (AbstractDungeon.player != null && AbstractDungeon.player.hasPower("llz_jih")) {
+            attackDmg = baseAttackDmg + (AbstractDungeon.player.getPower("llz_jih")).amount;
+        }
     }
 
 

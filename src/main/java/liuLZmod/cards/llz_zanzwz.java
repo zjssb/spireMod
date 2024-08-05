@@ -55,7 +55,7 @@ public class llz_zanzwz extends CustomCard {
                 addToBot(new jiXieAction("llz_ZZWZ"));
             } else
                 AbstractDungeon.effectList.add(new ThoughtBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 3.0F, CARD_STRINGS.UPGRADE_DESCRIPTION, true));
-        }
+        }else AbstractDungeon.effectList.add(new ThoughtBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 3.0F, CARD_STRINGS.UPGRADE_DESCRIPTION, true));
     }
 
     public AbstractCard makeCopy() {
