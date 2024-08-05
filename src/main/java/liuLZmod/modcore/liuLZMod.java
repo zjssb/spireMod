@@ -158,6 +158,7 @@ public class liuLZMod implements EditCardsSubscriber, EditStringsSubscriber , Ed
         BaseMod.addRelicToCustomPool(new llz_fengbxz(), MyCharacter.Enums.EXAMPLE_CARD);
         BaseMod.addRelicToCustomPool(new llz_caodhx(), MyCharacter.Enums.EXAMPLE_CARD);
         BaseMod.addRelicToCustomPool(new llz_jiaklhs(), MyCharacter.Enums.EXAMPLE_CARD);
+        BaseMod.addRelicToCustomPool(new llz_beiylj(), MyCharacter.Enums.EXAMPLE_CARD);
     }
 
     public void receiveEditStrings() {

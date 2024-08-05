@@ -17,7 +17,7 @@ import liuLZmod.Characters.MyCharacter;
 import liuLZmod.action.miaossjAction;
 
 /**
- * 钝击
+ * 混沌摆锤
  */
 
 public class llz_hundbc extends CustomCard {
@@ -41,7 +41,7 @@ public class llz_hundbc extends CustomCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeDamage(1);
+            this.upgradeDamage(2);
         }
 
     }
@@ -51,7 +51,7 @@ public class llz_hundbc extends CustomCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot((AbstractGameAction)new DamageAction((AbstractCreature)m, new DamageInfo((AbstractCreature)p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-        addToBot((AbstractGameAction)new DamageAction((AbstractCreature)m, new DamageInfo((AbstractCreature)p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+        addToBot((AbstractGameAction)new DamageAction((AbstractCreature)m, new DamageInfo((AbstractCreature)p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
     }
     public void atTurnStart() {addToBot(new miaossjAction(1,this));}
     public AbstractCard makeCopy() {
