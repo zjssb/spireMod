@@ -6,8 +6,9 @@ import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.EventStrings;
-import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndObtainEffect;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.relics.Omamori;
+
 
 /**
  * 选择变化一张牌
@@ -43,7 +44,16 @@ public class TransformCardInDeckAction extends AbstractGameAction {
             AbstractDungeon.player.masterDeck.removeCard(cardToTransform);
             AbstractDungeon.transformCard(cardToTransform, false, AbstractDungeon.miscRng);
             AbstractCard transformedCard = AbstractDungeon.getTransformedCard();
-            AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(transformedCard, Settings.WIDTH / 1.5F, Settings.HEIGHT / 2.0F));
+            if (transformedCard.color == AbstractCard.CardColor.CURSE && AbstractDungeon.player.hasRelic("Omamori") &&
+                    (AbstractDungeon.player.getRelic("Omamori")).counter != 0) {
+                ((Omamori)AbstractDungeon.player.getRelic("Omamori")).use();
+                AbstractDungeon.gridSelectScreen.selectedCards.clear();
+                this.isDone = true;
+            }
+            else {
+                AbstractDungeon.player.masterDeck.addToTop(transformedCard); // 直接添加卡牌到牌组
+                AbstractDungeon.effectList.add(new ShowCardAnimationEffect(transformedCard, Settings.WIDTH / 1.5F, Settings.HEIGHT / 2.0F));
+            }
             AbstractDungeon.gridSelectScreen.selectedCards.clear();
         }
 
