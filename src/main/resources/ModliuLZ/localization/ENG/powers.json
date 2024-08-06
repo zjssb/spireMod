@@ -1,0 +1,136 @@
+{
+  "llz_rour": {
+    "NAME": "Resilience",
+    "DESCRIPTIONS": [
+      "When attacked, gain #b",
+      " Block."
+    ]
+  },
+  "llz_laoy": {
+    "NAME": "Brand",
+    "DESCRIPTIONS": [
+      "When you are attacked, the enemy loses #b",
+      " HP."
+    ]
+  },
+  "llz_guor": {
+    "NAME": "Overheat",
+    "DESCRIPTIONS": [
+      "Increase stacks when playing an Exhaust card."
+    ]
+  },
+  "llz_wanq": {
+    "NAME": "Tenacity",
+    "DESCRIPTIONS": [
+      "Reduce damage from your cards to #y0 for #b",
+      " turns."
+    ]
+  },
+  "llz_cij": {
+    "NAME": "Polarity",
+    "DESCRIPTIONS": [
+      "When this enemy is attacked, draw #b",
+      " cards."
+    ]
+  },
+  "llz_jieb": {
+    "NAME": "Vigilance",
+    "DESCRIPTIONS": [
+      "The next Status card played this turn will not be Exhausted."
+    ]
+  },
+  "llz_husz": {
+    "NAME": "Protective Charm",
+    "DESCRIPTIONS": [
+      "At the start of your turn, for each Status card you have, draw a card."
+    ]
+  },
+  "llz_ziwjg": {
+    "NAME": "Self-Deconstruction",
+    "DESCRIPTIONS": [
+      "At the start of your turn, Modify all cards in your hand #b",
+      " times."
+    ]
+  },
+  "llz_suiyqs": {
+    "NAME": "Erosion of Time",
+    "DESCRIPTIONS": [
+      "At the start of your turn, add #b",
+      " Forbidden cards to your hand."
+    ]
+  },
+  "llz_cubhl": {
+    "NAME": "Reserve Firepower",
+    "DESCRIPTIONS": [
+      "At the end of your turn, deal #b",
+      " damage to this enemy."
+    ]
+  },
+  "llz_wangxt": {
+    "NAME": "Eternal Form",
+    "DESCRIPTIONS": [
+      "At the end of your turn, all cards in your hand cost 0 next time they are played."
+    ]
+  },
+  "llz_jinmyq": {
+    "NAME": "Precision Instrument",
+    "DESCRIPTIONS": [
+      "Your attack cards deal double damage #b",
+      " times per turn."
+    ]
+  },
+  "llz_huawwy": {
+    "NAME": "Nullify",
+    "DESCRIPTIONS": [
+      "At the start of your turn, draw #b",
+      " cards and transform a non-attack card into Dazed."
+    ]
+  },
+  "llz_zutwz": {
+    "NAME": "Body over Matter",
+    "DESCRIPTIONS": [
+      "When playing a Status card, draw #b",
+      " cards."
+    ]
+  },
+  "llz_quans": {
+    "NAME": "Curl Up",
+    "DESCRIPTIONS": [
+      "Gain #b",
+      " Block the next time you are attacked."
+    ]
+  },
+  "llz_Mylaoy": {
+    "NAME": "Player Brand",
+    "DESCRIPTIONS": [
+      "When you are attacked, the branded enemy loses equivalent HP."
+    ]
+  },
+  "llz_shengNa": {
+    "NAME": "Sonar Lock",
+    "DESCRIPTIONS": [
+      "Fish will prioritize attacking this enemy."
+    ]
+  },
+  "llz_jih": {
+    "NAME": "Focus Fire",
+    "DESCRIPTIONS": [
+      "All machines deal an additional #b",
+      " damage."
+    ]
+  },
+  "llz_cuansgd": {
+    "NAME": "Transmission Pipeline",
+    "DESCRIPTIONS": [
+      "At the end of your turn, all machines charge #b",
+      " times."
+    ]
+  },
+  "llz_cuangsj": {
+    "NAME": "Genesis",
+    "DESCRIPTIONS": [
+      "At the start of your turn, gain #b",
+      " random effects."
+    ]
+  }
+}

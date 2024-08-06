@@ -179,9 +179,11 @@ public class liuLZMod implements EditCardsSubscriber, EditStringsSubscriber , Ed
     @Override
     public void receiveEditKeywords() {
         Gson gson = new Gson();
-        String lang = "ENG";
+        String lang;
         if (Settings.language == Settings.GameLanguage.ZHS) {
             lang = "ZHS";
+        } else {
+            lang = "ENG";
         }
 
         String json = Gdx.files.internal("ModliuLZ/localization/" + lang + "/keywords.json")
@@ -190,7 +192,9 @@ public class liuLZMod implements EditCardsSubscriber, EditStringsSubscriber , Ed
         if (keywords != null) {
             for (Keyword keyword : keywords) {
                 // 这个id要全小写
-                BaseMod.addKeyword("llzmod", keyword.NAMES[0], keyword.NAMES, keyword.DESCRIPTION);
+                if (Settings.language == Settings.GameLanguage.ZHS){
+                    BaseMod.addKeyword("llzmod", keyword.NAMES[0], keyword.NAMES, keyword.DESCRIPTION);
+                }else BaseMod.addKeyword("llzmod", keyword.NAMES[1], keyword.NAMES, keyword.DESCRIPTION);
             }
         }
     }

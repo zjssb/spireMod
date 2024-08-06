@@ -1,0 +1,94 @@
+[
+  {
+    "NAMES": [
+      "烙印",
+      "mark"
+    ],
+    "DESCRIPTION": "When you take damage, the target with Branding loses an equal amount of health."
+  },
+  {
+    "NAMES": [
+      "改造",
+      "modify",
+      "modified"
+    ],
+    "DESCRIPTION": "When modifying a card, increase its attack and block values. NL Status cards will turn into cards with positive effects, enhancing the effect with each modification."
+  },
+  {
+    "NAMES": [
+      "机械",
+      "mechanical"
+    ],
+    "DESCRIPTION": "Mechanicals gain Charge equal to the energy you consume, triggering effects based on Charge."
+  },
+  {
+    "NAMES": [
+      "鹅卵石",
+      "pebble"
+    ],
+    "DESCRIPTION": "At the start of your turn, gain #b1 Dexterity. The Dexterity granted per combat cannot exceed the number of this relic."
+  },
+  {
+    "NAMES": [
+      "过热",
+      "overheat"
+    ],
+    "DESCRIPTION": "Increase stacks when playing Exhaust cards."
+  },
+  {
+    "NAMES": [
+      "磁极",
+      "polarity"
+    ],
+    "DESCRIPTION": "Draw a number of cards equal to the stacks when attacking this enemy."
+  },
+  {
+    "NAMES": [
+      "哨卫",
+      "sentinel"
+    ],
+    "DESCRIPTION": "After gaining #b6 Charge, deal 4 damage to a random enemy. NL Each Sentinel card in your deck increases the maximum number of Sentinels."
+  },
+  {
+    "NAMES": [
+      "蒸汽机",
+      "steamengine"
+    ],
+    "DESCRIPTION": "After gaining #b5 Charge, inflict 1 Weak and 1 Vulnerable to a random enemy. NL Immediately activates once when regenerated."
+  },
+  {
+    "NAMES": [
+      "鱼群",
+      "swarm"
+    ],
+    "DESCRIPTION": "After gaining #b3 Charge, deal 3 damage to a target enemy 3 times. NL Reduces attack count by 1 each time it activates, increases attack count by 3 when regenerated."
+  },
+  {
+    "NAMES": [
+      "电能刀",
+      "electricknife"
+    ],
+    "DESCRIPTION": "Clears the Charge of this Mechanical only when you lose health. NL At the start of your turn, add an Arc Cut to your hand, with damage equal to 10 times the Charge."
+  },
+  {
+    "NAMES": [
+      "原型武装",
+      "prototypearmament"
+    ],
+    "DESCRIPTION": "After gaining #b10 Charge, gain 1 Focus and transform into WarArmament. NL #yWarArmament: After gaining #b5 Charge, deal 5 damage to all enemies 5 times. NL Gain #b2 Block each time you gain Charge. NL Doubles your Focus when regenerated. NL Cannot be cleared."
+  },
+  {
+    "NAMES": [
+      "虚影",
+      "phantom"
+    ],
+    "DESCRIPTION": "Each time you gain Charge, attack a random enemy and clear a random Mechanical."
+  },
+  {
+    "NAMES": [
+      "集火",
+      "focus"
+    ],
+    "DESCRIPTION": "Increases the damage dealt by Mechanicals."
+  }
+]

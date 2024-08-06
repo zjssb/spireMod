@@ -1,0 +1,93 @@
+{
+  "llz:MyRelic": {
+    "NAME": "Test Relic",
+    "FLAVOR": "This person is lazy and wrote nothing.",
+    "DESCRIPTIONS": [
+      "At the start of each combat, draw #b1 card."
+    ]
+  },
+  "llz_Els": {
+    "NAME": "Pebble",
+    "FLAVOR": "Though they have piled up into a small mountain, each one is unique.",
+    "DESCRIPTIONS": [
+      "At the start of each turn, gain #b1 #yDexterity. The #yDexterity granted each combat will not exceed the number of this relic."
+    ]
+  },
+  "llz_zallc": {
+    "NAME": "Messy Nest",
+    "FLAVOR": "This bird is extinct, but its creations linger.",
+    "DESCRIPTIONS": [
+      "At the start of each combat, gain a random status card that has been #yllzmod:modified."
+    ]
+  },
+  "llz_zic": {
+    "NAME": "Paper Boat",
+    "FLAVOR": "Fragile material folded repeatedly to form a very sturdy structure.",
+    "DESCRIPTIONS": [
+      "At the start of each turn, gain #b1 layer of #yPlated Armor."
+    ]
+  },
+  "llz_sentg": {
+    "NAME": "Ecological Cylinder",
+    "FLAVOR": "Some seeds remain in the nest, of great research value.",
+    "DESCRIPTIONS": [
+      "Replaces #rMessy Nest. When you draw a status card, it is #yllzmod:modified."
+    ]
+  },
+  "llz_tuoly": {
+    "NAME": "Gyroscope",
+    "FLAVOR": "Leftover parts after assembling the machine.",
+    "DESCRIPTIONS": [
+      "The first time you shuffle your draw pile each combat, draw cards until your hand is full."
+    ]
+  },
+  "llz_jiusj": {
+    "NAME": "Old Collection of Poems",
+    "FLAVOR": "There are multiple signatures on the title page, it's unclear who the original owner was.",
+    "DESCRIPTIONS": [
+      "When you #yllzmod:modify a card, upgrade it."
+    ]
+  },
+  "llz_fengbxz": {
+    "NAME": "Stitched Heart",
+    "FLAVOR": "“It fits perfectly, maybe I made it.”",
+    "DESCRIPTIONS": [
+      "The first time your hand is full each turn, gain [E] ."
+    ]
+  },
+  "llz_caodhx": {
+    "NAME": "Superconducting Core",
+    "FLAVOR": "Better performance at lower temperatures, as long as you don't do intense activities.",
+    "DESCRIPTIONS": [
+      "When you play consecutive 0-cost cards, gain #b3 #yBlock."
+    ]
+  },
+  "llz_jiaklhs": {
+    "NAME": "Crustacean Fossil",
+    "FLAVOR": "These bugs are everywhere now, I admire their cleverness.",
+    "DESCRIPTIONS": [
+      "The first time you take damage each combat, gain #b20 #yBlock."
+    ]
+  },
+  "llz_beiylj": {
+    "NAME": "Spare Parts",
+    "FLAVOR": "Not everything can be replaced.",
+    "DESCRIPTIONS": [
+      "When the number of Sentries is 0, immediately generate one."
+    ]
+  },
+  "llz_guanglzhq": {
+    "NAME": "Photon Converter",
+    "FLAVOR": "The problem is, there's no daylight in the tower.",
+    "DESCRIPTIONS": [
+      "At the start of each turn, all machines gain charge equal to your [E] limit."
+    ]
+  },
+  "llz_yuanzz": {
+    "NAME": "Atomic Clock",
+    "FLAVOR": "As it ascends, it becomes less accurate.",
+    "DESCRIPTIONS": [
+      "At the start of the first turn, gain #b1 #yStrength. NL At the start of the second turn, gain #b1 #yDexterity. NL At the start of the third turn, gain #b1 #yllzmod:focus."
+    ]
+  }
+}

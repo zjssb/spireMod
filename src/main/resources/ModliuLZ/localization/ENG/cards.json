@@ -1,7 +1,374 @@
 {
-  "liuLZmod:Strike": {
-    "NAME": "打击",
-    "DESCRIPTION": "造成 !D! 点伤害。",
-    "UPGRADE_DESCRIPTION": "固有。 NL 造成 !D! 点伤害。"
+  "llz_Strike": {
+    "NAME": "Strike",
+    "DESCRIPTION": "Deal !D! damage.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage."
+  },
+  "llz_Defend": {
+    "NAME": "Defend",
+    "DESCRIPTION": "Gain !B! Block."
+  },
+  "llz_sike": {
+    "NAME": "Etch",
+    "DESCRIPTION": "Deal !D! damage. NL Apply !M! llzmod:mark. NL Exhaust."
+  },
+  "llz_zibsz": {
+    "NAME": "Vegetation Growth",
+    "DESCRIPTION": "When damaged, gain !M! Block."
+  },
+  "llz_popsl": {
+    "NAME": "Fragmentation Grenade",
+    "DESCRIPTION": "Deal !D! damage to a random enemy !M! times. NL Take !LlzMagic! damage."
+  },
+  "llz_dianHQG": {
+    "NAME": "Arc Cut",
+    "DESCRIPTION": "Deal !D! damage. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Exhaust. NL Retain."
+  },
+  "llz_hej": {
+    "NAME": "Alloy",
+    "DESCRIPTION": "All llzmod:Machines gain !M! charge. NL Exhaust."
+  },
+  "llz_lenqj": {
+    "NAME": "Coolant",
+    "DESCRIPTION": "Draw !M! cards. NL Exhaust."
+  },
+  "llz_leis": {
+    "NAME": "Laser",
+    "DESCRIPTION": "Deal !D! damage to all enemies. NL Exhaust."
+  },
+  "llz_anwz": {
+    "NAME": "Dark Matter",
+    "DESCRIPTION": "Gain !M! [E]. NL Exhaust."
+  },
+  "llz_jiangz": {
+    "NAME": "Noise Reduction",
+    "DESCRIPTION": "Exhaust all status cards, gain !M! Block for each. NL Exhaust."
+  },
+  "llz_cuih": {
+    "NAME": "Quench",
+    "DESCRIPTION": "Deal !D! damage. NL llzmod:modify a card, if it is an attack card, modify it !M! times."
+  },
+  "llz_beny": {
+    "NAME": "Origin",
+    "DESCRIPTION": "llzmod:modify all cards in the draw pile. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Innate. NL llzmod:modify all cards in the draw pile. NL Exhaust."
+  },
+  "llz_lians": {
+    "NAME": "Crush",
+    "DESCRIPTION": "Deal !D! damage. NL Apply !M! Vulnerable. If the enemy intends to attack, apply !M! Weak."
+  },
+  "llz_dunj": {
+    "NAME": "Blunt Impact",
+    "DESCRIPTION": "Deal !D! damage. NL Gain !B! Block."
+  },
+  "llz_qianc": {
+    "NAME": "Lurk",
+    "DESCRIPTION": "Gain !B! Block. NL Add a Slime to your hand."
+  },
+  "llz_moryy": {
+    "NAME": "Doomsday Preview",
+    "DESCRIPTION": "Can only be played after turn !M!. NL Deal !D! damage to all enemies. Gain [E] [E] [E].",
+    "UPGRADE_DESCRIPTION": "#rNot ready yet."
+  },
+  "llz_gangthl": {
+    "NAME": "Steel Torrent",
+    "DESCRIPTION": "Deal !D! damage. NL Deal !D! damage to a random enemy 2 times. NL Deal !D! damage to all enemies 3 times."
+  },
+  "llz_yinqhm": {
+    "NAME": "Engine Roar",
+    "DESCRIPTION": "Draw !M! cards. NL Any excess cards drawn will randomly llzmod:modify cards in your hand. NL When this card is llzmod:modified , draw 2 additional cards."
+  },
+  "llz_diedq": {
+    "NAME": "Iterator",
+    "DESCRIPTION": "Gain !B! Block. NL llzmod:modify all status cards in your hand.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL llzmod:modify all cards in your hand."
+  },
+  "llz_feixv": {
+    "NAME": "Ruins",
+    "DESCRIPTION": "Gain !B! Block. NL When this card is llzmod:modified , add a Laser to your draw pile."
+  },
+  "llz_guns": {
+    "NAME": "Rolling Stone",
+    "DESCRIPTION": "Deal !D! damage. NL Sequentially attack the next enemy, increasing damage by !M! each time."
+  },
+  "llz_duocdd": {
+    "NAME": "Multi-Forge",
+    "DESCRIPTION": "llzmod:modify a card in your hand !M! times. NL Exhaust."
+  },
+  "llz_miaossj": {
+    "NAME": "Rapid Fire",
+    "DESCRIPTION": "Deal !D! damage !M! times. NL If other cards are played from your hand, deal one less hit."
+  },
+  "llz_cisb": {
+    "NAME": "Infrasound",
+    "DESCRIPTION": "Deal !D! damage to all enemies. NL Destroy minions."
+  },
+  "llz_hundbc": {
+    "NAME": "Chaotic Pendulum",
+    "DESCRIPTION": "Deal !D! damage 2 times. NL Increase damage by one each turn."
+  },
+  "llz_jinmyq": {
+    "NAME": "Precision Instruments",
+    "DESCRIPTION": "The first attack card you play each turn deals double damage."
+  },
+  "llz_wujcf": {
+    "NAME": "Fearless Charge",
+    "DESCRIPTION": "Deal !D! damage. NL Gain !B! Block in boss and elite fights."
+  },
+  "llz_cuanqdj": {
+    "NAME": "Legendary Strike",
+    "DESCRIPTION": "Deal !D! damage !M! times. NL In boss or elite fights, increase the attack count and damage of this card for the rest of the game."
+  },
+  "llz_zuzbx": {
+    "NAME": "Cursed Chest",
+    "DESCRIPTION": "Cannot be played. NL Upon entering your deck, gain !M! gold and obtain a relic.",
+    "UPGRADE_DESCRIPTION": "Cannot be played. NL Upon entering your deck, gain !M! gold and obtain a relic. NL Ethereal."
+  },
+  "llz_touzcl": {
+    "NAME": "Throwing Gear",
+    "DESCRIPTION": "Deal !D! damage. NL Discard a card, draw a card of the same type."
+  },
+  "llz_zuangjzq": {
+    "NAME": "Armored Heavy Punch",
+    "DESCRIPTION": "Deal !D! damage. NL Consume all llzmod:overheat , adding !M! damage per stack. NL Gain llzmod:overheat ."
+  },
+  "llz_cenzbb": {
+    "NAME": "Heavy Backpack",
+    "DESCRIPTION": "Exhaust. NL Upon entering your deck, obtain a llzmod:pebble relic."
+  },
+  "llz_lingbz": {
+    "NAME": "Inspiration Capture",
+    "DESCRIPTION": "Choose a card from three llzmod:modify status cards to add to your hand. NL Exhaust."
+  },
+  "llz_wurpf": {
+    "NAME": "Pollution Emission",
+    "DESCRIPTION": "Draw !M! cards. NL Add a random status card to your draw pile, discard pile, and hand."
+  },
+  "llz_wanq": {
+    "NAME": "Tenacity",
+    "DESCRIPTION": "Gain !B! Block. NL Reduce the damage you take to 0 this turn."
+  },
+  "llz_diancqj": {
+    "NAME": "Electromagnetic Shot",
+    "DESCRIPTION": "Deal !D! damage. NL The next time the enemy is attacked, draw !M! cards."
+  },
+  "llz_jieb": {
+    "NAME": "Vigilance",
+    "DESCRIPTION": "Deal !D! damage. NL The next status card you play this turn will not be exhausted."
+  },
+  "llz_heiq": {
+    "NAME": "Black Gun",
+    "DESCRIPTION": "Deal !D! damage. NL Lose 1 [E] when you draw this card."
+  },
+  "llz_sih": {
+    "NAME": "Scavenge",
+    "DESCRIPTION": "Gain !B! Block. NL If you have a status card in your hand, llzmod:modify it and gain !B! Block."
+  },
+  "llz_zansyd": {
+    "NAME": "Tactical Induction",
+    "DESCRIPTION": "Take !M! damage. NL Gain !B! Block next turn."
+  },
+  "llz_lus": {
+    "NAME": "Dew",
+    "DESCRIPTION": "Can only be played on the first turn. NL Gain [E] [E] , draw !M! cards. NL Ethereal Exhaust.",
+    "UPGRADE_DESCRIPTION": "#rNot now."
+  },
+  "llz_zat": {
+    "NAME": "Misfire",
+    "DESCRIPTION": "Deal !D! damage. NL Gain !M! Burn cards."
+  },
+  "llz_hejj": {
+    "NAME": "Combo Technique",
+    "DESCRIPTION": "Deal !D! damage. NL Play all 0-cost attack cards from your draw pile."
+  },
+  "llz_congjz": {
+    "NAME": "Impact Drill",
+    "DESCRIPTION": "Deal !D! damage. NL llzmod:modify all cards in your hand. NL If the damage is blocked, play this card again."
+  },
+  "llz_rongl": {
+    "NAME": "Melt",
+    "DESCRIPTION": "Exhaust an attack card, gain Block equal to its damage.",
+    "UPGRADE_DESCRIPTION": "#rNo attack cards."
+  },
+  "llz_qvxjs": {
+    "NAME": "Curved Acceleration",
+    "DESCRIPTION": "Draw cards equal to the current turn number and llzmod:modify them.",
+    "UPGRADE_DESCRIPTION": "Draw cards equal to the current turn number + 1 and llzmod:modify them.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Draw !M! cards.)"
+    ]
+  },
+  "llz_jiaoz": {
+    "NAME": "Calibration",
+    "DESCRIPTION": "Discard all starter cards. NL llzmod:modify all cards in your hand.",
+    "UPGRADE_DESCRIPTION": "Discard all starter cards. NL llzmod:modify all cards in your hand twice."
+  },
+  "llz_paog": {
+    "NAME": "Fake",
+    "DESCRIPTION": "Copy all status cards in your hand, gain 1 [E] for each. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Copy all status cards in your hand, gain 1 [E] for each."
+  },
+  "llz_caofh": {
+    "NAME": "Overload",
+    "DESCRIPTION": "Gain [E] [E]. NL Take 3 damage for each Overload played this combat.",
+    "UPGRADE_DESCRIPTION": "Gain [E] [E]. NL For each Overload played this combat, take 3 damage once.",
+    "EXTENDED_DESCRIPTION": [
+      "(Take !M! instances of damage.)"
+    ]
+  },
+  "llz_caofzw": {
+    "NAME": "Extraordinary Thing",
+    "DESCRIPTION": "llzmod:modify all cards in your hand X times. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "llzmod:modify all cards in your hand X+1 times. NL Exhaust."
+  },
+  "llz_xuanzxyw": {
+    "NAME": "Selective Forgetfulness",
+    "DESCRIPTION": "Discard any number of cards. NL The next time you play the discarded cards, they cost 1 less [E]."
+  },
+  "llz_xium": {
+    "NAME": "Dormancy",
+    "DESCRIPTION": "Gain !B! Block. NL Discard all cards into the discard pile, draw !M! additional cards next turn."
+  },
+  "llz_jinsfx": {
+    "NAME": "Metal Line",
+    "DESCRIPTION": "Can only be played after the 4th turn. NL Gain !M! Block at the end of your turn.",
+    "UPGRADE_DESCRIPTION": "Retain. NL Can only be played after the 4th turn. NL Gain !M! Block at the end of your turn.",
+    "EXTENDED_DESCRIPTION": [
+      "#rWait a bit."
+    ]
+  },
+  "llz_husz": {
+    "NAME": "Protective Charm",
+    "DESCRIPTION": "At the start of your turn. Draw 1 card for each status card you have."
+  },
+  "llz_ziwjg": {
+    "NAME": "Self-Deconstruction",
+    "DESCRIPTION": "At the start of your turn, llzmod:modify all cards in your hand.",
+    "UPGRADE_DESCRIPTION": "Innate. NL At the start of your turn, llzmod:modify all cards in your hand."
+  },
+  "llz_jinj": {
+    "NAME": "Taboo",
+    "DESCRIPTION": "Deal !D! damage. NL llzmod:modify all status cards in your hand. NL Retain Exhaust."
+  },
+  "llz_suiyqs": {
+    "NAME": "Erosion of Time",
+    "DESCRIPTION": "At the start of your turn, add a Taboo to your hand.",
+    "UPGRADE_DESCRIPTION": "Innate. NL At the start of your turn, add a Taboo to your hand."
+  },
+  "llz_heid": {
+    "NAME": "Black Hole",
+    "DESCRIPTION": "Deal !D! damage. NL Convert all status cards into Void."
   }
+,
+  "llz_jinhsf": {
+    "NAME": "Evolution Algorithm",
+    "DESCRIPTION": "Deal !D! damage. NL Upon Slay, transform a card in your draw pile. Exhaust."
+  },
+  "llz_cubhl": {
+    "NAME": "Reserve Firepower",
+    "DESCRIPTION": "Gain !B! Block. NL *Unloaded. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL This card in your deck reverts to its unupgraded form. At the end of the turn, deal !M! damage. Void Exhaust."
+  },
+  "llz_quanpdzsgr": {
+    "NAME": "Full-Spectrum Barrage Jamming",
+    "DESCRIPTION": "Apply !M! Weak, Vulnerable, llzmod:polarity, and llzmod:mark to all enemies. All enemies lose !M! Strength. Exhaust."
+  },
+  "llz_wangs": {
+    "NAME": "Past Events",
+    "DESCRIPTION": "Play the last card played in this combat. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Choose one of the last 3 cards played in this combat and play it. NL Exhaust."
+  },
+  "llz_senpr": {
+    "NAME": "Judgment Day",
+    "DESCRIPTION": "Trigger all your end-of-turn and start-of-turn effects, and increase the current turn count by one. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Trigger all your end-of-turn and start-of-turn effects, and increase the current turn count by one."
+  },
+  "llz_fangsj": {
+    "NAME": "Bionic Cocoon",
+    "DESCRIPTION": "Gain !M! Layers of Plated Armor. NL For each unplayable card in your hand, gain an additional layer.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Gain",
+      " layer(s).)"
+    ]
+  }
+,
+  "llz_wangxt": {
+    "NAME": "Ancient Form",
+    "DESCRIPTION": "Void. NL At the end of your turn, all cards in your hand will have their next use cost reduced to 0.",
+    "UPGRADE_DESCRIPTION": "At the end of your turn, all cards in your hand will have their next use cost reduced to 0."
+  },
+  "llz_huawwy": {
+    "NAME": "Turn to Nothingness",
+    "DESCRIPTION": "Void. NL At the start of your turn, draw !M! cards and turn a non-attack card into Stunned.",
+    "UPGRADE_DESCRIPTION": "At the start of your turn, draw !M! cards and turn a non-attack card into Stunned."
+  },
+  "llz_zutwz": {
+    "NAME": "Forge to Reverence",
+    "DESCRIPTION": "When playing a status card, draw !M! cards."
+  },
+  "llz_zengqj": {
+    "NAME": "Steam Engine",
+    "DESCRIPTION": "Consume a sentinel. NL Generate llzmod:mechanical · llzmod:steamengine. NL Consume.",
+    "UPGRADE_DESCRIPTION": "#rInsufficient materials."
+  },
+  "llz_xianq": {
+    "NAME": "Pioneer",
+    "DESCRIPTION": "Deal !D! damage. NL Generate llzmod:mechanical · llzmod:sentinel and gain a Wound.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Generate llzmod:mechanical · llzmod:sentinel and gain an Alloy."
+  },
+  "llz_sengnyq": {
+    "NAME": "Sonar Swarm",
+    "DESCRIPTION": "Deal !D! damage !M! times. NL Consume a sentinel, generate llzmod:mechanical · llzmod:swarm.",
+    "UPGRADE_DESCRIPTION": "#rInsufficient materials."
+  }
+,
+  "llz_yanh": {
+    "NAME": "Cover",
+    "DESCRIPTION": "Gain !B! Block. NL Additionally, gain Block equal to the current number of mechanicals. NL Generate llzmod:mechanical · llzmod:sentinel."
+  },
+  "llz_dianld": {
+    "NAME": "Electric Knife",
+    "DESCRIPTION": "Generate llzmod:mechanical · llzmod:electricknife. NL Clear all sentinels.",
+    "UPGRADE_DESCRIPTION": "Generate llzmod:mechanical · llzmod:electricknife. NL Clear all sentinels and gain an equal amount of Charge."
+  },
+  "llz_zanzwz": {
+    "NAME": "War Armament",
+    "DESCRIPTION": "Consume !M! sentinels. NL Generate llzmod:mechanical · llzmod:prototypearmament.",
+    "UPGRADE_DESCRIPTION": "#rInsufficient materials."
+  },
+  "llz_laojjk": {
+    "NAME": "Neural Interface",
+    "DESCRIPTION": "Deal !D! damage. NL Generate a llzmod:mechanical · llzmod:phantom with the same intent as the enemy. NL Consume."
+  },
+  "llz_weig": {
+    "NAME": "Siege",
+    "DESCRIPTION": "Deal !D! damage. NL All llzmod:sentinel immediately attack once."
+  },
+  "llz_zilzh": {
+    "NAME": "Mass-Energy Conversion",
+    "DESCRIPTION": "If there are at least !M! mechanicals, gain [E]. NL Generate llzmod:mechanical · llzmod:sentinel."
+  },
+  "llz_zengy": {
+    "NAME": "Reinforcement",
+    "DESCRIPTION": "Generate !M! llzmod:mechanical · llzmod:sentinel. NL Gain 1 llzmod:focus. NL Consume."
+  }
+,
+  "llz_canqcs": {
+    "NAME": "Remnant Reshape",
+    "DESCRIPTION": "Receive !M! damage. NL Generate 3 llzmod:mechanical · llzmod:sentinel. Gain 3 Wounds."
+  },
+  "llz_cuansgd": {
+    "NAME": "Transmission Pipeline",
+    "DESCRIPTION": "At the end of the turn, all llzmod:mechanical gain !M! Charge."
+  },
+  "llz_quanmjg": {
+    "NAME": "Full Assault",
+    "DESCRIPTION": "Gain !M! Strength. NL Gain !M! llzmod:focus. NL Gain 2 Vulnerable."
+  },
+  "llz_cuangsj": {
+    "NAME": "Genesis",
+    "DESCRIPTION": "At the start of the turn, gain !M! layers of Random Effects."
+  }
+
 }

@@ -1,0 +1,57 @@
+{
+  "llz_shaoW": {
+    "MOVES": [],
+    "NAME": "Sentry",
+    "DIALOG": [
+      ""
+    ]
+  },
+  "llz_shaoWT": {
+    "MOVES": [],
+    "NAME": "Sentry Charge Bar",
+    "DIALOG": [
+      ""
+    ]
+  },
+  "llz_dianD": {
+    "MOVES": [],
+    "NAME": "Electro Blade",
+    "DIALOG": [
+      ""
+    ]
+  },
+  "llz_zhengQJ": {
+    "MOVES": [],
+    "NAME": "Steam Engine",
+    "DIALOG": [
+      ""
+    ]
+  },
+  "llz_yuQ": {
+    "MOVES": [],
+    "NAME": "Fish School",
+    "DIALOG": [
+      ""
+    ]
+  },
+  "llz_xuYing": {
+    "MOVES": [""],
+    "NAME": "Phantom",
+    "DIALOG": [
+      "@I'll handle this@",
+      "You seem to have gotten into @big trouble@",
+      "I ~like~ this move",
+      "You're asking me to do ~this?~ NL @Come on...@",
+      "#r@Foolish@ @move@",
+      "Don't call me for this kind of thing again...",
+      "@zzz..zzz...@"
+    ]
+  },
+  "llz_ZZWZ": {
+    "MOVES": [],
+    "NAME": "War Armament",
+    "DIALOG": [
+      ""
+    ]
+  }
+}

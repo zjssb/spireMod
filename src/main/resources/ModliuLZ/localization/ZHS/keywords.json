@@ -2,91 +2,91 @@
   {
     "NAMES": [
       "烙印",
-      "laoy"
+      "Mark"
     ],
     "DESCRIPTION": "在你受到伤害时，拥有烙印的目标失去相应层数的生命。"
   },
   {
     "NAMES": [
       "改造",
-      "gaiz"
+      "Modify"
     ],
     "DESCRIPTION": "改造卡牌时提高其攻击和格挡值。 NL 状态牌会变为有正面效果的牌，多次改造时提升效果。"
   },
   {
     "NAMES": [
       "机械",
-      "jix"
+      "Mechanical"
     ],
     "DESCRIPTION": "机械依靠充能触发效果，在你消耗能量时获得等量的充能。"
   },
   {
     "NAMES": [
       "鹅卵石",
-      "els"
+      "Pebble"
     ],
     "DESCRIPTION": "回合开始时，获得 #b1 点 #y敏捷 。每场战斗给予的 #y敏捷 不会超过该遗物的数量。"
   },
   {
     "NAMES": [
       "过热",
-      "guor"
+      "Overheat"
     ],
     "DESCRIPTION": "打出消耗牌时增加层数。"
   },
   {
     "NAMES": [
       "磁极",
-      "cij"
+      "Polarity"
     ],
     "DESCRIPTION": "攻击该敌人时，抽取相应数量的牌。"
   },
   {
     "NAMES": [
       "哨卫",
-      "saow"
+      "Sentinel"
     ],
     "DESCRIPTION": "获得 #b6 充能后，对随机敌人造成4点伤害。 NL 牌组中每张哨卫牌，都会增加哨卫的数量上限。"
   },
   {
     "NAMES": [
       "蒸汽机",
-      "zengqj"
+      "SteamEngine"
     ],
     "DESCRIPTION": "获得 #b5 充能后，给予随机敌人1层虚弱和易伤 。 NL 重复生成时立刻生效一次。"
   },
   {
     "NAMES": [
       "鱼群",
-      "yvq"
+      "Swarm"
     ],
     "DESCRIPTION": "获得 #b3 充能后，对目标敌人造成3点伤害3次。 NL 每次生效后攻击次数减1，重复生成时攻击次数加3。"
   },
   {
     "NAMES": [
       "电能刀",
-      "diand"
+      "ElectricKnife"
     ],
     "DESCRIPTION": "仅在你损失生命时，清空该机械的充能。 NL 回合开始时，将一张电弧切割加入手牌，其伤害为充能的10倍。"
   },
   {
     "NAMES": [
       "原型武装",
-      "yuanxwz"
+      "PrototypeArmament"
     ],
     "DESCRIPTION": "获得 #b10 充能后，给予你一层 #y集火 ，变为 #y战争武装 。 NL #y战争武装 ：获得 #b5 充能后，对所有敌人造成5点伤害5次。 NL 每次充能时获得 #b2 点格挡。 NL 重复生成时将你的 #y集火 翻倍。 NL 不能被清除。"
   },
   {
     "NAMES": [
       "虚影",
-      "xvy"
+      "Phantom"
     ],
     "DESCRIPTION": "每次充能时，攻击随机敌人，清除一个随机机械。"
   },
   {
     "NAMES": [
       "集火",
-      "jih"
+      "Focus"
     ],
     "DESCRIPTION": "增加机械造成的伤害。"
   }
