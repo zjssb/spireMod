@@ -285,7 +285,11 @@
   },
   "llz_fangsj": {
     "NAME": "仿生茧",
-    "DESCRIPTION": "获得 !M! 层 多层护甲 。 NL 手牌中每有一张 不能被打出 的牌，额外获得一层。"
+    "DESCRIPTION": "获得 !M! 层 多层护甲 。 NL 手牌中每有一张无法打出的牌，额外获得一层。",
+    "EXTENDED_DESCRIPTION": [
+      " NL （获得",
+      "层。）"
+    ]
   },
   "llz_wangxt": {
     "NAME": "万古形态",

@@ -15,7 +15,7 @@ public class llz_sentg extends CustomRelic {
     public static final String ID = "llz_sentg";
     private static final String IMG_PATH = "ModliuLZ/img/relics/sentg.png";
     private static final RelicTier RELIC_TIER = RelicTier.BOSS;
-    private static final LandingSound LANDING_SOUND = LandingSound.SOLID;
+    private static final LandingSound LANDING_SOUND = LandingSound.FLAT;
 
     public llz_sentg() {
         super(ID, ImageMaster.loadImage(IMG_PATH), RELIC_TIER, LANDING_SOUND);

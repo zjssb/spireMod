@@ -1,10 +1,12 @@
 package liuLZmod.cards;
 
 import basemod.abstracts.CustomCard;
+import com.megacrit.cardcrawl.actions.GameActionManager;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.PlatedArmorPower;
@@ -27,7 +29,7 @@ public class llz_fangsj extends CustomCard {
 
     public llz_fangsj() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.magicNumber = this.baseMagicNumber = 6;
+        this.magicNumber = this.baseMagicNumber = 4;
     }
 
     @Override
@@ -51,6 +53,25 @@ public class llz_fangsj extends CustomCard {
             }
         }
         addToBot(new ApplyPowerAction(p, p, new PlatedArmorPower(p, this.magicNumber +i), this.magicNumber +i));
+    }
+
+    public void applyPowers() {
+        super.applyPowers();
+        int i = 0;
+        for (AbstractCard c : AbstractDungeon.player.hand.group) {
+            if (!c.canUse(AbstractDungeon.player,null)) {
+                i++;
+            }
+        }
+        this.rawDescription = CARD_STRINGS.DESCRIPTION;
+        this.rawDescription += CARD_STRINGS.EXTENDED_DESCRIPTION[0] + (this.magicNumber +i);
+        this.rawDescription += CARD_STRINGS.EXTENDED_DESCRIPTION[1];
+        initializeDescription();
+    }
+
+    public void onMoveToDiscard() {
+        this.rawDescription = CARD_STRINGS.DESCRIPTION;
+        initializeDescription();
     }
 
     public AbstractCard makeCopy() {

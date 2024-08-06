@@ -14,7 +14,7 @@ public class llz_fengbxz extends CustomRelic {
     public static final String ID = "llz_fengbxz";
     private static final String IMG_PATH = "ModliuLZ/img/relics/fengbxz.png";
     private static final RelicTier RELIC_TIER = RelicTier.BOSS;
-    private static final LandingSound LANDING_SOUND = LandingSound.SOLID;
+    private static final LandingSound LANDING_SOUND = LandingSound.HEAVY;
 
     public llz_fengbxz() {
         super(ID, ImageMaster.loadImage(IMG_PATH), RELIC_TIER, LANDING_SOUND);

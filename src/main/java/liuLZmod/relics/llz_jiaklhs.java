@@ -15,7 +15,7 @@ public class llz_jiaklhs extends CustomRelic {
     public static final String ID = "llz_jiaklhs";
     private static final String IMG_PATH = "ModliuLZ/img/relics/jiaklhs.png";
     private static final RelicTier RELIC_TIER = RelicTier.SHOP;
-    private static final LandingSound LANDING_SOUND = LandingSound.SOLID;
+    private static final LandingSound LANDING_SOUND = LandingSound.HEAVY;
 
     public llz_jiaklhs() {
         super(ID, ImageMaster.loadImage(IMG_PATH), RELIC_TIER, LANDING_SOUND);

@@ -14,7 +14,7 @@ public class llz_guanglzhq extends CustomRelic {
     public static final String ID = "llz_guanglzhq";
     private static final String IMG_PATH = "ModliuLZ/img/relics/guanglzhq.png";
     private static final RelicTier RELIC_TIER = RelicTier.RARE;
-    private static final LandingSound LANDING_SOUND = LandingSound.SOLID;
+    private static final LandingSound LANDING_SOUND = LandingSound.CLINK;
 
     public llz_guanglzhq() {
         super(ID, ImageMaster.loadImage(IMG_PATH), RELIC_TIER, LANDING_SOUND);

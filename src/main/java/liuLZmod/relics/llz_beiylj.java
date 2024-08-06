@@ -18,7 +18,7 @@ public class llz_beiylj extends CustomRelic {
     // 遗物类型
     private static final RelicTier RELIC_TIER = RelicTier.COMMON;
     // 点击音效
-    private static final LandingSound LANDING_SOUND = LandingSound.SOLID;
+    private static final LandingSound LANDING_SOUND = LandingSound.HEAVY;
 
     public llz_beiylj() {
         super(ID, ImageMaster.loadImage(IMG_PATH), RELIC_TIER, LANDING_SOUND);

@@ -13,7 +13,7 @@ public class llz_tuoly extends CustomRelic {
     public static final String ID = "llz_tuoly";
     private static final String IMG_PATH = "ModliuLZ/img/relics/tuoly.png";
     private static final RelicTier RELIC_TIER = RelicTier.UNCOMMON;
-    private static final LandingSound LANDING_SOUND = LandingSound.SOLID;
+    private static final LandingSound LANDING_SOUND = LandingSound.CLINK;
     private static boolean usedThisCombat = false;
 
     public llz_tuoly() {
