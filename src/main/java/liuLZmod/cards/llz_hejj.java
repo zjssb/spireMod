@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import liuLZmod.Characters.MyCharacter;
@@ -48,7 +49,11 @@ public class llz_hejj extends CustomCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
-        addToBot(new HejjAction());
+        for (AbstractCard card : AbstractDungeon.player.drawPile.group) {
+            if (card.type == AbstractCard.CardType.ATTACK && card.cost == 0) {
+                addToBot(new HejjAction());
+            }
+        }
     }
     public AbstractCard makeCopy() {
         return new llz_hejj();

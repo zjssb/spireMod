@@ -85,6 +85,7 @@ public class WangsAction extends AbstractGameAction {
         if (AbstractDungeon.getCurrRoom().monsters.monsters.size() > 0) {
             m = AbstractDungeon.getCurrRoom().monsters.getRandomMonster(null, true, AbstractDungeon.cardRandomRng);
         }
+        if(m == null || m.currentHealth < 0)return;
 
         AbstractCard tmp = cardToCopy.makeSameInstanceOf();
         AbstractDungeon.player.limbo.addToBottom(tmp);

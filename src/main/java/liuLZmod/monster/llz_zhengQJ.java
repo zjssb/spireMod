@@ -13,6 +13,7 @@ import com.megacrit.cardcrawl.monsters.MonsterGroup;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 import com.megacrit.cardcrawl.vfx.combat.IntimidateEffect;
+import liuLZmod.action.zengQjAction;
 import liuLZmod.monster.abstracrt.abstract_llz_jiXie;
 import liuLZmod.patches.JiXieGroupPatch;
 import liuLZmod.util.Point;
@@ -105,9 +106,7 @@ public class llz_zhengQJ extends abstract_llz_jiXie {
         ZQJ.addToBot(new SFXAction("INTIMIDATE"));
         ZQJ.addToBot(new VFXAction(ZQJ, new IntimidateEffect(ZQJ.hb.cX, ZQJ.hb.cY - 55), 0F));
         ZQJ.addToBot(new ChangeStateAction(ZQJ, "att"));
-        AbstractMonster m = AbstractDungeon.getRandomMonster();
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, ZQJ, new WeakPower(m, 1, false)));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, ZQJ, new VulnerablePower(m, 1, false)));
+        AbstractDungeon.actionManager.addToBottom(new zengQjAction());
     }
 
 

@@ -309,7 +309,7 @@
   },
   "llz_zengqj": {
     "NAME": "Steam Engine",
-    "DESCRIPTION": "Consume a sentinel. NL Generate llzmod:mechanical · llzmod:steamengine. NL Consume.",
+    "DESCRIPTION": "Consume a sentinel. NL Generate llzmod:mechanical · llzmod:steamengine. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "#rInsufficient materials."
   },
   "llz_xianq": {

@@ -2,6 +2,7 @@ package liuLZmod.action;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
+import liuLZmod.monster.*;
 import liuLZmod.monster.abstracrt.abstract_llz_jiXie;
 
 import java.util.Objects;
@@ -18,11 +19,11 @@ public class zilzhAction extends AbstractGameAction {
     @Override
     public void update() {
         int i =(int) shaoweiList.stream().filter(sw -> !sw.isDeath).count();
-        for (abstract_llz_jiXie jiXie : jiXie_list){
-            if(!Objects.equals(jiXie.id, "llz_shaoW") && !Objects.equals(jiXie.id, "llz_shaoWT")) {
-                i++;
-            }
-        }
+        if(llz_dianD.DD != null)i++;
+        if(llz_zhengQJ.ZQJ != null)i++;
+        if(llz_xuYing.XY != null)i++;
+        if(llz_yuQ.YQ != null)i++;
+        if(llz_ZZWZ.ZZWZ != null)i++;
         if(i >= t)addToBot(new GainEnergyAction(1));
         this.isDone =true;
     }

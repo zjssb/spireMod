@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.MonsterGroup;
+import liuLZmod.action.saowDamageAction;
 import liuLZmod.modcore.liuLZMod;
 import liuLZmod.monster.abstracrt.abstract_llz_jiXie;
 import liuLZmod.patches.JiXieGroupPatch;
@@ -248,10 +249,9 @@ public class llz_shaoW extends abstract_llz_jiXie {
             return;
         }
         for (llz_shaoW sw : monsters) {
-            AbstractMonster m = AbstractDungeon.getRandomMonster();
             AbstractDungeon.actionManager.addToBottom(new ChangeStateAction(sw, "gj"));
             //AbstractDungeon.actionManager.addToBottom(new WaitAction(1F));
-            AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(AbstractDungeon.player, attackDmg, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+            AbstractDungeon.actionManager.addToBottom(new saowDamageAction(AbstractDungeon.player, attackDmg));
             //AbstractDungeon.actionManager.addToBottom(new WaitAction(0.1F * i));
             i++;
         }
