@@ -4,7 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.esotericsoftware.spine.*;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 
 /**
@@ -27,7 +27,7 @@ public class SpineEffect extends AbstractGameEffect {
     }
 
     // Constructor to use monster instance
-    public SpineEffect(String atlasPath, String jsonPath, String animationName, AbstractMonster monster, float speed) {
+    public SpineEffect(String atlasPath, String jsonPath, String animationName, AbstractCreature monster, float speed) {
         this.x = monster.drawX;
         this.y = monster.drawY + monster.hb.height / 2.0f;
         this.speed = speed;

@@ -32,7 +32,7 @@ public class llz_cubhl extends CustomCard {
     public llz_cubhl() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.magicNumber = this.baseMagicNumber = 99;
-        this.baseBlock = 12;
+        this.baseBlock = 16;
         this.exhaust = true;
 
     }

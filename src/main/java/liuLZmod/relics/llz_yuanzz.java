@@ -21,6 +21,7 @@ public class llz_yuanzz extends CustomRelic {
 
     public llz_yuanzz() {
         super(ID, ImageMaster.loadImage(IMG_PATH), RELIC_TIER, LANDING_SOUND);
+        this.counter = 0;
     }
     public void atBattleStart() {
         this.counter = 0;
@@ -45,7 +46,7 @@ public class llz_yuanzz extends CustomRelic {
     }
 
     public void onVictory() {
-        this.counter = -1;
+        this.counter = 0;
         this.grayscale = false;
     }
 
