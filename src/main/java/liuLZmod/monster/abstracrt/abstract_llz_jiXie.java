@@ -98,16 +98,12 @@ public abstract class abstract_llz_jiXie extends CustomMonster {
             } catch (NoSuchMethodException e) {
                 String name = cls.getName();
                 System.out.println("充能方法不存在，检测"+name+"是否重写充能方法");
-                return;
             } catch (InvocationTargetException e) {
                 String name = cls.getName();
                 System.out.println("充能方法反射异常，检测"+name+"充能方法");
-                return;
             } catch (IllegalAccessException e) {
-
                 String name = cls.getName();
                 System.out.println(name+"充能访问级别出错");
-                return;
             }
         }
     }
