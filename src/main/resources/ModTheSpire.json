@@ -1,10 +1,10 @@
 {
   "modid": "LiuLZMod",
-  "name": "先古流浪者Mod",
+  "name": "Ancient(先古流浪者)",
   "author_list": ["鹿E"],
-  "description": "制作中的mod。",
+  "description": "制作完成的mod。",
   "version": "0.0.1",
-  "sts_version": "12-22-2020",
+  "sts_version": "12-22-2023",
   "mts_version": "3.23.2",
   "dependencies": ["basemod", "stslib"]
 }
