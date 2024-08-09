@@ -43,7 +43,7 @@ public class llz_gangthl extends CustomCard {
     public llz_gangthl() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.damage = this.baseDamage = 4;
-        this.isMultiDamage = true;
+        this.isMultiDamage = false;
     }
 
     @Override
@@ -57,18 +57,52 @@ public class llz_gangthl extends CustomCard {
 
 
     @Override
+    public void applyPowers() {
+        super.applyPowers();
+        //isMultiDamage 只在 DamageAllEnemiesAction 时生效
+        int oldDamage = this.damage;
+        int oldBaseDamage = this.baseDamage;
+        boolean oldIsDamageModified = this.isDamageModified;
 
+        this.baseDamage = this.damage = this.baseDamage;
+        this.isMultiDamage = true;
+        super.applyPowers();
+        this.isMultiDamage = false;
+        this.baseDamage = oldBaseDamage;
+        this.damage = oldDamage;
+        this.isDamageModified = oldIsDamageModified;
+    }
+
+    @Override
+    public void calculateCardDamage(AbstractMonster mo) {
+        super.calculateCardDamage(mo);
+        int oldDamage = this.damage;
+        int oldBaseDamage = this.baseDamage;
+        boolean oldIsDamageModified = this.isDamageModified;
+
+        this.baseDamage = this.damage = this.baseDamage;
+        this.isMultiDamage = true;
+        super.calculateCardDamage(null);
+        this.isMultiDamage = false;
+        this.baseDamage = oldBaseDamage;
+        this.damage = oldDamage;
+        this.isDamageModified = oldIsDamageModified;
+    }
+
+    @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot((AbstractGameAction)new SFXAction("ATTACK_WHIRLWIND"));
-        addToBot((AbstractGameAction)new VFXAction((AbstractGameEffect)new WhirlwindEffect(), 0.0F));
-        addToBot((AbstractGameAction)new DamageAction((AbstractCreature)m, new DamageInfo((AbstractCreature)p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
-        addToBot((AbstractGameAction)new VFXAction((AbstractGameEffect)new SeJiEffect(m.hb.cX, m.hb.cY)));
+        addToBot(new SFXAction("ATTACK_WHIRLWIND"));
+        addToBot(new VFXAction(new WhirlwindEffect(), 0.0F));
+        addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+        addToBot(new VFXAction(new SeJiEffect(m.hb.cX, m.hb.cY)));
         for (int i = 0; i < 2; i++) {
-            addToBot((AbstractGameAction)new AttackDamageRandomEnemyAction(this, AbstractGameAction.AttackEffect.FIRE));
+            addToBot(new AttackDamageRandomEnemyAction(this, AbstractGameAction.AttackEffect.FIRE));
         }
+        this.isMultiDamage = true;
         for (int i = 0; i < 3; i++) {
-            addToBot((AbstractGameAction)new DamageAllEnemiesAction((AbstractCreature)p, this.multiDamage, this.damageTypeForTurn,AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+            addToBot(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.BLUNT_LIGHT));
         }
+        this.isMultiDamage = false;
     }
     public AbstractCard makeCopy() {
         return new llz_gangthl();
