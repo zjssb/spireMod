@@ -39,6 +39,7 @@ public class llz_moryy extends CustomCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.damage = this.baseDamage = 30;
         this.magicNumber = this.baseMagicNumber = 7;
+        this.isMultiDamage = true;
     }
 
     @Override
