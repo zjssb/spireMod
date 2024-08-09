@@ -14,7 +14,7 @@ public class saowDamageAction extends AbstractGameAction {
     private DamageInfo info;
 
     public saowDamageAction(AbstractCreature source, int damage) {
-        this.info = new DamageInfo(source, damage);
+        this.info = new DamageInfo(source, damage,DamageInfo.DamageType.THORNS);
     }
 
     @Override

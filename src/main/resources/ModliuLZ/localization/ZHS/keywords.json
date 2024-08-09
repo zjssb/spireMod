@@ -89,6 +89,13 @@
       "Focus"
     ],
     "DESCRIPTION": "增加机械造成的伤害。"
+  },
+  {
+    "NAMES": [
+      "强敌",
+      "elite"
+    ],
+    "DESCRIPTION": "进入精英战斗时增加一点伤害，进入boss战斗时增加一次攻击次数。"
   }
 
 

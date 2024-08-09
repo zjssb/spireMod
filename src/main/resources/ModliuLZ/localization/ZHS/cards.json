@@ -118,7 +118,7 @@
   },
   "llz_cuanqdj": {
     "NAME": "传奇打击",
-    "DESCRIPTION": "造成 !D! 点伤害 !M! 次。 NL 进入boss或精英战时，本局游戏中分别增加这张牌的攻击次数和伤害。"
+    "DESCRIPTION": "造成 !D! 点伤害 !M! 次。 NL 和 llzmod:强敌 对战后变得更强。"
   },
   "llz_zuzbx": {
     "NAME": "诅咒宝箱",
