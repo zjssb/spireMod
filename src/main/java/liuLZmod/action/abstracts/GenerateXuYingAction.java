@@ -24,6 +24,10 @@ public class GenerateXuYingAction extends AbstractGameAction {
         int attackDmg =0;
         int attackCount =1;
 
+        if(this.monster == null || this.monster.currentHealth <= 0){
+            this.isDone = true;
+        }
+
         if (monster.intent == Intent.ATTACK ||
                 monster.intent == Intent.ATTACK_BUFF ||
                 monster.intent == Intent.ATTACK_DEBUFF ||
