@@ -48,7 +48,7 @@ public class llz_zanzwz extends CustomCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         int i;
-        i =(int) shaoweiList.stream().filter(sw -> !sw.isDeath).count();
+        i = shaoweiList.size();
         if(llz_ZZWZ.ZZWZ == null || llz_ZZWZ.isSecondPhase){
             if (i >= this.magicNumber) {
                 for (int j = 0; j < this.magicNumber; j++) llz_shaoW.remove();

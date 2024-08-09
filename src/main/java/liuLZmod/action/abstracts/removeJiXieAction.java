@@ -25,7 +25,7 @@ public class removeJiXieAction extends AbstractGameAction {
             llz_xuYing.remove();
         }
         else {
-            int i = (int) shaoweiList.stream().filter(sw -> !sw.isDeath).count() + 4;
+            int i = shaoweiList.size() + 4;
             int roll = AbstractDungeon.cardRandomRng.random(i);
             jx(roll);
         }

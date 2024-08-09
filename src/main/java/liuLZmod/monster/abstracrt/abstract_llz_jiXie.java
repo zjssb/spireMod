@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.MonsterGroup;
 import liuLZmod.patches.JiXieGroupPatch;
+
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -16,7 +17,6 @@ import java.util.Objects;
  * 机械的虚类
  */
 public abstract class abstract_llz_jiXie extends CustomMonster {
-
     /**
      * 是否被销毁
      */
@@ -30,7 +30,9 @@ public abstract class abstract_llz_jiXie extends CustomMonster {
      * 是否拥有机械标志
      */
     public static boolean isHasJiXie = false;
-    /**判断生成第一个机械的行动，生效一次*/
+    /**
+     * 判断生成第一个机械的行动，生效一次
+     */
     public static boolean isFirst = false;
     /**
      * 充能
@@ -85,32 +87,48 @@ public abstract class abstract_llz_jiXie extends CustomMonster {
      * （基类） 调用注册类的 addEnergy 方法。
      * num：充能层数
      */
-    public static void addEnergy(int num) {
+    public static void addEnergy(int num) throws NoSuchFieldException {
         Class<?> cls;
         Method method;
         for (abstract_llz_jiXie jiXie : jiXie_list) {
             cls = jiXie.getClass();
             try {
                 method = cls.getMethod("addEnergy", int.class);
-                method.invoke(jiXie,num);
-            } catch (NoSuchMethodException | InvocationTargetException | IllegalAccessException e) {
-                throw new RuntimeException(e);
+                method.invoke(jiXie, num);
+            } catch (NoSuchMethodException e) {
+                String name = cls.getName();
+                System.out.println("充能方法不存在，检测"+name+"是否重写充能方法");
+                return;
+            } catch (InvocationTargetException e) {
+                String name = cls.getName();
+                System.out.println("充能方法反射异常，检测"+name+"充能方法");
+                return;
+            } catch (IllegalAccessException e) {
+
+                String name = cls.getName();
+                System.out.println(name+"充能访问级别出错");
+                return;
             }
         }
     }
-    /**损失充能*/
+
+    /**
+     * 损失充能
+     */
     public abstract void lossEnergy(int num);
 
 
-    /**所有机械损失充能*/
-    public static void lossAllEnergy(int num){
+    /**
+     * 所有机械损失充能
+     */
+    public static void lossAllEnergy(int num) {
         Class<?> cls;
         Method method;
         for (abstract_llz_jiXie jiXie : jiXie_list) {
             cls = jiXie.getClass();
             try {
                 method = cls.getMethod("lossEnergy", int.class);
-                method.invoke(jiXie,num);
+                method.invoke(jiXie, num);
             } catch (NoSuchMethodException | InvocationTargetException | IllegalAccessException e) {
                 throw new RuntimeException(e);
             }
@@ -120,7 +138,7 @@ public abstract class abstract_llz_jiXie extends CustomMonster {
     /**
      * 行动动画方法
      */
-    public static void actAnimation(){
+    public static void actAnimation() {
 
     }
 

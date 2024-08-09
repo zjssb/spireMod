@@ -45,11 +45,12 @@ public class llz_dianld extends CustomCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         int i;
-        i =(int) shaoweiList.stream().filter(sw -> !sw.isDeath).count();
-        for (int j = 0;j <i;j++) llz_shaoW.remove();
+        i = shaoweiList.size();
+        for (int j = 0; j < i; j++) llz_shaoW.remove();
         addToBot(new jiXieAction("llz_dianD"));
-        if(this.upgraded)addToBot(new jiXieAction("llz_dianD",i));
+        if (this.upgraded) addToBot(new jiXieAction("llz_dianD", i));
     }
+
     public AbstractCard makeCopy() {
         return new llz_dianld();
     }

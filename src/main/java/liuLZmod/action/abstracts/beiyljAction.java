@@ -18,7 +18,7 @@ public class beiyljAction extends AbstractGameAction {
 
     @Override
     public void update() {
-        int i =(int) shaoweiList.stream().filter(sw -> !sw.isDeath).count();
+        int i = shaoweiList.size();
         if(i < 1) {
             llz_shaoW.SpawnMinion();
             addToTop(new RelicAboveCreatureAction(AbstractDungeon.player, new llz_beiylj()));

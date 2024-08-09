@@ -50,7 +50,7 @@ public class llz_yanh extends CustomCard {
 
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        int i =(int) shaoweiList.stream().filter(sw -> !sw.isDeath).count();
+        int i = shaoweiList.size();
         if(llz_dianD.DD != null)i++;
         if(llz_zhengQJ.ZQJ != null)i++;
         if(llz_xuYing.XY != null)i++;

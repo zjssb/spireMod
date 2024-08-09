@@ -55,7 +55,7 @@ public class llz_shaoW extends abstract_llz_jiXie {
     private static final int baseAttackDmg = 4;
     private static int attackDmg = baseAttackDmg;
     /**
-     * 哨卫最大数量
+     * 哨卫最低数量
      */
     public static int shaoweiAmount = 2;
 
@@ -69,7 +69,7 @@ public class llz_shaoW extends abstract_llz_jiXie {
      */
     public int index;
 
-    public boolean isDeath = false;
+
 
 //    public static boolean isFirst = true;
 
@@ -159,7 +159,8 @@ public class llz_shaoW extends abstract_llz_jiXie {
      * 召唤哨卫
      */
     public static void SpawnMinion() {
-        int ans = (int) shaoweiList.stream().filter(sw -> !sw.isDeath).count();
+//        int ans = (int) shaoweiList.stream().filter(sw -> !sw.isDeath).count();
+        int ans = shaoweiList.size();
         int i =shaoweiAmount;
 
         for (AbstractCard c : AbstractDungeon.player.masterDeck.group) {
@@ -201,12 +202,12 @@ public class llz_shaoW extends abstract_llz_jiXie {
      * 能量增加
      */
     public static void addEnergy(int num) {
-        int ans = 0;
-        for (llz_shaoW m : shaoweiList) {
-            if (!m.isDeath) {
-                ans++;
-            }
-        }
+        int ans = shaoweiList.size();
+//        for (llz_shaoW m : shaoweiList) {
+//            if (!m.isDeath) {
+//                ans++;
+//            }
+//        }
         if (ans == 0) {
 
             return;
@@ -243,8 +244,8 @@ public class llz_shaoW extends abstract_llz_jiXie {
      * num: 哨卫的个数（攻击次数）。
      */
     public static void act() {
-        List<llz_shaoW> monsters = shaoweiList.stream().filter(sw -> !sw.isDeath).collect(Collectors.toList());
-        int i = 0;
+        List<llz_shaoW> monsters = shaoweiList;
+
         if (monsters.size() == 0) {
             return;
         }
@@ -253,7 +254,6 @@ public class llz_shaoW extends abstract_llz_jiXie {
             //AbstractDungeon.actionManager.addToBottom(new WaitAction(1F));
             AbstractDungeon.actionManager.addToBottom(new saowDamageAction(AbstractDungeon.player, attackDmg));
             //AbstractDungeon.actionManager.addToBottom(new WaitAction(0.1F * i));
-            i++;
         }
     }
 
@@ -261,7 +261,7 @@ public class llz_shaoW extends abstract_llz_jiXie {
      * 移除一个哨卫。
      */
     public static void remove() {
-        List<llz_shaoW> monsters = shaoweiList.stream().filter(sw -> !sw.isDeath).collect(Collectors.toList());
+        List<llz_shaoW> monsters = shaoweiList;
         int ans = monsters.size();
         if (ans == 0) {
             return;
@@ -270,7 +270,7 @@ public class llz_shaoW extends abstract_llz_jiXie {
 
 
         m.addToBot(new ChangeStateAction(m, "sw"));
-        m.isDeath = true;
+        shaoweiList.remove(m);
         if (ans == 1) {
             setEnergy(0);
             T.remove();
