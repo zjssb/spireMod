@@ -21,7 +21,7 @@ public class YuQDamageAction extends AbstractGameAction {
     private DamageInfo info;
 
     public YuQDamageAction(AbstractCreature source, int damage) {
-        this.info = new DamageInfo(source, damage);
+        this.info = new DamageInfo(source, damage, DamageInfo.DamageType.THORNS);
     }
 
     @Override

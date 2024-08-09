@@ -118,7 +118,7 @@
   },
   "llz_cuanqdj": {
     "NAME": "Legendary Strike",
-    "DESCRIPTION": "Deal !D! damage !M! times. NL In boss or elite fights, increase the attack count and damage of this card for the rest of the game."
+    "DESCRIPTION": "Deal !D! damage !M! times. NL Becomes stronger after battling llzmod:elite."
   },
   "llz_zuzbx": {
     "NAME": "Cursed Chest",

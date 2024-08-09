@@ -25,9 +25,12 @@ public class JinhsfAction extends AbstractGameAction {
             AbstractDungeon.effectList.add(new FlashAtkImgEffect(this.target.hb.cX, this.target.hb.cY, AbstractGameAction.AttackEffect.SLASH_HEAVY));
             this.target.damage(this.info);
 
-            if (((AbstractMonster)this.target).isDying || this.target.currentHealth <= 0 && !this.target.halfDead && !this.target.hasPower("Minion")) {
-                AbstractDungeon.actionManager.addToTop(new TransformCardInDeckAction());
+            if (((AbstractMonster)this.target).isDying || this.target.currentHealth <= 0) {
+                if (!this.target.halfDead && !this.target.hasPower("Minion")) {
+                    AbstractDungeon.actionManager.addToTop(new TransformCardInDeckAction());
+                }
             }
+
 
             // Delay the combat end check to allow subsequent actions
             if (AbstractDungeon.getCurrRoom().monsters.areMonstersBasicallyDead()) {

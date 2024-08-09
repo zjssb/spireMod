@@ -90,5 +90,13 @@
       "focus"
     ],
     "DESCRIPTION": "Increases the damage dealt by Mechanicals."
+  },
+  {
+    "NAMES": [
+      "强敌",
+      "elite"
+    ],
+    "DESCRIPTION": "Increases damage by 1 when entering an Elite battle and adds an additional attack when entering a boss battle."
   }
+
 ]
