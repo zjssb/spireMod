@@ -80,6 +80,15 @@ public class llz_cuanqdj extends CustomCard {
             addToBot(new CuanQDJAction(this.uuid,this.misc,ELITE,Boss));
         }
     }
+
+    public void applyPowers() {
+        su = (int) (misc*0.001);
+        if (!this.upgraded){
+            this.baseDamage = su;
+        }else this.baseDamage = (su+3);
+        super.applyPowers();
+        initializeDescription();
+    }
     public AbstractCard makeCopy() {
         return new llz_cuanqdj();
     }

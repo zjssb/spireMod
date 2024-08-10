@@ -34,6 +34,9 @@ public class gaizAction extends AbstractGameAction {
             if (card != null) {
                 if (card.baseDamage > 0 || card.type == AbstractCard.CardType.ATTACK) {
                     card.baseDamage += 1;
+                    if(Objects.equals(card.cardID, "llz_cuanqdj") && card.misc < 1000000){
+                        card.misc+= 1000;
+                    }
                 }
                 if (card.baseBlock > 0) {
                     card.baseBlock += 1;
