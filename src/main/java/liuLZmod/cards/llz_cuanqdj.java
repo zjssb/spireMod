@@ -70,7 +70,6 @@ public class llz_cuanqdj extends CustomCard {
             for (AbstractMonster M : (AbstractDungeon.getMonsters()).monsters) {
                 if (M.type == AbstractMonster.EnemyType.BOSS) {
                     Boss = true;
-                    this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
                     break;
                 }
                 if (M.type == AbstractMonster.EnemyType.ELITE) {
