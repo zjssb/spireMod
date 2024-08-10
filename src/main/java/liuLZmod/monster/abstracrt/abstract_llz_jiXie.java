@@ -87,7 +87,7 @@ public abstract class abstract_llz_jiXie extends CustomMonster {
      * （基类） 调用注册类的 addEnergy 方法。
      * num：充能层数
      */
-    public static void addEnergy(int num) throws NoSuchFieldException {
+    public static void addEnergy(int num)   {
         Class<?> cls;
         Method method;
         for (abstract_llz_jiXie jiXie : jiXie_list) {
