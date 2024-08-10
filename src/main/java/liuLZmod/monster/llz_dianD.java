@@ -33,6 +33,7 @@ public class llz_dianD extends abstract_llz_jiXie {
     public static llz_dianD DD = null;
 
     public static Point position = new Point(-60, 80);
+    public static boolean isFirst = false;
 
 
     public llz_dianD() {

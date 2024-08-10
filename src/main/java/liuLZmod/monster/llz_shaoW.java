@@ -71,7 +71,7 @@ public class llz_shaoW extends abstract_llz_jiXie {
 
 
 
-//    public static boolean isFirst = true;
+    public static boolean isFirst = false;
 
     /**
      * 哨卫的位置
@@ -218,19 +218,13 @@ public class llz_shaoW extends abstract_llz_jiXie {
         }
 
         int energy = getEnergy() + num;
-        setEnergy(getEnergy() + num);
         if (energy >= maxEnergy) {
             act();
-            /*
-            while (getEnergy() >= maxEnergy) {
-                setEnergy(getEnergy() - maxEnergy);
-                act(ans);
-            }
-             */
-            setEnergy(0);
-        } else if (energy <= 0) {
-            setEnergy(0);
+            energy = 0;
+            setEnergy(energy);
+            return;
         }
+        setEnergy(Math.max(0, energy));
     }
 
     @Override

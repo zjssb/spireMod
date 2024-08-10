@@ -63,6 +63,7 @@ public class llz_xuYing extends abstract_llz_jiXie {
     private float intentAngle = 0.0F;
     private static final Random random = new Random();
     private static boolean escape =false;
+    public static boolean isFirst = false;
 
     public llz_xuYing() {
         super(NAME, ID, 10, 0.0F, 10.0F, 20F, 50F, null, 0, 0);

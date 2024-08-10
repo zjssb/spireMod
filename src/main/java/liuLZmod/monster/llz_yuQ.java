@@ -39,6 +39,7 @@ public class llz_yuQ extends abstract_llz_jiXie {
 
     private static final int baseAttackDmg = 3;
     public static int attackDmg = baseAttackDmg;
+    public static boolean isFirst = false;
 
     public llz_yuQ() {
         super(NAME, ID, 10, -8.0F, 10.0F, 20F, 20F, null, 0, 0);

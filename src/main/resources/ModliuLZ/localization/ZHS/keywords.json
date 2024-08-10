@@ -39,7 +39,7 @@
       "磁极",
       "Polarity"
     ],
-    "DESCRIPTION": "攻击该敌人时，抽取相应数量的牌。"
+    "DESCRIPTION": "下次攻击该敌人时，抽取相应数量的牌。"
   },
   {
     "NAMES": [

@@ -38,6 +38,7 @@ public class llz_ZZWZ extends abstract_llz_jiXie {
     public static int count = 5;
     private static final int baseAttackDmg = 5;
     public static int attackDmg = baseAttackDmg;
+    public static boolean isFirst = false;
     /**
      * 是否是战争
      */
