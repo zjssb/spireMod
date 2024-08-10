@@ -21,13 +21,21 @@ public class CardCostPatch {
             int reduction = CostReductionField.costReduction.get(card);
             card.modifyCostForCombat(reduction);
 
+            // 确保所有必需字段已被初始化
+            if (card.name == null || card.rawDescription == null) {
+                System.out.println("Error: Card name or description is null for card: " + card.cardID);
+                return;
+            }
 
             CostReductionField.costReduction.set(card, 0);
             card.isCostModified = false;
+
+            // 调用初始化描述之前，确保字段已正确设置
             card.applyPowers();
             card.initializeDescription();
         }
     }
+
 
     // 实现减费效果叠加
     @SpirePatch(clz = AbstractPlayer.class, method = "bottledCardUpgradeCheck")

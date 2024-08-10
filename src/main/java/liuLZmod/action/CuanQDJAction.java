@@ -23,11 +23,13 @@ public class CuanQDJAction extends AbstractGameAction {
     }
 
     public void update() {
+        // 遍历玩家的主卡组并处理目标卡牌
         for (AbstractCard c : AbstractDungeon.player.masterDeck.group) {
             if (!c.uuid.equals(this.uuid)) continue;
             huansuan(c);
             c.isBlockModified = false;
         }
+        // 遍历战斗中的所有实例并处理目标卡牌
         for (AbstractCard c : GetAllInBattleInstances.get(this.uuid)) {
             huansuan(c);
         }
@@ -35,13 +37,27 @@ public class CuanQDJAction extends AbstractGameAction {
     }
 
     private void huansuan(AbstractCard c) {
-        if (increaseBaseDamage && c.misc < 1000000) c.misc +=1000;
+        if (c.misc == 0) {
+            c.misc = 3001;
+        }
+
+        if (increaseBaseDamage && c.misc < 1000000) c.misc += 1000;
         if (increaseMagicNumber) c.misc++;
+
         c.applyPowers();
+
         int su = (int) (c.misc * 0.001);
-        if (!c.upgraded){
+        if (!c.upgraded) {
             c.baseDamage = su;
-        }else c.baseDamage = (su+3);
-        c.magicNumber = c.baseMagicNumber = (c.misc - su*1000);
+        } else {
+            c.baseDamage = su + 3;
+        }
+        c.magicNumber = c.baseMagicNumber = (c.misc - su * 1000);
+
+        if (c.name != null && c.rawDescription != null) {
+            c.initializeDescription();
+        }
+
+        c.isCostModified = c.costForTurn != c.cost;
     }
 }
