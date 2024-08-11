@@ -16,6 +16,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
+import com.megacrit.cardcrawl.ui.buttons.EndTurnButton;
 import com.megacrit.cardcrawl.vfx.BorderLongFlashEffect;
 import com.megacrit.cardcrawl.vfx.combat.RoomTintEffect;
 import liuLZmod.Characters.MyCharacter;
@@ -57,6 +58,10 @@ public class llz_senpr extends CustomCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new SFXAction("BELL"));
+        if(!AbstractDungeon.overlayMenu.endTurnButton.enabled){
+            System.out.println("使用审判日，回合结束，跳过");
+            return;
+        }
         addToBot(new SenprAction());
     }
 
