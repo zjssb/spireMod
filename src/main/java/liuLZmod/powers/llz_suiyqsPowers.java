@@ -4,6 +4,7 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
@@ -36,7 +37,10 @@ public class llz_suiyqsPowers extends AbstractPower {
 
     @Override
     public void atStartOfTurn() {
-        addToBot(new MakeTempCardInHandAction(new llz_jinj(), this.amount));
+        if (!AbstractDungeon.getMonsters().areMonstersBasicallyDead()){
+            flash();
+            addToBot(new MakeTempCardInHandAction(new llz_jinj(), this.amount));
+        }
     }
 
 

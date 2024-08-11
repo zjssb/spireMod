@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import liuLZmod.action.AllGaizAction;
+import liuLZmod.action.ziwjgAction;
 
 /**
  * 自我解构
@@ -35,9 +36,7 @@ public class llz_ziwjgPowers extends AbstractPower {
 
     @Override
     public void atStartOfTurnPostDraw() {
-        for (int i =0;i <this.amount;i++) {
-            addToBot(new AllGaizAction(1));
-        }
+        addToBot(new ziwjgAction(this.amount));
     }
 
 

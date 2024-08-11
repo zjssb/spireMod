@@ -36,13 +36,11 @@ public class llz_huawwyPowers extends AbstractPower {
         this.updateDescription();
     }
 
-    @Override
-    public void atStartOfTurn() {
-        addToBot(new DrawCardAction(AbstractDungeon.player, this.amount));
-    }
+
 
     public void atStartOfTurnPostDraw() {
         this.flash();
+        addToBot(new DrawCardAction(AbstractDungeon.player, this.amount));
         addToBot(new HuawwyAction(1));
     }
 
