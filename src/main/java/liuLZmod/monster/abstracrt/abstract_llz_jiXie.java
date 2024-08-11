@@ -87,7 +87,7 @@ public abstract class abstract_llz_jiXie extends CustomMonster {
      * （基类） 调用注册类的 addEnergy 方法。
      * num：充能层数
      */
-    public static void addEnergy(int num)   {
+    public static void addEnergy(int num) {
         Class<?> cls;
         Method method;
         for (abstract_llz_jiXie jiXie : jiXie_list) {
@@ -97,13 +97,13 @@ public abstract class abstract_llz_jiXie extends CustomMonster {
                 method.invoke(jiXie, num);
             } catch (NoSuchMethodException e) {
                 String name = cls.getName();
-                System.out.println("充能方法不存在，检测"+name+"是否重写充能方法");
+                System.out.println("充能方法不存在，检测 " + name + " 是否重写充能方法");
             } catch (InvocationTargetException e) {
                 String name = cls.getName();
-                System.out.println("充能方法反射异常，检测"+name+"充能方法");
+                System.out.println("充能方法反射异常，检测 " + name + " 充能方法");
             } catch (IllegalAccessException e) {
                 String name = cls.getName();
-                System.out.println(name+"充能访问级别出错");
+                System.out.println(name + " 充能访问级别出错");
             }
         }
     }
@@ -125,8 +125,15 @@ public abstract class abstract_llz_jiXie extends CustomMonster {
             try {
                 method = cls.getMethod("lossEnergy", int.class);
                 method.invoke(jiXie, num);
-            } catch (NoSuchMethodException | InvocationTargetException | IllegalAccessException e) {
-                throw new RuntimeException(e);
+            } catch (NoSuchMethodException e) {
+                String name = cls.getName();
+                System.out.println("损失充能方法不存在，检测 " + name + " 是否重写损失充能方法");
+            } catch (InvocationTargetException e) {
+                String name = cls.getName();
+                System.out.println("损失充能方法反射异常，检测 " + name + " 损失充能方法");
+            } catch (IllegalAccessException e) {
+                String name = cls.getName();
+                System.out.println(name + " 损失充能访问级别出错");
             }
         }
     }
@@ -161,8 +168,15 @@ public abstract class abstract_llz_jiXie extends CustomMonster {
             try {
                 method = cls.getMethod("clear");
                 method.invoke(null);
-            } catch (NoSuchMethodException | InvocationTargetException | IllegalAccessException e) {
-                throw new RuntimeException(e);
+            } catch (NoSuchMethodException e) {
+                String name = cls.getName();
+                System.out.println("close方法不存在，检测 " + name + " 是否重写close方法");
+            } catch (InvocationTargetException e) {
+                String name = cls.getName();
+                System.out.println("close方法反射异常，检测 " + name + " close方法");
+            } catch (IllegalAccessException e) {
+                String name = cls.getName();
+                System.out.println(name + " close访问级别出错");
             }
         }
 
