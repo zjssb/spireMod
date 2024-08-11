@@ -30,6 +30,9 @@ public class SenprAction extends AbstractGameAction {
         for (AbstractPower power : AbstractDungeon.player.powers) {
             power.atEndOfTurn(true);
         }
+        for (AbstractPower power : AbstractDungeon.player.powers) {
+            power.atEndOfRound();
+        }
 
 
         // 触发遗物的回合结束效果
