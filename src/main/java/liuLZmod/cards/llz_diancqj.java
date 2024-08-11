@@ -18,6 +18,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.combat.LightningEffect;
 import liuLZmod.Characters.MyCharacter;
+import liuLZmod.action.DianCqjAction;
 import liuLZmod.powers.llz_cij;
 import liuLZmod.powers.llz_laoy;
 
@@ -60,7 +61,7 @@ public class llz_diancqj extends CustomCard {
         addToTop((AbstractGameAction)new SFXAction("ORB_LIGHTNING_EVOKE", 0.1F));
         addToTop((AbstractGameAction)new VFXAction(new LightningEffect(m.hb.cX, m.hb.cY)));
         addToBot((AbstractGameAction)new DamageAction((AbstractCreature)m, new DamageInfo((AbstractCreature)p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.NONE));
-        addToBot(new ApplyPowerAction(m, p, new llz_cij(m, this.magicNumber), this.magicNumber));
+        addToBot(new DianCqjAction(p ,m ,this.magicNumber));
     }
     public AbstractCard makeCopy() {
         return new llz_diancqj();
