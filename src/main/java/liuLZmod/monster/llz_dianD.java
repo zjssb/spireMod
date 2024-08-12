@@ -127,7 +127,7 @@ public class llz_dianD extends abstract_llz_jiXie {
         if (DD == null) {
             return;
         }
-        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new llz_dianHQG(llz_dianD.getEnergy() * 10)));
+        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new llz_dianHQG(llz_dianD.getEnergy() * 8)));
     }
 
 

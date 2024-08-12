@@ -32,14 +32,14 @@ public class llz_xium extends CustomCard {
     public llz_xium() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.magicNumber = this.baseMagicNumber = 2;
-        this.baseBlock = 12;
+        this.baseBlock = 13;
     }
 
     @Override
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeBlock(4);
+            this.upgradeBlock(3);
             this.initializeDescription();
         }
 

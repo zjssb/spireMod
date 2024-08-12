@@ -28,7 +28,7 @@ public class llz_wanq extends CustomCard {
 
     public llz_wanq() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.baseBlock = 7;
+        this.baseBlock = 8;
     }
 
     @Override

@@ -22,6 +22,7 @@ import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import liuLZmod.cards.llz_Strike;
+import liuLZmod.cards.llz_diedq;
 import liuLZmod.modcore.liuLZMod;
 import liuLZmod.monster.abstracrt.abstract_llz_jiXie;
 
@@ -155,7 +156,7 @@ public class MyCharacter extends CustomPlayer {
     // 翻牌事件出现的你的职业牌（一般设为打击）
     @Override
     public AbstractCard getStartCardForEvent() {
-        return new llz_Strike();
+        return new llz_diedq();
     }
 
     // 卡牌轨迹颜色

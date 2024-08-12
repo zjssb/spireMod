@@ -31,7 +31,7 @@ public class llz_hejj extends CustomCard {
 
     public llz_hejj() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.damage = this.baseDamage = 4;
+        this.damage = this.baseDamage = 5;
     }
 
     @Override

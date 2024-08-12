@@ -68,7 +68,7 @@
       "电能刀",
       "electricknife"
     ],
-    "DESCRIPTION": "Clears the Charge of this Mechanical only when you lose health. NL At the start of your turn, add an Arc Cut to your hand, with damage equal to 10 times the Charge."
+    "DESCRIPTION": "Clears the Charge of this Mechanical only when you lose health. NL At the start of your turn, add an Arc Cut to your hand, with damage equal to 8 times the Charge."
   },
   {
     "NAMES": [

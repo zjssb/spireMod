@@ -27,11 +27,11 @@ public class llz_caodhx extends CustomRelic {
     @Override
     public void onUseCard(final AbstractCard card, final UseCardAction action) {
         if (this.grayscale) {
-            if(card.cost == 0){
+            if(card.costForTurn == 0 || card.freeToPlayOnce){
                 this.grayscale = false;
                 flash();
             }
-        }else if(card.cost == 0){
+        }else if(card.costForTurn == 0 || card.freeToPlayOnce){
             this.addToTop(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, 3));
             addToTop(new RelicAboveCreatureAction(AbstractDungeon.player, this));
         }else this.grayscale = true;

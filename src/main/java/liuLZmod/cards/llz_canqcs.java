@@ -30,7 +30,7 @@ public class llz_canqcs extends CustomCard {
 
     public llz_canqcs() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.magicNumber = this.baseMagicNumber = 6;
+        this.magicNumber = this.baseMagicNumber = 5;
         this.cardsToPreview = new Wound();
         this.tags.add(liuLZMod.SAOWEI);
     }
