@@ -24,7 +24,7 @@ public class llz_sih extends CustomCard {
     private static final int COST = 1;
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION;
     private static final CardType TYPE = CardType.SKILL;
-    private static final CardColor COLOR = MyCharacter.Enums.EXAMPLE_CARD;
+    private static final CardColor COLOR = MyCharacter.Enums.LIULANGZE_CARD;
     private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
 

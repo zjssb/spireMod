@@ -20,7 +20,7 @@ public class llz_popsl extends AbstractLlzCard {
     private static final int COST = 1;
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION;
     private static final AbstractCard.CardType TYPE = AbstractCard.CardType.ATTACK;
-    private static final AbstractCard.CardColor COLOR = MyCharacter.Enums.EXAMPLE_CARD;
+    private static final AbstractCard.CardColor COLOR = MyCharacter.Enums.LIULANGZE_CARD;
     private static final AbstractCard.CardRarity RARITY = AbstractCard.CardRarity.COMMON;
     private static final AbstractCard.CardTarget TARGET = AbstractCard.CardTarget.SELF;
 

@@ -26,7 +26,7 @@ public class llz_wujcf extends CustomCard {
     private static final int COST = 2;
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION;
     private static final CardType TYPE = CardType.ATTACK;
-    private static final CardColor COLOR = MyCharacter.Enums.EXAMPLE_CARD;
+    private static final CardColor COLOR = MyCharacter.Enums.LIULANGZE_CARD;
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
     boolean Boss;

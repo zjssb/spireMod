@@ -27,14 +27,14 @@ public class llz_Defend extends CustomCard {
     private static final int COST = 1;
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION;
     private static final CardType TYPE = CardType.SKILL;
-    private static final CardColor COLOR = MyCharacter.Enums.EXAMPLE_CARD;
+    private static final CardColor COLOR = MyCharacter.Enums.LIULANGZE_CARD;
     private static final CardRarity RARITY = CardRarity.BASIC;
     private static final CardTarget TARGET = CardTarget.SELF;
 
     public llz_Defend() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.baseBlock = 5;
-        this.tags.add(CardTags.STARTER_STRIKE);
+        this.tags.add(CardTags.STARTER_DEFEND);
     }
 
     @Override

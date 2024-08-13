@@ -28,8 +28,8 @@ import liuLZmod.monster.abstracrt.abstract_llz_jiXie;
 
 import java.util.ArrayList;
 
-import static liuLZmod.Characters.MyCharacter.Enums.EXAMPLE_CARD;
-import static liuLZmod.Characters.MyCharacter.Enums.MY_CHARACTER;
+import static liuLZmod.Characters.MyCharacter.Enums.LIULANGZE_CARD;
+import static liuLZmod.Characters.MyCharacter.Enums.LIULZ_CHARACTER;
 
 public class MyCharacter extends CustomPlayer {
     // 火堆的人物立绘（行动前）
@@ -58,7 +58,7 @@ public class MyCharacter extends CustomPlayer {
     private static final CharacterStrings characterStrings = CardCrawlGame.languagePack.getCharacterString("liuLZMod:MyCharacter");
 
     public MyCharacter(String name) {
-        super(name, MY_CHARACTER,ORB_TEXTURES,"ModliuLZ/img/UI/orb/vfx2.png", LAYER_SPEED, null, null);
+        super(name, LIULZ_CHARACTER,ORB_TEXTURES,"ModliuLZ/img/UI/orb/vfx2.png", LAYER_SPEED, null, null);
 
 
         // 人物对话气泡的大小，如果游戏中尺寸不对在这里修改（libgdx的坐标轴左下为原点）
@@ -150,7 +150,7 @@ public class MyCharacter extends CustomPlayer {
     // 你的卡牌颜色（这个枚举在最下方创建）
     @Override
     public AbstractCard.CardColor getCardColor() {
-        return EXAMPLE_CARD;
+        return LIULANGZE_CARD;
     }
 
     // 翻牌事件出现的你的职业牌（一般设为打击）
@@ -255,13 +255,13 @@ public class MyCharacter extends CustomPlayer {
     // ***填在SpireEnum中的name需要一致***
     public static class Enums {
         @SpireEnum
-        public static PlayerClass MY_CHARACTER;
+        public static PlayerClass LIULZ_CHARACTER;
 
-        @SpireEnum(name = "EXAMPLE_GREEN")
-        public static AbstractCard.CardColor EXAMPLE_CARD;
+        @SpireEnum(name = "LIULANGZE_GREEN")
+        public static AbstractCard.CardColor LIULANGZE_CARD;
 
-        @SpireEnum(name = "EXAMPLE_GREEN")
-        public static CardLibrary.LibraryType EXAMPLE_LIBRARY;
+        @SpireEnum(name = "LIULANGZE_GREEN")
+        public static CardLibrary.LibraryType LIULANGZE_LIBRARY;
     }
     public Slot eye;
 }

@@ -19,7 +19,7 @@ import liuLZmod.relics.*;
 
 import java.nio.charset.StandardCharsets;
 
-import static liuLZmod.Characters.MyCharacter.Enums.MY_CHARACTER;
+import static liuLZmod.Characters.MyCharacter.Enums.LIULZ_CHARACTER;
 @SpireInitializer
 public class liuLZMod implements EditCardsSubscriber, EditStringsSubscriber , EditCharactersSubscriber ,EditRelicsSubscriber, EditKeywordsSubscriber {
     private static String modID;
@@ -42,7 +42,7 @@ public class liuLZMod implements EditCardsSubscriber, EditStringsSubscriber , Ed
 
     public liuLZMod() {
         BaseMod.subscribe(this);
-        BaseMod.addColor(MyCharacter.Enums.EXAMPLE_CARD, MY_COLOR, MY_COLOR, MY_COLOR,
+        BaseMod.addColor(MyCharacter.Enums.LIULANGZE_CARD, MY_COLOR, MY_COLOR, MY_COLOR,
                 MY_COLOR, MY_COLOR, MY_COLOR, MY_COLOR, BG_ATTACK_512,
                 BG_SKILL_512, BG_POWER_512, energy_orb, BG_ATTACK_1024,
                 BG_SKILL_1024, BG_POWER_1024, big_orb, small_orb
@@ -144,23 +144,23 @@ public class liuLZMod implements EditCardsSubscriber, EditStringsSubscriber , Ed
     @Override
     public void receiveEditCharacters() {
         // 向basemod注册人物
-        BaseMod.addCharacter(new MyCharacter(CardCrawlGame.playerName), MY_CHARACTER_BUTTON, MY_CHARACTER_PORTRAIT, MY_CHARACTER);
+        BaseMod.addCharacter(new MyCharacter(CardCrawlGame.playerName), MY_CHARACTER_BUTTON, MY_CHARACTER_PORTRAIT, LIULZ_CHARACTER);
     }
     @Override
     public void receiveEditRelics() {
         //BaseMod.addRelic(new MyRelic(), RelicType.SHARED); // RelicType表示是所有角色都能拿到的遗物，还是一个角色的独有遗物
-        BaseMod.addRelicToCustomPool(new llz_Els(), MyCharacter.Enums.EXAMPLE_CARD);
-        BaseMod.addRelicToCustomPool(new llz_zallc(), MyCharacter.Enums.EXAMPLE_CARD);
-        BaseMod.addRelicToCustomPool(new llz_zic(), MyCharacter.Enums.EXAMPLE_CARD);
-        BaseMod.addRelicToCustomPool(new llz_sentg(), MyCharacter.Enums.EXAMPLE_CARD);
-        BaseMod.addRelicToCustomPool(new llz_tuoly(), MyCharacter.Enums.EXAMPLE_CARD);
-        BaseMod.addRelicToCustomPool(new llz_jiusj(), MyCharacter.Enums.EXAMPLE_CARD);
-        BaseMod.addRelicToCustomPool(new llz_fengbxz(), MyCharacter.Enums.EXAMPLE_CARD);
-        BaseMod.addRelicToCustomPool(new llz_caodhx(), MyCharacter.Enums.EXAMPLE_CARD);
-        BaseMod.addRelicToCustomPool(new llz_jiaklhs(), MyCharacter.Enums.EXAMPLE_CARD);
-        BaseMod.addRelicToCustomPool(new llz_beiylj(), MyCharacter.Enums.EXAMPLE_CARD);
-        BaseMod.addRelicToCustomPool(new llz_guanglzhq(), MyCharacter.Enums.EXAMPLE_CARD);
-        BaseMod.addRelicToCustomPool(new llz_yuanzz(), MyCharacter.Enums.EXAMPLE_CARD);
+        BaseMod.addRelicToCustomPool(new llz_Els(), MyCharacter.Enums.LIULANGZE_CARD);
+        BaseMod.addRelicToCustomPool(new llz_zallc(), MyCharacter.Enums.LIULANGZE_CARD);
+        BaseMod.addRelicToCustomPool(new llz_zic(), MyCharacter.Enums.LIULANGZE_CARD);
+        BaseMod.addRelicToCustomPool(new llz_sentg(), MyCharacter.Enums.LIULANGZE_CARD);
+        BaseMod.addRelicToCustomPool(new llz_tuoly(), MyCharacter.Enums.LIULANGZE_CARD);
+        BaseMod.addRelicToCustomPool(new llz_jiusj(), MyCharacter.Enums.LIULANGZE_CARD);
+        BaseMod.addRelicToCustomPool(new llz_fengbxz(), MyCharacter.Enums.LIULANGZE_CARD);
+        BaseMod.addRelicToCustomPool(new llz_caodhx(), MyCharacter.Enums.LIULANGZE_CARD);
+        BaseMod.addRelicToCustomPool(new llz_jiaklhs(), MyCharacter.Enums.LIULANGZE_CARD);
+        BaseMod.addRelicToCustomPool(new llz_beiylj(), MyCharacter.Enums.LIULANGZE_CARD);
+        BaseMod.addRelicToCustomPool(new llz_guanglzhq(), MyCharacter.Enums.LIULANGZE_CARD);
+        BaseMod.addRelicToCustomPool(new llz_yuanzz(), MyCharacter.Enums.LIULANGZE_CARD);
     }
 
     public void receiveEditStrings() {

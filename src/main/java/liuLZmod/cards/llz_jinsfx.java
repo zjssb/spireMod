@@ -22,7 +22,7 @@ public class llz_jinsfx extends CustomCard {
     private static final int COST = 2;
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION;
     private static final CardType TYPE = CardType.POWER;
-    private static final CardColor COLOR = MyCharacter.Enums.EXAMPLE_CARD;
+    private static final CardColor COLOR = MyCharacter.Enums.LIULANGZE_CARD;
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
 

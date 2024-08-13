@@ -27,7 +27,7 @@ public class llz_testCard2 extends CustomCard {
     private static final int COST = 0;  //卡牌费用
     private static final String DESCRIPTION = "测试卡牌2"; // 读取本地化的描述
     private static final AbstractCard.CardType TYPE = CardType.SKILL;  //卡牌类型,攻击牌、技能牌、能力牌、诅咒牌、状态牌
-    private static final AbstractCard.CardColor COLOR = MyCharacter.Enums.EXAMPLE_CARD;//卡牌颜色，比如原版的红、绿、蓝、紫、无色，诅咒
+    private static final AbstractCard.CardColor COLOR = MyCharacter.Enums.LIULANGZE_CARD;//卡牌颜色，比如原版的红、绿、蓝、紫、无色，诅咒
     private static final AbstractCard.CardRarity RARITY = AbstractCard.CardRarity.BASIC;//卡牌稀有度。
     private static final AbstractCard.CardTarget TARGET = CardTarget.NONE;//卡牌指向类型的目标。实际功能只有是否指向敌人的区分。
 
