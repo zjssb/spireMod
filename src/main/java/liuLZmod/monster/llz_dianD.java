@@ -3,6 +3,7 @@ package liuLZmod.monster;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.TipHelper;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.monsters.MonsterGroup;
 import liuLZmod.action.abstracts.diandAction;
@@ -21,6 +22,8 @@ public class llz_dianD extends abstract_llz_jiXie {
     private static final MonsterStrings jiXieStrings;
 
     public final static String NAME;
+    public static String description = "";
+    public static final String[] DIALOG = CardCrawlGame.languagePack.getMonsterStrings(ID).DIALOG;
 
     /**
      * 充能
@@ -28,8 +31,14 @@ public class llz_dianD extends abstract_llz_jiXie {
     private static int energy = 0;
 
     public static int maxEnergy = 999;
-
+    /**
+     * 记录血量
+     */
     private static int playerHP = 0;
+    /**
+     * 伤害倍数
+     */
+    public static int count = 8;
     public static llz_dianD DD = null;
 
     public static Point position = new Point(-60, 80);
@@ -37,7 +46,7 @@ public class llz_dianD extends abstract_llz_jiXie {
 
 
     public llz_dianD() {
-        super(NAME, ID, 10, -8.0F, 10.0F, 20F, 20F, null, 0, 0);
+        super(NAME, ID, 10, -8.0F, 10.0F, 80F, 100F, null, 0, 0);
         this.loadAnimation("ModliuLZ/img/jix/diand/skeleton.atlas", "ModliuLZ/img/jix/diand/skeleton37.json", 1F);
         this.state.setAnimation(0, "new", false);
         this.state.addAnimation(0, "idle", true, 0F);
@@ -50,6 +59,9 @@ public class llz_dianD extends abstract_llz_jiXie {
     public void update() {
         super.update();
         if (DD != null) {
+            if (this.hb.hovered) {
+                TipHelper.renderGenericTip(DD.drawX, DD.drawY, this.name, description);
+            }
             SuEffect.play(DD.drawX, DD.drawY - 30, energy, 1, true);
         }
     }
@@ -65,6 +77,7 @@ public class llz_dianD extends abstract_llz_jiXie {
             DD.init();
             MonsterGroup monsters = JiXieGroupPatch.llz_jiXie.get(AbstractDungeon.player);
             monsters.monsters.add(DD);
+            updateDescription();
         }
     }
 
@@ -72,11 +85,12 @@ public class llz_dianD extends abstract_llz_jiXie {
      * 移除充能
      */
     public static void lossEnergy() {
-        AbstractDungeon.actionManager.addToBottom(new diandAction(playerHP));
+        AbstractDungeon.actionManager.addToTop(new diandAction(playerHP));
     }
     public static void DDEnergy() {
         playerHP =AbstractDungeon.player.currentHealth;
         energy = 0;
+        updateDescription();
     }
 
 
@@ -100,6 +114,7 @@ public class llz_dianD extends abstract_llz_jiXie {
         if(energy < maxEnergy){
             int energy = getEnergy() + num;
             setEnergy(Math.max(0, energy));
+            updateDescription();
         }
     }
 
@@ -127,7 +142,14 @@ public class llz_dianD extends abstract_llz_jiXie {
         if (DD == null) {
             return;
         }
-        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new llz_dianHQG(llz_dianD.getEnergy() * 8)));
+        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new llz_dianHQG(llz_dianD.getEnergy() * count)));
+    }
+
+    /**
+     * 刷新描述
+     */
+    public static void updateDescription(){
+        llz_dianD.description = llz_dianD.DIALOG[0] + llz_dianD.getEnergy() * count + llz_dianD.DIALOG[1];
     }
 
 

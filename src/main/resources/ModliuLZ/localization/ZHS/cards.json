@@ -244,8 +244,8 @@
   },
   "llz_ziwjg": {
     "NAME": "自我解构",
-    "DESCRIPTION": "回合开始时，改造所有手牌。",
-    "UPGRADE_DESCRIPTION":"固有 。 NL 回合开始时，改造所有手牌。"
+    "DESCRIPTION": "回合开始时， llzmod:改造 所有手牌。",
+    "UPGRADE_DESCRIPTION":"固有 。 NL 回合开始时， llzmod:改造 所有手牌。"
   },
   "llz_jinj": {
     "NAME": "禁忌",
