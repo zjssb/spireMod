@@ -30,6 +30,7 @@ public class llz_jinhsf extends CustomCard {
     public llz_jinhsf() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.damage = this.baseDamage = 10;
+        this.tags.add(AbstractCard.CardTags.HEALING);
         this.exhaust = true;
     }
 

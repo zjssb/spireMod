@@ -3,6 +3,8 @@ package liuLZmod.action;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
+import com.megacrit.cardcrawl.cards.colorless.FlashOfSteel;
+import com.megacrit.cardcrawl.cards.red.Strike_Red;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.EventStrings;
@@ -41,8 +43,15 @@ public class TransformCardInDeckAction extends AbstractGameAction {
 
         if (AbstractDungeon.gridSelectScreen.selectedCards.size() > 0) {
             AbstractCard cardToTransform = AbstractDungeon.gridSelectScreen.selectedCards.get(0);
+            AbstractCard Card = cardToTransform;
+
+            if(Card.color != AbstractCard.CardColor.CURSE){
+                if(Card.color == AbstractCard.CardColor.COLORLESS) {
+                    Card = new FlashOfSteel();
+                }else Card = new Strike_Red();
+            }
             AbstractDungeon.player.masterDeck.removeCard(cardToTransform);
-            AbstractDungeon.transformCard(cardToTransform, false, AbstractDungeon.miscRng);
+            AbstractDungeon.transformCard(Card, false, AbstractDungeon.miscRng);
             AbstractCard transformedCard = AbstractDungeon.getTransformedCard();
             if (transformedCard.color == AbstractCard.CardColor.CURSE && AbstractDungeon.player.hasRelic("Omamori") &&
                     (AbstractDungeon.player.getRelic("Omamori")).counter != 0) {
