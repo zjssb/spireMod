@@ -17,6 +17,7 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
+import com.megacrit.cardcrawl.helpers.TipHelper;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.MonsterGroup;
@@ -43,6 +44,7 @@ public class llz_xuYing extends abstract_llz_jiXie {
     private static final MonsterStrings jiXieStrings;
     public final static String NAME;
     public static final String[] DIALOG = CardCrawlGame.languagePack.getMonsterStrings(ID).DIALOG;
+    public static String description = DIALOG[7];
     private static int energy = 0;
     public static int maxEnergy = 1;
     public static llz_xuYing XY = null;
@@ -66,7 +68,7 @@ public class llz_xuYing extends abstract_llz_jiXie {
     public static boolean isFirst = false;
 
     public llz_xuYing() {
-        super(NAME, ID, 10, 0.0F, 10.0F, 20F, 50F, null, 0, 0);
+        super(NAME, ID, 10, 0.0F, 10.0F, 80F, 80F, null, 0, 0);
         this.loadAnimation("ModliuLZ/img/jix/xvy/skeleton.atlas", "ModliuLZ/img/jix/xvy/skeleton37.json", 1F);
         this.state.setAnimation(0, "new", false);
         this.state.addAnimation(0, "idle", true, 0F);
@@ -146,6 +148,9 @@ public class llz_xuYing extends abstract_llz_jiXie {
         super.update();
         if (XY != null) {
             XYIntentVFX();
+            if (this.hb.hovered) {
+                TipHelper.renderGenericTip(XY.drawX, XY.drawY, this.name, description);
+            }
         }
         XYescape();
         for (AbstractGameEffect effect : this.intentVfx) {
@@ -311,8 +316,8 @@ public class llz_xuYing extends abstract_llz_jiXie {
             if(llz_xuYing.intent == Intent.BUFF)AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, XY, new llz_jih(p, 1),1));
         }
         if(llz_xuYing.intent == Intent.STRONG_DEBUFF){
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, XY, new PoisonPower(m,XY, 10),10));
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, XY, new ConstrictedPower(m,XY, 10),10));
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, XY, new PoisonPower(m,XY, 5),5));
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, XY, new ConstrictedPower(m,XY, 5),5));
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, XY, new StrengthPower(m, -2),-2));
         }
         AbstractDungeon.actionManager.addToBottom(new removeJiXieAction());

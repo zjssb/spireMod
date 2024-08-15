@@ -3,6 +3,7 @@ package liuLZmod.monster;
 import com.megacrit.cardcrawl.actions.common.ChangeStateAction;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.TipHelper;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.MonsterGroup;
@@ -20,8 +21,9 @@ public class llz_yuQ extends abstract_llz_jiXie {
     public final static String ID = "llz_yuQ";
 
     private static final MonsterStrings jiXieStrings;
-    ;
     public final static String NAME;
+    public static String description = "";
+    public static final String[] DIALOG = CardCrawlGame.languagePack.getMonsterStrings(ID).DIALOG;
 
 
     /**
@@ -42,7 +44,7 @@ public class llz_yuQ extends abstract_llz_jiXie {
     public static boolean isFirst = false;
 
     public llz_yuQ() {
-        super(NAME, ID, 10, -8.0F, 10.0F, 20F, 20F, null, 0, 0);
+        super(NAME, ID, 10, -8.0F, 10.0F, 80F, 50F, null, 0, 0);
         this.loadAnimation("ModliuLZ/img/jix/yv/skeleton.atlas", "ModliuLZ/img/jix/yv/skeleton37.json", 1F);
         this.state.setAnimation(0, "new", false);
         this.stateData.setMix("att", "l0", 1F);
@@ -58,6 +60,9 @@ public class llz_yuQ extends abstract_llz_jiXie {
     public void update() {
         super.update();
         if (YQ != null) {
+            if (this.hb.hovered) {
+                TipHelper.renderGenericTip(YQ.drawX, YQ.drawY, this.name, description);
+            }
             SuEffect.play(YQ.drawX, YQ.drawY - 50, attackDmg, count, false);
         }
     }
@@ -83,9 +88,10 @@ public class llz_yuQ extends abstract_llz_jiXie {
             MonsterGroup monsters = JiXieGroupPatch.llz_jiXie.get(AbstractDungeon.player);
             monsters.monsters.add(YQ);
             YQ.addToBot(new ChangeStateAction(YQ, "new"));
-
+            updateDescription();
         } else {
             count += 3;
+            updateDescription();
         }
     }
 
@@ -134,6 +140,7 @@ public class llz_yuQ extends abstract_llz_jiXie {
                 AbstractDungeon.actionManager.addToBottom(new YuQDamageAction(YQ, attackDmg));
             }
             if (count > 1) count--;
+            updateDescription();
         }
     }
 
@@ -186,7 +193,15 @@ public class llz_yuQ extends abstract_llz_jiXie {
     public static void aDmg() {
         if (AbstractDungeon.player != null && AbstractDungeon.player.hasPower("llz_jih")) {
             attackDmg = baseAttackDmg + (AbstractDungeon.player.getPower("llz_jih")).amount;
+            updateDescription();
         }
+    }
+
+    /**
+     * 刷新描述
+     */
+    public static void updateDescription(){
+        llz_yuQ.description = llz_yuQ.DIALOG[0] + attackDmg + llz_yuQ.DIALOG[1] + count + llz_yuQ.DIALOG[2];
     }
 
 

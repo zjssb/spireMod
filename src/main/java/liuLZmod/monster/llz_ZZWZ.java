@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.TipHelper;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.monsters.MonsterGroup;
 import liuLZmod.action.ZZWZAnimationAction;
@@ -27,6 +28,9 @@ public class llz_ZZWZ extends abstract_llz_jiXie {
 
     private static final MonsterStrings jiXieStrings;
     public final static String NAME;
+    public static String description = "";
+    public static final String[] DIALOG = CardCrawlGame.languagePack.getMonsterStrings(ID).DIALOG;
+    public static String WzName = DIALOG[0];
 
     private static int energy = 0;
     private static final int initialMaxEnergy = 10;
@@ -45,7 +49,7 @@ public class llz_ZZWZ extends abstract_llz_jiXie {
     public static boolean isSecondPhase = false;
 
     public llz_ZZWZ() {
-        super(NAME, ID, 10, -8.0F, 10.0F, 20F, 20F, null, 0, 0);
+        super(NAME, ID, 10, 0.0F, 10.0F, 80F, 80F, null, 0, 0);
         this.loadAnimation("ModliuLZ/img/jix/zanz/skeleton.atlas", "ModliuLZ/img/jix/zanz/skeleton37.json", 1F);
         this.state.setAnimation(0, "new", false);
         this.stateData.setMix("att", "l0", 1F);
@@ -61,9 +65,14 @@ public class llz_ZZWZ extends abstract_llz_jiXie {
     @Override
     public void update() {
         super.update();
-        if (ZZWZ != null && isSecondPhase) {
-            SuEffect.play(ZZWZ.drawX + 20, ZZWZ.drawY - 50, attackDmg, count, false);
-        }else if(ZZWZ != null) SuEffect.play(ZZWZ.drawX +20, ZZWZ.drawY - 50, energy, 1, true);
+        if (ZZWZ != null){
+            if (isSecondPhase) {
+                SuEffect.play(ZZWZ.drawX + 20, ZZWZ.drawY - 50, attackDmg, count, false);
+            } else SuEffect.play(ZZWZ.drawX + 20, ZZWZ.drawY - 50, energy, 1, true);
+            if (this.hb.hovered) {
+                TipHelper.renderGenericTip(ZZWZ.drawX, ZZWZ.drawY, WzName, description);
+            }
+        }
     }
 
     public static int getEnergy() {
@@ -95,6 +104,7 @@ public class llz_ZZWZ extends abstract_llz_jiXie {
             }
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new llz_jih(p, currentPowerAmount), currentPowerAmount));
         }
+        updateDescription();
     }
 
     public static void addEnergy(int num) {
@@ -133,6 +143,7 @@ public class llz_ZZWZ extends abstract_llz_jiXie {
 
     public static void enterSecondPhase() {
         ZZWZ.state.setAnimation(0, "new_2", false);
+        updateDescription();
     }
 
     @Override
@@ -202,6 +213,20 @@ public class llz_ZZWZ extends abstract_llz_jiXie {
     public static void aDmg() {
         if (AbstractDungeon.player != null && AbstractDungeon.player.hasPower("llz_jih")) {
             attackDmg = baseAttackDmg + (AbstractDungeon.player.getPower("llz_jih")).amount;
+            updateDescription();
+        }
+    }
+
+    /**
+     * 刷新描述
+     */
+    public static void updateDescription(){
+        if(isSecondPhase){
+            llz_ZZWZ.WzName = DIALOG[2];
+            llz_ZZWZ.description = llz_ZZWZ.DIALOG[3] + attackDmg + llz_ZZWZ.DIALOG[4];
+        }else {
+            llz_ZZWZ.WzName = DIALOG[0];
+            llz_ZZWZ.description = llz_ZZWZ.DIALOG[1];
         }
     }
 

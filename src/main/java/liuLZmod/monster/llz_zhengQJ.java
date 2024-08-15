@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.actions.common.ChangeStateAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.TipHelper;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.MonsterGroup;
@@ -17,6 +18,7 @@ import liuLZmod.action.zengQjAction;
 import liuLZmod.monster.abstracrt.abstract_llz_jiXie;
 import liuLZmod.patches.JiXieGroupPatch;
 import liuLZmod.util.Point;
+import liuLZmod.vfx.SuEffect;
 
 /**
  * 机械：蒸汽机
@@ -27,6 +29,8 @@ public class llz_zhengQJ extends abstract_llz_jiXie {
 
     private static final MonsterStrings jiXieStrings;
     public final static String NAME;
+    public static final String[] DIALOG = CardCrawlGame.languagePack.getMonsterStrings(ID).DIALOG;
+    public static String description = DIALOG[0];
 
     /**
      * 充能
@@ -39,11 +43,21 @@ public class llz_zhengQJ extends abstract_llz_jiXie {
     public static boolean isFirst = false;
 
     public llz_zhengQJ() {
-        super(NAME, ID, 10, -8.0F, 10.0F, 20F, 20F, null, 0, 0);
+        super(NAME, ID, 10, -8.0F, 10.0F, 80F, 60F, null, 0, 0);
         this.loadAnimation("ModliuLZ/img/jix/zengqj/skeleton.atlas", "ModliuLZ/img/jix/zengqj/skeleton37.json", 1F);
         AnimationState.TrackEntry e = this.state.setAnimation(0, "new", false);
         e.setTimeScale(1F);
         this.setMove("", (byte) 0, Intent.NONE);
+    }
+
+    @Override
+    public void update() {
+        super.update();
+        if (ZQJ != null) {
+            if (this.hb.hovered) {
+                TipHelper.renderGenericTip(ZQJ.drawX, ZQJ.drawY, this.name, description);
+            }
+        }
     }
 
     /**

@@ -3,7 +3,8 @@
     "MOVES": [],
     "NAME": "Sentry",
     "DIALOG": [
-      ""
+      "After gaining #b6 Charge, deal #g",
+      " damage to a random enemy. NL Each Sentry card in the deck increases the maximum number of Sentries. NL Current count:"
     ]
   },
   "llz_shaoWT": {
@@ -15,43 +16,51 @@
   },
   "llz_dianD": {
     "MOVES": [],
-    "NAME": "Electro Blade",
+    "NAME": "Electric Blade",
     "DIALOG": [
-      ""
+      "Only when you lose HP, clear this machine's Charge. NL At the start of your turn, add an Arc Slash to your hand with damage of #g",
+      " . Its damage is 8 times the Charge."
     ]
   },
   "llz_zhengQJ": {
     "MOVES": [],
     "NAME": "Steam Engine",
     "DIALOG": [
-      ""
+      "After gaining #b5 Charge, apply #g1 Weak and Vulnerable to a random enemy. NL When regenerated, it takes effect immediately."
     ]
   },
   "llz_yuQ": {
     "MOVES": [],
-    "NAME": "Fish School",
+    "NAME": "Fish Swarm",
     "DIALOG": [
-      ""
+      "After gaining #b3 Charge, deal #g",
+      " damage to the target enemy #g",
+      " times. NL After each activation, the number of attacks decreases by 1. When regenerated, the number of attacks increases by 3."
     ]
   },
   "llz_xuYing": {
     "MOVES": [""],
     "NAME": "Phantom",
     "DIALOG": [
-      "@I'll handle this@",
-      "You seem to have gotten into @big trouble@",
+      "@I'll take care of this@",
+      "Looks like you've got a @big problem@",
       "I ~like~ this move",
-      "You're asking me to do ~this?~ NL @Come on...@",
+      "Just let me ~do this?~ NL @Come on...@",
       "#r@Foolish@ @move@",
-      "Don't call me for this kind of thing again...",
-      "@zzz..zzz...@"
+      "Don't call me for this again...",
+      "@zzz..zzz...@",
+      "Upon each Charge, attack a random enemy and #rclear one random machine."
     ]
   },
   "llz_ZZWZ": {
     "MOVES": [],
     "NAME": "War Armament",
     "DIALOG": [
-      ""
+      "Prototype Armament",
+      "After gaining #b10 Charge, gain one stack of #yFocus and transform into #yWar Armament.",
+      "War Armament",
+      "After gaining #b5 Charge, deal #g",
+      " damage to all enemies 5 times. NL Gain #b2 Block each time a Charge is gained. NL When regenerated, double your #yFocus. NL Cannot be cleared."
     ]
   }
 }
