@@ -41,7 +41,7 @@ public class TransformCardInDeckAction extends AbstractGameAction {
             return;
         }
 
-        if (AbstractDungeon.gridSelectScreen.selectedCards.size() > 0) {
+        if (!AbstractDungeon.gridSelectScreen.selectedCards.isEmpty()) {
             AbstractCard cardToTransform = AbstractDungeon.gridSelectScreen.selectedCards.get(0);
             AbstractCard Card = cardToTransform;
 
