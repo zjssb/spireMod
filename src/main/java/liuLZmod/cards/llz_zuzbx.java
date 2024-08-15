@@ -1,13 +1,13 @@
 package liuLZmod.cards;
 
 import basemod.abstracts.CustomCard;
-import com.megacrit.cardcrawl.actions.common.GainGoldAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import liuLZmod.Characters.MyCharacter;
+import liuLZmod.modcore.liuLZMod;
 
 /**
  * 诅咒宝箱
@@ -27,6 +27,7 @@ public class llz_zuzbx extends CustomCard {
     public llz_zuzbx() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.magicNumber = this.baseMagicNumber = 50;
+        this.tags.add(liuLZMod.ZZBX);
     }
 
     @Override

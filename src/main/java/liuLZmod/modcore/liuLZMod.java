@@ -39,6 +39,10 @@ public class liuLZMod implements EditCardsSubscriber, EditStringsSubscriber , Ed
 
     @SpireEnum
     public static AbstractCard.CardTags SAOWEI;
+    @SpireEnum
+    public static AbstractCard.CardTags ZZBX;
+    @SpireEnum
+    public static AbstractCard.CardTags CZBB;
 
     public liuLZMod() {
         BaseMod.subscribe(this);

@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import liuLZmod.Characters.MyCharacter;
+import liuLZmod.modcore.liuLZMod;
 
 /**
  * 沉重背包
@@ -25,6 +26,7 @@ public class llz_cenzbb extends CustomCard {
 
     public llz_cenzbb() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        this.tags.add(liuLZMod.CZBB);
         this.exhaust = true;
     }
 

@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.relics.BottledFlame;
 import com.megacrit.cardcrawl.relics.BottledLightning;
 import com.megacrit.cardcrawl.relics.BottledTornado;
+import liuLZmod.modcore.liuLZMod;
 import liuLZmod.monster.abstracrt.abstract_llz_jiXie;
 import liuLZmod.relics.llz_Els;
 
@@ -69,10 +70,10 @@ public class CardPatch {
             }
             count--;
             if (count == 0) {
-                if (Objects.equals(c.cardID, "llz_zuzbx")) {
+                if (c.hasTag(liuLZMod.ZZBX)) {
                     AbstractDungeon.player.gainGold(c.magicNumber);
                     shouldGiveRandomRelic = true;
-                } else if (Objects.equals(c.cardID, "llz_cenzbb")) {
+                } else if (c.hasTag(liuLZMod.CZBB)) {
                     handleSpecificRelic();
                 }
             }
