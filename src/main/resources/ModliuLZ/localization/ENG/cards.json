@@ -339,7 +339,7 @@
   },
   "llz_laojjk": {
     "NAME": "Neural Interface",
-    "DESCRIPTION": "Deal !D! damage. NL Generate a llzmod:mechanical · llzmod:phantom with the same intent as the enemy. NL Consume."
+    "DESCRIPTION": "Deal !D! damage. NL Generate a llzmod:mechanical · llzmod:phantom with the same intent as the enemy. NL Exhaust."
   },
   "llz_weig": {
     "NAME": "Siege",
@@ -351,7 +351,7 @@
   },
   "llz_zengy": {
     "NAME": "Reinforcement",
-    "DESCRIPTION": "Generate !M! llzmod:mechanical · llzmod:sentinel. NL Gain 1 llzmod:focus. NL Consume."
+    "DESCRIPTION": "Generate !M! llzmod:mechanical · llzmod:sentinel. NL Gain 1 llzmod:focus. NL Exhaust."
   }
 ,
   "llz_canqcs": {

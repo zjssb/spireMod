@@ -42,10 +42,10 @@
     "MOVES": [""],
     "NAME": "Phantom",
     "DIALOG": [
-      "@I'll take care of this@",
-      "Looks like you've got a @big problem@",
+      "@I'll@ take care of @this@",
+      "Looks like you've got a @big@ @problem@",
       "I ~like~ this move",
-      "Just let me ~do this?~ NL @Come on...@",
+      "Just let me ~do~ ~this?~ NL @Come@ @on...@",
       "#r@Foolish@ @move@",
       "Don't call me for this again...",
       "@zzz..zzz...@",
