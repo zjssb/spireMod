@@ -1,6 +1,7 @@
 package liuLZmod.action;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.GameActionManager;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -46,7 +47,10 @@ public class ReduceCostAction extends AbstractGameAction {
         if (!AbstractDungeon.handCardSelectScreen.wereCardsRetrieved) {
             for (AbstractCard c : AbstractDungeon.handCardSelectScreen.selectedCards.group) {
                 applyCostReduction(c);
+
                 this.p.hand.moveToDiscardPile(c);
+                c.triggerOnManualDiscard();
+                GameActionManager.incrementDiscard(false);
             }
             AbstractDungeon.player.hand.refreshHandLayout();
             AbstractDungeon.handCardSelectScreen.wereCardsRetrieved = true;
@@ -56,7 +60,7 @@ public class ReduceCostAction extends AbstractGameAction {
     }
 
     private void applyCostReduction(AbstractCard card) {
-        int currentCost = card.costForTurn; // 获取当前卡牌费用
+        int currentCost = card.cost;
         if (currentCost > 0) {
             int currentReduction = CardCostPatch.CostReductionField.costReduction.get(card);
             CardCostPatch.CostReductionField.costReduction.set(card, currentReduction + reduceAmount);

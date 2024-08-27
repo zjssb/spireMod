@@ -19,17 +19,21 @@ public class CardCostPatch {
     public static class UseCardPatch {
         public static void Postfix(AbstractPlayer __instance, AbstractCard card, AbstractMonster monster, int energyOnUse) {
             int reduction = CostReductionField.costReduction.get(card);
-            card.modifyCostForCombat(reduction);
+            if(reduction > 0){
+                card.modifyCostForCombat(reduction);
 
+
+
+                CostReductionField.costReduction.set(card, 0);
+                card.isCostModified = false;
+
+
+            }
             // 确保所有必需字段已被初始化
             if (card.name == null || card.rawDescription == null) {
                 System.out.println("Error: Card name or description is null for card: " + card.cardID);
                 return;
             }
-
-            CostReductionField.costReduction.set(card, 0);
-            card.isCostModified = false;
-
             // 调用初始化描述之前，确保字段已正确设置
             card.applyPowers();
             card.initializeDescription();

@@ -61,11 +61,12 @@ public class WurpfAction extends AbstractGameAction {
 
     private ArrayList<AbstractCard> generateCardChoices() {
         ArrayList<AbstractCard> allStatusCards = new ArrayList<>();
-        for (AbstractCard card : CardLibrary.getAllCards()) {
-            if (card.type == AbstractCard.CardType.STATUS && !card.cardID.startsWith("llz")) {
-                allStatusCards.add(card);
-            }
-        }
+
+        allStatusCards.add(CardLibrary.getCard("Slimed").makeCopy());
+        allStatusCards.add(CardLibrary.getCard("Wound").makeCopy());
+        allStatusCards.add(CardLibrary.getCard("Dazed").makeCopy());
+        allStatusCards.add(CardLibrary.getCard("Burn").makeCopy());
+        allStatusCards.add(CardLibrary.getCard("Void").makeCopy());
 
         ArrayList<AbstractCard> choices = new ArrayList<>();
         while (choices.size() < 3 && !allStatusCards.isEmpty()) {
