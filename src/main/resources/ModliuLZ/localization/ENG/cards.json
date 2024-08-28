@@ -35,7 +35,7 @@
   },
   "llz_leis": {
     "NAME": "Laser",
-    "DESCRIPTION": "Deal !D! damage to all enemies. NL Exhaust."
+    "DESCRIPTION": "Deal !M! damage to all enemies. NL Exhaust."
   },
   "llz_anwz": {
     "NAME": "Dark Matter",
@@ -86,7 +86,8 @@
   },
   "llz_feixv": {
     "NAME": "Ruins",
-    "DESCRIPTION": "Gain !B! Block. NL When this card is llzmod:modified , add a Laser to your draw pile."
+    "DESCRIPTION": "Gain !B! Block. NL When this card is llzmod:modified , add a *Laser to your draw pile.",
+    "UPGRADE_DESCRIPTION":"Gain !B! Block. NL When this card is llzmod:modified , add a *Laser+ to your draw pile."
   },
   "llz_guns": {
     "NAME": "Rolling Stone",
@@ -249,7 +250,7 @@
   },
   "llz_jinj": {
     "NAME": "Taboo",
-    "DESCRIPTION": "Deal !D! damage. NL llzmod:modify all status cards in your hand. NL Retain Exhaust."
+    "DESCRIPTION": "Deal !M! damage. NL llzmod:modify all status cards in your hand. NL Retain Exhaust."
   },
   "llz_suiyqs": {
     "NAME": "Erosion of Time",
@@ -356,7 +357,7 @@
 ,
   "llz_canqcs": {
     "NAME": "Remnant Reshape",
-    "DESCRIPTION": "Receive !M! damage. NL Generate 3 llzmod:mechanical · llzmod:sentinel. Gain 3 Wounds."
+    "DESCRIPTION": "Receive 3 damage. NL Generate !M! llzmod:mechanical · llzmod:sentinel Gain !M! Wounds."
   },
   "llz_cuansgd": {
     "NAME": "Transmission Pipeline",

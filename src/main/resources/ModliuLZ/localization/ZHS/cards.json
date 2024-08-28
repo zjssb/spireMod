@@ -35,7 +35,7 @@
   },
   "llz_leis": {
     "NAME": "镭射",
-    "DESCRIPTION": "对所有敌人造成 !D! 点 伤害 。 NL 消耗 。"
+    "DESCRIPTION": "对所有敌人造成 !M! 点 伤害 。 NL 消耗 。"
   },
   "llz_anwz": {
     "NAME": "暗物质",
@@ -86,7 +86,8 @@
   },
   "llz_feixv": {
     "NAME": "废墟",
-    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 这张牌被 llzmod:改造 时，将一张镭射放入抽牌堆。"
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 这张牌被 llzmod:改造 时，将一张 *镭射 放入抽牌堆。",
+    "UPGRADE_DESCRIPTION":"获得 !B! 点 格挡 。 NL 这张牌被 llzmod:改造 时，将一张 *镭射+ 放入抽牌堆。"
   },
   "llz_guns": {
     "NAME": "滚石",
@@ -249,7 +250,7 @@
   },
   "llz_jinj": {
     "NAME": "禁忌",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL llzmod:改造 手中所有状态牌。 NL 保留 消耗 。"
+    "DESCRIPTION": "造成 !M! 点伤害。 NL llzmod:改造 手中所有状态牌。 NL 保留 消耗 。"
   },
   "llz_suiyqs": {
     "NAME": "岁月侵蚀",
@@ -352,7 +353,7 @@
   },
   "llz_canqcs": {
     "NAME": "残躯重塑",
-    "DESCRIPTION": "受到 !M! 点伤害。 NL 生成·3个 llzmod:机械 · llzmod:哨卫 。获得3张伤口。"
+    "DESCRIPTION": "受到3点伤害。 NL 生成· !M! 个 llzmod:机械 · llzmod:哨卫 。获得 !M! 张伤口。"
   },
   "llz_cuansgd": {
     "NAME": "传输管道",

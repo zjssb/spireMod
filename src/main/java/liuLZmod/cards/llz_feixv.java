@@ -31,14 +31,17 @@ public class llz_feixv extends CustomCard {
     public llz_feixv() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.baseBlock = 9;
-        this.cardsToPreview = (AbstractCard)new llz_leis();
+        this.cardsToPreview = new llz_leis();
     }
 
     @Override
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeBlock(3);
+            this.upgradeBlock(1);
+            this.cardsToPreview.upgrade();
+            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+            initializeDescription();
         }
 
     }

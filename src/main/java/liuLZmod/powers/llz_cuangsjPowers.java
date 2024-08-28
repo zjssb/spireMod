@@ -43,7 +43,7 @@ public class llz_cuangsjPowers extends AbstractPower {
     }
 
     private AbstractPower getRandomPower(AbstractCreature owner, int amount) {
-        int roll = AbstractDungeon.cardRandomRng.random(0, 22);
+        int roll = AbstractDungeon.cardRandomRng.random(0, 23);
 
         switch (roll) {
             case 0:
@@ -92,6 +92,8 @@ public class llz_cuangsjPowers extends AbstractPower {
                 return new llz_ziwjgPowers(owner, amount);
             case 22:
                 return new llz_zutwzPowers(owner, amount);
+            case 23:
+                return new DuplicationPower(owner, amount);
             default:
                 return null;
         }

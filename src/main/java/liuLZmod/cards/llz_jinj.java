@@ -28,7 +28,7 @@ public class llz_jinj extends CustomCard {
 
     public llz_jinj() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.damage = this.baseDamage = 3;
+        this.magicNumber = this.baseMagicNumber = 3;
         this.selfRetain = true;
         this.exhaust = true;
     }
@@ -40,7 +40,7 @@ public class llz_jinj extends CustomCard {
 
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
+        addToBot(new DamageAction(m, new DamageInfo(p, this.magicNumber, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
         addToBot(new AllGaizAction(-1));
     }
     public AbstractCard makeCopy() {

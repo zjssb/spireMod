@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.colorless.Apotheosis;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -33,25 +34,30 @@ public class llz_leis extends CustomCard {
     public llz_leis() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.damage = this.baseDamage = 5;
+        this.magicNumber = this.baseMagicNumber = 5;
         this.isMultiDamage = true;
         this.exhaust = true;
     }
 
     @Override
     public void upgrade() {
-
+        if (!this.upgraded) {
+            this.upgradeName();
+            this.upgradeDamage(2);
+            upgradeMagicNumber(2);
+        }
     }
 
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot((AbstractGameAction)new SFXAction("ATTACK_HEAVY"));
              addToBot((AbstractGameAction)new VFXAction((AbstractCreature)p, (AbstractGameEffect)new CleaveEffect(), 0.1F));
-             addToBot((AbstractGameAction)new DamageAllEnemiesAction((AbstractCreature)p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.NONE));
+             addToBot(new DamageAllEnemiesAction(null, DamageInfo.createDamageMatrix(this.baseDamage, true), DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.NONE));
 
     }
     public AbstractCard makeCopy() {
-        /* 44 */     return new llz_leis();
-        /*    */   }
+             return new llz_leis();
+    }
 
 
 }

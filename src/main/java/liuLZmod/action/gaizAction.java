@@ -44,7 +44,9 @@ public class gaizAction extends AbstractGameAction {
                         card.magicNumber += 2;
                         card.baseMagicNumber += 2;
                     } else if (Objects.equals(card.cardID, "llz_feixv")) {
-                        addToTop(new MakeTempCardInDrawPileAction(new llz_leis(), 1, true, true));
+                        AbstractCard s = (new llz_leis()).makeCopy();
+                        if(card.upgraded)s.upgrade();
+                        addToTop(new MakeTempCardInDrawPileAction(s, 1, true, true));
                     }
                 }
                 if (card.type == AbstractCard.CardType.STATUS) {

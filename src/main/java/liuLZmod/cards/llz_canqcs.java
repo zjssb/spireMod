@@ -30,7 +30,7 @@ public class llz_canqcs extends CustomCard {
 
     public llz_canqcs() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.magicNumber = this.baseMagicNumber = 5;
+        this.magicNumber = this.baseMagicNumber = 2;
         this.cardsToPreview = new Wound();
         this.tags.add(liuLZMod.SAOWEI);
     }
@@ -39,7 +39,7 @@ public class llz_canqcs extends CustomCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            upgradeMagicNumber(-3);
+            upgradeMagicNumber(1);
             this.initializeDescription();
         }
 
@@ -47,11 +47,11 @@ public class llz_canqcs extends CustomCard {
 
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new zjDamageAction(this.magicNumber));
-        for(int i =0;i<3;i++){
+        addToBot(new zjDamageAction(3));
+        for(int i =0;i<this.magicNumber;i++){
             addToBot(new jiXieAction("llz_shaoW"));
         }
-        addToBot(new MakeTempCardInHandAction(this.cardsToPreview,3));
+        addToBot(new MakeTempCardInHandAction(this.cardsToPreview,this.magicNumber));
     }
 
     public AbstractCard makeCopy() {
