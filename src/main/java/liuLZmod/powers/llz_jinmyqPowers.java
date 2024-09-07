@@ -42,12 +42,12 @@ public class llz_jinmyqPowers extends AbstractPower {
     }
 
     @Override
-    public void onUseCard(AbstractCard card, UseCardAction action) {
-        if (card.type == AbstractCard.CardType.ATTACK || card.damage >0) {
-            this.cardsDoubledThisTurn++;
+    public void onAfterUseCard(AbstractCard card, UseCardAction action) {
+        if (card.type == AbstractCard.CardType.ATTACK) {
             if(this.cardsDoubledThisTurn < this.amount){
                 this.flash();
             }
+            this.cardsDoubledThisTurn++;
         }
     }
 

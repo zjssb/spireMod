@@ -212,8 +212,8 @@
   },
   "llz_caofh": {
     "NAME": "Overload",
-    "DESCRIPTION": "Gain [E] [E]. NL Take 3 damage for each Overload played this combat.",
-    "UPGRADE_DESCRIPTION": "Gain [E] [E]. NL For each Overload played this combat, take 3 damage once.",
+    "DESCRIPTION": "Gain [E] [E] . NL Take 1 damage. Each time you play Overload, take an additional +1 damage.",
+    "UPGRADE_DESCRIPTION": "Gain [E] [E] [E] . NL Take 1 damage. Each time you play Overload, take an additional +1 damage.",
     "EXTENDED_DESCRIPTION": [
       "(Take !M! instances of damage.)"
     ]

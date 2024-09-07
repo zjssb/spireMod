@@ -50,7 +50,7 @@ public class llz_hejj extends CustomCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
         for (AbstractCard card : AbstractDungeon.player.drawPile.group) {
-            if (card.type == AbstractCard.CardType.ATTACK && card.cost == 0) {
+            if (card.type == AbstractCard.CardType.ATTACK && (card.costForTurn == 0 || card.freeToPlayOnce)) {
                 addToBot(new HejjAction());
             }
         }

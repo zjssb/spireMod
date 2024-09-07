@@ -29,7 +29,7 @@ public class HejjAction extends AbstractGameAction {
             }
 
             for (AbstractCard card : AbstractDungeon.player.drawPile.group) {
-                if (card.type == AbstractCard.CardType.ATTACK && card.cost == 0) {
+                if (card.type == AbstractCard.CardType.ATTACK && (card.costForTurn == 0 || card.freeToPlayOnce)) {
                     AbstractDungeon.player.drawPile.group.remove(card);
                     AbstractDungeon.getCurrRoom().souls.remove(card);
                     AbstractDungeon.player.limbo.group.add(card);

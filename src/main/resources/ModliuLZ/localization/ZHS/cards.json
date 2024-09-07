@@ -212,8 +212,8 @@
   },
   "llz_caofh": {
     "NAME": "超负荷",
-    "DESCRIPTION": "获得 [E] [E] 。 NL 受到3点伤害，本场战斗每打出过一张超负荷，额外受到一次伤害。",
-    "UPGRADE_DESCRIPTION": "获得 [E] [E] 。 NL 本场战斗每打出过一张超负荷，受到3点伤害一次。",
+    "DESCRIPTION": "获得 [E] [E] 。 NL 受到1点伤害，每次打出超负荷，额外受到一次+1的伤害。",
+    "UPGRADE_DESCRIPTION": "获得 [E] [E] [E] 。 NL 受到1点伤害，每次打出超负荷，额外受到一次+1的伤害。",
     "EXTENDED_DESCRIPTION": [
       "(受到 !M! 次伤害。)"
     ]

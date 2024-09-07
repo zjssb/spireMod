@@ -42,19 +42,21 @@ public class llz_caofh extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new GainEnergyAction(2));
-        int count = -1;
+        if (!this.upgraded) {
+            addToBot(new GainEnergyAction(2));
+        }else addToBot(new GainEnergyAction(3));
+        int count = 0;
         for (AbstractCard card : AbstractDungeon.actionManager.cardsPlayedThisCombat) {
-            if (card.cardID.equals(this.cardID) && count <10) {
+            if (card.cardID.equals(this.cardID) && count <9) {
                 count++;
             }
         }
-        if(!this.upgraded && count <10)count++;
+        //if(!this.upgraded && count <9)count++;
 
         this.baseMagicNumber = count;
         this.magicNumber = this.baseMagicNumber;
         for (int i=0;i < count;i++){
-            addToBot(new zjDamageAction(3));
+            addToBot(new zjDamageAction(i+1));
         }
 
 
@@ -75,13 +77,13 @@ public class llz_caofh extends CustomCard {
     public void applyPowers() {
         super.applyPowers();
 
-        int count = 0;
+        int count = 1;
         for (AbstractCard card : AbstractDungeon.actionManager.cardsPlayedThisCombat) {
-            if (card.cardID.equals(this.cardID) && count <10) {
+            if (card.cardID.equals(this.cardID) && count <9) {
                 count++;
             }
         }
-        if(!this.upgraded && count <10)count++;
+        //if(!this.upgraded && count <9)count++;
 
         this.baseMagicNumber = count;
         this.magicNumber = this.baseMagicNumber;
